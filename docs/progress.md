@@ -49,7 +49,31 @@ Any new session: read `CLAUDE.md`, then this file, then resume from "Next sessio
   `SHOPIFY_CLI_THEME_TOKEN` in the environment.
 - Stopped per instruction ("if one token fails, stop and report"). Nothing else was run.
 
+## 2026-10-07 — session 3 (token re-check; stopped again)
+
+### Done
+- Branch `claude/funny-brahmagupta-u181vr` fast-forwarded onto session 2's commit (`6bea8b5`).
+- Figma token OK: `GET /v1/me` returns 200 (user `asher.websol@gmail.com`), and
+  `GET /v1/files/YOVayNJZ1olagd5NLKXMzJ?depth=1` returns 200. The scope issue from session 2 is gone.
+- Tooling present: Shopify CLI 4.8.5, Node 22, Python 3.13, Chromium (Playwright). No `lighthouse`
+  binary yet (install via npx when the theme pull is possible).
+
+### Blocked (needs merchant action) — unchanged
+- `shopify theme list --store mekupelet-store.myshopify.com` still fails with
+  `GraphQL Error (Code: 401): [API] Invalid API key or access token`.
+  Reproduced independently with a raw request to
+  `theme-kit-access.shopifyapps.com/cli/admin/api/2025-07/themes.json` using the same
+  `SHOPIFY_CLI_THEME_TOKEN` (`shptka_…`, 39 chars): also 401. The token is therefore rejected by
+  Shopify itself, not by the CLI. Causes to check: password regenerated/revoked, Theme Access app
+  uninstalled, or password issued for a different store.
+- The claude.ai Shopify connector is also disconnected ("needs you to sign in again"), so it is
+  not a fallback either.
+- Stopped per instruction ("if one token fails, stop and report"). No download, pull or edit was run.
+
 ### Next session starts here
+0. Merchant: in the store admin open Apps → Theme Access → create a new password for
+   `mekupelet-store.myshopify.com`, set it as `SHOPIFY_CLI_THEME_TOKEN` in the environment
+   (and/or re-authorise the Shopify connector in claude.ai). Then:
 1. Re-run `shopify theme list --store mekupelet-store.myshopify.com`; if OK, continue.
 2. Download the whole Figma file via REST (full node tree, 2x PNG of every frame in
    `docs/figma-frame-map.md`, background images) into `docs/figma/`. No Figma MCP.
