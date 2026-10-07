@@ -22,8 +22,10 @@ Any new session: read `CLAUDE.md`, then this file, then resume from "In progress
   templates currently hold Hyper demo content; storefront language is still English.
 
 ### Blocked (needs merchant action) — see plan §9
-- `SHOPIFY_CLI_THEME_TOKEN` is rejected (401) → no `shopify theme push/dev`, no local preview.
-  Merchant must create a new Theme Access password and store it in the environment.
+- `SHOPIFY_CLI_THEME_TOKEN` is rejected (401) → no `shopify theme dev` preview. Workaround confirmed:
+  the Shopify connector app has `write_themes`, so pushes can go through `themeFilesUpsert`
+  (only ever to theme 154698219714). `shopify theme check` works offline (baseline 0 errors, 11 warnings).
+  A fresh Theme Access password is still recommended for hot-reload preview.
 - Figma MCP and REST quotas exhausted on the Starter plan (~5 days) → no screenshots, no mobile
   frames, no `1:949`, no deeper node data. Everything visual in the plan is marked VERIFY.
 - Hebrew storefront locale not enabled in admin; Simpler Pro font files not available.

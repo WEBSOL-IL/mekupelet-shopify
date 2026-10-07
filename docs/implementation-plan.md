@@ -8,7 +8,8 @@ Status: **draft for merchant approval**. Produced 2026-10-07. Read with `docs/hy
 | Source | Status |
 |---|---|
 | Hyper theme source (theme `154698219714`, 460 files) | Pulled read-only through the Admin GraphQL theme-files API and committed as the git baseline. md5-verified. |
-| Shopify CLI (`shopify theme list/pull/push/dev`) | **Blocked.** The Theme Access token in the environment is rejected by Shopify with HTTP 401 (verified both directly and through `theme-kit-access.shopifyapps.com`). Nothing can be pushed or previewed locally until a fresh token is stored (see §9). |
+| Shopify CLI (`shopify theme list/pull/push/dev`) | **Blocked.** The Theme Access token in the environment is rejected by Shopify with HTTP 401 (verified both directly and through `theme-kit-access.shopifyapps.com`). `shopify theme check` runs offline and works: baseline 292 files, 0 errors, 11 warnings. |
+| Shopify connector (Admin GraphQL) | **Works, read and write.** The connector app holds `write_themes`, so theme files can be pushed with `themeFilesUpsert` (per-file, restricted by us to theme `154698219714` only). Preview is the live store (acceptable while in development) plus Playwright screenshots; `shopify theme dev` hot-reload still needs a valid Theme Access token. |
 | Figma frames 18:4094, 52:5172, 69:5443, 1:266, 1:1794 | Node trees with text, fills, strokes, radii, shadows and font styles fetched (depth 2). This is what the tokens and diff tables below are built from. |
 | Figma screenshots, mobile frames, 1:949, deeper node levels, variables | **Blocked.** Figma MCP tool-call limit and REST API quota are both exhausted on the Starter plan (`Retry-After` ≈ 4.6 days, upgrade link offered by Figma). Visual verification of every item below, and the mobile adaptation, must be redone against screenshots when access returns. |
 | Live storefront | Reachable. Used for the Lighthouse baseline and to confirm the published theme is Hyper demo content. |
@@ -187,7 +188,7 @@ Notes: run-to-run variance is large on this container, so compare medians of 3+ 
 
 ## 9. Admin / environment checklist for the merchant
 
-1. **Theme Access token**: in Shopify admin → Apps → Theme Access, create a new password for this developer and store it in the cloud environment as `SHOPIFY_CLI_THEME_TOKEN` (the current value is rejected with 401). Without it: no `shopify theme push/dev`, no local preview, no theme check against the store.
+1. **Theme Access token** (recommended, not blocking): in Shopify admin → Apps → Theme Access, create a new password for this developer and store it in the cloud environment as `SHOPIFY_CLI_THEME_TOKEN` (the current value is rejected with 401). Without it pushes go through the connector's `themeFilesUpsert`, which works but has no `shopify theme dev` hot-reload preview.
 2. **Figma**: either wait ~5 days for the Starter-plan quota to reset or upgrade the plan; otherwise export the frame screenshots manually and share them.
 3. **Hebrew storefront language**: Settings → Languages → add Hebrew and make it default (the storefront currently renders `lang="en"`; Hyper's RTL switch is keyed to the `he` locale).
 4. Fonts: provide the licensed Simpler Pro woff2 files (weights 400/600/700).
