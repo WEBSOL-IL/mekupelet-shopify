@@ -11,7 +11,8 @@
 | Role | ID | Notes |
 |---|---|---|
 | WORKING (published) | `154698219714` | The ONLY theme we may write to. Pass `--theme 154698219714 --allow-live` on every push/dev. |
-| BACKUP (duplicate) | _TBD — fill from `shopify theme list`_ | DO NOT TOUCH: never write, rename, publish or delete. |
+| BACKUP (duplicate) | `189107896514` ("Copy of Hyper", unpublished, created 2026-10-07) | DO NOT TOUCH: never write, rename, publish or delete. |
+| Other themes (not ours) | `154250444994` (dawn), `189102653634` (Expanse demo) | Ignore. Never write to them. |
 
 ## Session routine
 - Read `docs/progress.md` first and update it at the end of every work session (done / in progress / open questions).
