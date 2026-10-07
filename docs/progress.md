@@ -81,3 +81,51 @@ Any new session: read `CLAUDE.md`, then this file, then resume from "Next sessio
    of `154698219714`, commit the untouched baseline.
 4. Continue Phase 0 (Hyper audit on real files, Lighthouse baseline, token + diff tables in
    `docs/implementation-plan.md`). No theme code. Stop for approval at the end of Phase 0.
+
+## 2026-10-07 — session 4 (Phase 0 executed via the Shopify connector)
+
+### Done
+- Tokens: Figma token OK (`/v1/me` 200). Shopify CLI Theme Access token still 401 (same
+  `shptka_29aa…` value), but the claude.ai Shopify connector was re-authorised and works, so
+  everything below was done through the Admin GraphQL API (read-only `themes` / `theme.files`).
+- Theme list: WORKING = `154698219714` "Hyper" (MAIN, theme store 3247). BACKUP = `189107896514`
+  "Copy of Hyper" (unpublished, created 2026-10-07 20:56). Also present: `154250444994` dawn,
+  `189102653634` "Updated copy of Expanse" (demo). Backup ID filled in `CLAUDE.md`.
+- Baseline: all 461 theme files pulled via GraphQL (wildcard `filenames`, bodies saved to disk,
+  never through the model) and committed untouched (`67656a7`). 411 files are byte-identical to
+  the API md5; the 50 JSON files carry the auto-generated header/formatting Shopify applies on
+  read (`docs/hyper-audit/theme-manifest.tsv`, column `status`).
+- Figma export in `docs/figma/`: `file.json` (full tree, 36 MB), `png/` 30 of 73 top-level
+  frames at 2x (then HTTP 429 from the image-render endpoint, retry-after ~4.6 days),
+  `images/` all 259 image fills, `index.json` (frame → png/fill map, missing renders listed).
+  Not rendered: all mobile frames, `52:5172`, `69:5443`, `69:4498`, `141:4435`, `139:4416`.
+- Hyper audit on the real files: `docs/hyper-audit/hyper-audit.md`.
+- Figma extraction (scripts over `file.json`): `docs/figma/tokens.md`, `docs/figma/sections.md`,
+  `docs/figma/copy.md`.
+- Lighthouse baseline (mobile, sandbox, 3 runs each): Home 79 / Collection 77 / Product 75,
+  CLS 0, LCP 2.6–3.1 s. `docs/lighthouse/baseline/README.md` + representative HTML reports.
+  PageSpeed Insights could not be used (anonymous quota exhausted).
+- `docs/implementation-plan.md` written: tokens → Hyper mapping, original vs revision diff +
+  mobile adaptation, Figma section → Hyper mapping with tier/effort, data models, asset
+  inventory, baseline, 18 open questions, Phase 5 options, Phase 1 scope.
+- Storefront is public (no password); only the `frontpage` collection is published to the
+  Online Store channel, 250+ products are. A third-party "shoplift" font/script was seen in the
+  Lighthouse byte list (installed app?) — ask the merchant.
+
+### Blocked (needs merchant action)
+- `shopify theme push/dev` still impossible: regenerate the Theme Access password
+  (Apps → Theme Access) and update `SHOPIFY_CLI_THEME_TOKEN`. Phase 1 cannot start without it.
+- Figma 2x renders for the 43 missing frames (see above).
+- Fonts: licensed Simpler Pro woff2 files (400/600/700).
+
+### Phase 0 status
+Complete pending merchant approval of `docs/implementation-plan.md` (section 7 open questions).
+No theme code written.
+
+### Next session starts here
+1. Re-run `shopify theme list --store mekupelet-store.myshopify.com`; needs the new token.
+2. Collect the merchant's answers to `docs/implementation-plan.md` §7 and the open questions above.
+3. On approval: Phase 1 (tokens, typography, buttons, inputs, icons, badges, product card) per
+   `docs/implementation-plan.md` §9. Before any JSON change, pull the remote copy and merge.
+4. If renders are needed before Phase 1: retry Figma `GET /v1/images` (quota) or get approval
+   to use the Figma MCP for screenshots only.
