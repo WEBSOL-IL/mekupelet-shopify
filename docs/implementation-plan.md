@@ -138,17 +138,22 @@ The original mobile frames could not be fetched this session, so this proposal f
 | Reviews on Home | `testimonials` (card layout) | 1 | native; real review data needs an app decision (Q7) | S |
 | Newsletter band | `newsletter` + CSS for band color + optional decorative images (`image` blocks) | 1+2 | native form | S |
 | Footer | `footer` blocks + `footer-group.json` + color scheme | 1 | native | S |
-| Product card (global) | `snippets/card-product.liquid` via settings (`pcard_*`), `mk-custom.css` for border/badge colors; badge logic see §6 | 1+2 (badge logic may need 4) | | M |
+| Product card (global) | `snippets/card-product.liquid` via settings (`pcard_style: card`, `pcard_corner_radius`, `pcard_show_cart_button`, badges via tag lists), `mk-custom.css` for border color/radius/shadow and badge tints | 1+2 | Hyper card already has quick-add, hover image, swatches; heart/rating slots do not exist (see wishlist/reviews rows) | M |
 | Collection page | `main-collection-banner` + `main-collection-product-grid` (`filter_type: vertical`, `pagination: number`, `columns_desktop: 4`, `image_card` block for the in-grid promo tile) + `facets` CSS | 1+2 | native storefront filtering, promo tile is a native block | M |
 | Product page | `main-product` blocks (title, vendor, price, rating, variant picker, buy buttons, collapsible tabs ×6, icon boxes ×3, tags/collection chips) + CSS | 1+2 | Hyper's `product-information-blocks` covers the list; "מדד מקופלת", "מתאים לגיל", "מפתח מיומנויות" read metafields (§6) | M |
 | Complementary / related | `related-products` + `product-complementary` snippet | 1 | native | S |
-| Reviews on PDP | app decision (Q7); otherwise `main-product` rating block only | — | | — |
+| Reviews on PDP / rating on cards | Hyper has no rating or review code at all; an app block (`@app`) in `main-product` or a custom snippet reading the app's metafield (Q7) | — | | — |
+| Wishlist heart (cards + PDP) | Q12; if `mk-wishlist`: `mk-wishlist.js` + button injected via our own card snippet, not by editing `card-product.liquid` | 3 | | M |
 | Mini cart | `cart-drawer` settings + CSS | 1+2 | native | S |
 | About / FAQ / Legal / Blog / Article / Gift card | existing templates (`page.about.json`, `page.faq.json` with `collapsible-tabs`, `main-page`, `main-blog`, `main-article`, `gift_card.liquid`) reconfigured + CSS | 1+2 | | S each |
 | Brands index / Brand page | `list-collections.json` (`main-list-collections`) if brands are collections; else `mk-brands-index` over a metaobject | 1 or 3 | depends on data model (§6) | M |
 | Boxes (Phase 5) | technical proposal first | — | | — |
 
-No core-file (tier 4) edit is planned for Phases 1–4. Badges are fully covered by Hyper settings (tag lists + colors). A Hebrew `locales/he.json` is a new file, not an edit, but it must be re-checked on every Hyper update because new keys appear.
+Core-file (tier 4) edits expected, each wrapped in `MK-CUSTOM` comments and logged in `docs/CUSTOMIZATIONS.md`:
+- `layout/theme.liquid`: load `assets/mk-custom.css` after `rtl.css` and preload the two Hebrew font files (Hyper's own font preloads point at Instrument Sans; the theme fonts will be set to a system font so nothing unused loads).
+- `templates/gift_card.liquid`: standalone document that ignores `enable_rtl`; needs `dir="rtl"` and the custom stylesheet.
+- `snippets/price.liquid`: only if ILS prices misorder in Hebrew text (wrap the amount in `<span dir="ltr">`); decided after the first RTL render.
+- Badges need no edit (tag lists + colors). A Hebrew `locales/he.json` is a new file, re-checked on every Hyper update.
 
 ## 6. Data model proposals
 
@@ -203,7 +208,7 @@ Notes: run-to-run variance is large on this container, so compare medians of 3+ 
 | Q9 | Surprise-box image is an AI placeholder — final image? |
 | Q10 | USP copy shortening (69:5433) — designer or merchant? |
 | Q11 | Course landing page `1:3455`: in scope? sold on Shopify or external? |
-| Q12 | Wishlist: Hyper native (`favorite-products`, localStorage) is enough? |
+| Q12 | Wishlist: Hyper ships none (`favorite-products` is a curated showcase). The design shows a heart on every card and on the PDP. Options: (a) small `mk-wishlist` (localStorage, no account sync, no app), (b) an app (needs approval). Which? |
 | Q13 | Instagram: static images in Files (proposed) vs an app. |
 | Q14 | Second "קטגוריות נבחרות" row on Home: collections or a product row? |
 | Q15 | `139:4423` "0-6 חודשים" reference image: what is it for? |
