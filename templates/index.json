@@ -28,6 +28,7 @@
             "highlight_style_color": "",
             "highlight_text_color": "",
             "heading_size": "hd1",
+            "heading_tag": "h2",
             "description": "",
             "description_size": "text-base",
             "button_label": "",
@@ -54,14 +55,6 @@
     },
     "mk_gift_finder": {
       "type": "mk-gift-finder",
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "scheme-1",
-        "button_label": "מצאו לי מתנה",
-        "button_style": "btn--primary",
-        "padding_top": 24,
-        "padding_bottom": 24
-      },
       "blocks": {
         "filter_1": {
           "type": "filter",
@@ -101,164 +94,146 @@
         "filter_2",
         "filter_3",
         "filter_4"
-      ]
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "heading": "",
+        "target_url": "",
+        "button_label": "מצאו לי מתנה",
+        "button_style": "btn--primary",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
     },
     "categories": {
       "type": "collection-list-slider",
-      "settings": {
-        "heading": "קטגוריות נבחרות",
-        "section_header_alignment": "center",
-        "card_style": "standard",
-        "card_image_ratio": "1/1",
-        "card_image_width": "full",
-        "rounded_card_image": true,
-        "columns_desktop": 5,
-        "mobile_layout": "vertical",
-        "carousel_item_size": "fixed",
-        "padding_top": 40,
-        "padding_bottom": 40
-      },
       "blocks": {
         "featured_collection_1": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-kids-clothing.png",
-            "title": "בגדי ילדים",
-            "collection": "בגדי-ילדים"
+            "collection": "בגדי-ילדים",
+            "image": "shopify://shop_images/12b0e14688a67cb8fd5e256dfe861499.png",
+            "title": "תחפושות"
           }
         },
         "featured_collection_2": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-tableware.png",
-            "title": "כלי אוכל",
-            "collection": "כלי-אוכל"
+            "collection": "כלי-אוכל",
+            "title": "כלי אוכל"
           }
         },
         "featured_collection_3": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-books.png",
-            "title": "ספרים",
-            "collection": "ספרים"
+            "collection": "ספרים",
+            "title": "ספרים"
           }
         },
         "featured_collection_4": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-toys-dolls.png",
-            "title": "צעצועים ובובות",
-            "collection": "צעצועים-ובובות"
+            "collection": "צעצועים-ובובות",
+            "title": "צעצועים ובובות"
           }
         },
         "featured_collection_5": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-costumes.png",
+            "collection": "",
             "title": "תחפושות"
           }
         },
         "featured_collection_6": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-accessories.png",
-            "title": "אביזרים",
-            "collection": "אביזרים"
+            "collection": "אביזרים",
+            "title": "אביזרים"
           }
         },
         "featured_collection_7": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-home.png",
-            "title": "כלי בית",
-            "collection": "כלי-בית"
+            "collection": "כלי-בית",
+            "title": "כלי בית"
           }
         },
         "featured_collection_8": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-kids-clothing.png",
-            "title": "בגדי ילדים",
-            "collection": "בגדי-ילדים"
+            "collection": "בגדי-ילדים",
+            "title": "בגדי ילדים"
           }
         },
         "featured_collection_9": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-tableware.png",
-            "title": "כלי אוכל",
-            "collection": "כלי-אוכל"
+            "collection": "כלי-אוכל",
+            "title": "כלי אוכל"
           }
         },
         "featured_collection_10": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-books.png",
-            "title": "ספרים",
-            "collection": "ספרים"
+            "collection": "ספרים",
+            "title": "ספרים"
           }
         },
         "featured_collection_11": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-toys-dolls.png",
-            "title": "צעצועים ובובות",
-            "collection": "צעצועים-ובובות"
+            "collection": "צעצועים-ובובות",
+            "title": "צעצועים ובובות"
           }
         },
         "featured_collection_12": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-costumes.png",
+            "collection": "frontpage",
             "title": "תחפושות"
           }
         },
         "featured_collection_13": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-accessories.png",
-            "title": "אביזרים",
-            "collection": "אביזרים"
+            "collection": "אביזרים-וקישוטים-לחגים",
+            "title": "אביזרים"
           }
         },
         "featured_collection_14": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-home.png",
-            "title": "כלי בית",
-            "collection": "כלי-בית"
+            "collection": "כלי-בית",
+            "title": "כלי בית"
           }
         },
         "featured_collection_15": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-kids-clothing.png",
-            "title": "בגדי ילדים",
-            "collection": "בגדי-ילדים"
+            "collection": "בגדי-ים-ומוצרים-לקיץ",
+            "title": "בגדי ילדים"
           }
         },
         "featured_collection_16": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-tableware.png",
-            "title": "כלי אוכל",
-            "collection": "כלי-אוכל"
+            "collection": "כלי-אוכל",
+            "title": "כלי אוכל"
           }
         },
         "featured_collection_17": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-books.png",
-            "title": "ספרים",
-            "collection": "ספרים"
+            "collection": "ספרים-באנגלית",
+            "title": "ספרים"
           }
         },
         "featured_collection_18": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify://shop_images/cat-toys-dolls.png",
-            "title": "צעצועים ובובות",
-            "collection": "צעצועים-ובובות"
+            "collection": "צעצועי-עץ",
+            "title": "צעצועים ובובות"
           }
         }
       },
@@ -281,42 +256,131 @@
         "featured_collection_16",
         "featured_collection_17",
         "featured_collection_18"
-      ]
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "קטגוריות נבחרות",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "card_color_scheme": "",
+        "card_style": "standard",
+        "card_heading_size": "text-base",
+        "card_image_ratio": "1/1",
+        "card_image_width": "full",
+        "card_image_padding": "none",
+        "rounded_card_image": true,
+        "mobile_layout": "vertical",
+        "carousel_item_size": "fixed",
+        "columns_desktop": 5,
+        "carousel_control_color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
     },
     "featured_tabs": {
       "type": "featured-collection",
-      "settings": {
-        "heading": "המוצרים שלנו",
-        "section_header_alignment": "center",
-        "limit": 8,
-        "columns": 4,
-        "columns_mobile": "2",
-        "enable_slider": true,
-        "pcard_image_ratio": "4/3",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "content_overflow": false
-      },
       "blocks": {
         "collection_1": {
           "type": "collection",
           "settings": {
             "collection": "all",
-            "title": "מובילים"
+            "title": "מובילים",
+            "show_banner": false,
+            "color_scheme": "",
+            "card_link": "",
+            "image_overlay_opacity": 0,
+            "content_position": "top-left",
+            "content_alignment": "left",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "Collections",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_tag": "div",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "text_size": "text-base",
+            "button_label": "Button label",
+            "button_style": "btn--primary",
+            "button_icon": "none"
           }
         },
         "collection_2": {
           "type": "collection",
           "settings": {
             "collection": "all",
-            "title": "חדש באתר"
+            "title": "חדש באתר",
+            "show_banner": false,
+            "color_scheme": "",
+            "card_link": "",
+            "image_overlay_opacity": 0,
+            "content_position": "top-left",
+            "content_alignment": "left",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "Collections",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_tag": "div",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "text_size": "text-base",
+            "button_label": "Button label",
+            "button_style": "btn--primary",
+            "button_icon": "none"
           }
         },
         "collection_3": {
           "type": "collection",
           "settings": {
             "collection": "all",
-            "title": "במבצע"
+            "title": "במבצע",
+            "show_banner": false,
+            "color_scheme": "",
+            "card_link": "",
+            "image_overlay_opacity": 0,
+            "content_position": "top-left",
+            "content_alignment": "left",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "Collections",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_tag": "div",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "text_size": "text-base",
+            "button_label": "Button label",
+            "button_style": "btn--primary",
+            "button_icon": "none"
           }
         }
       },
@@ -324,20 +388,45 @@
         "collection_1",
         "collection_2",
         "collection_3"
-      ]
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "המוצרים שלנו",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "limit": 8,
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "enable_slider": true,
+        "content_overflow": false,
+        "navigation_position": "middle",
+        "pcard_image_ratio": "4/3",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "show_progress_bar": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
     },
     "age_pills": {
       "type": "mk-age-pills",
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "scheme-1",
-        "heading": "רכישה לפי גיל",
-        "heading_size": "h3",
-        "image_position": "end",
-        "columns_desktop": 3,
-        "padding_top": 40,
-        "padding_bottom": 40
-      },
       "blocks": {
         "pill_1": {
           "type": "pill",
@@ -401,78 +490,96 @@
         "pill_4",
         "pill_5",
         "pill_6"
-      ]
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "heading": "רכישה לפי גיל",
+        "heading_size": "h3",
+        "image_position": "end",
+        "columns_desktop": 3,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
     },
     "brands": {
       "type": "brand-logos",
-      "settings": {
-        "heading": "מותגי הבית",
-        "section_header_alignment": "center",
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "grid_bordered": false,
-        "image_width": "medium",
-        "button_label": "הצג את כל המותגים",
-        "button_link": "shopify://pages/brands",
-        "button_style": "btn--primary",
-        "padding_top": 40,
-        "padding_bottom": 40
-      },
       "blocks": {
         "logo_1": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/brand-famokids.png",
-            "image_link": "shopify://collections/famokids"
+            "image": "shopify://shop_images/jabadabado.png",
+            "image_link": "shopify://collections/jabadabo"
           }
         },
         "logo_2": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/brand-inspire-my-play.png",
-            "image_link": "shopify://collections/inspire-my-play"
+            "image": "shopify://shop_images/Banana-Panda.png",
+            "image_link": "shopify://collections/banana-panda"
           }
         },
         "logo_3": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/brand-ulanik.png",
+            "image": "shopify://shop_images/Ulanik.png",
             "image_link": "shopify://collections/ulanik"
           }
         },
         "logo_4": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/brand-jaba-daba-do.png",
-            "image_link": "shopify://collections/jaba-daba-do"
+            "image": "shopify://shop_images/TUBS-WORKS-LOGO.png",
+            "image_link": "shopify://collections/tub-works"
           }
         },
         "logo_5": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/brand-my-creative-box.png",
-            "image_link": "shopify://collections/my-creative-box"
+            "image": "shopify://shop_images/APLI.png",
+            "image_link": "shopify://collections/apli"
           }
         },
         "logo_6": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/brand-kooglo.png",
-            "image_link": "shopify://collections/kooglo"
+            "image": "shopify://shop_images/qbi.png",
+            "image_link": "shopify://collections/qbi"
           }
         },
         "logo_7": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/brand-banana-panda.png",
-            "image_link": "shopify://collections/banana-panda"
+            "image": "shopify://shop_images/MY-Creative-BOX.png",
+            "image_link": "shopify://collections/my-creative-box"
           }
         },
         "logo_8": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/brand-we-are-gommu.png",
+            "image": "shopify://shop_images/INSPIRE-MY-PLAY.png",
+            "image_link": "shopify://collections/inspire-play"
+          }
+        },
+        "logo_z4iLr7": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/chalk-chuckles.png",
+            "image_link": "shopify://collections/chalk-chuckles-משחקים-חינוכיים-והתפתחותיים-לילד"
+          }
+        },
+        "logo_qXaMRi": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/we-are-gommu.jpg",
             "image_link": "shopify://collections/we-are-gommu"
+          }
+        },
+        "logo_hpwmEN": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Ette-fefe.png",
+            "image_link": "shopify://collections/ettetete"
           }
         }
       },
@@ -484,63 +591,136 @@
         "logo_5",
         "logo_6",
         "logo_7",
-        "logo_8"
-      ]
+        "logo_8",
+        "logo_z4iLr7",
+        "logo_qXaMRi",
+        "logo_hpwmEN"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "מותגי הבית",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "heading_tag": "h2",
+        "description": "",
+        "text_size": "text-sm",
+        "button_label": "הצג את כל המותגים",
+        "button_link": "shopify://pages/brands",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "image_padding": "none",
+        "image_width": "medium",
+        "columns_desktop": 4,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "grid_bordered": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
     },
     "featured_row": {
       "type": "featured-collection",
-      "settings": {
-        "heading": "קטגוריות נבחרות",
-        "section_header_alignment": "center",
-        "limit": 8,
-        "columns": 4,
-        "columns_mobile": "2",
-        "enable_slider": true,
-        "pcard_image_ratio": "4/3",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "content_overflow": false
-      },
       "blocks": {
         "collection_1": {
           "type": "collection",
           "settings": {
             "collection": "all",
-            "title": "קטגוריות נבחרות"
+            "title": "קטגוריות נבחרות",
+            "show_banner": false,
+            "color_scheme": "",
+            "card_link": "",
+            "image_overlay_opacity": 0,
+            "content_position": "top-left",
+            "content_alignment": "left",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "Collections",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_tag": "div",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "text_size": "text-base",
+            "button_label": "Button label",
+            "button_style": "btn--primary",
+            "button_icon": "none"
           }
         }
       },
       "block_order": [
         "collection_1"
-      ]
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "קטגוריות נבחרות",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "limit": 8,
+        "columns": 4,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "enable_slider": true,
+        "content_overflow": false,
+        "navigation_position": "middle",
+        "pcard_image_ratio": "4/3",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "show_progress_bar": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
     },
     "surprise_box": {
       "type": "image-with-text-overlay",
-      "settings": {
-        "container": "fixed",
-        "image": "shopify://shop_images/photo-box.png",
-        "desktop_height": "medium",
-        "mobile_height": "medium",
-        "overlay_opacity": 0,
-        "content_position": "middle-right",
-        "content_alignment": "center",
-        "content_position_mobile": "bottom-center-mobile",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "color_scheme": "scheme-1"
-      },
       "blocks": {
         "heading_1": {
           "type": "heading",
           "settings": {
             "heading": "קופסת ההפתעה של מקופלת",
-            "heading_size": "h2"
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_tag": "h2"
           }
         },
         "text_2": {
           "type": "text",
           "settings": {
-            "text": "<p>אתם בוחרים תקציב, גיל ותחומי עניין ואורלי מרכיבה במיוחד בשבילכם קופסה מלאה בהפתעות כיפיות</p>"
+            "text": "<p>אתם בוחרים תקציב, גיל ותחומי עניין ואורלי מרכיבה במיוחד בשבילכם קופסה מלאה בהפתעות כיפיות</p>",
+            "text_size": "text-base"
           }
         },
         "button_3": {
@@ -548,7 +728,8 @@
           "settings": {
             "button_label": "להרכבת הקופסה",
             "button_link": "shopify://pages/surprise-box",
-            "button_style": "btn--primary"
+            "button_style": "btn--primary",
+            "button_icon": "none"
           }
         }
       },
@@ -556,26 +737,35 @@
         "heading_1",
         "text_2",
         "button_3"
-      ]
+      ],
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/MEKUPELET_BG_2.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 0,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "scheme-1",
+        "content_position": "middle-right",
+        "content_alignment": "center",
+        "mobile_height": "medium",
+        "content_position_mobile": "bottom-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "enable_preload_image": false
+      }
     },
     "feature_tiles": {
       "type": "mk-feature-icons",
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "scheme-1",
-        "columns_desktop": 6,
-        "columns_mobile": "3",
-        "icon_size": 80,
-        "padding_top": 30,
-        "padding_bottom": 30
-      },
       "blocks": {
         "feature_1": {
           "type": "feature",
           "settings": {
             "icon": "boat",
             "color": "#3cd6dd",
-            "title": "מתנות בייבוא בלעדי"
+            "title": "מתנות בייבוא בלעדי",
+            "link": ""
           }
         },
         "feature_2": {
@@ -583,7 +773,8 @@
           "settings": {
             "icon": "shield-check",
             "color": "#f295c0",
-            "title": "מוצרים בתו תקן"
+            "title": "מוצרים בתו תקן",
+            "link": ""
           }
         },
         "feature_3": {
@@ -591,7 +782,8 @@
           "settings": {
             "icon": "badge-20",
             "color": "#8861ec",
-            "title": "מעל 20 שנות ניסיון"
+            "title": "מעל 20 שנות ניסיון",
+            "link": ""
           }
         },
         "feature_4": {
@@ -599,7 +791,8 @@
           "settings": {
             "icon": "blocks",
             "color": "#fcbf07",
-            "title": "משחקים שנבחרו בקפידה"
+            "title": "משחקים שנבחרו בקפידה",
+            "link": ""
           }
         },
         "feature_5": {
@@ -607,7 +800,8 @@
           "settings": {
             "icon": "whatsapp",
             "color": "#00b656",
-            "title": "ייעוץ אישי בוואטסאפ"
+            "title": "ייעוץ אישי בוואטסאפ",
+            "link": ""
           }
         },
         "feature_6": {
@@ -615,7 +809,8 @@
           "settings": {
             "icon": "truck",
             "color": "#ff5404",
-            "title": "משלוח עד הבית"
+            "title": "משלוח עד הבית",
+            "link": ""
           }
         }
       },
@@ -626,53 +821,69 @@
         "feature_4",
         "feature_5",
         "feature_6"
-      ]
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "heading": "",
+        "columns_desktop": 6,
+        "columns_mobile": "3",
+        "icon_size": 80,
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
     },
     "instagram": {
       "type": "shop-the-feed",
-      "settings": {
-        "heading": "mekupelet_toys",
-        "section_header_alignment": "center",
-        "columns_desktop": 5,
-        "enable_slider": true,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "card_image_ratio": "3/4"
-      },
       "blocks": {
         "feed_1": {
           "type": "feed",
           "settings": {
-            "image": "shopify://shop_images/insta-1.png",
-            "link": "https://www.instagram.com/mekupelet_toys/"
+            "link": "https://www.instagram.com/mekupelet_toys/",
+            "author": "Author",
+            "account": "@account",
+            "icon": "tiktok",
+            "product": ""
           }
         },
         "feed_2": {
           "type": "feed",
           "settings": {
-            "image": "shopify://shop_images/insta-2.png",
-            "link": "https://www.instagram.com/mekupelet_toys/"
+            "link": "https://www.instagram.com/mekupelet_toys/",
+            "author": "Author",
+            "account": "@account",
+            "icon": "tiktok",
+            "product": ""
           }
         },
         "feed_3": {
           "type": "feed",
           "settings": {
-            "image": "shopify://shop_images/insta-3.png",
-            "link": "https://www.instagram.com/mekupelet_toys/"
+            "link": "https://www.instagram.com/mekupelet_toys/",
+            "author": "Author",
+            "account": "@account",
+            "icon": "tiktok",
+            "product": ""
           }
         },
         "feed_4": {
           "type": "feed",
           "settings": {
-            "image": "shopify://shop_images/insta-4.png",
-            "link": "https://www.instagram.com/mekupelet_toys/"
+            "link": "https://www.instagram.com/mekupelet_toys/",
+            "author": "Author",
+            "account": "@account",
+            "icon": "tiktok",
+            "product": ""
           }
         },
         "feed_5": {
           "type": "feed",
           "settings": {
-            "image": "shopify://shop_images/insta-5.png",
-            "link": "https://www.instagram.com/mekupelet_toys/"
+            "link": "https://www.instagram.com/mekupelet_toys/",
+            "author": "Author",
+            "account": "@account",
+            "icon": "tiktok",
+            "product": ""
           }
         }
       },
@@ -682,57 +893,80 @@
         "feed_3",
         "feed_4",
         "feed_5"
-      ]
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "mekupelet_toys",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "columns_desktop": 5,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "enable_slider": true,
+        "card_color_scheme": "",
+        "card_image_ratio": "3/4",
+        "swipe_on_mobile": true,
+        "show_progress_bar": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
     },
     "reviews": {
       "type": "testimonials",
-      "settings": {
-        "heading": "ביקורות",
-        "section_header_alignment": "center",
-        "layout": "standard",
-        "card_color_scheme": "scheme-1",
-        "columns_desktop": 3,
-        "columns_mobile": "1",
-        "enable_slider": true,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "card_image_ratio": "1/1",
-        "show_image": true,
-        "show_author_image": false,
-        "card_text_size": "text-base"
-      },
       "blocks": {
         "testimonial_1": {
           "type": "testimonial",
           "settings": {
             "icon": "5-stars",
-            "image": "shopify://shop_images/product-demo-smart-sand.png",
             "heading": "",
+            "heading_tag": "h3",
             "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
             "author": "שם מלא",
-            "bio": "11.06.2025"
+            "author_html_tag": "h3",
+            "bio": "11.06.2025",
+            "product": ""
           }
         },
         "testimonial_2": {
           "type": "testimonial",
           "settings": {
             "icon": "5-stars",
-            "image": "shopify://shop_images/product-demo-rattle.png",
             "heading": "",
+            "heading_tag": "h3",
             "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
             "author": "שם מלא",
-            "bio": "11.06.2025"
+            "author_html_tag": "h3",
+            "bio": "11.06.2025",
+            "product": ""
           }
         },
         "testimonial_3": {
           "type": "testimonial",
           "settings": {
             "icon": "5-stars",
-            "image": "shopify://shop_images/product-demo-kipod.png",
             "heading": "",
+            "heading_tag": "h3",
             "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
             "author": "שם מלא",
-            "bio": "11.06.2025"
+            "author_html_tag": "h3",
+            "bio": "11.06.2025",
+            "product": ""
           }
         }
       },
@@ -740,18 +974,73 @@
         "testimonial_1",
         "testimonial_2",
         "testimonial_3"
-      ]
+      ],
+      "settings": {
+        "container": "full",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "ביקורות",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "layout": "standard",
+        "card_color_scheme": "scheme-1",
+        "card_content_color_scheme": "",
+        "card_image_ratio": "1/1",
+        "card_heading_size": "h4",
+        "card_text_size": "text-base",
+        "author_info_layout": "vertical",
+        "card_trigger_behavior": "click",
+        "show_image": true,
+        "show_author_image": false,
+        "columns_desktop": 3,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_slider": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "show_progress_bar": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
     },
     "newsletter": {
       "type": "newsletter",
       "settings": {
+        "container": "fixed",
         "color_scheme": "scheme-3",
+        "layout": "vertical",
+        "subheading": "",
         "heading": "חדשים באתר?",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "heading_tag": "h2",
         "description": "<p>הירשמו לניוזלטר ותהנו מכל המבצעים וההטבות לפני כולם</p>",
+        "text_size": "text-base",
+        "alignment": "center",
+        "alignment_mobile": "inherit",
+        "width_settings": "custom",
+        "form_width": 500,
         "newsletter_term": "<p>אני מסכימ/ה לקבל הודעות שיווקיות ועדכונים מ-Mekupelet באמצעות דוא\"ל, הודעות טקסט (SMS) והודעות וואטסאפ. ניתן לבטל את ההרשמה בכל עת.</p>",
+        "newsletter_term_size": "text-base",
+        "button_style": "btn--primary",
         "button_icon": "arrow-left",
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "show_section_divider": false,
+        "divider_width": "fixed"
       }
     }
   },

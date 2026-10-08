@@ -223,6 +223,17 @@ Figma exports.
   image box is now a fixed 69% (Figma 305×210) with object-fit contain, card and wrapper 100%
   height, title reserved to two lines. Verified on /collections/all at 1440/390 and /products/261.
 
+- Merchant feedback round 2 (2026-10-08): pulled every remote JSON first. The merchant edited
+  index.json in the editor (11 brand logos with real images, category tiles with images and other
+  collections, 351 keys): local index.json and product.json now start from the remote copies.
+  settings_data.json on the remote still equalled the pre-token commit: the earlier settings push
+  had been rejected silently (`buttons_height` 45 is not on the 2px step), so the token settings
+  were never live; fixed with 46 and pushed (verified "pushed OK"). Brand logos: the merchant's
+  PNGs are square, so the 80px box showed them at 56px; boxes now 100px with the logo up to 84px
+  and 180px wide. Product sliders: `navigation_position: middle` on both Home rows and on related
+  products plus the always-visible arrow rule extended to those sections; 2px padding so the card's
+  bottom border is no longer clipped; related slider overflow hidden (no peeking card).
+
 ## Next session runbook — collections import (merchant approved 2026-10-08)
 Secrets `SHOPIFY_SHOP`, `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET` were added to the environment
 (Dev Dashboard app, scopes products/navigation/files) and load only in a NEW session. Decisions approved:

@@ -281,7 +281,7 @@
         "column_gap": "medium",
         "row_gap": "inherit",
         "enable_slider": true,
-        "navigation_position": "bottom",
+        "navigation_position": "middle",
         "pcard_image_ratio": "4/3",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
@@ -289,27 +289,11 @@
         "padding_top": 60,
         "padding_bottom": 0,
         "show_section_divider": false,
-        "divider_width": "fixed",
-        "content_overflow": false
+        "divider_width": "fixed"
       }
     },
     "reviews": {
       "type": "testimonials",
-      "settings": {
-        "heading": "חוות דעת של לקוחות",
-        "section_header_alignment": "center",
-        "layout": "standard",
-        "card_color_scheme": "scheme-1",
-        "columns_desktop": 3,
-        "columns_mobile": "1",
-        "enable_slider": true,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "card_image_ratio": "1/1",
-        "show_image": true,
-        "show_author_image": false,
-        "card_text_size": "text-base"
-      },
       "blocks": {
         "testimonial_1": {
           "type": "testimonial",
@@ -349,7 +333,22 @@
         "testimonial_1",
         "testimonial_2",
         "testimonial_3"
-      ]
+      ],
+      "settings": {
+        "section_header_alignment": "center",
+        "heading": "חוות דעת של לקוחות",
+        "layout": "standard",
+        "card_color_scheme": "scheme-1",
+        "card_image_ratio": "1/1",
+        "card_text_size": "text-base",
+        "show_image": true,
+        "show_author_image": false,
+        "columns_desktop": 3,
+        "enable_slider": true,
+        "columns_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
     },
     "newsletter": {
       "type": "newsletter",

@@ -416,7 +416,7 @@
     "pcard_mobile_hide_quick_add": false,
     "pcard_price_font_weight": "600",
     "pcard_badge_font_weight": "600",
-    "buttons_height": 45,
+    "buttons_height": 46,
     "pcard_image_ratio": "4/3"
   },
   "presets": {
