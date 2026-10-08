@@ -19,10 +19,14 @@
           "settings": {
             "block_width": 25,
             "heading": "",
-            "address": "<p>אצ״ל 5, פתח תקווה</p>",
-            "phone": "077-7804800",
+            "heading_size": "h6",
+            "heading_tag": "h3",
+            "address": "אשל 5, מושב ניר צבי",
+            "working_hours": "שעות פתיחה: א׳-ה׳ 10:00–14:00 | 16:00-19:00 |  ו׳ וערבי חג: 10:00–14:00",
             "email": "sales@mekupelet.co.il",
-            "working_hours": "שעות פתיחה: א׳-ה׳ 10:00–19:00\nו׳ 10:00–14:00"
+            "phone": "077-7804800",
+            "open_default": false,
+            "show_divider": false
           }
         },
         "menu_1": {
@@ -30,8 +34,11 @@
           "settings": {
             "block_width": 18,
             "heading": "חשוב לדעת",
+            "heading_size": "h6",
+            "heading_tag": "h3",
             "menu": "main-menu",
-            "open_default": false
+            "open_default": false,
+            "show_divider": false
           }
         },
         "menu_2": {
@@ -39,8 +46,11 @@
           "settings": {
             "block_width": 18,
             "heading": "חשוב לדעת",
+            "heading_size": "h6",
+            "heading_tag": "h3",
             "menu": "main-menu",
-            "open_default": false
+            "open_default": false,
+            "show_divider": false
           }
         },
         "menu_3": {
@@ -48,8 +58,11 @@
           "settings": {
             "block_width": 18,
             "heading": "חשוב לדעת",
+            "heading_size": "h6",
+            "heading_tag": "h3",
             "menu": "main-menu",
-            "open_default": false
+            "open_default": false,
+            "show_divider": false
           }
         },
         "menu_4": {
@@ -57,8 +70,11 @@
           "settings": {
             "block_width": 18,
             "heading": "חשוב לדעת",
+            "heading_size": "h6",
+            "heading_tag": "h3",
             "menu": "main-menu",
-            "open_default": false
+            "open_default": false,
+            "show_divider": false
           }
         }
       },
@@ -75,10 +91,13 @@
         "color_scheme": "scheme-2",
         "enable_follow_on_shop": false,
         "show_social": true,
+        "social_button_style": "btn--icon",
         "enable_country_selector": false,
         "enable_language_selector": false,
         "payment_enable": false,
-        "footer_bottom_menu": "footer-bottom",
+        "footer_layout": "standard",
+        "footer_bottom_menu": "",
+        "show_sperator_line": false,
         "show_section_divider": false,
         "divider_width": "fixed",
         "padding_top": 40,
@@ -103,13 +122,15 @@
         "products_eYYkE8": {
           "type": "products",
           "settings": {
-            "text": "Products"
+            "text": "Products",
+            "collection": ""
           }
         },
         "link_mJ6QMc": {
           "type": "link",
           "settings": {
             "text": "About",
+            "url": "",
             "icon": "map-pin"
           }
         }
