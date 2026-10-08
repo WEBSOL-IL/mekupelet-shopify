@@ -1,0 +1,58 @@
+# Shopify app configuration for the Verifone VR360 integration.
+# `client_id` is filled by `npm run config:link` once the app exists in the Dev Dashboard
+# (see README.md, "First-time setup").
+client_id = ""
+name = "Mekupelet VR360"
+handle = "mekupelet-vr360"
+application_url = "https://vr360.example.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+include_config_on_deploy = true
+
+[access_scopes]
+# Orders: read line items/transactions, write order metafields and tags.
+# Customers: store the VR360 customer number as a customer metafield.
+# Products/inventory/locations: SKU lookup and inventorySetQuantities for the stock sync.
+scopes = "read_orders,write_orders,read_customers,write_customers,read_products,read_inventory,write_inventory,read_locations"
+
+[auth]
+redirect_urls = [
+  "https://vr360.example.com/auth/callback",
+  "https://vr360.example.com/auth/shopify/callback",
+  "https://vr360.example.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2026-01"
+
+  # Handled by: /app/routes/webhooks.app.uninstalled.tsx
+  [[webhooks.subscriptions]]
+  uri = "/webhooks/app/uninstalled"
+  topics = ["app/uninstalled"]
+
+  # Handled by: /app/routes/webhooks.app.scopes_update.tsx
+  [[webhooks.subscriptions]]
+  topics = ["app/scopes_update"]
+  uri = "/webhooks/app/scopes_update"
+
+  # Handled by: /app/routes/webhooks.orders.tsx (enqueues invoice / credit jobs)
+  [[webhooks.subscriptions]]
+  topics = ["orders/paid", "orders/cancelled"]
+  uri = "/webhooks/orders"
+
+  # Handled by: /app/routes/webhooks.refunds.tsx (enqueues partial credit jobs)
+  [[webhooks.subscriptions]]
+  topics = ["refunds/create"]
+  uri = "/webhooks/refunds"
+
+  # Handled by: /app/routes/webhooks.products.tsx (stock sync on product update)
+  [[webhooks.subscriptions]]
+  topics = ["products/update"]
+  uri = "/webhooks/products"
+
+  # Mandatory compliance topics (handled by /app/routes/webhooks.compliance.tsx)
+  [[webhooks.subscriptions]]
+  uri = "/webhooks/compliance"
+  compliance_topics = ["customers/data_request", "customers/redact", "shop/redact"]

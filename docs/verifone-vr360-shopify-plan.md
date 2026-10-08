@@ -113,7 +113,7 @@ Shopify Admin ──(session token)──▶ App (Remix, Node 20, Polaris)      
 - Webhook `app/uninstalled` + GDPR webhooks (חובה גם לאפליקציה מותאמת): ניקוי נתוני הלקוח.
 
 ## 8. פריסה והפעלה
-- **קוד**: ריפו נפרד `verifone-vr360-shopify` (לא בתוך ריפו התבנית). `npm create @shopify/app` → תבנית Remix + Prisma; תיקיות: `app/` (Remix), `app/vr360/` (client, invoice-builder, credit-builder, stock-sync, customer-resolver), `worker/`, `extensions/order-block/`, `extensions/orders-bulk-action/`, `prisma/`, `docker/`.
+- **קוד**: בינתיים בתיקייה `apps/verifone-vr360/` בריפו הזה (אין עדיין ריפו נפרד ב-GitHub; כשייפתח `verifone-vr360-shopify` נעביר את התיקייה כמו שהיא עם `git subtree split`). התבנית הרשמית העדכנית של Shopify היא React Router 7 (הממשיך של Remix, אותו צוות ואותו API), ולכן זו המסגרת בפועל. תיקיות: `app/routes` (עמודי ניהול, webhooks, טריגרים), `app/vr360/` (client, xml, wsdl, diagnostics; בהמשך invoice-builder, credit-builder, customer-resolver), `app/jobs/` (מעבדי התור), `worker/` (BullMQ + מתזמן), `prisma/`, `tests/`, `extensions/` (שלב 2–3).
 - **שרת WEBSOL**: Docker Compose (web, worker, postgres, redis), דומיין קבוע עם TLS (Caddy/Traefik), גיבוי יומי ל-DB, Sentry/לוגים מרכזיים. דרישות מינימום: 2 vCPU, 2GB RAM.
 - **וריפון**: services.asmx נגיש מהאינטרנט בכתובת IP ציבורית (סעיף 9), לכן אין צורך ב-VPN; לבקש מוריפון whitelist ל-IP של השרת ו-HTTPS אם קיים. ה-client מקבל `VR360_BASE_URL` ולא אכפת לו באיזו דרך.
 - **Shopify**: אפליקציה ב-Dev Dashboard (אותו חשבון של האפליקציה שיצרנו לייבוא), `shopify app deploy` לפריסת ה-extensions, גרסת API `2026-01` עם בדיקה רבעונית.

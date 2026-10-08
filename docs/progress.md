@@ -270,6 +270,22 @@ Figma exports.
   ship with, §9b what is still needed before testing (HTTPS/whitelist + test numerator at Verifone,
   one test order each from BuyMe and Tranzila). Still planning only.
 
+- VR360 app, phase 0 (2026-10-08): merchant said "start building from phase 0". Scaffolded
+  `apps/verifone-vr360/` from Shopify's official React Router template (React 19, Polaris web
+  components, Prisma on PostgreSQL, BullMQ on Redis, docker-compose web/worker/postgres/redis).
+  Done: Prisma schema + initial migration (Session, ShopSettings, Document, RequestLog, SyncRun,
+  SkuCache); settings schema with the WooCommerce values as defaults and AES-256-GCM encryption of
+  the VR360 password; SOAP client ported 1:1 (envelope, element order, extractTag, error hints
+  315/408/421/431-434/452, PDF operation fallbacks, masked RequestLog); WSDL inspector; settings
+  page with all plugin sections + Shopify location / gateway mapping / auto credit / alerts, and the
+  three diagnostics (connection, WSDL, existing document); documents / stock / request-log pages;
+  webhooks (orders/paid, orders/cancelled, refunds/create, products/update, compliance) that only
+  enqueue; `/sync/today|month?token=` trigger URLs; worker with repeatable schedules reconciled
+  from settings and log pruning. Job processors are stubs until phases 1–5. Verified locally:
+  27 unit tests, typecheck, lint, build, migration against a local Postgres, worker schedules +
+  trigger route end to end (SyncRun rows written). Not done (needs a Dev Dashboard login): creating
+  the app / `client_id`, deploy, install on the store (README "First-time setup").
+
 ## Next session runbook — collections import (merchant approved 2026-10-08)
 Secrets `SHOPIFY_SHOP`, `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET` were added to the environment
 (Dev Dashboard app, scopes products/navigation/files) and load only in a NEW session. Decisions approved:

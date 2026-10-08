@@ -1,0 +1,61 @@
+# Production stack on the WEBSOL server: web (React Router), worker (BullMQ), PostgreSQL, Redis.
+# TLS termination (Caddy/Traefik) sits in front of `web` on the host; see README.md.
+
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://vr360:${POSTGRES_PASSWORD:-vr360}@postgres:5432/vr360?schema=public
+      REDIS_URL: redis://redis:6379
+      PORT: "3000"
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  worker:
+    build: .
+    restart: unless-stopped
+    command: ["npm", "run", "worker"]
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://vr360:${POSTGRES_PASSWORD:-vr360}@postgres:5432/vr360?schema=public
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      web:
+        condition: service_started
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: vr360
+      POSTGRES_USER: vr360
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-vr360}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vr360 -d vr360"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes", "--maxmemory-policy", "noeviction"]
+    volumes:
+      - redisdata:/data
+
+volumes:
+  pgdata:
+  redisdata:
