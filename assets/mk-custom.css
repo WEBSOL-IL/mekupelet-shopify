@@ -568,12 +568,13 @@
     inset-inline-end: 0;
   }
 }
-/* three feature boxes under the gallery: #F5F5F5 boxes, wine icons from assets/mk-icon-*.svg */
+/* three feature boxes under the gallery: #F5F5F5 boxes, solid wine icons (assets/mk-icon-pdp-*.svg) */
 .product__block--grid-icon-box .grid-icon-box {
   background: #f5f5f5;
+  border: 0;
   border-radius: 1rem;
-  padding: 2rem 1.2rem 1.6rem;
-  gap: 1rem;
+  padding: 2.2rem 1.6rem 2rem;
+  gap: 1.2rem;
   font-size: 1.4rem;
   line-height: 2rem;
   color: rgb(var(--mk-color-text));
@@ -585,13 +586,11 @@
   display: block;
   width: 3.2rem;
   height: 3.2rem;
-  background-color: #3b0d15;
-  -webkit-mask: var(--mk-box-icon) center / contain no-repeat;
-  mask: var(--mk-box-icon) center / contain no-repeat;
+  background: var(--mk-box-icon) center / contain no-repeat;
 }
-.product__block--grid-icon-box .f-column:nth-child(1) .grid-icon-box { --mk-box-icon: url(mk-icon-shield-check.svg); }
-.product__block--grid-icon-box .f-column:nth-child(2) .grid-icon-box { --mk-box-icon: url(mk-icon-truck.svg); }
-.product__block--grid-icon-box .f-column:nth-child(3) .grid-icon-box { --mk-box-icon: url(mk-icon-credit-card.svg); }
+.product__block--grid-icon-box .f-column:nth-child(1) .grid-icon-box { --mk-box-icon: url(mk-icon-pdp-shield.svg); }
+.product__block--grid-icon-box .f-column:nth-child(2) .grid-icon-box { --mk-box-icon: url(mk-icon-pdp-truck.svg); }
+.product__block--grid-icon-box .f-column:nth-child(3) .grid-icon-box { --mk-box-icon: url(mk-icon-pdp-cards.svg); }
 @media (max-width: 767.98px) {
   .product__block--grid-icon-box .grid-icon-box { padding: 1.4rem 0.6rem 1.2rem; font-size: 1.2rem; line-height: 1.6rem; }
 }
