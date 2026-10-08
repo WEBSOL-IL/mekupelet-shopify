@@ -73,3 +73,31 @@ Any new session: read `CLAUDE.md`, then this file, then resume from "In progress
 See `docs/implementation-plan.md` §8 (Q1–Q14). Highest impact: Q5 Hebrew locale, Q6 Hebrew fonts,
 Q7 origin of Hyper 1.5.0, Q13 performance toggles, Q14 custom stylesheet location, plus the
 Figma exports.
+
+## 2026-10-08 — session 2b (build started on merchant request: "approximate Home now, refine later")
+
+### Done
+- Merchant confirmed the preview screenshots are the ORIGINAL Home frames; sent Home content
+  assets (48 files, catalogued and renamed in `docs/figma/exports/assets/home/`) and the Simpler Pro
+  web fonts (400/600/700, Hebrew+Latin+Arabic, Hagilda license in `docs/fonts/`).
+- Phase 1 foundations: `snippets/mk-fonts.liquid` + 3 woff2 in assets, `assets/mk-custom.css`
+  (tokens, font routing, square card border, no nav shadow), one logged core edit in
+  `layout/theme.liquid`. Settings: fonts switched to a system font (no CDN font loads), scheme-1
+  button blue `#1d349a` (PROVISIONAL), `pcard_corner_radius: square`, badge tags `חדש` / `רב מכר`,
+  page transition + scroll animations + compare + popup off, quick view popup → product page.
+- Home (approximate): new `sections/mk-gift-finder.liquid` (+css/js) and `sections/mk-age-pills.liquid`
+  (+css); `templates/index.json` rebuilt with 12 sections in the design order; footer group with
+  contact block + 4 menu columns. Verified in the local preview at 1440/390 (`docs/screenshots/`),
+  `shopify theme check` 0 errors. Everything is live on theme 189111500994 via `theme dev` sync.
+- `docs/merchant-checklist.md`: Files upload, collections + handles, tags, filters, menus.
+- `scripts/screenshot.mjs`: Playwright helper that works around the sandbox network policy.
+
+### In progress
+- `locales/he.json` (agent translating en.default.json; storefront strings are still English).
+
+### Blocked / waiting
+- Figma 2x frame exports + Dev-Mode values → `docs/figma/EXPORT-CHECKLIST.md`. Until then all
+  spacing/colors are provisional. Merchant admin work per `docs/merchant-checklist.md`
+  (Files, collections, menus) — images and products show placeholders until done.
+- Open questions Q1–Q14 in `docs/implementation-plan.md` (Q13/Q14 were decided provisionally:
+  perf toggles off, custom stylesheet as a file).
