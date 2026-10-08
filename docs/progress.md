@@ -205,6 +205,14 @@ Figma exports.
   Open: related heading overridden by a Translate & Adapt entry, currency format, reviews app,
   wishlist/share icons on the image, mobile title above the gallery (core edit, ask merchant).
 
+- Finding (2026-10-08): shop primary locale is `en`, `he` is a published secondary locale, and the
+  store holds hundreds of auto-translated Hebrew entries of Hyper's demo content
+  (`translatableResources` ONLINE_STORE_THEME_JSON_TEMPLATE: 577 on product, 113 on collection).
+  Outdated translations keep applying, so they override template values on the Hebrew storefront
+  (related-products heading, `expand_filter_groups`, variant `size_title`, …). Fix = make Hebrew
+  the primary language (merchant, Settings → Languages); alternative = `translationsRemove` for the
+  theme's `he` entries. Added as the top item in docs/merchant-checklist.md.
+
 ## Next session runbook — collections import (merchant approved 2026-10-08)
 Secrets `SHOPIFY_SHOP`, `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET` were added to the environment
 (Dev Dashboard app, scopes products/navigation/files) and load only in a NEW session. Decisions approved:
