@@ -132,3 +132,19 @@ Figma exports.
   sketch colors, reviews in the standard layout (image, name + date, text, stars), footer per sketch
   (bold phone, no icons, no payment icons; menu columns use `main-menu` as a stand-in until
   `footer-1..4` exist). Dev server had died once; new files were pushed with `theme push --only`.
+
+## Next session runbook — collections import (merchant approved 2026-10-08)
+Secrets `SHOPIFY_SHOP`, `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET` were added to the environment
+(Dev Dashboard app, scopes products/navigation/files) and load only in a NEW session. Decisions approved:
+slug handles, update the 6 existing collections in place (do not create duplicates), skip the 7
+internal WooCommerce rules, run via the script. Steps:
+1. `python3 -I scripts/import-collections.py --check-access` (read-only: shop name + collection count).
+2. Handle the `re-cycle-me` duplicate (rename the second to `re-cycle-me-2` or merge) and the 6
+   existing collections (query by handle, use `collectionUpdate` with the plan's rules/image/metafields).
+3. Pilot: `--execute --handles slug --skip-internal --limit 5` (5 brands), verify in admin.
+4. Full run: `--execute --handles slug --skip-internal`; verify counts (154 categories, 316 brands)
+   and images; log in `docs/import/out/result-log.json`.
+5. Menus with `menuCreate`: footer-1..4 per the approved structure (pages / service / 6 top
+   categories / 6 age collections) and the main menu (merchant to pick 11 of the 33 roots).
+6. Product tagging is a separate step (needs a product migration file): `legacy-category-<id>` tags
+   incl. ancestors + vendor normalization via `vendor_aliases`.
