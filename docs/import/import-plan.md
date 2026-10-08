@@ -2,7 +2,8 @@
 
 Source: `docs/import/shopify_collections.json` (schema `websol.shopify.catalog-plan` v1, prepared by
 the merchant's migration tooling, status `prepared_not_imported`). Script: `scripts/import-collections.py`
-(dry run by default; `--execute` needs `SHOPIFY_SHOP` + `SHOPIFY_ADMIN_TOKEN`).
+(dry run by default; `--execute` needs `SHOPIFY_SHOP` + `SHOPIFY_CLIENT_ID`/`SHOPIFY_CLIENT_SECRET`
+or `SHOPIFY_ADMIN_TOKEN`). **Status: executed 2026-10-08, see "Result" below.**
 
 ## What the file contains
 | | Count | Images | Membership rule |
@@ -43,3 +44,25 @@ categories and ancestors; vendor normalized via `vendor_aliases`).
 ## Rollback
 Every created collection id is written to `docs/import/out/result-log.json`; a `collectionDelete`
 loop over that log removes them.
+
+## Result (2026-10-08)
+- Executed with `--handles slug --skip-internal`: 470 plan collections (154 categories, 316 brands) are
+  in the store; store total 472 (plus the pre-existing `frontpage` and the merchant's manual `אביזרים`).
+  Every planned handle exists, every rule matches the plan, 326 images uploaded (all planned), all
+  metafields set. Log: `docs/import/out/result-log.json` (465 created ids for rollback, 11 updates).
+- 5 pre-existing merchant collections (`בגדי-ילדים`, `כלי-אוכל`, `ספרים`, `צעצועים-ובובות`, `כלי-בית`)
+  were updated in place with `collectionUpdate` (manual → smart with the plan's rule, image,
+  metafields; ids unchanged). `אביזרים` has no plan match and was left untouched (manual, 0 products).
+- Slug collision: brand `Re-Cycle-Me` keeps `re-cycle-me`; category "מארזי יצירה - Re-Cycle-Me" got
+  `re-cycle-me-2` (`HANDLE_OVERRIDES` in the script).
+- Script changes made during the run: idempotent create/update by existing handle, `--only` for
+  retries, percent-encoded image URLs (the `ספרים` image failed unencoded), image skipped on update
+  when the collection already has one (Shopify rejects re-sending it), append-only log.
+- Metafield definitions `custom.collection_kind` (choices category/brand), `custom.parent_handle`,
+  `custom.legacy_term_id` exist on COLLECTION.
+- Created collections are NOT published to the Online Store (404 on the storefront); the app has no
+  publications scope. `scripts/publish-collections.py` publishes them once the scopes are added.
+- Collections are empty until the product migration tags products (`legacy-category-<id>`) and
+  normalizes `vendor`.
+- Menus: `scripts/create-menus.py` (footer-1..4) is ready and dry-run verified; execution still pending
+  (blocked by the session's permission classifier). Main menu waits for the merchant's pick of 11 roots.

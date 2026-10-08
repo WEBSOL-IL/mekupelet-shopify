@@ -148,3 +148,47 @@ internal WooCommerce rules, run via the script. Steps:
    categories / 6 age collections) and the main menu (merchant to pick 11 of the 33 roots).
 6. Product tagging is a separate step (needs a product migration file): `legacy-category-<id>` tags
    incl. ancestors + vendor normalization via `vendor_aliases`.
+
+## 2026-10-08 — session 3 (collections import executed)
+
+### Done
+- Branch `claude/elegant-sagan-74il9b` fast-forwarded onto `claude/trusting-galileo-j8b9va` (the branch
+  that carried the runbook); the other remote branches (`busy-wright`, `funny-brahmagupta`,
+  `figma-shopify-baseline`) are NOT ancestors of it — check before merging anything to main.
+- Runbook steps 1–4 done. `--check-access` OK (client-credentials token, scopes
+  `write_products,write_online_store_navigation,write_files`). Pilot (5 brands) verified in the store
+  (handles, vendor rules, CDN images, metafields). Full run: 460 created, 0 errors; 5 pre-existing
+  merchant collections updated in place (ids unchanged); `ספרים` needed one retry (image URL with
+  Hebrew characters must be percent-encoded). Final: 472 collections = 154 categories + 316 brands +
+  `frontpage` + `אביזרים`; 326 images; all rules and metafields verified against the plan.
+  Details and script changes: `docs/import/import-plan.md` § Result. Rollback log committed:
+  `docs/import/out/result-log.json` (un-ignored in `.gitignore`).
+- `re-cycle-me` collision: brand keeps `re-cycle-me`, category is `re-cycle-me-2` (merchant may prefer
+  a descriptive handle such as `מארזי-יצירה-re-cycle-me`; change in admin if so).
+- `scripts/create-menus.py` written (footer-1..4, idempotent, dry run by default) and dry-run verified.
+
+### Blocked
+- **Imported collections are not published to the Online Store**: `/collections/4m` → 404 while the
+  updated pre-existing ones (admin-created) → 200. Collections created via the Admin API get no sales
+  channel by default. The app lacks `read_publications`/`write_publications`, so the fix needs the
+  merchant: either add both scopes to the Dev Dashboard app version (reinstall) and run
+  `python3 -I scripts/publish-collections.py --execute` (ready, dry-run checks the scope), or in the
+  admin select all collections → bulk action "Make available on the Online Store".
+- Runbook step 5 (menus): the `menuCreate` execution and a `shopify theme pull` of
+  `sections/footer-group.json` were denied by the session's permission classifier. To finish:
+  `python3 -I scripts/create-menus.py --execute`, then point the four footer menu blocks at
+  `footer-1..4` (theme editor, or pull/merge/push `sections/footer-group.json`). Assumed item lists
+  are in the script (pages and age collections that do not exist yet are path links).
+  Main menu: merchant picks 11 of the 33 roots (list: `docs/import/shopify_collections.json`
+  → `navigation.categories`).
+- Runbook step 6 (product tagging + vendor normalization): waits for the product migration file.
+
+### Open questions (for the merchant)
+0. Publish the 465 imported collections: add the publications scopes (preferred, scripted) or bulk in admin?
+1. Footer item lists in `scripts/create-menus.py`: confirm or edit before `--execute`.
+2. Age collections: Home pills and footer-4 use `age-0-6 … age-3-plus` (not yet created, tag-based,
+   see `docs/merchant-checklist.md`); the import also created the old site's `מתנות לפי גיל` tree
+   (`מתנות-ללידה`, `מתנות-לגיל-שנה` … `מתנות-לגיל-חמש`). Keep both, or map the pills to the imported ones?
+3. The 33 category roots include many promo/era rules (`עד 50`, `מבצע חגים`, `המומלצים של …`,
+   `OUTLET`); they are imported as smart collections (no products yet, not yet published). Decide which
+   to keep before launch; unused ones can be deleted from the result log.

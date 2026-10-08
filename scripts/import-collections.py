@@ -18,13 +18,22 @@ Decisions encoded as flags (see docs/import/import-plan.md):
   --skip-internal         skip categories that look like internal/promo rules (see INTERNAL_PREFIXES)
   --kinds category,brand  which kinds to import
   --batch 20              collections per mutation (aliases c0..cN)
+  --limit N               pilot: only the first N collections of the selection
+  --only h1,h2            only these handles (retry a failed item)
+
+Idempotent: before executing, the script reads every collection handle already in the store. A plan
+entry whose handle exists is UPDATED in place with collectionUpdate (same rules/image/metafields);
+the others are created with collectionCreate. Re-running the script therefore never creates
+duplicates. HANDLE_OVERRIDES resolves the one slug collision in the plan.
 """
-import argparse, json, os, re, sys, pathlib, urllib.request
+import argparse, datetime, json, os, re, sys, pathlib, urllib.parse, urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PLAN = ROOT / "docs/import/shopify_collections.json"
 OUT = ROOT / "docs/import/out"
 API_VERSION = "2025-07"
+# plan key -> handle, for slug collisions (brand "Re-Cycle-Me" keeps "re-cycle-me")
+HANDLE_OVERRIDES = {"category:172": "re-cycle-me-2"}
 INTERNAL_PREFIXES = ("לא לכלול", "משתתף במבצע", "לא לצבור", "מוצרי קופה", "Uncategorized", "עמוד הבית")
 
 
@@ -33,6 +42,8 @@ def load_plan():
 
 
 def handle_for(c, mode):
+    if c.get("key") in HANDLE_OVERRIDES:
+        return HANDLE_OVERRIDES[c["key"]]
     if mode == "slug":
         slug = c.get("source_slug_decoded") or c.get("source_slug") or c["handle"]
         slug = re.sub(r"[^\w\-]+", "-", slug, flags=re.UNICODE).strip("-").lower()
@@ -65,7 +76,8 @@ def collection_input(c, args, parent_handle=None):
     if parent_handle:
         inp["metafields"].append({"namespace": "custom", "key": "parent_handle", "type": "single_line_text_field", "value": parent_handle})
     if c.get("image_url"):
-        inp["image"] = {"src": c["image_url"], "altText": c["title"].strip()}
+        # Shopify fetches the URL server-side; non-ASCII path characters must be percent-encoded
+        inp["image"] = {"src": urllib.parse.quote(c["image_url"], safe=":/?&=%"), "altText": c["title"].strip()}
     return inp
 
 
@@ -90,18 +102,22 @@ def build(args):
         {"name": "Parent collection handle", "namespace": "custom", "key": "parent_handle", "type": "single_line_text_field", "ownerType": "COLLECTION"},
         {"name": "Legacy term id", "namespace": "custom", "key": "legacy_term_id", "type": "single_line_text_field", "ownerType": "COLLECTION"},
     ]
+    return definitions, inputs
+
+
+def make_batches(inputs, batch_size, mutation="collectionCreate", prefix="c"):
+    """Batch CollectionInput dicts into aliased mutations. For collectionUpdate each input carries id."""
     batches = []
-    for i in range(0, len(inputs), args.batch):
-        chunk = inputs[i:i + args.batch]
-        fields = []
-        variables = {}
+    for i in range(0, len(inputs), batch_size):
+        chunk = inputs[i:i + batch_size]
+        fields, variables = [], {}
         for j, inp in enumerate(chunk):
-            fields.append(f"c{j}: collectionCreate(input: $in{j}) {{ collection {{ id handle title }} userErrors {{ field message }} }}")
+            fields.append(f"{prefix}{j}: {mutation}(input: $in{j}) {{ collection {{ id handle title }} userErrors {{ field message }} }}")
             variables[f"in{j}"] = inp
         decl = ", ".join(f"$in{j}: CollectionInput!" for j in range(len(chunk)))
         query = f"mutation ImportCollections({decl}) {{\n  " + "\n  ".join(fields) + "\n}"
         batches.append({"query": query, "variables": variables})
-    return definitions, inputs, batches
+    return batches
 
 
 _TOKEN = None
@@ -142,6 +158,19 @@ def gql(query, variables):
         return json.load(r)
 
 
+def existing_collections():
+    """handle -> {id, has_image} for every collection in the store (paginated)."""
+    out, cursor = {}, None
+    while True:
+        res = gql("query($c: String) { collections(first: 250, after: $c) { nodes { id handle image { url } } pageInfo { hasNextPage endCursor } } }", {"c": cursor})
+        page = res["data"]["collections"]
+        for n in page["nodes"]:
+            out[n["handle"]] = {"id": n["id"], "has_image": bool(n["image"])}
+        if not page["pageInfo"]["hasNextPage"]:
+            return out
+        cursor = page["pageInfo"]["endCursor"]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--handles", choices=["ids", "slug"], default="ids")
@@ -151,9 +180,17 @@ def main():
     ap.add_argument("--execute", action="store_true", help="run against the store (needs SHOPIFY_SHOP + credentials, see module docstring)")
     ap.add_argument("--check-access", action="store_true", help="only obtain a token and read the shop name + collection count")
     ap.add_argument("--limit", type=int, default=0, help="create only the first N collections (pilot run)")
+    ap.add_argument("--only", default="", help="comma-separated handles: process only these (retries)")
     args = ap.parse_args()
     args.kinds = args.kinds.split(",")
-    definitions, inputs, batches = build(args)
+    definitions, inputs = build(args)
+    if args.only:
+        only = set(args.only.split(","))
+        inputs = [i for i in inputs if i["handle"] in only]
+    if args.limit:
+        inputs = inputs[:args.limit]
+        print(f"PILOT: only the first {args.limit} collections of the selection")
+    batches = make_batches(inputs, args.batch)
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "definitions.json").write_text(json.dumps(definitions, ensure_ascii=False, indent=2), encoding="utf-8")
     for n, b in enumerate(batches):
@@ -161,13 +198,15 @@ def main():
     kinds = {}
     for i in inputs:
         kinds[i["metafields"][0]["value"]] = kinds.get(i["metafields"][0]["value"], 0) + 1
-    print(f"collections to create: {len(inputs)} {kinds} | with image: {sum(1 for i in inputs if 'image' in i)} | batches: {len(batches)} | handles: {args.handles}")
+    print(f"collections in plan: {len(inputs)} {kinds} | with image: {sum(1 for i in inputs if 'image' in i)} | batches: {len(batches)} | handles: {args.handles}")
     dup = {}
     for i in inputs:
         dup.setdefault(i["handle"], 0); dup[i["handle"]] += 1
     dups = {h: n for h, n in dup.items() if n > 1}
     if dups:
         print("DUPLICATE HANDLES:", dups)
+        if args.execute:
+            sys.exit("refusing to execute with duplicate handles")
     if args.check_access:
         res = gql("{ shop { name myshopifyDomain } collectionsCount { count } }", {})
         print(json.dumps(res, ensure_ascii=False))
@@ -175,28 +214,40 @@ def main():
     if not args.execute:
         print("dry run only; payloads in", OUT)
         return
-    if args.limit:
-        batches = batches[:1]
-        keep = {f"in{j}" for j in range(args.limit)}
-        batches[0]["variables"] = {k: v for k, v in batches[0]["variables"].items() if k in keep}
-        batches[0]["query"] = re.sub(r"\n  c(\d+): collectionCreate\(input: \$in(\d+)\)[^\n]*", lambda m: m.group(0) if int(m.group(2)) < args.limit else "", batches[0]["query"])
-        batches[0]["query"] = re.sub(r", \$in(\d+): CollectionInput!", lambda m: m.group(0) if int(m.group(1)) < args.limit else "", batches[0]["query"])
-        print(f"PILOT: creating only {args.limit} collections")
+    existing = existing_collections()
+    creates = [i for i in inputs if i["handle"] not in existing]
+    # re-sending an image a collection already has fails the whole update, so drop it there
+    updates = [{k: v for k, v in dict(i, id=existing[i["handle"]]["id"]).items() if not (k == "image" and existing[i["handle"]]["has_image"])}
+               for i in inputs if i["handle"] in existing]
+    print(f"store has {len(existing)} collections | to create: {len(creates)} | to update in place: {len(updates)} {[u['handle'] for u in updates][:20]}")
     log = []
+    run = {"run": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "argv": sys.argv[1:]}
     for d in definitions:
         res = gql("mutation($def: MetafieldDefinitionInput!) { metafieldDefinitionCreate(definition: $def) { createdDefinition { id } userErrors { field message code } } }", {"def": d})
         print("definition", d["key"], json.dumps(res.get("data", res), ensure_ascii=False)[:200])
-    for n, b in enumerate(batches):
-        res = gql(b["query"], b["variables"])
-        data = res.get("data") or {}
-        for alias, payload in data.items():
-            errs = payload.get("userErrors") or []
-            col = payload.get("collection") or {}
-            log.append({"batch": n, "alias": alias, "handle": col.get("handle"), "id": col.get("id"), "errors": errs})
-            if errs:
-                print(f"batch {n} {alias}: {errs}")
-        print(f"batch {n}: {len(data)} responses, {sum(1 for a in data.values() if a.get('userErrors'))} with errors")
-    (OUT / "result-log.json").write_text(json.dumps(log, ensure_ascii=False, indent=2), encoding="utf-8")
+    runs = [("update", make_batches(updates, args.batch, "collectionUpdate", "u")), ("create", make_batches(creates, args.batch))]
+    for action, action_batches in runs:
+        for n, b in enumerate(action_batches):
+            res = gql(b["query"], b["variables"])
+            if res.get("errors"):
+                print(f"{action} batch {n}: GRAPHQL ERRORS {json.dumps(res['errors'], ensure_ascii=False)[:500]}")
+            data = res.get("data") or {}
+            for alias, payload in data.items():
+                errs = payload.get("userErrors") or []
+                col = payload.get("collection") or {}
+                sent = b["variables"]["in" + alias[1:]]
+                log.append({"action": action, "batch": n, "alias": alias, "planned_handle": sent["handle"], "title": sent["title"],
+                            "handle": col.get("handle"), "id": col.get("id"), "errors": errs})
+                if errs:
+                    print(f"{action} batch {n} {alias} {sent['handle']}: {errs}")
+                elif col.get("handle") != sent["handle"]:
+                    print(f"{action} batch {n} {alias}: HANDLE CHANGED {sent['handle']} -> {col.get('handle')}")
+            print(f"{action} batch {n}: {len(data)} responses, {sum(1 for a in data.values() if a.get('userErrors'))} with errors")
+    # append: the log is the rollback record (collectionDelete over every created id), never overwrite it
+    log_path = OUT / "result-log.json"
+    previous = json.loads(log_path.read_text(encoding="utf-8")) if log_path.exists() else []
+    log_path.write_text(json.dumps(previous + [dict(run, **e) for e in log], ensure_ascii=False, indent=2), encoding="utf-8")
+    print("log:", log_path, "| entries:", len(previous) + len(log))
 
 
 if __name__ == "__main__":
