@@ -38,12 +38,38 @@
         <span aria-hidden="true" class="breadcrumbs--sep breadcrumbs--sep-last"></span>
         <span class="breadcrumbs--last text-subtext">{{ product.title }}</span>
       {%- elsif template contains 'collection' and collection.handle -%}
-        {%- if collection.handle != 'all' -%}
+        {%- comment -%} MK-CUSTOM start: category trail from custom.parent_handle instead of the "Collections" link {%- endcomment -%}
+        {%- liquid
+          assign mk_trail = ''
+          assign mk_walk = collection
+          for mk_i in (1..3)
+            assign mk_parent_handle = mk_walk.metafields.custom.parent_handle.value
+            if mk_parent_handle == blank
+              break
+            endif
+            assign mk_walk = collections[mk_parent_handle]
+            if mk_walk.handle == blank
+              break
+            endif
+            capture mk_crumb
+              echo '<span aria-hidden="true" class="breadcrumbs--sep"></span><a href="'
+              echo mk_walk.url
+              echo '" class="reversed-link">'
+              echo mk_walk.title | escape
+              echo '</a>'
+            endcapture
+            assign mk_trail = mk_crumb | append: mk_trail
+          endfor
+        -%}
+        {%- if mk_trail != blank -%}
+          {{ mk_trail }}
+        {%- elsif collection.handle != 'all' -%}
           <span aria-hidden="true" class="breadcrumbs--sep"></span>
           <a href="{{ routes.all_products_collection_url }}" class="reversed-link">
             {{- 'general.breadcrumbs.collections' | t -}}
           </a>
-        {% endif %}
+        {%- endif -%}
+        {%- comment -%} MK-CUSTOM end {%- endcomment -%}
         <span aria-hidden="true" class="breadcrumbs--sep"></span>
         {%- if current_tags -%}
           {% capture url %}{{ routes.collections_url }}/{{ collection.handle }}{% endcapture %}

@@ -19,6 +19,11 @@
     data-history
     update-on-change
   >
+    {%- comment -%} MK-CUSTOM start: sub-categories box above the filters (snippets/mk-subcategories.liquid) {%- endcomment -%}
+    {%- if request.page_type == 'collection' -%}
+      {%- render 'mk-subcategories', context: context -%}
+    {%- endif -%}
+    {%- comment -%} MK-CUSTOM end {%- endcomment -%}
     {% if results.filters != empty %}
       <div data-filter data-index="{{ context }}-page" hidden>
         <input type="hidden" name="page" value="">

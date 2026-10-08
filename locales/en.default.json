@@ -314,7 +314,8 @@
       "continue_shopping": "Continue shopping",
       "no_results": "No products match those filters.",
       "use_fewer_filters": "Use fewer filters or",
-      "items": "Items"
+      "items": "Items",
+      "subcategories": "Categories"
     }
   },
   "templates": {

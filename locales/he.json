@@ -277,7 +277,7 @@
       "filter_and_operator_subtitle": "התאמה לכל התנאים",
       "apply": "החלה",
       "clear": "ניקוי",
-      "clear_all": "ניקוי הכול",
+      "clear_all": "ניקוי",
       "from": "מ-",
       "filter_button": "סינון",
       "filters_selected": {
@@ -288,14 +288,14 @@
       "show_less": "הצגת פחות",
       "max_price": "המחיר הגבוה ביותר הוא {{ price }}",
       "product_count": {
-        "one": "{{ product_count }} מתוך מוצר {{ count }}",
-        "other": "{{ product_count }} מתוך {{ count }} מוצרים"
+        "one": "{{ product_count }} מתוך פריט {{ count }}",
+        "other": "{{ product_count }} מתוך {{ count }} פריטים"
       },
       "product_count_simple": {
-        "one": "מוצר {{ count }}",
-        "other": "{{ count }} מוצרים"
+        "one": "פריט {{ count }}",
+        "other": "{{ count }} פריטים"
       },
-      "sort_by_label": "מיון לפי",
+      "sort_by_label": "מיון",
       "to": "עד"
     }
   },
@@ -305,7 +305,8 @@
       "continue_shopping": "המשיכו בקנייה",
       "no_results": "לא נמצאו מוצרים שמתאימים לסינון הזה.",
       "use_fewer_filters": "נסו פחות מסננים או",
-      "items": "פריטים"
+      "items": "פריטים",
+      "subcategories": "קטגוריות נבחרות"
     }
   },
   "templates": {

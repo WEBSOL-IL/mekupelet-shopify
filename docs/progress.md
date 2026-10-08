@@ -164,6 +164,27 @@ Figma exports.
   dropdowns although the design shows no chevron. Mega menu styling (14/600 headings, #6B6B6B
   links, #E0E0E0 dividers, shadow) is Phase 2 header work.
 
+- Collection page round 1 (2026-10-08, live, Figma 69:5443 + mobile 1:7815/1:8411): template
+  trimmed to breadcrumbs + banner + product grid (demo collection slider, rich text, popular
+  search and marquee removed); banner on scheme-1 without image (32/40 title, 16px description);
+  grid 4 columns / 24 per page / numbered pagination / vertical filters / no layout switcher;
+  the demo image card kept as an empty scheme-3 block at position 11 for the merchant. CSS block 7:
+  #F8F8F8 filter boxes with 16/700 headings over #E0E0E0 rules, orange item count, white bordered
+  chips, plain "מיון" select, chevron breadcrumbs, mobile toolbar (filter button, count below).
+  New: `snippets/mk-subcategories.liquid` ("קטגוריות נבחרות" box: children of the collection from
+  `custom.children`, siblings + parent link on a leaf) injected by a logged core edit in
+  `snippets/facets.liquid`; parent trail in `sections/breadcrumbs.liquid` (logged) from
+  `custom.parent_handle`. `scripts/set-collection-children.py` created the `custom.children`
+  (list.collection_reference) definition and filled it on the 18 parent collections (128 links).
+  Locale: "{{ count }} פריטים", "ניקוי", "מיון", new key `collections.general.subcategories` in all
+  7 locale files. Verified on /collections/all (toolbar, sidebar, cards) and on a leaf collection
+  (breadcrumb trail); the sub-category box was verified with a temporary metafield on `frontpage`
+  (removed afterwards) because the imported collections are still empty until products are tagged.
+  Open: sort option names are English until the store language is Hebrew; Search & Discovery
+  filters (גיל, מותג, היילייטס) are merchant setup; mobile sort lives in the filter drawer (Figma
+  shows a separate dropdown); filter drawer styling and the age filter's two-column layout wait for
+  real filters. Theme check 0 errors.
+
 ## Next session runbook — collections import (merchant approved 2026-10-08)
 Secrets `SHOPIFY_SHOP`, `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET` were added to the environment
 (Dev Dashboard app, scopes products/navigation/files) and load only in a NEW session. Decisions approved:

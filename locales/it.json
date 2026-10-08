@@ -314,7 +314,8 @@
       "continue_shopping": "Continua gli acquisti",
       "no_results": "Nessun prodotto corrisponde a questi filtri.",
       "use_fewer_filters": "Usa meno filtri oppure",
-      "items": "Articoli"
+      "items": "Articoli",
+      "subcategories": "Categorie"
     }
   },
   "templates": {

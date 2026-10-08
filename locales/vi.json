@@ -314,7 +314,8 @@
       "continue_shopping": "Tiếp tục mua sắm",
       "no_results": "Không có sản phẩm phù hợp với bộ lọc.",
       "use_fewer_filters": "Thử bớt bộ lọc hoặc",
-      "items": "Sản phẩm"
+      "items": "Sản phẩm",
+      "subcategories": "Danh mục"
     }
   },
   "templates": {

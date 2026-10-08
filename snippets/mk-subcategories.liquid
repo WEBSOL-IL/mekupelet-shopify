@@ -1,0 +1,41 @@
+{%- comment -%}
+  MK: "קטגוריות נבחרות" box at the top of the collection filters (Figma 69:5443).
+  Lists the current collection's sub-categories from `collection.metafields.custom.children`
+  (list.collection_reference, filled by scripts/set-collection-children.py). A leaf collection
+  shows its siblings (the parent's children) so the box is never empty. No catalog loops.
+  Usage: {% render 'mk-subcategories', context: context %}
+{%- endcomment -%}
+{%- liquid
+  assign mk_items = blank
+  assign mk_parent_handle = collection.metafields.custom.parent_handle.value
+  if collection.metafields.custom.children.value.size > 0
+    assign mk_items = collection.metafields.custom.children.value
+  elsif mk_parent_handle != blank
+    assign mk_parent = collections[mk_parent_handle]
+    if mk_parent.metafields.custom.children.value.size > 0
+      assign mk_items = mk_parent.metafields.custom.children.value
+    endif
+  endif
+-%}
+{%- if mk_items != blank -%}
+  <details class="accordion-details facet-accordion-details mk-subcategories" id="MkSubcategories-{{ context }}" is="accordion-details" open aria-expanded="true">
+    <summary class="accordion-details__summary flex items-center justify-between">
+      <span class="h6">{{ 'collections.general.subcategories' | t }}</span>
+      {%- render 'icon-plus-toggle', size: 'small' -%}
+    </summary>
+    <div class="accordion-details__content parent-display">
+      <ul class="mk-subcategories__list list-unstyled flex flex-col gap-3">
+        {%- if mk_parent != blank -%}
+          <li class="mk-subcategories__item mk-subcategories__item--parent">
+            <a href="{{ mk_parent.url }}" class="mk-subcategories__link reversed-link">{{ mk_parent.title | escape }}</a>
+          </li>
+        {%- endif -%}
+        {%- for mk_item in mk_items limit: 12 -%}
+          <li class="mk-subcategories__item{% if mk_item.handle == collection.handle %} mk-subcategories__item--active{% endif %}">
+            <a href="{{ mk_item.url }}" class="mk-subcategories__link reversed-link"{% if mk_item.handle == collection.handle %} aria-current="page"{% endif %}>{{ mk_item.title | escape }}</a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </details>
+{%- endif -%}

@@ -17,6 +17,7 @@
   --mk-color-caption: 155, 155, 155;      /* grey-400 #9B9B9B */
   --mk-color-border: 221, 221, 221;       /* grey-300 #DDDDDD */
   --mk-color-divider: 224, 224, 224;      /* grey-200 #E0E0E0 */
+  --mk-color-page: 248, 248, 248;         /* #F8F8F8 filter boxes (Figma 69:5443) */
   --mk-color-star: 255, 191, 0;           /* yellow #FFBF00 */
   --mk-color-heart: 255, 84, 0;           /* active heart circle */
   --mk-palette-1: #007D91;
@@ -416,4 +417,69 @@
   border-radius: 0.6rem;
   width: 2.8rem;
   height: 2.8rem;
+}
+
+/* 7. Collection page (Figma 69:5443): plain title, boxed filter groups, orange count, chips ------ */
+.template-collection .breadcrumbs,
+.template-collection .breadcrumbs a { font-size: 1.4rem; color: rgb(var(--mk-color-caption)); }
+/* Figma breadcrumbs use chevrons, not Hyper's hairline */
+.breadcrumbs .breadcrumbs--sep { width: auto; height: auto; background: none; margin: 0 0.8rem; color: rgb(var(--mk-color-caption)); line-height: 1; }
+.breadcrumbs .breadcrumbs--sep::before { content: "\2039"; font-size: 1.6rem; }
+.collection-hero .collection-hero__title { font-size: 3.2rem; line-height: 4rem; font-weight: 700; color: rgb(var(--mk-color-heading)); }
+.collection-hero .collection-hero__description { font-size: 1.6rem; line-height: 2.4rem; color: rgb(var(--mk-color-text)); max-width: 72rem; }
+.collection-hero--no-image .collection-hero__info { padding-block: 0 1.6rem; }
+.collection__content { --facet-width: clamp(24rem, calc(21% + 0.6rem), 33.4rem); }
+/* Sidebar: every filter group is a #F8F8F8 box, 16/700 heading over a #E0E0E0 rule */
+#FacetFiltersContainer .facet-accordion-details {
+  background: rgb(var(--mk-color-page));
+  border: 0;
+  border-radius: 0.4rem;
+  padding-inline: 2rem;
+  margin-block-end: 1.6rem;
+}
+#FacetFiltersContainer .facet-accordion-details:last-child { margin-block-end: 0; }
+#FacetFiltersContainer .facet-accordion-details .accordion-details__summary,
+#FacetFiltersContainer .facet-accordion-details:nth-child(2) .accordion-details__summary {
+  padding-block: 2rem 1.4rem;
+  border-block-end: 1px solid rgb(var(--mk-color-divider));
+}
+#FacetFiltersContainer .facet-accordion-details[aria-expanded="true"] .accordion-details__summary { border-color: rgb(var(--mk-color-divider)); }
+#FacetFiltersContainer .facet-accordion-details .accordion-details__content { padding-block: 1.6rem 2rem; margin-top: 0; }
+#FacetFiltersContainer .facet-accordion-details .h6 { font-size: 1.6rem; font-weight: 700; color: rgb(var(--mk-color-text)); }
+#FacetFiltersContainer .facet-accordion-details .filter-item,
+#FacetFiltersContainer .facet-accordion-details label { font-size: 1.6rem; color: rgb(var(--mk-color-text)); }
+.mk-subcategories__list { gap: 1.2rem; }
+.mk-subcategories__link { font-size: 1.6rem; line-height: 2.4rem; color: rgb(var(--mk-color-text)); }
+.mk-subcategories__item--parent .mk-subcategories__link { color: rgb(var(--mk-color-caption)); }
+.mk-subcategories__item--active .mk-subcategories__link { font-weight: 700; }
+/* Toolbar: count in orange, bordered white chips, underlined "clear", plain sort label */
+.collection__toolbar { padding-block: 1.6rem; margin-bottom: 1.6rem; }
+.collection__toolbar #ProductCount { font-size: 1.6rem; font-weight: 600; color: rgb(var(--mk-color-accent)); }
+.facets-active { margin-bottom: 2rem; }
+.facets-active .facet-remove {
+  background: #fff;
+  border: 1px solid rgb(var(--mk-color-border));
+  border-radius: 0.4rem;
+  color: rgb(var(--mk-color-text));
+  font-size: 1.4rem;
+  padding: 0.6rem 1.2rem;
+}
+.facets-active .facet-clear-all { font-size: 1.4rem; text-decoration: underline; text-underline-offset: 0.3rem; }
+#SortByContainer label { font-size: 1.6rem; font-weight: 400; }
+#SortByContainer .facet-short select {
+  --inputs-border-width: 0;
+  border: 0;
+  padding-inline-start: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  background-color: transparent;
+}
+.facet-drawer-button { border-radius: 0.4rem; font-size: 1.6rem; }
+/* Mobile: filter and sort side by side as two bordered controls (Figma 1:7815) */
+@media (max-width: 1023.98px) {
+  .collection__toolbar { gap: 1.2rem; }
+  .collection__toolbar-left { flex-direction: row; flex-wrap: wrap; align-items: center; width: 100%; justify-content: space-between; }
+  .collection__toolbar-left > [data-facet-loading] { order: 3; width: 100%; }
+  .collection__toolbar-right { display: none; }
+  .facet-drawer-button.btn--secondary { border: 1px solid rgb(var(--mk-color-border)); color: rgb(var(--mk-color-text)); }
 }
