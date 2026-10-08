@@ -1,0 +1,621 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "start",
+        "padding_top": 16,
+        "padding_bottom": 12
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "heading_size": "h2",
+        "heading_tag": "h1",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "house": {
+      "type": "brand-logos",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "מותגי הבית",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "heading_tag": "h2",
+        "description": "",
+        "text_size": "text-sm",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "image_padding": "none",
+        "image_width": "large",
+        "columns_desktop": 4,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "grid_bordered": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 30,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      },
+      "blocks": {
+        "a_1": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_18_1.png",
+            "image_link": ""
+          }
+        },
+        "a_2": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_13.png",
+            "image_link": ""
+          }
+        },
+        "a_3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_15.png",
+            "image_link": ""
+          }
+        },
+        "a_4": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_17_1.png",
+            "image_link": "/collections/jaba-daba-do"
+          }
+        },
+        "a_5": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_14.png",
+            "image_link": ""
+          }
+        },
+        "a_6": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_16.png",
+            "image_link": ""
+          }
+        },
+        "a_7": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_27.png",
+            "image_link": ""
+          }
+        },
+        "a_8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_12_1.png",
+            "image_link": ""
+          }
+        },
+        "a_9": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_47.png",
+            "image_link": ""
+          }
+        },
+        "a_10": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_45.png",
+            "image_link": ""
+          }
+        },
+        "a_11": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_43.png",
+            "image_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "a_1",
+        "a_2",
+        "a_3",
+        "a_4",
+        "a_5",
+        "a_6",
+        "a_7",
+        "a_8",
+        "a_9",
+        "a_10",
+        "a_11"
+      ]
+    },
+    "all": {
+      "type": "brand-logos",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "מותגי הבית",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "heading_tag": "h2",
+        "description": "",
+        "text_size": "text-sm",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "image_padding": "none",
+        "image_width": "large",
+        "columns_desktop": 4,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "grid_bordered": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 30,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      },
+      "blocks": {
+        "b_1": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_51.png",
+            "image_link": ""
+          }
+        },
+        "b_2": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_50.png",
+            "image_link": ""
+          }
+        },
+        "b_3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_49.png",
+            "image_link": ""
+          }
+        },
+        "b_4": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_48.png",
+            "image_link": ""
+          }
+        },
+        "b_5": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_52.png",
+            "image_link": ""
+          }
+        },
+        "b_6": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_53.png",
+            "image_link": ""
+          }
+        },
+        "b_7": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_54.png",
+            "image_link": ""
+          }
+        },
+        "b_8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_55.png",
+            "image_link": ""
+          }
+        },
+        "b_9": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_67.png",
+            "image_link": ""
+          }
+        },
+        "b_10": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_66.png",
+            "image_link": ""
+          }
+        },
+        "b_11": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_65.png",
+            "image_link": ""
+          }
+        },
+        "b_12": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_64.png",
+            "image_link": ""
+          }
+        },
+        "b_13": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_71.png",
+            "image_link": ""
+          }
+        },
+        "b_14": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_70.png",
+            "image_link": ""
+          }
+        },
+        "b_15": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_69.png",
+            "image_link": ""
+          }
+        },
+        "b_16": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_68.png",
+            "image_link": ""
+          }
+        },
+        "b_17": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_75.png",
+            "image_link": ""
+          }
+        },
+        "b_18": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_74.png",
+            "image_link": ""
+          }
+        },
+        "b_19": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_73.png",
+            "image_link": ""
+          }
+        },
+        "b_20": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_72.png",
+            "image_link": ""
+          }
+        },
+        "b_21": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_79.png",
+            "image_link": ""
+          }
+        },
+        "b_22": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_78.png",
+            "image_link": ""
+          }
+        },
+        "b_23": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_77.png",
+            "image_link": ""
+          }
+        },
+        "b_24": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_76.png",
+            "image_link": ""
+          }
+        },
+        "b_25": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_83.png",
+            "image_link": ""
+          }
+        },
+        "b_26": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_82.png",
+            "image_link": ""
+          }
+        },
+        "b_27": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_81.png",
+            "image_link": ""
+          }
+        },
+        "b_28": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_80.png",
+            "image_link": ""
+          }
+        },
+        "b_29": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_87.png",
+            "image_link": ""
+          }
+        },
+        "b_30": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_86.png",
+            "image_link": ""
+          }
+        },
+        "b_31": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_85.png",
+            "image_link": ""
+          }
+        },
+        "b_32": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_84.png",
+            "image_link": ""
+          }
+        },
+        "b_33": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_91.png",
+            "image_link": ""
+          }
+        },
+        "b_34": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_90.png",
+            "image_link": ""
+          }
+        },
+        "b_35": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_89.png",
+            "image_link": ""
+          }
+        },
+        "b_36": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_88.png",
+            "image_link": ""
+          }
+        },
+        "b_37": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_95.png",
+            "image_link": ""
+          }
+        },
+        "b_38": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_94.png",
+            "image_link": ""
+          }
+        },
+        "b_39": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_93.png",
+            "image_link": ""
+          }
+        },
+        "b_40": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_92.png",
+            "image_link": ""
+          }
+        },
+        "b_41": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_99.png",
+            "image_link": ""
+          }
+        },
+        "b_42": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_98.png",
+            "image_link": ""
+          }
+        },
+        "b_43": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_97.png",
+            "image_link": ""
+          }
+        },
+        "b_44": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_96.png",
+            "image_link": ""
+          }
+        },
+        "b_45": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_103.png",
+            "image_link": ""
+          }
+        },
+        "b_46": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_102.png",
+            "image_link": ""
+          }
+        },
+        "b_47": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_101.png",
+            "image_link": ""
+          }
+        },
+        "b_48": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_100.png",
+            "image_link": ""
+          }
+        },
+        "b_49": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_107.png",
+            "image_link": ""
+          }
+        },
+        "b_50": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_106.png",
+            "image_link": ""
+          }
+        },
+        "b_51": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_105.png",
+            "image_link": ""
+          }
+        },
+        "b_52": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_104.png",
+            "image_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "b_1",
+        "b_2",
+        "b_3",
+        "b_4",
+        "b_5",
+        "b_6",
+        "b_7",
+        "b_8",
+        "b_9",
+        "b_10",
+        "b_11",
+        "b_12",
+        "b_13",
+        "b_14",
+        "b_15",
+        "b_16",
+        "b_17",
+        "b_18",
+        "b_19",
+        "b_20",
+        "b_21",
+        "b_22",
+        "b_23",
+        "b_24",
+        "b_25",
+        "b_26",
+        "b_27",
+        "b_28",
+        "b_29",
+        "b_30",
+        "b_31",
+        "b_32",
+        "b_33",
+        "b_34",
+        "b_35",
+        "b_36",
+        "b_37",
+        "b_38",
+        "b_39",
+        "b_40",
+        "b_41",
+        "b_42",
+        "b_43",
+        "b_44",
+        "b_45",
+        "b_46",
+        "b_47",
+        "b_48",
+        "b_49",
+        "b_50",
+        "b_51",
+        "b_52"
+      ]
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main",
+    "house",
+    "all"
+  ]
+}

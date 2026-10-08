@@ -594,3 +594,10 @@
 @media (max-width: 767.98px) {
   .product__block--grid-icon-box .grid-icon-box { padding: 1.4rem 0.6rem 1.2rem; font-size: 1.2rem; line-height: 1.6rem; }
 }
+
+/* 9. Migrated content pages: icon columns in the WhatsApp block stay icon-sized (sections named "whatsapp") */
+.shopify-section[id$="__whatsapp"] .multicolumn .card-media__media {
+  width: 8rem;
+  margin-inline: auto;
+}
+.shopify-section[id$="__whatsapp"] .multicolumn .card-media { align-items: center; }
