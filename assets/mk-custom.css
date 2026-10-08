@@ -11,6 +11,7 @@
   --mk-font-family: "Simpler Pro", Arial, Helvetica, sans-serif;
   --mk-color-action: 0, 130, 152;         /* teal-600 #008298 primary buttons */
   --mk-color-action-alt: 0, 128, 148;     /* #008094 add-to-cart */
+  --mk-color-action-dark: 0, 101, 118;    /* #006576 add-to-cart hover */
   --mk-color-accent: 255, 84, 0;          /* orange #FF5400 sale price, tab underline */
   --mk-color-heading: 53, 53, 53;         /* grey-800 #353535 */
   --mk-color-text: 28, 28, 28;            /* grey-900 #1C1C1C */
@@ -207,6 +208,15 @@
   color: #fff;
   border-color: rgb(var(--mk-color-action-alt));
 }
+/* Hover: darker teal with white text (Hyper inverts primary buttons to white, which hid the label) */
+.product-card .product-card__atc:hover,
+.product-card .product-card__atc:focus-visible {
+  background: rgb(var(--mk-color-action-dark));
+  border-color: rgb(var(--mk-color-action-dark));
+  color: #fff;
+}
+.product-card .product-card__atc::before,
+.product-card .product-card__atc::after { display: none; }
 .product-card .product-card__atc .product-card__atc-icon { display: none; }
 .product-card .product-card__atc .product-card__atc-text { display: inline; }
 .product-card .product-card__quickview,
