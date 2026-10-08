@@ -6,5 +6,6 @@ docs/figma/*.tmp
 # Figma manual exports (large PNG/SVG); only the manifest is tracked
 docs/figma/exports/*
 !docs/figma/exports/manifest.md
+!docs/figma/exports/assets/
 # Lighthouse raw reports
 docs/lighthouse/raw/
