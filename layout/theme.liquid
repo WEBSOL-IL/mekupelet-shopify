@@ -65,6 +65,11 @@
       endif
     -%}
 
+    {%- comment -%} MK-CUSTOM start: self-hosted fonts + single custom stylesheet (docs/CUSTOMIZATIONS.md) {%- endcomment -%}
+    {%- render 'mk-fonts' -%}
+    {{ 'mk-custom.css' | asset_url | stylesheet_tag }}
+    {%- comment -%} MK-CUSTOM end {%- endcomment -%}
+
     {%- comment -%}
       Not on the critical path: compare.css styles the compare checkboxes and drawer, which only
       show after an interaction, so it loads with the print/onload swap the cart drawer already

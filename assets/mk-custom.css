@@ -1,0 +1,57 @@
+/*
+  MK custom stylesheet (Mekupelet). Loaded once from layout/theme.liquid after theme.css / rtl.css.
+  Rules: build on Hyper's CSS variables, logical properties only, BEM with the mk- prefix for new
+  classes. Values marked PROVISIONAL come from previews and are refined from the Figma 2x exports.
+  Sections: 1 tokens, 2 typography, 3 buttons, 4 header/nav, 5 product card + badges, 6 home sections.
+*/
+
+/* 1. Tokens ---------------------------------------------------------------------------------- */
+:root {
+  --mk-font-family: "Simpler Pro", Arial, Helvetica, sans-serif;
+  --mk-color-action: 29, 52, 154;        /* PROVISIONAL action blue (#1D349A, from existing settings) */
+  --mk-color-action-text: 255, 255, 255;
+  --mk-color-star: 245, 184, 0;          /* PROVISIONAL review star color */
+  --mk-color-heart: 229, 62, 97;         /* PROVISIONAL wishlist heart color */
+  --mk-color-tile: 250, 240, 236;        /* PROVISIONAL soft tile background (category circles, feature tiles) */
+  --mk-radius-tile: 2.4rem;              /* PROVISIONAL rounded tile radius */
+}
+
+/* 2. Typography: route every Hyper font family to Simpler Pro --------------------------------- */
+:root {
+  --font-body-family: var(--mk-font-family);
+  --font-heading-family: var(--mk-font-family);
+  --font-subheading-family: var(--mk-font-family);
+  --font-navigation-family: var(--mk-font-family);
+  --font-button-family: var(--mk-font-family);
+  --font-pcard-title-family: var(--mk-font-family);
+  --font-pcard-price-family: var(--mk-font-family);
+  --font-pcard-badge-family: var(--mk-font-family);
+  --font-body-style: normal;
+  --font-heading-style: normal;
+  --font-pcard-title-style: normal;
+  --font-pcard-price-style: normal;
+  --font-pcard-badge-style: normal;
+  --font-body-weight: 400;
+  --font-body-weight-bolder: 600;
+  --font-body-weight-bold: 700;
+  --font-heading-weight: 700;
+}
+
+/* 4. Header / navigation: gray border, no shadow (designer decision G2) ------------------------ */
+.header-sticky.header-scrolled .header__bottom,
+.is-hide-nav .header__top {
+  box-shadow: none;
+}
+
+/* 5. Product card: square border around every card (designer decision G3) -------------------- */
+.product-card .product-card__wrapper {
+  border: 1px solid rgba(var(--color-border), var(--color-border-alpha, 1));
+  border-radius: 0;
+}
+.product-card .product-card__image-wrapper {
+  border-radius: 0;
+}
+.product-card .product-card__info {
+  padding-inline: 1.2rem;
+  padding-block-end: 1.2rem;
+}

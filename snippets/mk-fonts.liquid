@@ -1,0 +1,32 @@
+{%- comment -%}
+  MK: self-hosted Simpler Pro (Hagilda web license, see docs/fonts/). Three static weights:
+  400 regular, 600 semibold, 700 bold. font-display: swap. Only the two faces used above the fold
+  (regular + bold) are preloaded; the semibold face is discovered through the @font-face rule.
+  Hyper's own font variables are overridden in assets/mk-custom.css (--font-*-family / weight).
+  Usage: {% render 'mk-fonts' %} in layout/theme.liquid head, after 'css-variables'.
+{%- endcomment -%}
+{{ 'mk-simplerpro-regular.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+{{ 'mk-simplerpro-bold.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+<style>
+  @font-face {
+    font-family: "Simpler Pro";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("{{ 'mk-simplerpro-regular.woff2' | asset_url }}") format("woff2");
+  }
+  @font-face {
+    font-family: "Simpler Pro";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("{{ 'mk-simplerpro-semibold.woff2' | asset_url }}") format("woff2");
+  }
+  @font-face {
+    font-family: "Simpler Pro";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("{{ 'mk-simplerpro-bold.woff2' | asset_url }}") format("woff2");
+  }
+</style>
