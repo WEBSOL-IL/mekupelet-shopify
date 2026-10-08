@@ -1,0 +1,183 @@
+# Mekupelet – design tokens extracted from Figma (file YOVayNJZ1olagd5NLKXMzJ)
+# Source: Figma Design panel (view-only Inspect), read manually on 2026-10-08.
+# Dev Mode is locked on the Starter plan ("Upgrade to work in Dev Mode"), so these
+# values come from the Design panel, not from Dev Mode → Code → CSS.
+# Frames used: 18:4094 (home, approved revision) and 1:806 (header + mega menu).
+# Font: every text layer uses "SimplerPro_HLAR" (shown as MISSING font on this
+# account → the real font files must be obtained from the designer). The hero
+# block (141:4440 area) uses Inter instead (probably a pasted option, see notes).
+# There are NO local styles and NO variables in this file (checked both panels).
+
+## button-primary            (18:4094 → Frame 31 "מצאו לי מוצרים", also Frame 32 "הצג את כל המותגים")
+display: flex; align-items: center; justify-content: center;
+width: 157px; height: 45px;          /* hug contents */
+padding: 13px 30px;  gap: 10px;
+border-radius: 100px;                /* Frame 32 uses 34px – same visual pill */
+background: #008298;                 /* Frame 32: #008094 */
+color: #FFFFFF;
+font-family: SimplerPro_HLAR; font-weight: 600 (Semibold); font-size: 14px;
+
+## button-primary-hover
+(no hover variant exists in the file)
+
+## button-secondary          (18:4094 → "רכישה לפי גיל" age buttons, Group 148)
+width: 316px; height: 70px; border-radius: 50px;
+background: #00BA57;                 /* other age buttons: orange, yellow, purple, pink, cyan – same shape */
+color: #FFFFFF;
+font-family: SimplerPro_HLAR; font-weight: 400; font-size: 20px;
+
+## button-outline            (product-card add-to-cart, Group 213 "הוסף לעגלה")
+width: 84px; height: 28px; border-radius: 4px;
+background: #008094; color: #FFFFFF;
+font-family: SimplerPro_HLAR; font-weight: 600; font-size: 12px;
+/* stroke layer #9B9B9B 1px exists but is hidden */
+
+## hero-button               (hero "התחילו לבחור משחקים", 141:4449 – vector shape, not auto-layout)
+width: 166px; height: 20px (text); color: #007D91;
+font-family: Inter; font-weight: 400; font-size: 16.89px;
+
+## product-card              (Rectangle 67 inside card groups)
+width: 290px; height: 400px;
+border-radius: 10px;
+background: #FFFFFF;
+border: 1px solid #DDDDDD;           /* stroke inside */
+box-shadow: none;
+/* product image inside the card: 305×210, border-radius 10px */
+
+## product-card-title        (Frame 57 text)
+width: 248px;
+font-family: SimplerPro_HLAR; font-weight: 600; font-size: 14px; color: #1C1C1C;
+
+## product-card-vendor / caption   ("Moulin Roty")
+font-family: SimplerPro_HLAR; font-weight: 400; font-size: 14px; color: #9B9B9B;
+
+## product-card-price        ("₪ 139")
+font-family: SimplerPro_HLAR; font-weight: 600; font-size: 16px; color: #1C1C1C;
+
+## product-card-sale-price   (card with discount)
+font-family: SimplerPro_HLAR; font-weight: 600; font-size: 16px; color: #FF5400;
+
+## product-card-compare-price
+/* second "₪ 139" layer in Frame 52 – rendered gray with strike-through; could not be
+   selected separately (overlaps the sale price). Visually: #9B9B9B, 16px, line-through. */
+
+## badge-sale                (Frame 51 "הנחה 20%")
+height: 25px; padding: 4px 10px; gap: 10px; border-radius: 60px;
+background: rgba(255, 84, 0, 0.25);  /* #FF5400 @ 25% */
+border: 1px solid #9B9B9B (inside);  /* stroke listed, appears disabled */
+font-family: SimplerPro_HLAR; font-weight: 600; font-size: 12px; color: #1C1C1C;
+
+## badge-bestseller          (Frame 51 "בסט סלר")
+height: 25px; padding: 4px 8px; border-radius: 60px;
+background: rgba(103, 219, 222, 0.25); /* #67DBDE @ 25% */
+font: SimplerPro_HLAR 600 12px; color: #3B0D15;
+
+## badge-new                 (Frame 51 "חדש")
+height: 25px; padding: 4px 4px; border-radius: 60px;
+background: rgba(255, 191, 0, 0.25);   /* #FFBF00 @ 25% */
+font: SimplerPro_HLAR 600 12px; color: #3B0D15;
+
+## icon-heart / icon-heart-active   (product card wishlist)
+icon: 14 × 12.46px vector; inactive fill #1C1C1C; active: white heart on orange circle (fill #FFFFFF)
+
+## input                     (header search field, Rectangle 66 area)
+width: 259px; height: 40px; border-radius: 5px;
+background: #FFFFFF; border: 1px solid #DDDDDD (inside);
+
+## input-newsletter          (Group 74 / Rectangle 31 "האימייל שלך")
+width: 378px; height: 55px; border-radius: 0;
+background: #FFFFFF; border: 2px solid #1C1C1C;
+/* arrow icon inside (Arrow 1), placeholder text #1C1C1C */
+
+## input-focus
+(no focus variant exists in the file)
+
+## filter-bar                (Group 139 – age / category / brand selects)
+width: 1312px; height: 85px; border-radius: 100px; border: 1px (mixed colors);
+select label: SimplerPro_HLAR 600 14px #353535;
+
+## nav-bar                   (header "Frame 5", header container 1440×189)
+display: flex; gap: 25px; padding: 0;
+background: none (page background #FFFFFF); border: none; box-shadow: none;
+nav item: SimplerPro_HLAR 700 (Bold) 14px; color: #1C1C1C;
+
+## mega-menu-panel           (1:806 → Rectangle 122)
+width: 1440px; height: 437px; top: 192px;
+background: #FFFFFF; border: none; border-radius: 0;
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+column heading: SimplerPro_HLAR 600 14px #1C1C1C;
+column link:    SimplerPro_HLAR 400 14px #6B6B6B;
+column divider: 1px solid #E0E0E0 (Line 29, 360px);
+promo image: 210 × 110 ("WINTER SALE")
+
+## usp-bar                   (1:806 → Rectangle 1)
+width: 1440px; height: 53px; background: #E9E9E9;
+text: SimplerPro_HLAR 400 16px #3F3F3F;
+
+## h1                        (hero – Inter, see note)
+font-family: Inter; font-weight: 700; font-size: 49.17px; color: #FFFFFF;
+## h1-sub                    (hero subtitle)
+font-family: Inter; font-weight: 400; font-size: 41.91px; color: #FFFFFF;
+
+## h2 / section-heading      ("קטגוריות נבחרות", "המוצרים שלנו", "ביקורות")
+font-family: SimplerPro_HLAR; font-weight: 700; font-size: 32px; line-height: 40px; color: #353535;
+
+## h3                        (newsletter "חדשים באתר?", footer phone)
+font-family: SimplerPro_HLAR; font-weight: 700; font-size: 24px; color: #353535 (on white) / #FFFFFF (on footer);
+
+## h4                        (footer column heading "חשוב לדעת")
+font-family: SimplerPro_HLAR; font-weight: 700; font-size: 20px; color: #FFFFFF;
+
+## body                      (newsletter sub-line)
+font-family: SimplerPro_HLAR; font-weight: 400; font-size: 20px; color: #1C1C1C;
+
+## body-small                (review text, consent text)
+font-family: SimplerPro_HLAR; font-weight: 400; font-size: 16px; line-height: 24px; color: #1C1C1C;
+
+## review-author             ("שם מלא")
+font-family: SimplerPro_HLAR; font-weight: 700; font-size: 16px; line-height: 24px; color: #1C1C1C;
+
+## caption
+font-family: SimplerPro_HLAR; font-weight: 400; font-size: 14px; color: #9B9B9B;
+
+## price
+see product-card-price / product-card-sale-price
+
+## link                      (footer links, mega-menu links)
+font-family: SimplerPro_HLAR; font-weight: 400; font-size: 16px; color: #FFFFFF (footer) / #6B6B6B (mega menu); text-decoration: none;
+
+## newsletter-section        (Rectangle 30)
+width: 1440px; height: 386px; background: rgba(59, 214, 217, 0.73); /* #3BD6D9 @ 73% */
+
+## footer-background         (Rectangle 15)
+width: 1440px; height: 375px; background: #312E7D;
+
+## footer-text
+font-family: SimplerPro_HLAR; font-weight: 400; font-size: 16px; color: #FFFFFF;
+
+## divider
+1px solid #E0E0E0
+
+## page / frame
+page background #F5F5F5; frame 18:4094 = 1440 × 5799, fill #FFFFFF, 12-column layout guide,
+export preset on the frame: JPEG 1x. Frame 1:806 = 1440 × 729 (export preset PDF).
+
+## colour palette (collected)
+teal-700   #007D91   hero button text
+teal-600   #008298 / #008094   primary buttons
+teal-500   #00B294   (Frame 92 button in the brands section)
+cyan       #3BD6D9 (73%)  newsletter bg;  #67DBDE badge-bestseller
+green      #00BA57   age button
+orange     #FF5400   sale price / badge-sale
+yellow     #FFBF00   badge-new
+navy       #312E7D   footer
+grey-900   #1C1C1C   body / nav
+grey-800   #353535   headings
+grey-700   #3F3F3F   usp text
+grey-500   #6B6B6B   mega-menu links
+grey-400   #9B9B9B   captions / disabled strokes
+grey-300   #DDDDDD   input & card borders
+grey-200   #E0E0E0   dividers
+grey-100   #E9E9E9   usp bar
+grey-50    #F5F5F5   page bg
+wine       #3B0D15   badge text

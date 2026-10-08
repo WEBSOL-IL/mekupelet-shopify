@@ -32,3 +32,10 @@ templates reference (`shopify://shop_images/<name>`); upload them to Files uncha
 | Instagram icon | `OBJECTS_1.png` 132×132 | new icon per `69:7521`; request SVG |
 | Box photo | `image35.png` 1923×1434 | Mekupelet box (boxes section / about) |
 | Kids photo | `Rectangle_69_1.png` 1425×1014 | two girls on pink/yellow; not placed on Home in the previews (about / banner?) |
+
+## Full Figma export package (Google Drive, received 2026-10-08)
+Source: the merchant's Drive file (124 MB zip, `exports/`). Contents: 58 frames PNG @2x
+(`frames/`, kept locally only: 115 MB, gitignored; re-download from Drive when a new session needs
+them), 28 assets (`assets/figma/`, tracked), fonts (already in `assets/mk-simplerpro-*.woff2`),
+`tokens-devmode.txt` → `docs/figma/tokens-devmode.txt`, the package manifest →
+`manifest-figma-package.md`, README → `README-figma-export.md`.
