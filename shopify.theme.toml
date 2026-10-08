@@ -1,0 +1,6 @@
+# Shopify CLI environment file. Use with `-e dev`, e.g.
+#   shopify theme list -e dev
+# The theme ID is intentionally NOT set here: every push/dev must pass
+# `--theme 189111500994 --allow-live` explicitly (see CLAUDE.md, RULES: SAFETY).
+[environments.dev]
+store = "yxmgh4-cn.myshopify.com"

@@ -3,3 +3,8 @@ node_modules/
 .DS_Store
 *.log
 docs/figma/*.tmp
+# Figma manual exports (large PNG/SVG); only the manifest is tracked
+docs/figma/exports/*
+!docs/figma/exports/manifest.md
+# Lighthouse raw reports
+docs/lighthouse/raw/

@@ -1,7 +1,8 @@
 # Mekupelet Shopify theme — project rules
 
 ## Project
-- Store: `mekupelet-store.myshopify.com` (in development, no customers; migration of mekupelet.co.il from WooCommerce). Not launched.
+- Store: `yxmgh4-cn.myshopify.com` (in development, no customers; migration of mekupelet.co.il from WooCommerce). Not launched.
+  Always pass `--store yxmgh4-cn.myshopify.com` to the CLI (the Theme Access token is bound to this domain; `shopify.theme.toml` sets it as default).
 - Theme: Hyper by FoxEcom (purchased, OS 2.0). Docs: https://docs.foxecom.com/hyper-theme
 - Design: Figma file key `YOVayNJZ1olagd5NLKXMzJ` (single page `0:1`). Frame map: `docs/figma-frame-map.md`.
 - Language: Hebrew, RTL only. Currency: ILS. Catalog: 4,000+ products. **Performance is the top priority.**
@@ -10,8 +11,12 @@
 ## Theme IDs
 | Role | ID | Notes |
 |---|---|---|
-| WORKING (published) | `154698219714` | The ONLY theme we may write to. Pass `--theme 154698219714 --allow-live` on every push/dev. |
-| BACKUP (duplicate) | _TBD — fill from `shopify theme list`_ | DO NOT TOUCH: never write, rename, publish or delete. |
+| WORKING (published) | `189111500994` | Hyper **1.5.0**, role `main`, created 2026-10-07. The ONLY theme we may write to. Pass `--theme 189111500994 --allow-live` on every push/dev. |
+| BACKUP (unpublished) | `154698219714` | Hyper **1.4.0**, created 2026-08-03. Pre-update snapshot with identical settings/templates. DO NOT TOUCH: never write, rename, publish or delete. |
+| (other) | `154250444994` dawn | Not ours. Ignore. |
+
+Confirmed with the merchant on 2026-10-08. Before every push, run `shopify theme list --store yxmgh4-cn.myshopify.com`
+and confirm `189111500994` is still `[live]`; stop if the roles changed.
 
 ## Session routine
 - Read `docs/progress.md` first and update it at the end of every work session (done / in progress / open questions).
@@ -35,6 +40,10 @@ Other rules:
 - No new libraries, apps or external scripts without merchant approval.
 
 ## RULES: FIGMA WORKFLOW
+- Figma MCP access is quota-limited (team on the Starter plan: 20 tool calls per month; exhausted
+  2026-10-07). The merchant exports frames/assets/values manually per `docs/figma/EXPORT-CHECKLIST.md`
+  into `docs/figma/exports/` (large PNGs are gitignored; `docs/figma/exports/manifest.md` is tracked).
+  If the quota resets, spend MCP calls only on targeted section-level nodes, never on page frames.
 - Never pull a whole page frame as code. Work section by section: get_design_context on
   the section-level node, plus its screenshot and variable definitions.
 - Treat Figma's generated code (React/Tailwind) as a reference for values only. Translate
@@ -74,12 +83,12 @@ Other rules:
 ## RULES: SAFETY
 - Work in git. One commit per section/component, clear messages. Git is the ongoing
   backup; the duplicate theme in the store is only a snapshot of the starting point.
-- The only theme we may write to is 154698219714. It is published, so pass
+- The only theme we may write to is 189111500994. It is published, so pass
   --allow-live, and ALWAYS pass the theme ID explicitly:
-  `shopify theme dev --store mekupelet-store.myshopify.com --theme 154698219714 --allow-live --theme-editor-sync`
-  `shopify theme push --store mekupelet-store.myshopify.com --theme 154698219714 --allow-live --nodelete`
-- Never use the `--live` shortcut, never push without `--theme 154698219714`, never
-  publish, unpublish, rename or delete any theme, never write to the backup duplicate.
+  `shopify theme dev --store yxmgh4-cn.myshopify.com --theme 189111500994 --allow-live --theme-editor-sync`
+  `shopify theme push --store yxmgh4-cn.myshopify.com --theme 189111500994 --allow-live --nodelete`
+- Never use the `--live` shortcut, never push without `--theme 189111500994`, never
+  publish, unpublish, rename or delete any theme, never write to the backup 154698219714.
 - The merchant also edits this theme in the admin theme editor. Before changing any JSON file
   (templates/*.json, sections/*.json, config/settings_data.json), pull the current remote
   version of that file and merge into it. Never overwrite editor changes with a stale
