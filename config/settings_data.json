@@ -19,10 +19,10 @@
     "favicon": "shopify://shop_images/24aadcfe64bc433aa798ddc7eaf6d053.png",
     "color_badge_hot": "#1d349a",
     "color_badge_new": "#0d8756",
-    "type_body_font": "instrument_sans_n5",
+    "type_body_font": "arial_n4",
     "body_font_weight_bolder": "600",
     "body_font_size": 15,
-    "type_header_font": "instrument_sans_n7",
+    "type_header_font": "arial_n7",
     "heading_scale": 100,
     "heading_mobile_scale": 70,
     "subheading_scale": 106,
@@ -43,7 +43,7 @@
     "buttons_corner_radius": "round",
     "inputs_corner_radius": "round",
     "blocks_corner_radius": "slightly",
-    "pcard_corner_radius": "slightly",
+    "pcard_corner_radius": "square",
     "badges_corner_radius": "round",
     "pcard_style": "standard",
     "pcard_color_scheme": "scheme-1",
@@ -101,7 +101,7 @@
           "subtext": "#666666",
           "background": "#ffffff",
           "secondary_background": "#ededed",
-          "button": "#000000",
+          "button": "#1d349a",
           "button_label": "#ffffff",
           "secondary_button": "#ededed",
           "secondary_button_border": "#ededed",
@@ -397,7 +397,13 @@
           "progress_bar_color": "#0d8756"
         }
       }
-    }
+    },
+    "pcard_choose_options_actions": "product_page",
+    "product_new_tags": "חדש\nNew",
+    "product_hot_tags": "רב מכר\nBestseller",
+    "enable_page_transition": false,
+    "enable_scroll_animations": false,
+    "enable_product_compare": false
   },
   "presets": {
     "Hyper": {
