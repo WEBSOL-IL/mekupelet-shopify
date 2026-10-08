@@ -36,7 +36,7 @@
             "heading": "חשוב לדעת",
             "heading_size": "h6",
             "heading_tag": "h3",
-            "menu": "main-menu",
+            "menu": "footer-1",
             "open_default": false,
             "show_divider": false
           }
@@ -45,10 +45,10 @@
           "type": "menu",
           "settings": {
             "block_width": 18,
-            "heading": "חשוב לדעת",
+            "heading": "שירות",
             "heading_size": "h6",
             "heading_tag": "h3",
-            "menu": "main-menu",
+            "menu": "footer-2",
             "open_default": false,
             "show_divider": false
           }
@@ -57,10 +57,10 @@
           "type": "menu",
           "settings": {
             "block_width": 18,
-            "heading": "חשוב לדעת",
+            "heading": "קטגוריות",
             "heading_size": "h6",
             "heading_tag": "h3",
-            "menu": "main-menu",
+            "menu": "footer-3",
             "open_default": false,
             "show_divider": false
           }
@@ -69,10 +69,10 @@
           "type": "menu",
           "settings": {
             "block_width": 18,
-            "heading": "חשוב לדעת",
+            "heading": "לפי גיל",
             "heading_size": "h6",
             "heading_tag": "h3",
-            "menu": "main-menu",
+            "menu": "footer-4",
             "open_default": false,
             "show_divider": false
           }

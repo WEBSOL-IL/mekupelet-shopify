@@ -150,6 +150,20 @@ Figma exports.
   badges appear only once products carry the `חדש`/`רב מכר` tags, wishlist heart (no native
   wishlist in Hyper; app or skip), newsletter arrow-inside-field variant (kept Hyper's button).
 
+- Navigation (2026-10-08, after the collections import ran in the merchant's session: 472
+  collections, 154 categories / 316 brands, 26 roots): `scripts/create-menus.py` +
+  `docs/import/menus.json` built `main-menu` (11 items per Figma 1:806, three levels where the
+  tree has them) and `footer-1..4` (חשוב לדעת / שירות / קטגוריות / לפי גיל) with `menuUpdate` /
+  `menuCreate`. Pages resolved through the Shopify connector (the app token has no pages scope).
+  Header: four `promotion_banner` blocks with `menu_title` only (no promo images) turn the deep
+  items into column mega menus (Hyper renders a plain dropdown otherwise); `menu_mobile` set.
+  Footer blocks now point at footer-1..4. Verified live at 1440 (mega menus, dropdown, footer) and
+  390 (drawer, sub-level, footer accordion): `docs/screenshots/nav-*` and `footer-menus-*`.
+  Assumptions to confirm: "מתנות" → all products, "מותגים" → `/pages/brands` (page still to be
+  created in Phase 4), "הדרכת הורים" → the blog (no categories yet), "חגים ומסיבה" and "מבצעים" got
+  dropdowns although the design shows no chevron. Mega menu styling (14/600 headings, #6B6B6B
+  links, #E0E0E0 dividers, shadow) is Phase 2 header work.
+
 ## Next session runbook — collections import (merchant approved 2026-10-08)
 Secrets `SHOPIFY_SHOP`, `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET` were added to the environment
 (Dev Dashboard app, scopes products/navigation/files) and load only in a NEW session. Decisions approved:

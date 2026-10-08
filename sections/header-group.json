@@ -44,7 +44,7 @@
         "container": "fixed",
         "color_scheme": "scheme-1",
         "menu": "main-menu",
-        "menu_mobile": "",
+        "menu_mobile": "main-menu",
         "header_layout": "logo-center",
         "menu_trigger": "hover",
         "sticky_header": "always",
@@ -61,7 +61,47 @@
         "navigation_content_alignment": "center",
         "navigation_padding_top": 0,
         "navigation_padding_bottom": 12
-      }
+      },
+      "blocks": {
+        "mega_toys": {
+          "type": "promotion_banner",
+          "settings": {
+            "menu_title": "משחקים וצעצועים",
+            "menu_columns": 6,
+            "enable_hl_link": false
+          }
+        },
+        "mega_skills": {
+          "type": "promotion_banner",
+          "settings": {
+            "menu_title": "פיתוח מיומנויות",
+            "menu_columns": 4,
+            "enable_hl_link": false
+          }
+        },
+        "mega_boxes": {
+          "type": "promotion_banner",
+          "settings": {
+            "menu_title": "קופסאות ומארזים",
+            "menu_columns": 4,
+            "enable_hl_link": false
+          }
+        },
+        "mega_home": {
+          "type": "promotion_banner",
+          "settings": {
+            "menu_title": "כלי בית ואקססוריז",
+            "menu_columns": 5,
+            "enable_hl_link": false
+          }
+        }
+      },
+      "block_order": [
+        "mega_toys",
+        "mega_skills",
+        "mega_boxes",
+        "mega_home"
+      ]
     }
   },
   "order": [
