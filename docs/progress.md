@@ -53,3 +53,23 @@ Any new session: read `CLAUDE.md`, then this file, then resume from "In progress
   **No Hebrew locale file** (`locales/` = en, de, es, fr, it, vi).
 - Hyper audit (3 parallel read-only agents), baseline Lighthouse mobile and
   `docs/implementation-plan.md`: see below.
+- Hyper audit done (architecture, commerce components, templates/locales) and folded into
+  `docs/implementation-plan.md` §1. Baseline Lighthouse mobile (`docs/lighthouse/baseline.md`):
+  Home 75 / Collection 72 / Product 69, CLS 0, TBT ~0.5 s. Script: `scripts/lighthouse-mobile.sh`.
+- `docs/implementation-plan.md` written (audit, token map, global decisions + mobile adaptation,
+  section mapping with tiers/effort, data models, asset inventory, 14 open questions).
+
+### Blocked
+- Figma values and the per-template original-vs-revision diff wait for the manual exports
+  (`docs/figma/EXPORT-CHECKLIST.md`). The plan marks those parts **[needs Figma exports]**.
+- Storefront requests to `yxmgh4-cn.myshopify.com` are denied by the environment network policy;
+  `mekupelet-store.myshopify.com` (same store) works and is used for Lighthouse/curl.
+
+### In progress
+- Phase 0 waiting for merchant approval of `docs/implementation-plan.md` and answers to its
+  open questions. No theme code before approval.
+
+### Open questions (for the merchant)
+See `docs/implementation-plan.md` §8 (Q1–Q14). Highest impact: Q5 Hebrew locale, Q6 Hebrew fonts,
+Q7 origin of Hyper 1.5.0, Q13 performance toggles, Q14 custom stylesheet location, plus the
+Figma exports.
