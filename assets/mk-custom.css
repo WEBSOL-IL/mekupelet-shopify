@@ -6,25 +6,30 @@
   Sections: 1 tokens, 2 typography, 3 header, 4 product card + badges + tabs, 5 home sections.
 */
 
-/* 1. Tokens ---------------------------------------------------------------------------------- */
+/* 1. Tokens (from docs/figma/tokens-devmode.txt, Figma 18:4094 / 1:806) ---------------------- */
 :root {
   --mk-font-family: "Simpler Pro", Arial, Helvetica, sans-serif;
-  --mk-color-action: 25, 132, 146;        /* PROVISIONAL action teal #198492 (also scheme-1 button) */
-  --mk-color-accent: 214, 113, 63;        /* PROVISIONAL orange #d6713f: tab underline, sale price */
-  --mk-color-star: 242, 193, 36;          /* PROVISIONAL review stars */
-  --mk-color-heart: 255, 102, 31;         /* PROVISIONAL active wishlist heart */
-  /* PROVISIONAL brand palette used in rotation (category rings, feature icons) */
-  --mk-palette-1: #198492;
-  --mk-palette-2: #ff661f;
-  --mk-palette-3: #f58ec5;
-  --mk-palette-4: #3bd6d8;
-  --mk-palette-5: #f2c124;
-  --mk-palette-6: #8861ec;
-  --mk-palette-7: #12b15c;
-  --mk-radius-card: var(--pcard-radius, 1rem);
+  --mk-color-action: 0, 130, 152;         /* teal-600 #008298 primary buttons */
+  --mk-color-action-alt: 0, 128, 148;     /* #008094 add-to-cart */
+  --mk-color-accent: 255, 84, 0;          /* orange #FF5400 sale price, tab underline */
+  --mk-color-heading: 53, 53, 53;         /* grey-800 #353535 */
+  --mk-color-text: 28, 28, 28;            /* grey-900 #1C1C1C */
+  --mk-color-caption: 155, 155, 155;      /* grey-400 #9B9B9B */
+  --mk-color-border: 221, 221, 221;       /* grey-300 #DDDDDD */
+  --mk-color-divider: 224, 224, 224;      /* grey-200 #E0E0E0 */
+  --mk-color-star: 255, 191, 0;           /* yellow #FFBF00 */
+  --mk-color-heart: 255, 84, 0;           /* active heart circle */
+  --mk-palette-1: #007D91;
+  --mk-palette-2: #FF5400;
+  --mk-palette-3: #FF75BB;
+  --mk-palette-4: #3BD6D9;
+  --mk-palette-5: #FFBF00;
+  --mk-palette-6: #8861EC;
+  --mk-palette-7: #00BA57;
+  --mk-radius-card: 1rem;
 }
 
-/* 2. Typography: route every Hyper font family to Simpler Pro --------------------------------- */
+/* 2. Typography: route every Hyper font family to Simpler Pro; heading sizes per tokens ------- */
 :root {
   --font-body-family: var(--mk-font-family);
   --font-heading-family: var(--mk-font-family);
@@ -44,24 +49,59 @@
   --font-body-weight-bold: 700;
   --font-heading-weight: 700;
 }
+.section__heading,
+.rich-text__heading {
+  color: rgb(var(--mk-color-heading));
+}
+.section__heading.h2,
+.section__heading.h3,
+.section__header .h2,
+.section__header .h3 {
+  font-size: 3.2rem;
+  line-height: 4rem;
+}
+@media (max-width: 767.98px) {
+  .section__heading.h2,
+  .section__heading.h3,
+  .section__header .h2,
+  .section__header .h3 {
+    font-size: 2.6rem;
+    line-height: 3.2rem;
+  }
+}
 
-/* 3. Header: gray border, no shadow (G2); search at the inline start, icons at the end --------- */
+/* 3. Header: no shadow (G2); nav 14px bold; bordered white search field ------------------------ */
 .header-sticky.header-scrolled .header__bottom,
 .is-hide-nav .header__top {
   box-shadow: none;
 }
-/* With dir="rtl" Hyper's own logo-center grid ("search logo icons") already puts the search at the
-   inline start (right) and the icons at the end (left), as in the design. No override needed. */
+.header .menu__item {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: rgb(var(--mk-color-text));
+}
+.header__search .search__form {
+  min-width: 0;
+  max-width: 25.9rem;
+}
+.header__search .search__input {
+  height: 4rem;
+  background: #fff;
+  border: 1px solid rgb(var(--mk-color-border));
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+}
+.header__icons .btn {
+  color: rgb(var(--mk-color-text));
+}
 
-/* 4. Product card: bordered card (G3), image on top, title/vendor/price at the start and an
-   always-visible "add to cart" pill at the end of the bottom row, like the sketch.
-   The image wrapper becomes display: contents so its children can be placed on the card grid. */
+/* 4. Product card (290×400, r10, 1px #DDDDDD): image, badge, title, vendor, price + ATC --------- */
 .product-card .product-card__wrapper {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: end;
   column-gap: 0.8rem;
-  border: 1px solid rgba(var(--color-border), var(--color-border-alpha, 1));
+  border: 1px solid rgb(var(--mk-color-border));
   border-radius: var(--mk-radius-card);
   background: rgb(var(--color-background));
   overflow: hidden;
@@ -75,16 +115,60 @@
   grid-row: 1;
   display: block;
   overflow: hidden;
-  border-radius: calc(var(--mk-radius-card) - 1px) calc(var(--mk-radius-card) - 1px) 0 0;
+  margin: 1.4rem 1.4rem 0;
+  border-radius: 1rem;
+}
+.product-card .product-card__image-wrapper img {
+  object-fit: contain;
+  background: #fff;
 }
 .product-card .product-card__badge {
   grid-row: 1;
+  inset-block-start: 1.4rem;
+  inset-inline-start: 1.4rem;
+}
+.f-badge {
+  height: 2.5rem;
+  padding: 0.4rem 1rem;
+  border: 0;
+  border-radius: 6rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.7rem;
 }
 .product-card .product-card__info {
   grid-column: 1;
   grid-row: 2;
-  padding-inline: 1.2rem;
-  padding-block: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1.2rem 1.6rem 1.6rem;
+}
+/* Figma card order: title, vendor, price */
+.product-card .product-card__info > .product-card__title { order: 1; }
+.product-card .product-card__info > .product-card__vendor,
+.product-card .product-card__info > .product-card__type { order: 2; }
+.product-card .product-card__info > * { order: 3; }
+.product-card .product-card__info > .product-card__title { order: 1; }
+.product-card .product-card__info > .product-card__vendor,
+.product-card .product-card__info > .product-card__type { order: 2; }
+.product-card .product-card__title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: rgb(var(--mk-color-text));
+}
+.product-card .product-card__vendor,
+.product-card .product-card__info .text-subtext {
+  font-size: 1.4rem;
+  color: rgb(var(--mk-color-caption));
+}
+.product-card .f-price {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.product-card .f-price .f-price__sale {
+  color: rgb(var(--mk-color-accent));
 }
 .product-card .product-card__main-actions {
   position: static;
@@ -94,80 +178,79 @@
   opacity: 1;
   visibility: visible;
   transform: none;
-  padding-inline-end: 1.2rem;
-  padding-block-end: 1.2rem;
+  padding-inline-end: 1.6rem;
+  padding-block-end: 1.6rem;
   justify-content: flex-end;
 }
 .product-card .product-card__atc {
-  --buttons-height: 3.4rem;
-  --buttons-padding: 1.4rem;
+  --buttons-height: 2.8rem;
+  --buttons-padding: 1.2rem;
+  --buttons-radius: 0.4rem;
   width: auto;
-  font-size: calc(var(--font-body-size) * 0.85);
+  min-width: 8.4rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   white-space: nowrap;
+  background: rgb(var(--mk-color-action-alt));
+  color: #fff;
+  border-color: rgb(var(--mk-color-action-alt));
 }
-.product-card .product-card__atc .product-card__atc-icon {
-  display: none;
-}
-.product-card .product-card__atc .product-card__atc-text {
-  display: inline;
-}
-.product-card .product-card__quickview {
-  display: none;
-}
-.product-card .product-card__list-actions {
-  display: none;
-}
-@media (max-width: 767.98px) {
-  .product-card .product-card__wrapper {
-    grid-template-columns: 1fr;
-  }
-  .product-card .product-card__main-actions {
-    grid-column: 1;
-    grid-row: 3;
-    justify-content: flex-start;
-    padding-inline: 1.2rem 0;
-    padding-block: 0 1.2rem;
-  }
-  .product-card .product-card__info {
-    padding-block-end: 0.8rem;
-  }
-  /* Hyper turns the mobile quick-add into an icon circle (!important sizes); keep the text pill */
-  .product-card .product-card__action-button,
-  .product-card .product-card__atc {
-    width: auto !important;
-    height: 3.4rem !important;
-    min-width: 0;
-    border-radius: 10rem;
-    padding: 0 1.4rem;
-    font-size: calc(var(--font-body-size) * 0.85);
-  }
-  .product-card .product-card__atc .product-card__action-text,
-  .product-card .product-card__atc .product-card__atc-text {
-    position: static;
-    max-width: none;
-    display: inline;
-    font-size: inherit;
-  }
-}
-.f-badge {
-  border-color: transparent;
+.product-card .product-card__atc .product-card__atc-icon { display: none; }
+.product-card .product-card__atc .product-card__atc-text { display: inline; }
+.product-card .product-card__quickview,
+.product-card .product-card__list-actions { display: none; }
+.tabs__btn.btn--underline {
+  font-size: 1.6rem;
 }
 .tabs__btn.btn--underline.active {
-  color: rgb(var(--color-foreground));
+  color: rgb(var(--mk-color-text));
 }
 .tabs__btn.btn--underline.active::after,
 .tabs__btn.btn--underline.active .btn__text::after {
   background-color: rgb(var(--mk-color-accent));
 }
+@media (max-width: 767.98px) {
+  .product-card .product-card__wrapper { grid-template-columns: 1fr; }
+  .product-card .product-card__main-actions {
+    grid-column: 1; grid-row: 3; justify-content: flex-start;
+    padding-inline: 1.6rem 0; padding-block: 0 1.6rem;
+  }
+  .product-card .product-card__info { padding-block-end: 0.8rem; }
+  .product-card .product-card__action-button,
+  .product-card .product-card__atc {
+    width: auto !important;
+    height: 2.8rem !important;
+    min-width: 0;
+    border-radius: 0.4rem;
+    padding: 0 1.2rem;
+    font-size: 1.2rem;
+  }
+  .product-card .product-card__atc .product-card__action-text,
+  .product-card .product-card__atc .product-card__atc-text {
+    position: static; max-width: none; display: inline; font-size: inherit;
+  }
+}
 
 /* 5. Home sections ----------------------------------------------------------------------------- */
-/* 5a. Gift finder: pill container and pill fields */
+/* 5a. Gift finder: 85px pill bar, white pill selects with 1px #DDDDDD, 600/14 #353535 labels */
 .mk-gift-finder__card {
   border-radius: 10rem;
-  padding-inline: 2.4rem;
+  border-color: rgb(var(--mk-color-border));
+  padding: 2rem 3.2rem;
 }
-.mk-gift-finder__select {
+.mk-gift-finder select.mk-gift-finder__select {
+  height: 4.5rem;
+  line-height: 4.3rem;
+  background-color: #fff;
+  border: 1px solid rgb(var(--mk-color-border));
   border-radius: 10rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgb(var(--mk-color-heading));
+}
+.mk-gift-finder__submit {
+  --buttons-height: 4.5rem;
+  font-size: 1.4rem;
 }
 [dir="rtl"] .mk-gift-finder__form,
 [dir="rtl"] .mk-gift-finder__select {
@@ -175,151 +258,162 @@
   text-align: start;
 }
 @media (max-width: 767.98px) {
-  .mk-gift-finder__card {
-    border-radius: var(--blocks-radius);
-  }
+  .mk-gift-finder__card { border-radius: var(--blocks-radius); padding: 1.6rem; }
 }
 
-/* 5b. Category circles with a thin colored ring, colors rotate through the palette */
+/* 5b. Category circles: 2px colored ring, white, 20px labels, arrows always visible */
 .collection-list-slider .collection-card__image.rounded {
   box-shadow: inset 0 0 0 2px var(--mk-ring, var(--mk-palette-1));
-  background: rgb(var(--color-background));
+  background: #fff;
 }
 .collection-list-slider .collection-card__image.rounded img {
-  padding: 12%;
+  padding: 14%;
   object-fit: contain;
 }
-.collection-list-slider .swiper-slide:nth-child(7n + 1),
-.collection-list-slider .f-column:nth-child(7n + 1) { --mk-ring: var(--mk-palette-1); }
-.collection-list-slider .swiper-slide:nth-child(7n + 2),
-.collection-list-slider .f-column:nth-child(7n + 2) { --mk-ring: var(--mk-palette-2); }
-.collection-list-slider .swiper-slide:nth-child(7n + 3),
-.collection-list-slider .f-column:nth-child(7n + 3) { --mk-ring: var(--mk-palette-3); }
-.collection-list-slider .swiper-slide:nth-child(7n + 4),
-.collection-list-slider .f-column:nth-child(7n + 4) { --mk-ring: var(--mk-palette-4); }
-.collection-list-slider .swiper-slide:nth-child(7n + 5),
-.collection-list-slider .f-column:nth-child(7n + 5) { --mk-ring: var(--mk-palette-5); }
-.collection-list-slider .swiper-slide:nth-child(7n + 6),
-.collection-list-slider .f-column:nth-child(7n + 6) { --mk-ring: var(--mk-palette-6); }
-.collection-list-slider .swiper-slide:nth-child(7n + 7),
-.collection-list-slider .f-column:nth-child(7n + 7) { --mk-ring: var(--mk-palette-7); }
-
-/* 5c. Feature icons: colored icon per column, caption below, no card */
-/* icon size comes from the block "max width" setting (56px); only the color is set here */
-.multicolumn-icon .multicolumn-card--image-icon .multicolumn-card__image .icon {
-  width: 100%;
-  height: 100%;
-  color: var(--mk-icon, var(--mk-palette-1));
+.collection-list-slider .collection-item .text-lg {
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgb(var(--mk-color-heading));
 }
-.multicolumn-icon .f-column:nth-child(6n + 1) { --mk-icon: var(--mk-palette-4); }
-.multicolumn-icon .f-column:nth-child(6n + 2) { --mk-icon: var(--mk-palette-3); }
-.multicolumn-icon .f-column:nth-child(6n + 3) { --mk-icon: var(--mk-palette-6); }
-.multicolumn-icon .f-column:nth-child(6n + 4) { --mk-icon: var(--mk-palette-5); }
-.multicolumn-icon .f-column:nth-child(6n + 5) { --mk-icon: var(--mk-palette-7); }
-.multicolumn-icon .f-column:nth-child(6n + 6) { --mk-icon: var(--mk-palette-2); }
-.multicolumn-icon .multicolumn-card__title {
-  font-size: calc(var(--font-body-size) * 1);
-  font-weight: var(--font-body-weight-bolder);
-}
-
-/* 5d. Reviews: bordered rounded cards, yellow stars */
-.testimonials--layout-card .testimonial__container {
-  border: 1px solid rgba(var(--color-border), var(--color-border-alpha, 1));
-  border-radius: var(--blocks-radius);
-}
-.testimonial .icon-star,
-.testimonial [class*="star"] svg {
-  color: rgb(var(--mk-color-star));
-}
-.testimonials--layout-card .testimonial__image {
-  max-width: 10rem;
-  margin-inline: auto;
-  margin-block-start: 2rem;
-}
-
-/* 5e. Surprise-box banner: white rounded card for the overlay content */
-.image-with-text-overlay .image-with-text-ovelay__content-wrapper .rich-text {
-  background: rgb(var(--color-background));
-  color: rgb(var(--color-foreground));
-  border-radius: var(--blocks-radius);
-  padding: 3.2rem 2.8rem;
-  max-width: 42rem;
-}
-@media (max-width: 767.98px) {
-  .image-with-text-overlay .image-with-text-ovelay__content-wrapper .rich-text {
-    padding: 2rem 1.6rem;
-  }
-}
-
-/* 5f. Newsletter: compact form on the cyan band */
-.newsletter .newsletter__form .form-control {
-  background: rgb(var(--color-background), 1);
-}
-
-/* 5g. Brand logos: the section button moves below the grid */
-.brand-logos .section__wrapper {
-  display: flex;
-  flex-direction: column;
-}
-.brand-logos .section__wrapper > .section__header {
-  display: contents;
-}
-.brand-logos .section__header .section__header--text {
-  order: 1;
-  margin-block-end: 2.4rem;
-  text-align: center;
-}
-.brand-logos .section__wrapper > .section__content {
-  order: 2;
-}
-.brand-logos .section__header .section__header--buttons {
-  order: 3;
-  margin-block-start: 2.4rem;
-  text-align: center;
-}
-
-/* 5b (cont.) Category slider: arrows always visible */
+.collection-list-slider .swiper-slide:nth-child(7n + 1), .collection-list-slider .f-column:nth-child(7n + 1) { --mk-ring: var(--mk-palette-1); }
+.collection-list-slider .swiper-slide:nth-child(7n + 2), .collection-list-slider .f-column:nth-child(7n + 2) { --mk-ring: var(--mk-palette-2); }
+.collection-list-slider .swiper-slide:nth-child(7n + 3), .collection-list-slider .f-column:nth-child(7n + 3) { --mk-ring: var(--mk-palette-3); }
+.collection-list-slider .swiper-slide:nth-child(7n + 4), .collection-list-slider .f-column:nth-child(7n + 4) { --mk-ring: var(--mk-palette-4); }
+.collection-list-slider .swiper-slide:nth-child(7n + 5), .collection-list-slider .f-column:nth-child(7n + 5) { --mk-ring: var(--mk-palette-5); }
+.collection-list-slider .swiper-slide:nth-child(7n + 6), .collection-list-slider .f-column:nth-child(7n + 6) { --mk-ring: var(--mk-palette-6); }
+.collection-list-slider .swiper-slide:nth-child(7n + 7), .collection-list-slider .f-column:nth-child(7n + 7) { --mk-ring: var(--mk-palette-7); }
+.collection-list-slider .swiper-show-nav-on-hover:has(.swiper-controls--nav-floating) .swiper-button,
 .collection-list-slider .swiper-button {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
+  --swiper-button-transform-x: 0;
+}
+.collection-list-slider .swiper-show-nav-on-hover:has(.swiper-controls--nav-floating) .swiper-button.swiper-button-disabled {
+  opacity: 0.5;
 }
 
-/* 5h. Reviews (standard layout): image, name + date, text, stars */
+/* 5c. Brand logos: 80px boxes with 1px #DDDDDD, logos contained */
+.brand-logos .brand-logos__wrapper {
+  border: 1px solid rgb(var(--mk-color-border));
+  background: #fff;
+  min-height: 8rem;
+  padding: 1.2rem 2rem;
+  justify-content: center;
+}
+.brand-logos .brand-logos__image img {
+  max-height: 5.6rem;
+  width: auto;
+  object-fit: contain;
+}
+.brand-logos .section__wrapper { display: flex; flex-direction: column; }
+.brand-logos .section__wrapper > .section__header { display: contents; }
+.brand-logos .section__header .section__header--text { order: 1; margin-block-end: 2.4rem; text-align: center; }
+.brand-logos .section__wrapper > .section__content { order: 2; }
+.brand-logos .section__header .section__header--buttons { order: 3; margin-block-start: 2.4rem; text-align: center; }
+
+/* 5d. Surprise-box banner: r20 image, white r20 card at the inline start */
+.image-with-text-overlay .media-wrapper,
+.image-with-text-overlay .image-with-text-ovelay__content {
+  border-radius: 2rem;
+  overflow: hidden;
+}
+.image-with-text-overlay .image-with-text-ovelay__content-wrapper .rich-text {
+  background: #fff;
+  color: rgb(var(--mk-color-text));
+  border-radius: 2rem;
+  padding: 4rem 3.6rem;
+  max-width: 42rem;
+}
+.image-with-text-overlay .rich-text__heading {
+  font-size: 3.6rem;
+  font-weight: 400;
+  line-height: 1.15;
+}
+@media (max-width: 767.98px) {
+  .image-with-text-overlay .image-with-text-ovelay__content-wrapper .rich-text { padding: 2.4rem 2rem; }
+  .image-with-text-overlay .rich-text__heading { font-size: 2.6rem; }
+}
+
+/* 5e. Feature icons: 16px regular captions */
+.mk-feature-icons__title {
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: rgb(var(--mk-color-text));
+}
+
+/* 5f. Instagram feed: no author header, play button only */
+.shop-the-feed .stf-card__info-link,
+.shop-the-feed .stf-card__footer { display: none; }
+
+/* 5g. Reviews (standard layout = testimonial-2): bordered r10 card, centered column:
+   thumb (80px), name 16/700, text 16/24, stars, date (per Figma 18:4094) */
 .testimonials--layout-standard .testimonial {
+  border: 1px solid rgb(var(--mk-color-border));
+  border-radius: var(--mk-radius-card);
+  padding: 2.4rem 2rem;
+  text-align: center;
+}
+.testimonials--layout-standard .testimonial__wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  border: 1px solid rgba(var(--color-border), var(--color-border-alpha, 1));
-  border-radius: var(--blocks-radius);
-  padding: 2.4rem 2rem;
   gap: 1.2rem;
 }
-.testimonials--layout-standard .testimonial__image { order: 1; max-width: 10rem; }
-.testimonials--layout-standard .testimonial__author { order: 2; }
-.testimonials--layout-standard .testimonial__content { order: 3; }
-.testimonials--layout-standard .testimonial__icon { order: 4; }
+.testimonials--layout-standard .testimonial__image {
+  width: 8rem;
+  max-width: 8rem;
+  flex: 0 0 auto;
+  margin: 0;
+}
+.testimonials--layout-standard .testimonial__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+}
+.testimonials--layout-standard .testimonial__author,
+.testimonials--layout-standard .testimonial__info { display: contents; }
+.testimonials--layout-standard .testimonial__name { order: 1; margin: 0; font-size: 1.6rem; font-weight: 700; line-height: 2.4rem; color: rgb(var(--mk-color-text)); }
+.testimonials--layout-standard .testimonial__content { order: 2; font-size: 1.6rem; line-height: 2.4rem; color: rgb(var(--mk-color-text)); }
+.testimonials--layout-standard .testimonial__icon { order: 3; justify-content: center; }
+.testimonials--layout-standard .testimonial__bio { order: 4; font-size: 1.4rem; color: rgb(var(--mk-color-caption)); }
+.testimonial .icon-star,
+.testimonial [class*="star"] svg { color: rgb(var(--mk-color-star)); }
 
-/* 6. Footer per sketch: contact column without icons, bold phone, white social buttons */
-.footer .footer-info__item svg {
-  display: none;
+/* 5h. Newsletter: 24/700 title, 20px sub-line, 55px white field with a 2px dark border */
+.newsletter .section__heading { font-size: 2.4rem; }
+.newsletter .section__description { font-size: 2rem; color: rgb(var(--mk-color-text)); }
+.newsletter .newsletter__form .form-control {
+  height: 5.5rem;
+  background: #fff;
+  border: 2px solid rgb(var(--mk-color-text));
+  border-radius: 0;
+  font-size: 1.6rem;
 }
-.footer .footer-info__item {
-  padding-inline-start: 0;
+.newsletter .newsletter__form .btn {
+  --buttons-height: 5.5rem;
+  --buttons-radius: 0;
+  background: rgb(var(--mk-color-text));
+  color: #fff;
+  border-color: rgb(var(--mk-color-text));
 }
-.footer .footer-info__phone {
-  font-size: calc(var(--font-body-size) * 1.6);
-  font-weight: var(--font-body-weight-bold);
-  color: rgb(var(--color-foreground));
-}
-.footer .footer-info__email {
-  text-transform: uppercase;
-}
+.newsletter .rte { font-size: 1.6rem; line-height: 2.4rem; color: rgb(var(--mk-color-text)); }
+
+/* 6. Footer (#312E7D): 20/700 column headings, 16px white links, bold 24px phone, no icons ----- */
+.footer .footer-block__heading { font-size: 2rem; font-weight: 700; color: #fff; }
+.footer .footer-block--menu .accordion-details__content a,
+.footer .footer-block--menu li { font-size: 1.6rem; color: #fff; }
+.footer .footer-block--menu li { margin-block: 0.4rem; }
+.footer .footer-info__item svg { display: none; }
+.footer .footer-info__item { padding-inline-start: 0; font-size: 1.6rem; color: #fff; }
+.footer .footer-info__phone { font-size: 2.4rem; font-weight: 700; }
+.footer .footer-info__email { text-transform: uppercase; }
 .footer .footer__list-social .btn {
-  background: rgb(var(--color-background));
-  color: rgb(var(--color-button-text));
+  background: #fff;
+  color: #312e7d;
   border-radius: 0.6rem;
-}
-.footer .footer-block__heading {
-  color: rgb(var(--color-foreground));
+  width: 2.8rem;
+  height: 2.8rem;
 }

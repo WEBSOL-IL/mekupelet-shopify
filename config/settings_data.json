@@ -30,7 +30,7 @@
     "subheading_font_weight": "700",
     "subheading_letter_spacing": 0,
     "subheading_transform": "none",
-    "pcard_title_scale": 100,
+    "pcard_title_scale": 88,
     "pcard_title_font": "heading",
     "pcard_title_font_weight": "600",
     "navigation_font_weight": "700",
@@ -287,9 +287,9 @@
         "settings": {
           "primary_accent": "#c4301c",
           "border": "#e5e5e5",
-          "text": "#000000",
-          "subtext": "#666666",
-          "background": "#f6f6f6",
+          "text": "#3f3f3f",
+          "subtext": "#3f3f3f",
+          "background": "#e9e9e9",
           "secondary_background": "#ededed",
           "button": "#000000",
           "button_label": "#ffffff",
@@ -416,7 +416,8 @@
     "pcard_mobile_hide_quick_add": false,
     "pcard_price_font_weight": "600",
     "pcard_badge_font_weight": "600",
-    "buttons_height": 45
+    "buttons_height": 45,
+    "pcard_image_ratio": "4/3"
   },
   "presets": {
     "Hyper": {

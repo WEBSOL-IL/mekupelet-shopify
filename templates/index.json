@@ -292,9 +292,10 @@
         "columns": 4,
         "columns_mobile": "2",
         "enable_slider": true,
-        "pcard_image_ratio": "1/1",
+        "pcard_image_ratio": "4/3",
         "padding_top": 40,
-        "padding_bottom": 40
+        "padding_bottom": 40,
+        "content_overflow": false
       },
       "blocks": {
         "collection_1": {
@@ -409,7 +410,7 @@
         "section_header_alignment": "center",
         "columns_desktop": 4,
         "columns_mobile": "2",
-        "grid_bordered": true,
+        "grid_bordered": false,
         "image_width": "medium",
         "button_label": "הצג את כל המותגים",
         "button_link": "shopify://pages/brands",
@@ -495,9 +496,10 @@
         "columns": 4,
         "columns_mobile": "2",
         "enable_slider": true,
-        "pcard_image_ratio": "1/1",
+        "pcard_image_ratio": "4/3",
         "padding_top": 40,
-        "padding_bottom": 40
+        "padding_bottom": 40,
+        "content_overflow": false
       },
       "blocks": {
         "collection_1": {
@@ -520,7 +522,7 @@
         "desktop_height": "medium",
         "mobile_height": "medium",
         "overlay_opacity": 0,
-        "content_position": "middle-left",
+        "content_position": "middle-right",
         "content_alignment": "center",
         "content_position_mobile": "bottom-center-mobile",
         "padding_top": 40,
@@ -563,7 +565,7 @@
         "color_scheme": "scheme-1",
         "columns_desktop": 6,
         "columns_mobile": "3",
-        "icon_size": 72,
+        "icon_size": 80,
         "padding_top": 30,
         "padding_bottom": 30
       },
@@ -634,7 +636,8 @@
         "columns_desktop": 5,
         "enable_slider": true,
         "padding_top": 40,
-        "padding_bottom": 40
+        "padding_bottom": 40,
+        "card_image_ratio": "3/4"
       },
       "blocks": {
         "feed_1": {

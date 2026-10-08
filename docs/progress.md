@@ -133,6 +133,23 @@ Figma exports.
   (bold phone, no icons, no payment icons; menu columns use `main-menu` as a stand-in until
   `footer-1..4` exist). Dev server had died once; new files were pushed with `theme push --only`.
 
+- Round 2, token-exact refinement (live, commit "feat(home): token-exact refinement"): root cause of
+  the "rules that did not apply" was the dev server dying before syncing `assets/mk-custom.css` and
+  `config/settings_data.json`; pushed with `theme push --only` (remote JSON verified equal to the
+  previous commit first, no editor changes lost). Fixed selectors: finder selects
+  (`select.mk-gift-finder__select`), overlay heading (`.rich-text__heading` 36/400), Instagram author
+  header (`.stf-card__info-link`), category arrows (outranks Hyper's `:has(...)` hover rule), card
+  info order title → vendor → price (flex order), review card as a centered column (thumb, name,
+  text, stars, date via `display: contents`), product sliders without the peeking 5th card
+  (`content_overflow: false`), surprise-box card at the physical left (`content_position:
+  middle-right` because Hyper's positions are logical). Screenshots
+  `docs/screenshots/home-round2-2026-10-08-{1440,390}.jpg`. Theme check: 0 errors, 11 warnings.
+- Still open on Home (need merchant input): hero illustration without baked text + surprise-box
+  photo + newsletter side patterns (Figma assets, upload to Files), Instagram app decision, main
+  menu + `footer-1..4` menus, social links, currency format `{{amount_no_decimals}} ₪`, product
+  badges appear only once products carry the `חדש`/`רב מכר` tags, wishlist heart (no native
+  wishlist in Hyper; app or skip), newsletter arrow-inside-field variant (kept Hyper's button).
+
 ## Next session runbook — collections import (merchant approved 2026-10-08)
 Secrets `SHOPIFY_SHOP`, `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET` were added to the environment
 (Dev Dashboard app, scopes products/navigation/files) and load only in a NEW session. Decisions approved:
