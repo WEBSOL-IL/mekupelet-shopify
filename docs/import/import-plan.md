@@ -60,8 +60,8 @@ loop over that log removes them.
   when the collection already has one (Shopify rejects re-sending it), append-only log.
 - Metafield definitions `custom.collection_kind` (choices category/brand), `custom.parent_handle`,
   `custom.legacy_term_id` exist on COLLECTION.
-- Created collections are NOT published to the Online Store (404 on the storefront); the app has no
-  publications scope. `scripts/publish-collections.py` publishes them once the scopes are added.
+- Collections created via the API are not published to any channel by default; after the merchant added
+  `write_publications`, `scripts/publish-collections.py --execute` published all 470 to the Online Store.
 - Collections are empty until the product migration tags products (`legacy-category-<id>`) and
   normalizes `vendor`.
 - Menus: `scripts/create-menus.py` (footer-1..4) is ready and dry-run verified; execution still pending

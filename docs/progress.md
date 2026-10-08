@@ -167,13 +167,12 @@ internal WooCommerce rules, run via the script. Steps:
   a descriptive handle such as `מארזי-יצירה-re-cycle-me`; change in admin if so).
 - `scripts/create-menus.py` written (footer-1..4, idempotent, dry run by default) and dry-run verified.
 
+- Collections created via the Admin API were not published to any sales channel (storefront 404).
+  Merchant added `write_publications` to the app; `scripts/publish-collections.py --execute` published
+  all 470 plan collections to the Online Store (0 errors), spot-checked: `/collections/4m`,
+  `stephen-joseph`, `re-cycle-me`, `re-cycle-me-2`, `gifts-for-newborns` → 200.
+
 ### Blocked
-- **Imported collections are not published to the Online Store**: `/collections/4m` → 404 while the
-  updated pre-existing ones (admin-created) → 200. Collections created via the Admin API get no sales
-  channel by default. The app lacks `read_publications`/`write_publications`, so the fix needs the
-  merchant: either add both scopes to the Dev Dashboard app version (reinstall) and run
-  `python3 -I scripts/publish-collections.py --execute` (ready, dry-run checks the scope), or in the
-  admin select all collections → bulk action "Make available on the Online Store".
 - Runbook step 5 (menus): the `menuCreate` execution and a `shopify theme pull` of
   `sections/footer-group.json` were denied by the session's permission classifier. To finish:
   `python3 -I scripts/create-menus.py --execute`, then point the four footer menu blocks at
@@ -184,7 +183,6 @@ internal WooCommerce rules, run via the script. Steps:
 - Runbook step 6 (product tagging + vendor normalization): waits for the product migration file.
 
 ### Open questions (for the merchant)
-0. Publish the 465 imported collections: add the publications scopes (preferred, scripted) or bulk in admin?
 1. Footer item lists in `scripts/create-menus.py`: confirm or edit before `--execute`.
 2. Age collections: Home pills and footer-4 use `age-0-6 … age-3-plus` (not yet created, tag-based,
    see `docs/merchant-checklist.md`); the import also created the old site's `מתנות לפי גיל` tree
