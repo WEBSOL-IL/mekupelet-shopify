@@ -250,6 +250,13 @@ Figma exports.
   "/collections/all" button links for WhatsApp and the course, "#" brand links) were kept as-is for
   the merchant to edit. Screenshots in `docs/screenshots/pages-*`.
 
+- FAQ page round 2 (2026-10-08): the merchant wanted the old tab layout, so a new tier-3 section
+  `sections/mk-faq-tabs.liquid` (+ `assets/mk-faq-tabs.css/.js`) renders a row of icon tab boxes
+  (role=tablist, arrow keys, RTL aware) and one panel per tab; blocks are ordered: a `tab` block
+  owns the `item` (accordion, Hyper's accordion-details) and `text` blocks that follow it. The
+  FAQ template now uses it with the four old tabs and their icons from Files. Verified at 1440/390
+  and tab switching on the live page; theme check unchanged (0 errors).
+
 ## Next session runbook — collections import (merchant approved 2026-10-08)
 Secrets `SHOPIFY_SHOP`, `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET` were added to the environment
 (Dev Dashboard app, scopes products/navigation/files) and load only in a NEW session. Decisions approved:

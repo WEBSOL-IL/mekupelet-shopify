@@ -70,14 +70,25 @@ def tabs(key_prefix, heading_text, items, first_open=True):
     blocks = {f"{key_prefix}_{i}": {"type": "collapsible_item", "settings": {"icon": "none", "heading": it["q"], "content": it["a"], "custom_liquid": "", "page": "", "open": first_open and i == 1, "use_subtext_color": False}} for i, it in enumerate(items, 1)}
     return {"type": "collapsible-tabs", "settings": {"container": "fixed", "color_scheme": "scheme-1", "header_layout": "vertical", "section_header_alignment": "left", "section_header_alignment_mobile": "inherit", "subheading": "", "heading": heading_text, "highlight_style": "none", "highlight_font_style": "italic", "highlight_style_color": "", "highlight_text_color": "", "heading_size": "h3", "heading_tag": "h2", "description": "", "text_size": "text-base", "button_label": "", "button_link": "", "button_style": "btn--primary", "button_icon": "none", "column_gap": "large", "row_gap": "inherit", "item_style": "standard", "item_color_scheme": "scheme-1", "item_heading_font": "heading", "item_heading_size": "h5", "item_icon_size": "small", "padding_top": 30, "padding_bottom": 30, "show_section_divider": False, "divider_width": "fixed"},
             "blocks": blocks, "block_order": list(blocks)}
+def faq_blocks():
+    blocks, order = {}, []
+    def add(key, typ, settings):
+        blocks[key] = {"type": typ, "settings": settings}; order.append(key)
+    tabs_spec = [("שאלות ותשובות", "fi_471664.png", faq["items"][:6], None),
+                 ("טבלת מידות", "Vector_1.png", faq["items"][6:12], None),
+                 ("טבלת מידות", "fi_687689.png", [], faq["size_guide"]),
+                 ("רשימת חנויות", "fi_2792541.png", [], faq.get("store_list", ""))]
+    for t, (title, icon_file, items, text_html) in enumerate(tabs_spec, 1):
+        add(f"tab_{t}", "tab", {"title": title, "icon": img(icon_file)})
+        for i, it in enumerate(items, 1):
+            add(f"q_{t}_{i}", "item", {"question": it["q"], "answer": it["a"], "page": "", "open": i == 1})
+        if text_html:
+            add(f"text_{t}", "text", {"content": text_html, "page": ""})
+    return blocks, order
+fb, fo = faq_blocks()
 faq_t = {"breadcrumbs": BREAD, "main": MAIN(),
-         "questions": tabs("q", "שאלות ותשובות", faq["items"][:6]),
-         "sizes": tabs("s", "טבלת מידות", faq["items"][6:12], first_open=False),
-         "size_guide": {"type": "rich-text", "settings": {"container": "fixed", "color_scheme": "scheme-1", "use_color_scheme_in_container": False, "content_spacing": "standard", "content_alignment": "left", "padding_top": 30, "padding_bottom": 50, "show_section_divider": False, "divider_width": "fixed"},
-                        "blocks": {"h": {"type": "heading", "settings": {"heading": "טבלת מידות", "highlight_style": "none", "highlight_font_style": "italic", "highlight_style_color": "", "highlight_text_color": "", "heading_size": "h3", "heading_tag": "h2"}},
-                                   "t": {"type": "text", "settings": {"text": faq["size_guide"], "text_size": "text-base", "text_line_limit": "none", "button_style": "btn--underline", "button_icon": "none"}}},
-                        "block_order": ["h", "t"]}}
-write("page.faq", faq_t, ["breadcrumbs", "main", "questions", "sizes", "size_guide"])
+         "tabs": {"type": "mk-faq-tabs", "settings": {"container": "fixed", "color_scheme": "scheme-1", "aria_label": "שאלות ותשובות", "padding_top": 20, "padding_bottom": 50}, "blocks": fb, "block_order": fo}}
+write("page.faq", faq_t, ["breadcrumbs", "main", "tabs"])
 
 # ---------- Accessibility (legal) ----------
 acc = {"breadcrumbs": BREAD, "main": {"type": "main-page", "settings": {"container": "narrow", "text_alignment": "left", "heading_size": "h2", "heading_tag": "h1", "padding_top": 24, "padding_bottom": 40}},

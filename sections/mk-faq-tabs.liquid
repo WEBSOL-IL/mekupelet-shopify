@@ -1,0 +1,162 @@
+{{ 'mk-faq-tabs.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'mk-faq-tabs.js' | asset_url }}" defer="defer"></script>
+{%- comment -%}
+  MK FAQ tabs: a row of icon tab boxes; each tab shows the blocks that follow it until the next tab
+  (question/answer accordions and rich-text blocks). Mirrors the FAQ page of the old store.
+{%- endcomment -%}
+{%- liquid
+  assign container = section.settings.container
+  assign tab_count = 0
+  for block in section.blocks
+    if block.type == 'tab'
+      assign tab_count = tab_count | plus: 1
+    endif
+  endfor
+-%}
+{% style %}
+  #section-{{ section.id }} {
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --mk-tabs-count: {{ tab_count | at_least: 1 }};
+  }
+{% endstyle %}
+<mk-faq-tabs id="section-{{ section.id }}" class="mk-faq-tabs section color-{{ section.settings.color_scheme }} block" data-section-id="{{ section.id }}">
+  <div class="{% if container == 'fixed' %}page-width{% endif %}">
+    {%- if tab_count > 0 -%}
+      <div class="mk-faq-tabs__nav" role="tablist" aria-label="{{ section.settings.aria_label | default: 'FAQ' | escape }}">
+        {%- assign tab_index = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'tab' -%}
+            {%- assign tab_index = tab_index | plus: 1 -%}
+            <button
+              type="button"
+              class="mk-faq-tabs__tab{% if tab_index == 1 %} is-active{% endif %}"
+              role="tab"
+              id="MkTab-{{ block.id }}"
+              aria-controls="MkPanel-{{ block.id }}"
+              aria-selected="{% if tab_index == 1 %}true{% else %}false{% endif %}"
+              {% unless tab_index == 1 %}tabindex="-1"{% endunless %}
+              {{ block.shopify_attributes }}
+            >
+              {%- if block.settings.icon != blank -%}
+                <span class="mk-faq-tabs__icon" aria-hidden="true">
+                  {{ block.settings.icon | image_url: width: 96 | image_tag: loading: 'lazy', widths: '48, 96', sizes: '48px', alt: '' }}
+                </span>
+              {%- endif -%}
+              <span class="mk-faq-tabs__label">{{ block.settings.title | escape }}</span>
+            </button>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Panels: each tab owns the blocks after it, up to the next tab {%- endcomment -%}
+    {%- liquid
+      assign starts = ''
+      for block in section.blocks
+        if block.type == 'tab'
+          assign starts = starts | append: forloop.index0 | append: ','
+        endif
+      endfor
+      assign starts = starts | split: ','
+      assign total = section.blocks.size
+    -%}
+    {%- for start in starts -%}
+      {%- liquid
+        assign start_i = start | plus: 0
+        assign tab_block = section.blocks[start_i]
+        assign next_i = starts[forloop.index] | default: total | plus: 0
+        assign count = next_i | minus: start_i | minus: 1
+        assign from = start_i | plus: 1
+      -%}
+      <div class="mk-faq-tabs__panel" role="tabpanel" id="MkPanel-{{ tab_block.id }}" aria-labelledby="MkTab-{{ tab_block.id }}"{% unless forloop.first %} hidden{% endunless %}>
+        {%- if count > 0 -%}
+          {%- for block in section.blocks offset: from limit: count -%}
+            {%- case block.type -%}
+              {%- when 'item' -%}
+                <details class="accordion-details mk-faq-tabs__item" is="accordion-details"{% if block.settings.open %} open aria-expanded="true"{% else %} aria-expanded="false"{% endif %} {{ block.shopify_attributes }}>
+                  <summary class="accordion-details__summary flex items-center justify-between">
+                    <h3 class="mk-faq-tabs__question">{{ block.settings.question | escape }}</h3>
+                    {%- render 'icon-plus-toggle', size: 'small' -%}
+                  </summary>
+                  <div class="accordion-details__content rte mk-faq-tabs__answer">
+                    {{ block.settings.answer }}
+                    {%- if block.settings.page != blank -%}{{ block.settings.page.content }}{%- endif -%}
+                  </div>
+                </details>
+              {%- when 'text' -%}
+                <div class="mk-faq-tabs__text rte" {{ block.shopify_attributes }}>
+                  {{ block.settings.content }}
+                  {%- if block.settings.page != blank -%}{{ block.settings.page.content }}{%- endif -%}
+                </div>
+            {%- endcase -%}
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</mk-faq-tabs>
+
+{% schema %}
+{
+  "name": "MK FAQ tabs",
+  "tag": "section",
+  "class": "section-mk-faq-tabs",
+  "settings": [
+    {
+      "type": "select",
+      "id": "container",
+      "label": "t:general.container.label",
+      "options": [
+        { "value": "fixed", "label": "t:general.container.options__fixed" },
+        { "value": "full", "label": "t:general.container.options__full" }
+      ],
+      "default": "fixed"
+    },
+    { "type": "color_scheme", "id": "color_scheme", "label": "t:general.colors.label", "default": "scheme-1" },
+    { "type": "text", "id": "aria_label", "label": "Accessible name of the tab row", "default": "שאלות ותשובות" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "t:general.padding.top", "default": 20 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "t:general.padding.bottom", "default": 50 }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "שאלות ותשובות" },
+        { "type": "image_picker", "id": "icon", "label": "Icon (square PNG or SVG, ~48px)" },
+        { "type": "paragraph", "content": "The question and text blocks that follow this tab belong to it, until the next tab." }
+      ]
+    },
+    {
+      "type": "item",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "שאלה" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>תשובה</p>" },
+        { "type": "page", "id": "page", "label": "Or show a page's content" },
+        { "type": "checkbox", "id": "open", "label": "Open by default", "default": false }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        { "type": "richtext", "id": "content", "label": "Text", "default": "<p>טקסט</p>" },
+        { "type": "page", "id": "page", "label": "Or show a page's content" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MK FAQ tabs",
+      "blocks": [
+        { "type": "tab", "settings": { "title": "שאלות ותשובות" } },
+        { "type": "item", "settings": { "question": "איך מזמינים?", "answer": "<p>בוחרים מוצר, מוסיפים לסל ועוברים לתשלום.</p>", "open": true } },
+        { "type": "tab", "settings": { "title": "משלוחים" } },
+        { "type": "item", "settings": { "question": "כמה זמן לוקח משלוח?", "answer": "<p>עד 5 ימי עסקים.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
