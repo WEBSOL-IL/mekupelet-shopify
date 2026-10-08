@@ -264,6 +264,11 @@ Figma exports.
   order-details admin block, webhooks, inventorySetQuantities sync, data model, field mapping,
   security, ~19 working days). Planning only, nothing built; six open questions for the merchant
   and Verifone are listed in the plan.
+  Same day: the merchant answered all six (Verifone endpoint is a public IP, BuyMe via its Shopify
+  app, Tranzila, auto-issue + auto-credit yes, location Nir Zvi, SKUs 555/973) and sent a screenshot
+  of the live WooCommerce settings; plan §9 now holds the decisions, §9a the default settings to
+  ship with, §9b what is still needed before testing (HTTPS/whitelist + test numerator at Verifone,
+  one test order each from BuyMe and Tranzila). Still planning only.
 
 ## Next session runbook — collections import (merchant approved 2026-10-08)
 Secrets `SHOPIFY_SHOP`, `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET` were added to the environment

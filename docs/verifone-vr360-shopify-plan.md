@@ -88,7 +88,7 @@ Shopify Admin ──(session token)──▶ App (Remix, Node 20, Polaris)      
 | הנחת סל / נקודות | YITH points | אפליקציית נקודות תופיע כקוד הנחה או כ-gift card | אותו מנגנון: גילום יחסי כשסך השורות גדול מסך התקבולים. |
 | קופונים | coupon codes | `discountCodes` | ל-Details בלבד. |
 | מע"מ | `is_vat_exempt`, חילוץ | `taxesIncluded`, `taxLines[].ratePercentage` לכל שורה | אחוז מהשורה אם קיים, אחרת ברירת מחדל 18%; `taxExempt` על הלקוח → 0. |
-| אמצעי תשלום | gateway id + מטא | `transactions` (kind SALE/CAPTURE, status SUCCESS, `gateway`) | מיפוי לפי `gateway` בהגדרות (ברירת מחדל: `paypal`→מזומן, `gift_card`→מימוש זיכוי, אחר→אשראי). הזמנה עם כמה טרנזקציות = כמה שורות תקבול. |
+| אמצעי תשלום | gateway id + מטא | `transactions` (kind SALE/CAPTURE, status SUCCESS, `gateway`) | מיפוי לפי `gateway` בהגדרות (ברירת מחדל: Tranzila→אשראי, `paypal`→אשראי כמו בווקומרס, `gift_card`→מימוש זיכוי, אחר→אשראי). הזמנה עם כמה טרנזקציות = כמה שורות תקבול. |
 | פרטי אשראי | סריקת מטא | `paymentDetails` (CardPaymentDetails: `company`, `number` ממוסך), `receiptJson` של הסולק (לא יציב) | 4 ספרות ומותג מהשדות המוטיפסים; מספר אישור מ-`receiptJson` לפי מפתחות ידועים של הסולק (Tranzila `ConfirmationCode`, Grow/Pelecard לפי דוגמה אמיתית) עם מיפוי מותג כמו היום. |
 | BuyMe | Multipass (`_mpwc_transactions`) | תלוי באינטגרציה של BuyMe ל-Shopify: כקוד הנחה (discount application `title` = BuyMe) או כ-gift card / כ-transaction של gateway ייעודי | נבנה "מזהה שובר" מודולרי: קוד הנחה שמתחיל בקידומת מוגדרת, או transaction של gateway מוגדר → שורת `VoucherRedeeming`. **פתוח לבירור** איך BuyMe מתחבר ל-Shopify (ראו סעיף 9). |
 | כרטיסי מתנה של Shopify | אין | transaction `gateway: gift_card` | `VoucherRedeeming` עם מספר הכרטיס (4 אחרונות) כ-`CreditVoucherNumber` — לבירור מול וריפון. |
@@ -115,16 +115,45 @@ Shopify Admin ──(session token)──▶ App (Remix, Node 20, Polaris)      
 ## 8. פריסה והפעלה
 - **קוד**: ריפו נפרד `verifone-vr360-shopify` (לא בתוך ריפו התבנית). `npm create @shopify/app` → תבנית Remix + Prisma; תיקיות: `app/` (Remix), `app/vr360/` (client, invoice-builder, credit-builder, stock-sync, customer-resolver), `worker/`, `extensions/order-block/`, `extensions/orders-bulk-action/`, `prisma/`, `docker/`.
 - **שרת WEBSOL**: Docker Compose (web, worker, postgres, redis), דומיין קבוע עם TLS (Caddy/Traefik), גיבוי יומי ל-DB, Sentry/לוגים מרכזיים. דרישות מינימום: 2 vCPU, 2GB RAM.
-- **וריפון**: אם services.asmx נגיש מהאינטרנט — רישום IP השרת ברשימה הלבנה של וריפון; אם לא — WireGuard/Cloudflare Tunnel מהשרת לרשת הפנימית, או קונטיינר "relay" קטן בתוך הרשת הפנימית (HTTP→SOAP) עם token. ה-client מקבל `VR360_BASE_URL` ולא אכפת לו באיזו דרך.
+- **וריפון**: services.asmx נגיש מהאינטרנט בכתובת IP ציבורית (סעיף 9), לכן אין צורך ב-VPN; לבקש מוריפון whitelist ל-IP של השרת ו-HTTPS אם קיים. ה-client מקבל `VR360_BASE_URL` ולא אכפת לו באיזו דרך.
 - **Shopify**: אפליקציה ב-Dev Dashboard (אותו חשבון של האפליקציה שיצרנו לייבוא), `shopify app deploy` לפריסת ה-extensions, גרסת API `2026-01` עם בדיקה רבעונית.
 
-## 9. שאלות פתוחות (לפני בנייה)
-1. **וריפון**: נגישות השרת (אינטרנט/VPN), סביבת בדיקות (חנות/נומרטור לבדיקות כדי לא ללכלך מספור אמיתי), אישור ייצוג כרטיסי מתנה של Shopify ו-BuyMe כ"מימוש זיכוי".
-2. **BuyMe ב-Shopify**: איזו אינטגרציה תותקן (אפליקציה של BuyMe? קודי הנחה ייעודיים? gift cards?). המיפוי ייקבע לפי זה.
-3. **סולק**: מי הסולק הסופי (Tranzila/Grow/Pelecard/Cardcom). צריך הזמנת בדיקה אחת מכל סולק כדי לראות את מבנה `receiptJson` ואת מספר האישור.
-4. **מדיניות הפקה אוטומטית**: ב-`orders/paid` (מומלץ) או ב-fulfillment? וזיכוי אוטומטי בביטול/החזר — כן/לא.
-5. **Location**: איזה location ב-Shopify מייצג את מחסן האתר (כרגע יש אחד: ניר צבי).
-6. מק"ט משלוח ומק"ט עמלות בוריפון — אותם ערכים כמו בווקומרס?
+## 9. החלטות (נסגרו עם הסוחר ב-2026-10-08)
+| # | שאלה | החלטה |
+|---|---|---|
+| 1 | נגישות שרת וריפון | ה-endpoint בווקומרס הוא כתובת IP ציבורית (`http://62.219.182.125/R360.Server.IIS/Services/Services.asmx`), כלומר השרת נגיש מהאינטרנט ללא VPN. ה-client יעבוד מול אותו endpoint; צריך רק לוודא שוריפון לא חוסמת לפי IP (ואם כן, להוסיף את IP השרת של WEBSOL). **פתוח**: החיבור הוא HTTP לא מוצפן עם שם משתמש וסיסמה בגוף הבקשה; לשאול את וריפון אם יש HTTPS. **פתוח**: סביבת בדיקות (חנות/נומרטור/פנקס נפרד) כדי שבדיקות הפיתוח לא ייכנסו למספור האמיתי. |
+| 2 | BuyMe | תותקן האפליקציה של BuyMe ל-Shopify. לא נמצא תיעוד ציבורי של איך המימוש נרשם בהזמנה (קוד הנחה / gift card / טרנזקציה), לכן מזהה השובר נשאר מודולרי (סעיף 5) וייקבע סופית לפי הזמנת בדיקה אחת אחרי ההתקנה. |
+| 3 | סולק | Tranzila (אפליקציית "Tranzila PayTech" ב-App Store של Shopify; כוללת גם Bit). מספר האישור ו-4 הספרות ייקראו מ-`paymentDetails`/`receiptJson` של הטרנזקציה לפי הזמנת בדיקה אחת. |
+| 4 | הפקה אוטומטית | כן: הפקה ב-`orders/paid` (המקבילה ל"בטיפול" בווקומרס), זיכוי אוטומטי בביטול ובהחזר. שתי האפשרויות נשארות מתגים בהגדרות. |
+| 5 | Location | ניר צבי (ה-location היחיד בחנות). |
+| 6 | מק"טים | מק"ט משלוח 555, מק"ט עמלות 973 (כמו בווקומרס). |
+
+## 9א. הגדרות ברירת המחדל (מהפלאגין הפעיל בווקומרס, צילום מסך 2026-10-08)
+האפליקציה תעלה עם הערכים האלה כברירת מחדל, כך שהמעבר לא דורש הגדרה מחדש:
+
+| קבוצה | הגדרה | ערך |
+|---|---|---|
+| חיבור | Endpoint | `http://62.219.182.125/R360.Server.IIS/Services/Services.asmx` |
+| חיבור | ChainID / שם משתמש | 5652 / `BO_5652` (הסיסמה נשארת אצל הסוחר, תוזן בממשק ותישמר מוצפנת) |
+| מסמך | StoreNo / SupplyStoreNo | 20 / 11 |
+| מסמך | DocType / NotebookID / PriceList | 1 (חשבונית מס/קבלה) / 2 / 1 |
+| מסמך | מקור DocNo | 0 = נומרטור של וריפון; `Reference` = מספר ההזמנה |
+| מסמך | מע"מ ברירת מחדל | 18% |
+| מסמך | Published / SendDocByMail / הפקה אוטומטית | לא / כן / כן |
+| מסמך | מק"ט משלוח / מק"ט עמלות | 555 / 973 |
+| לקוח | חיפוש לפי אימייל / לקוח ברירת מחדל / UnidentifiedCustomer | כן / 1 / כן |
+| מלאי | סנכרון פעיל / חנות מלאי | כן / ריק (= SupplyStoreNo 11) |
+| מלאי | בשמירת מוצר / שינויי היום / 30 יום | כן / 20 דק' / 8 שעות (בפועל הטריגר החיצוני רץ כל 15 דק', 93 מק"טים לריצה, 3 מק"טים לא קיימים באתר) |
+| מלאי | קיזוז מלאי משוריין | לא |
+| מלאי | token לטריגר חיצוני | קיים בווקומרס; באפליקציה ייווצר token חדש (לא מועתק) |
+| תשלום | gobitpaymentgateway (אשראי / Bit / PayPal) → 3, PayPal ppcp → 3 | ב-Shopify: Tranzila → 3 (אשראי), PayPal → 3 (אשראי, לא מזומן), כרטיס מתנה של Shopify / BuyMe → 4 (מימוש זיכוי). |
+
+שינוי לעומת סעיף 5: ברירת המחדל ל-PayPal היא **אשראי (3)** כמו בווקומרס, לא מזומן.
+
+## 9ב. מה עוד נדרש לפני שלב 6 (בדיקות)
+1. וריפון: אישור HTTPS או whitelist ל-IP של השרת, וסביבת בדיקות / פנקס בדיקות.
+2. התקנת האפליקציה של BuyMe ו-Tranzila PayTech בחנות, והזמנת בדיקה אחת מכל אחת (אפשר במוצר של 1 ש"ח) כדי לראות את מבנה הנתונים בהזמנה.
+3. אישור וריפון שמימוש BuyMe וכרטיס מתנה של Shopify נרשמים כ-`VoucherRedeeming` (כמו היום ב-Multipass).
 
 ## 10. שלבי עבודה והערכות
 | שלב | תוכן | הערכה |
