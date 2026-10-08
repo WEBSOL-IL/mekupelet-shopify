@@ -1,0 +1,97 @@
+/* MK Age pills: image beside a grid of icon pills that link to age collections. */
+.mk-age-pills {
+  padding-block: var(--section-padding-top) var(--section-padding-bottom);
+}
+.mk-age-pills__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.4rem;
+  align-items: center;
+}
+.mk-age-pills__media {
+  border-radius: var(--blocks-radius);
+  overflow: hidden;
+}
+.mk-age-pills__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.mk-age-pills__heading {
+  margin-block: 0 2rem;
+  text-align: center;
+}
+.mk-age-pills__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+  margin: 0;
+  padding: 0;
+}
+.mk-age-pill {
+  --mk-pill-icon-size: 7.2rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: var(--mk-pill-icon-size);
+  padding-inline-start: calc(var(--mk-pill-icon-size) / 2);
+  color: inherit;
+  text-decoration: none;
+}
+.mk-age-pill__icon {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: var(--mk-pill-icon-size);
+  height: var(--mk-pill-icon-size);
+  border-radius: 50%;
+  background: rgb(var(--color-background));
+  box-shadow: 0 0.4rem 1.2rem rgba(var(--color-foreground), 0.12);
+  z-index: 1;
+}
+.mk-age-pill__icon img {
+  width: 55%;
+  height: 55%;
+  object-fit: contain;
+}
+.mk-age-pill__label {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(var(--mk-pill-icon-size) - 1.2rem);
+  padding-inline: calc(var(--mk-pill-icon-size) / 2 + 1.2rem) 2rem;
+  border-radius: 10rem;
+  background: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  font-weight: var(--font-body-weight-bold);
+  font-size: calc(var(--font-body-size) * 1.1);
+  transition: filter var(--duration-default) ease;
+}
+.mk-age-pill:hover .mk-age-pill__label,
+.mk-age-pill:focus-visible .mk-age-pill__label {
+  filter: brightness(1.1);
+}
+.mk-age-pill:focus-visible {
+  outline: 0.2rem solid rgb(var(--color-keyboard-focus, var(--color-foreground)));
+  outline-offset: 0.3rem;
+  border-radius: 10rem;
+}
+@media (min-width: 768px) {
+  .mk-age-pills__list {
+    grid-template-columns: repeat(var(--mk-age-pills-columns, 2), minmax(0, 1fr));
+    gap: 2rem 2.4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .mk-age-pills__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 4rem;
+  }
+  .mk-age-pills__layout--image-end .mk-age-pills__media {
+    order: 2;
+  }
+}

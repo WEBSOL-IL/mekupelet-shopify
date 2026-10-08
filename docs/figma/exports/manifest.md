@@ -11,7 +11,9 @@ Merchant confirmed 2026-10-08: the two previews above show the **original** Home
 `1:7075` mobile), not the revision `18:4094`.
 
 ## Home content assets (zip received 2026-10-08, stored in `assets/home/`, 48 files, ~25 MB)
-Content for Shopify Files at build time; not design values. Original file names kept.
+Content for Shopify Files at build time; not design values. Files were renamed to the names the
+templates reference (`shopify://shop_images/<name>`); upload them to Files unchanged (see
+`docs/merchant-checklist.md`). Original Figma layer names are listed below for traceability.
 
 | Role on Home | Files | Notes |
 |---|---|---|

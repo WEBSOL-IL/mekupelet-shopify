@@ -9,145 +9,7 @@
  */
 {
   "sections": {
-    "collection_list_slider_6qbNfj": {
-      "type": "collection-list-slider",
-      "blocks": {
-        "featured_collection_L9N3Tg": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Sale Items"
-          }
-        },
-        "featured_collection_gxdACj": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Press Tables"
-          }
-        },
-        "featured_collection_jQXtir": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Lighting"
-          }
-        },
-        "featured_collection_4H9LzM": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Spoke Sofa"
-          }
-        },
-        "featured_collection_jMA9xm": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Storage"
-          }
-        },
-        "featured_collection_J6hxH9": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Turn Chairs"
-          }
-        },
-        "featured_collection_HwzPfD": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Chairs"
-          }
-        },
-        "featured_collection_GW3kAL": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Curve Coat"
-          }
-        },
-        "featured_collection_J6V8fx": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Bend Chairs"
-          }
-        },
-        "featured_collection_NkFYeg": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Accessories"
-          }
-        },
-        "featured_collection_eBphH3": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Tables"
-          }
-        },
-        "featured_collection_mFCdUY": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Bar Chairs"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_L9N3Tg",
-        "featured_collection_gxdACj",
-        "featured_collection_jQXtir",
-        "featured_collection_4H9LzM",
-        "featured_collection_jMA9xm",
-        "featured_collection_J6hxH9",
-        "featured_collection_HwzPfD",
-        "featured_collection_GW3kAL",
-        "featured_collection_J6V8fx",
-        "featured_collection_NkFYeg",
-        "featured_collection_eBphH3",
-        "featured_collection_mFCdUY"
-      ],
-      "custom_css": [],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "",
-        "section_header_alignment": "center",
-        "section_header_alignment_mobile": "inherit",
-        "subheading": "",
-        "heading": "",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h1",
-        "description": "",
-        "text_size": "text-base",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "btn--underline",
-        "button_icon": "none",
-        "card_color_scheme": "",
-        "card_style": "standard",
-        "card_heading_size": "text-base",
-        "card_image_ratio": "1/1",
-        "card_image_width": "medium",
-        "card_image_padding": "none",
-        "rounded_card_image": true,
-        "mobile_layout": "vertical",
-        "carousel_item_size": "auto",
-        "columns_desktop": 6,
-        "carousel_control_color_scheme": "",
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "show_section_divider": false,
-        "divider_width": "fixed"
-      }
-    },
-    "slideshow_q3U4Jn": {
+    "slideshow": {
       "type": "slideshow",
       "blocks": {
         "slide_JhU8hg": {
@@ -190,1678 +52,599 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
-    "featured_collection_bdaamt": {
-      "type": "featured-collection",
+    "mk_gift_finder": {
+      "type": "mk-gift-finder",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "button_label": "מצאו לי מתנה",
+        "button_style": "btn--primary",
+        "padding_top": 24,
+        "padding_bottom": 24
+      },
       "blocks": {
-        "collection_ydJPzX": {
-          "type": "collection",
+        "filter_1": {
+          "type": "filter",
           "settings": {
-            "collection": "",
-            "title": "New Arrivals",
-            "show_banner": true,
-            "color_scheme": "scheme-inverse",
-            "card_link": "",
-            "image_overlay_opacity": 20,
-            "content_position": "split-bottom-button",
-            "content_alignment": "left",
-            "subheading": "Promotion",
-            "subheading_style": "",
-            "heading": "Soft Stools Design",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h2",
-            "heading_size_mobile": "inherit",
-            "heading_size_custom": 18,
-            "description": "",
-            "text_size": "text-base",
-            "button_label": "Shop now",
-            "button_style": "btn--primary",
-            "button_icon": "none"
+            "label": "גיל",
+            "param": "filter.p.tag",
+            "options": "0-6 חודשים|גיל-0-6\n6-12 חודשים|גיל-6-12\nשנה-שנה וחצי|גיל-12-18\nשנה וחצי-שנתיים|גיל-18-24\nשנתיים-שלוש|גיל-24-36\n3+|גיל-3-plus"
           }
         },
-        "collection_E83rKg": {
-          "type": "collection",
+        "filter_2": {
+          "type": "filter",
           "settings": {
-            "collection": "",
-            "title": "Hot Items",
-            "show_banner": true,
-            "color_scheme": "scheme-inverse",
-            "card_link": "",
-            "image_overlay_opacity": 20,
-            "content_position": "split-bottom-button",
-            "content_alignment": "left",
-            "subheading": "Promotion",
-            "subheading_style": "",
-            "heading": "Soft Stools Design",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h2",
-            "heading_size_mobile": "inherit",
-            "heading_size_custom": 18,
-            "description": "",
-            "text_size": "text-base",
-            "button_label": "Shop now",
-            "button_style": "btn--primary",
-            "button_icon": "none"
+            "label": "סוג מתנה",
+            "param": "filter.p.product_type",
+            "options": "משחקי קופסה|משחקי קופסה\nספרים|ספרים\nצעצועי עץ|צעצועי עץ\nיצירה|יצירה"
+          }
+        },
+        "filter_3": {
+          "type": "filter",
+          "settings": {
+            "label": "מותג",
+            "param": "filter.p.vendor",
+            "options": "Ulanik|Ulanik\nKooglo|Kooglo\nJaba Daba Do|Jaba Daba Do\nBanana Panda|Banana Panda"
+          }
+        },
+        "filter_4": {
+          "type": "filter",
+          "settings": {
+            "label": "טווח מחירים",
+            "param": "filter.v.price",
+            "options": "עד 50 ₪|0-50\n50–100 ₪|50-100\n100–200 ₪|100-200\n200 ₪ ומעלה|200-100000"
           }
         }
       },
       "block_order": [
-        "collection_ydJPzX",
-        "collection_E83rKg"
-      ],
-      "custom_css": [],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "",
-        "section_header_alignment": "left",
-        "section_header_alignment_mobile": "inherit",
-        "subheading": "",
-        "heading": "New Arrivals",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h2",
-        "description": "<p>Traditional divides between personal and professional space.</p>",
-        "text_size": "text-base",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "btn--underline",
-        "button_icon": "none",
-        "limit": 7,
-        "columns": 5,
-        "column_gap": "medium",
-        "row_gap": "large",
-        "enable_slider": true,
-        "content_overflow": true,
-        "navigation_position": "bottom",
-        "pcard_image_ratio": "",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "show_progress_bar": true,
-        "padding_top": 40,
-        "padding_bottom": 0,
-        "show_section_divider": false,
-        "divider_width": "fixed"
-      }
+        "filter_1",
+        "filter_2",
+        "filter_3",
+        "filter_4"
+      ]
     },
-    "promotion_banner_VCkmzP": {
-      "type": "promotion-banner",
-      "blocks": {
-        "subheading_xKzbww": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Flash Sale now on!",
-            "subheading_icon": "none"
-          }
-        },
-        "timer_6FyFrY": {
-          "type": "timer",
-          "settings": {
-            "type": "evergreen",
-            "number_size": "h1",
-            "duration": "every_month",
-            "time": "2025/06/28 03:45 PM"
-          }
-        },
-        "text_QWap4d": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Save on modern table office, <br/>best sellers + more</p>",
-            "text_color": "base-text"
-          }
-        },
-        "code_FWe4HN": {
-          "type": "code",
-          "settings": {
-            "discount_code": "FLASH30",
-            "button_label": "Use Code: FLASH30",
-            "button_style": "btn--primary",
-            "button_icon": "none"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_xKzbww",
-        "timer_6FyFrY",
-        "text_QWap4d",
-        "code_FWe4HN"
-      ],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "scheme-3",
-        "layout": "horizontal",
-        "content_alignment": "center",
-        "content_alignment_mobile": "center",
-        "padding_top": 40,
-        "padding_bottom": 0
-      }
-    },
-    "custom_content_HPgFTK": {
-      "type": "custom-content",
-      "blocks": {
-        "image_card_with_product_qBJGcT": {
-          "type": "image_card_with_product",
-          "settings": {
-            "color_scheme": "scheme-inverse",
-            "image_ratio": "adapt",
-            "subheading": "Danish Design",
-            "heading": "Material Natural",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h3",
-            "description": "",
-            "button_label": "Shop",
-            "button_style": "btn--primary",
-            "button_icon": "none",
-            "product": "",
-            "width": "25%",
-            "alignment": "center",
-            "block_custom_class": ""
-          }
-        },
-        "image_card_with_product_G77z3R": {
-          "type": "image_card_with_product",
-          "settings": {
-            "color_scheme": "scheme-inverse",
-            "image_ratio": "adapt",
-            "subheading": "Cotton Collection",
-            "heading": "Authority Design",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h3",
-            "description": "",
-            "button_label": "Shop",
-            "button_style": "btn--primary",
-            "button_icon": "none",
-            "product": "",
-            "width": "25%",
-            "alignment": "center",
-            "block_custom_class": ""
-          }
-        },
-        "image_card_with_product_3khACH": {
-          "type": "image_card_with_product",
-          "settings": {
-            "color_scheme": "scheme-inverse",
-            "image_ratio": "adapt",
-            "subheading": "Minimalism Style",
-            "heading": "Steels Lighting",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h3",
-            "description": "",
-            "button_label": "Shop",
-            "button_style": "btn--primary",
-            "button_icon": "none",
-            "product": "",
-            "width": "25%",
-            "alignment": "center",
-            "block_custom_class": ""
-          }
-        },
-        "image_card_with_product_dMnGc4": {
-          "type": "image_card_with_product",
-          "settings": {
-            "color_scheme": "scheme-inverse",
-            "image_ratio": "adapt",
-            "subheading": "Danish Design",
-            "heading": "Nightstand",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h3",
-            "description": "",
-            "button_label": "Shop",
-            "button_style": "btn--primary",
-            "button_icon": "none",
-            "product": "",
-            "width": "25%",
-            "alignment": "center",
-            "block_custom_class": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_card_with_product_qBJGcT",
-        "image_card_with_product_G77z3R",
-        "image_card_with_product_3khACH",
-        "image_card_with_product_dMnGc4"
-      ],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "",
-        "enable_sticky_column": false,
-        "section_header_alignment": "left",
-        "section_header_alignment_mobile": "inherit",
-        "subheading": "",
-        "heading": "",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h1",
-        "description": "",
-        "text_size": "text-base",
-        "column_gap": "2xs",
-        "row_gap": "large",
-        "swipe_on_mobile": true,
-        "columns_mobile": "1",
-        "padding_top": 40,
-        "padding_bottom": 0,
-        "show_section_divider": false,
-        "divider_width": "fixed"
-      }
-    },
-    "collection_list_Azm9te": {
+    "categories": {
       "type": "collection-list",
-      "blocks": {
-        "featured_collection_KdFqFq": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Sale Items"
-          }
-        },
-        "featured_collection_d8XGnb": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Press Tables"
-          }
-        },
-        "featured_collection_FzRWDn": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Lighting"
-          }
-        },
-        "featured_collection_at4gCr": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Spoke Sofa"
-          }
-        },
-        "featured_collection_F69pQy": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Storage"
-          }
-        },
-        "featured_collection_JV9tDT": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Turn Chairs"
-          }
-        },
-        "featured_collection_WLrpbE": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Longe Chairs"
-          }
-        },
-        "featured_collection_qdrbEr": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Curve Coat"
-          }
-        },
-        "featured_collection_Pa8kFP": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Cross Tables"
-          }
-        },
-        "featured_collection_UTWiiY": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Bend Chairs"
-          }
-        },
-        "featured_collection_rkynNN": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Bar Chairs"
-          }
-        },
-        "featured_collection_8t9tJr": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "title": "Accessories"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_KdFqFq",
-        "featured_collection_d8XGnb",
-        "featured_collection_FzRWDn",
-        "featured_collection_at4gCr",
-        "featured_collection_F69pQy",
-        "featured_collection_JV9tDT",
-        "featured_collection_WLrpbE",
-        "featured_collection_qdrbEr",
-        "featured_collection_Pa8kFP",
-        "featured_collection_UTWiiY",
-        "featured_collection_rkynNN",
-        "featured_collection_8t9tJr"
-      ],
-      "custom_css": [],
       "settings": {
-        "container": "fixed",
-        "color_scheme": "",
-        "section_header_alignment": "left",
-        "section_header_alignment_mobile": "inherit",
-        "subheading": "",
-        "heading": "Shop By Categories",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h2",
-        "description": "",
-        "text_size": "text-base",
-        "button_label": "Shop All Products",
-        "button_link": "",
-        "button_style": "btn--plain",
-        "button_icon": "caret-right",
-        "card_color_scheme": "",
+        "heading": "קטגוריות נבחרות",
+        "section_header_alignment": "center",
         "card_style": "standard",
-        "card_heading_size": "text-base",
-        "card_text_line_limit": "none",
-        "card_image_ratio": "adapt",
+        "card_image_ratio": "1/1",
         "card_image_width": "large",
-        "card_image_padding": "none",
         "rounded_card_image": true,
         "card_show_border": false,
-        "mobile_layout": "vertical",
-        "columns_desktop": 6,
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "grid_bordered": true,
+        "columns_desktop": 7,
         "columns_mobile": "3",
         "swipe_on_mobile": false,
-        "padding_top": 60,
-        "padding_bottom": 0,
-        "show_section_divider": false,
-        "divider_width": "fixed"
-      }
-    },
-    "collection_tabs_VexkkR": {
-      "type": "collection-tabs",
-      "blocks": {
-        "collection_kXyTe3": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "Heritage Living",
-            "text": "<p>With a shape inspired by the bollards used to<br/>secure vessels to a jetty</p>",
-            "button_label": "Shop Collection",
-            "button_style": "btn--primary",
-            "button_icon": "none"
-          }
-        },
-        "collection_qxfNFe": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "The Haven Collection",
-            "text": "<p>Anchored in design, inspired by the sturdy bollards<br/>that secure ships to docks.</p>",
-            "button_label": "Shop Collection",
-            "button_style": "btn--primary",
-            "button_icon": "none"
-          }
-        },
-        "collection_j3wCpz": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "Solace Series",
-            "text": "<p>Designed with a silhouette inspired by the crossbars <br/>that provide strength and stability.</p>",
-            "button_label": "Shop Collection",
-            "button_style": "btn--primary",
-            "button_icon": "none"
-          }
-        }
-      },
-      "block_order": [
-        "collection_kXyTe3",
-        "collection_qxfNFe",
-        "collection_j3wCpz"
-      ],
-      "custom_css": [
-        "@media (min-width: 1280px) {collection-tabs {padding-inline: 5rem; }}"
-      ],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "",
-        "heading": "Featured Collections",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h6",
-        "image_position": "right",
-        "image_ratio": "adapt",
-        "collection_heading_size": "h1",
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "show_section_divider": false,
-        "divider_width": "fixed"
-      }
-    },
-    "favorite_products_6Tg9Pn": {
-      "type": "favorite-products",
-      "blocks": {
-        "product_XrLWzM": {
-          "type": "product",
-          "settings": {
-            "color_scheme": "scheme-7",
-            "product": "",
-            "text": "<p>“All products are authentic and imported from the country of origin.”</p>",
-            "text_size": "h2",
-            "author": "Jenny Wilson",
-            "bio": "New Mexico"
-          }
-        },
-        "product_wByADN": {
-          "type": "product",
-          "settings": {
-            "color_scheme": "scheme-4",
-            "product": "",
-            "text": "<p>“Each piece is authentic and carefully sourced from its place of origin.”</p>",
-            "text_size": "h2",
-            "author": "Julie Mathers",
-            "bio": "Australia"
-          }
-        },
-        "product_8UUtBe": {
-          "type": "product",
-          "settings": {
-            "color_scheme": "scheme-6",
-            "product": "",
-            "text": "<p>“Crafted with care using local materials, each piece reflects the character of its origin.”</p>",
-            "text_size": "h2",
-            "author": "John Doe",
-            "bio": "New York"
-          }
-        }
-      },
-      "block_order": [
-        "product_XrLWzM",
-        "product_wByADN",
-        "product_8UUtBe"
-      ],
-      "custom_css": [
-        ".testimonial__content {max-width: 46rem;}"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "layout": "content-right",
-        "heading": "Our Favorite Products",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "slide_height": "small",
-        "pcard_style": "boxed",
-        "pcard_image_ratio": "",
-        "show_section_divider": false,
-        "divider_width": "fixed"
-      }
-    },
-    "lookbook_slider_9zCdQJ": {
-      "type": "lookbook-slider",
-      "blocks": {
-        "lookbook_card_8cicAx": {
-          "type": "lookbook_card",
-          "settings": {
-            "product_list": [],
-            "width": 59,
-            "width_mobile": 90,
-            "heading": "Shop this look",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h6"
-          }
-        },
-        "lookbook_card_eUB7yN": {
-          "type": "lookbook_card",
-          "settings": {
-            "product_list": [],
-            "width": 29,
-            "width_mobile": 65,
-            "heading": "Shop this look",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h6"
-          }
-        },
-        "lookbook_card_tHgUQt": {
-          "type": "lookbook_card",
-          "settings": {
-            "product_list": [],
-            "width": 59,
-            "width_mobile": 90,
-            "heading": "Shop this look",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h6"
-          }
-        },
-        "lookbook_card_8BaXc6": {
-          "type": "lookbook_card",
-          "settings": {
-            "product_list": [],
-            "width": 29,
-            "width_mobile": 65,
-            "heading": "Shop this look",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h6"
-          }
-        },
-        "lookbook_card_DtRhzC": {
-          "type": "lookbook_card",
-          "settings": {
-            "product_list": [],
-            "width": 59,
-            "width_mobile": 90,
-            "heading": "Shop this look",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h6"
-          }
-        }
-      },
-      "block_order": [
-        "lookbook_card_8cicAx",
-        "lookbook_card_eUB7yN",
-        "lookbook_card_tHgUQt",
-        "lookbook_card_8BaXc6",
-        "lookbook_card_DtRhzC"
-      ],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "",
-        "section_header_alignment": "left",
-        "section_header_alignment_mobile": "inherit",
-        "subheading": "",
-        "heading": "Get Inspired by Spaces",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h2",
-        "description": "",
-        "description_size": "text-base",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "btn--primary",
-        "button_icon": "none",
-        "column_gap": "2xs",
-        "enable_slider": true,
-        "slide_height": "medium",
-        "enable_swiper_mobile": true,
-        "show_progress_bar": true,
-        "show_section_divider": false,
-        "divider_width": "fixed",
-        "padding_top": 60,
-        "padding_bottom": 0
-      }
-    },
-    "custom_content_JxRy7x": {
-      "type": "custom-content",
-      "blocks": {
-        "image_card_mL7WWJ": {
-          "type": "image_card",
-          "settings": {
-            "color_scheme": "scheme-1",
-            "image_ratio": "adapt",
-            "image_overlay_opacity": 0,
-            "content_position": "split-bottom-button",
-            "content_alignment": "left",
-            "content_spacing": "small",
-            "content_gap": "fitted",
-            "card_link": "",
-            "subheading": "",
-            "subheading_style": "",
-            "heading": "Turn Chairs",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h2",
-            "heading_size_mobile": "inherit",
-            "heading_size_custom": 18,
-            "description": "<p>Elevate your space with 40% off<br/>our timeless designs!</p>",
-            "button_label": "Shop Now",
-            "button_style": "btn--primary",
-            "button_icon": "none",
-            "show_badge": true,
-            "badge_color_scheme": "scheme-3",
-            "badge_shape": "circle",
-            "badge_position": "top-right",
-            "badge_subtext": "Save",
-            "badge_text": "40%",
-            "color_scheme_mobile": "scheme-1",
-            "show_text_below": false,
-            "content_alignment_mobile": "left",
-            "width": "50%",
-            "alignment": "center",
-            "block_custom_class": "",
-            "enable_preload_image": false
-          }
-        },
-        "image_card_Vj69GM": {
-          "type": "image_card",
-          "settings": {
-            "color_scheme": "scheme-1",
-            "image_ratio": "adapt",
-            "image_overlay_opacity": 0,
-            "content_position": "split-bottom-button",
-            "content_alignment": "left",
-            "content_spacing": "small",
-            "content_gap": "fitted",
-            "card_link": "",
-            "subheading": "",
-            "subheading_style": "",
-            "heading": "Cross Chairs",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h2",
-            "heading_size_mobile": "inherit",
-            "heading_size_custom": 18,
-            "description": "<p>Get 30% off elegant, timeless <br/>seating—don’t miss out!</p>",
-            "button_label": "Shop Now",
-            "button_style": "btn--primary",
-            "button_icon": "none",
-            "show_badge": true,
-            "badge_color_scheme": "scheme-8",
-            "badge_shape": "circle",
-            "badge_position": "top-right",
-            "badge_subtext": "Save",
-            "badge_text": "30%",
-            "color_scheme_mobile": "scheme-1",
-            "show_text_below": false,
-            "content_alignment_mobile": "left",
-            "width": "50%",
-            "alignment": "center",
-            "block_custom_class": "",
-            "enable_preload_image": false
-          }
-        }
-      },
-      "block_order": [
-        "image_card_mL7WWJ",
-        "image_card_Vj69GM"
-      ],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "",
-        "enable_sticky_column": false,
-        "section_header_alignment": "left",
-        "section_header_alignment_mobile": "inherit",
-        "subheading": "",
-        "heading": "",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h1",
-        "description": "",
-        "text_size": "text-base",
-        "column_gap": "2xs",
-        "row_gap": "inherit",
-        "swipe_on_mobile": false,
-        "columns_mobile": "1",
         "padding_top": 40,
-        "padding_bottom": 0,
-        "show_section_divider": false,
-        "divider_width": "fixed"
-      }
-    },
-    "buttons_with_icon_7zH9F3": {
-      "type": "buttons-with-icon",
+        "padding_bottom": 40
+      },
       "blocks": {
-        "button_item_VQE7f9": {
-          "type": "button_item",
+        "featured_collection_1": {
+          "type": "featured_collection",
           "settings": {
-            "button_label": "Living Room",
-            "button_link": "",
-            "icon": "check"
+            "collection": "tableware",
+            "image": "shopify://shop_images/cat-tableware.png",
+            "title": "כלי אוכל"
           }
         },
-        "button_item_A8ctbq": {
-          "type": "button_item",
+        "featured_collection_2": {
+          "type": "featured_collection",
           "settings": {
-            "button_label": "Planters",
-            "button_link": "",
-            "icon": "check"
+            "collection": "home",
+            "image": "shopify://shop_images/cat-home.png",
+            "title": "כלי בית"
           }
         },
-        "button_item_gp6wzj": {
-          "type": "button_item",
+        "featured_collection_3": {
+          "type": "featured_collection",
           "settings": {
-            "button_label": "Gravel Rug",
-            "button_link": "",
-            "icon": "check"
+            "collection": "accessories",
+            "image": "shopify://shop_images/cat-accessories.png",
+            "title": "אביזרים"
           }
         },
-        "button_item_KjqtJi": {
-          "type": "button_item",
+        "featured_collection_4": {
+          "type": "featured_collection",
           "settings": {
-            "button_label": "Table Mirror",
-            "button_link": "",
-            "icon": "check"
+            "collection": "kids-clothing",
+            "image": "shopify://shop_images/cat-kids-clothing.png",
+            "title": "בגדי ילדים"
           }
         },
-        "button_item_Q3cegW": {
-          "type": "button_item",
+        "featured_collection_5": {
+          "type": "featured_collection",
           "settings": {
-            "button_label": "Table Wears",
-            "button_link": "",
-            "icon": "check"
+            "collection": "books",
+            "image": "shopify://shop_images/cat-books.png",
+            "title": "ספרים"
           }
         },
-        "button_item_pqRX7H": {
-          "type": "button_item",
+        "featured_collection_6": {
+          "type": "featured_collection",
           "settings": {
-            "button_label": "Dining Decor",
-            "button_link": "",
-            "icon": "check"
+            "collection": "toys-dolls",
+            "image": "shopify://shop_images/cat-toys-dolls.png",
+            "title": "צעצועים ובובות"
           }
         },
-        "button_item_en8WtA": {
-          "type": "button_item",
+        "featured_collection_7": {
+          "type": "featured_collection",
           "settings": {
-            "button_label": "Ray Table Lamp",
-            "button_link": "",
-            "icon": "check"
-          }
-        },
-        "button_item_JnFWN8": {
-          "type": "button_item",
-          "settings": {
-            "button_label": "Chairs",
-            "button_link": "",
-            "icon": "check"
-          }
-        },
-        "button_item_FrFqff": {
-          "type": "button_item",
-          "settings": {
-            "button_label": "Living Room",
-            "button_link": "",
-            "icon": "check"
-          }
-        },
-        "button_item_mKVJW4": {
-          "type": "button_item",
-          "settings": {
-            "button_label": "Planters",
-            "button_link": "",
-            "icon": "check"
+            "collection": "costumes",
+            "image": "shopify://shop_images/cat-costumes.png",
+            "title": "תחפושות"
           }
         }
       },
       "block_order": [
-        "button_item_VQE7f9",
-        "button_item_A8ctbq",
-        "button_item_gp6wzj",
-        "button_item_KjqtJi",
-        "button_item_Q3cegW",
-        "button_item_pqRX7H",
-        "button_item_en8WtA",
-        "button_item_JnFWN8",
-        "button_item_FrFqff",
-        "button_item_mKVJW4"
-      ],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "",
-        "section_header_alignment": "left",
-        "section_header_alignment_mobile": "inherit",
-        "subheading": "",
-        "heading": "",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h2",
-        "item_alignment": "left",
-        "item_button_style": "btn--icon",
-        "item_button_font": "button",
-        "enable_slider": true,
-        "swipe_on_mobile": true,
-        "show_section_divider": false,
-        "divider_width": "fixed",
-        "padding_top": 60,
-        "padding_bottom": 0
-      }
+        "featured_collection_1",
+        "featured_collection_2",
+        "featured_collection_3",
+        "featured_collection_4",
+        "featured_collection_5",
+        "featured_collection_6",
+        "featured_collection_7"
+      ]
     },
-    "featured_collection_RWUfH9": {
+    "featured_tabs": {
       "type": "featured-collection",
+      "settings": {
+        "heading": "אוספים מומלצים",
+        "section_header_alignment": "center",
+        "limit": 8,
+        "columns": 4,
+        "columns_mobile": "2",
+        "enable_slider": true,
+        "pcard_image_ratio": "1/1",
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
       "blocks": {
-        "collection_tqdqYc": {
+        "collection_1": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "title": "",
-            "show_banner": false,
-            "color_scheme": "",
-            "card_link": "",
-            "image_overlay_opacity": 0,
-            "content_position": "top-left",
-            "content_alignment": "left",
-            "subheading": "",
-            "subheading_style": "",
-            "heading": "Collections",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h2",
-            "heading_size_mobile": "inherit",
-            "heading_size_custom": 18,
-            "description": "",
-            "text_size": "text-base",
-            "button_label": "",
-            "button_style": "btn--primary",
-            "button_icon": "none"
+            "collection": "best-sellers",
+            "title": "מובילים"
+          }
+        },
+        "collection_2": {
+          "type": "collection",
+          "settings": {
+            "collection": "new",
+            "title": "חדש באתר"
+          }
+        },
+        "collection_3": {
+          "type": "collection",
+          "settings": {
+            "collection": "sale",
+            "title": "במבצע"
           }
         }
       },
       "block_order": [
-        "collection_tqdqYc"
-      ],
+        "collection_1",
+        "collection_2",
+        "collection_3"
+      ]
+    },
+    "age_pills": {
+      "type": "mk-age-pills",
       "settings": {
         "container": "fixed",
-        "color_scheme": "",
-        "section_header_alignment": "left",
-        "section_header_alignment_mobile": "inherit",
-        "subheading": "",
-        "heading": "Shop Our Offers",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h2",
-        "description": "<p>Traditional divides between personal and professional space.</p>",
-        "text_size": "text-base",
-        "button_label": "Shop All Products",
-        "button_link": "",
-        "button_style": "btn--plain",
-        "button_icon": "caret-right",
-        "limit": 8,
-        "columns": 5,
-        "column_gap": "medium",
-        "row_gap": "inherit",
-        "enable_slider": true,
-        "content_overflow": true,
-        "navigation_position": "bottom",
-        "pcard_image_ratio": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "show_progress_bar": true,
-        "padding_top": 60,
-        "padding_bottom": 0,
-        "show_section_divider": false,
-        "divider_width": "fixed"
-      }
-    },
-    "image_with_text_aXhRxw": {
-      "type": "image-with-text",
+        "color_scheme": "scheme-1",
+        "heading": "רכישה לפי גיל",
+        "heading_size": "h3",
+        "image": "shopify://shop_images/photo-age-kids.png",
+        "image_position": "end",
+        "columns_desktop": 2,
+        "padding_top": 50,
+        "padding_bottom": 50
+      },
       "blocks": {
-        "badge_fQjMHW": {
-          "type": "badge",
+        "pill_1": {
+          "type": "pill",
           "settings": {
-            "color_scheme": "scheme-3",
-            "text": "garace - where design meet function -",
-            "position_mobile": "right"
+            "icon": "shopify://shop_images/icon-age-0-6.png",
+            "label": "0-6 חודשים",
+            "link": "shopify://collections/age-0-6"
           }
         },
-        "subheading_8kBXjM": {
-          "type": "subheading",
+        "pill_2": {
+          "type": "pill",
           "settings": {
-            "subheading": "Meet Our Team"
+            "icon": "shopify://shop_images/icon-age-6-12.png",
+            "label": "6-12 חודשים",
+            "link": "shopify://collections/age-6-12"
           }
         },
-        "heading_jnb9cP": {
+        "pill_3": {
+          "type": "pill",
+          "settings": {
+            "icon": "shopify://shop_images/icon-age-1-1-5.png",
+            "label": "שנה-שנה וחצי (1-1.5)",
+            "link": "shopify://collections/age-1-1-5"
+          }
+        },
+        "pill_4": {
+          "type": "pill",
+          "settings": {
+            "icon": "shopify://shop_images/icon-age-1-5-2.png",
+            "label": "שנה וחצי (1.5-2)",
+            "link": "shopify://collections/age-1-5-2"
+          }
+        },
+        "pill_5": {
+          "type": "pill",
+          "settings": {
+            "icon": "shopify://shop_images/icon-age-2-3.png",
+            "label": "שנתיים-שלוש (2-3)",
+            "link": "shopify://collections/age-2-3"
+          }
+        },
+        "pill_6": {
+          "type": "pill",
+          "settings": {
+            "icon": "shopify://shop_images/icon-age-3-plus.png",
+            "label": "3+ YEARS",
+            "link": "shopify://collections/age-3-plus"
+          }
+        }
+      },
+      "block_order": [
+        "pill_1",
+        "pill_2",
+        "pill_3",
+        "pill_4",
+        "pill_5",
+        "pill_6"
+      ]
+    },
+    "brands": {
+      "type": "brand-logos",
+      "settings": {
+        "heading": "מותגי הבית",
+        "section_header_alignment": "center",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "grid_bordered": true,
+        "image_width": "medium",
+        "button_label": "צפו בכל המותגים",
+        "button_link": "shopify://pages/brands",
+        "button_style": "btn--primary",
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "logo_1": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/brand-we-are-gommu.png",
+            "image_link": "shopify://collections/we-are-gommu"
+          }
+        },
+        "logo_2": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/brand-inspire-my-play.png",
+            "image_link": "shopify://collections/inspire-my-play"
+          }
+        },
+        "logo_3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/brand-my-creative-box.png",
+            "image_link": "shopify://collections/my-creative-box"
+          }
+        },
+        "logo_4": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/brand-famokids.png",
+            "image_link": "shopify://collections/famokids"
+          }
+        },
+        "logo_5": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/brand-ulanik.png",
+            "image_link": "shopify://collections/ulanik"
+          }
+        },
+        "logo_6": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/brand-kooglo.png",
+            "image_link": "shopify://collections/kooglo"
+          }
+        },
+        "logo_7": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/brand-jaba-daba-do.png",
+            "image_link": "shopify://collections/jaba-daba-do"
+          }
+        },
+        "logo_8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/brand-banana-panda.png",
+            "image_link": "shopify://collections/banana-panda"
+          }
+        }
+      },
+      "block_order": [
+        "logo_1",
+        "logo_2",
+        "logo_3",
+        "logo_4",
+        "logo_5",
+        "logo_6",
+        "logo_7",
+        "logo_8"
+      ]
+    },
+    "orly_picks": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "המומלצים של אורלי",
+        "section_header_alignment": "center",
+        "limit": 8,
+        "columns": 4,
+        "columns_mobile": "2",
+        "enable_slider": true,
+        "pcard_image_ratio": "1/1",
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "collection_1": {
+          "type": "collection",
+          "settings": {
+            "collection": "orly-picks",
+            "title": "המומלצים של אורלי"
+          }
+        }
+      },
+      "block_order": [
+        "collection_1"
+      ]
+    },
+    "promo_banner": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/banner-promo-desktop.png",
+        "image_mobile": "shopify://shop_images/banner-promo-mobile.png",
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "heading_1": {
           "type": "heading",
           "settings": {
-            "heading": "The creative minds behind our studio",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h1"
+            "heading": "מבצע מיוחד על צעצועים חינוכיים"
           }
         },
-        "text_4pYVYF": {
+        "text_2": {
           "type": "text",
           "settings": {
-            "text": "<p>As designers we are constantly thinking about how people live and what problems we could solve for them. </p>",
-            "subtext_color": true
+            "text": "<p>זוהי עבודה מבוססת שולשת של הקורא חובב ספרות על ידי טקסט קריא כאשר</p>"
           }
         },
-        "icon_with_text_8qCJiV": {
-          "type": "icon_with_text",
-          "settings": {
-            "icon": "map-pin",
-            "icon_width": 24,
-            "color": "#000000",
-            "heading": "Product locally in New York",
-            "heading_size": "h5",
-            "text": "",
-            "vertical_alignment": "start"
-          }
-        },
-        "icon_with_text_w4D3R6": {
-          "type": "icon_with_text",
-          "settings": {
-            "icon": "smiley",
-            "icon_width": 24,
-            "color": "#000000",
-            "heading": "4,8 Review Score",
-            "heading_size": "h5",
-            "text": "",
-            "vertical_alignment": "start"
-          }
-        },
-        "icon_with_text_pcaqTj": {
-          "type": "icon_with_text",
-          "settings": {
-            "icon": "stool",
-            "icon_width": 24,
-            "color": "#000000",
-            "heading": "Over 50 Products",
-            "heading_size": "h5",
-            "text": "",
-            "vertical_alignment": "start"
-          }
-        },
-        "button_aegkDr": {
+        "button_3": {
           "type": "button",
           "settings": {
-            "button_label": "Contact Us",
-            "button_link": "",
-            "button_style": "btn--primary",
-            "button_icon": "none"
+            "button_label": "עברו לקטגוריה",
+            "button_link": "shopify://collections/sale",
+            "button_style": "btn--outline"
           }
         }
       },
       "block_order": [
-        "badge_fQjMHW",
-        "subheading_8kBXjM",
-        "heading_jnb9cP",
-        "text_4pYVYF",
-        "icon_with_text_8qCJiV",
-        "icon_with_text_w4D3R6",
-        "icon_with_text_pcaqTj",
-        "button_aegkDr"
-      ],
-      "custom_css": [
-        ".image-with-text__content {max-width: 45rem; --text-margin-top: 2rem;}",
-        "@media (min-width: 1280px) {.image-with-text__media {padding-inline-start: 5rem; }}"
-      ],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "",
-        "image_position": "left",
-        "image_width": 50,
-        "desktop_content_position": "center",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "inherit",
-        "show_section_divider": false,
-        "divider_width": "fixed",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
+        "heading_1",
+        "text_2",
+        "button_3"
+      ]
     },
-    "testimonials_mLThk7": {
-      "type": "testimonials",
-      "blocks": {
-        "testimonial_EtxFFg": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "none",
-            "heading": "Testimonials",
-            "text": "<p>“The products are artful, fun, have a story just as unique as the designers who made it.”</p>",
-            "author": "Jenny Wilson",
-            "bio": "New Mexico",
-            "product": ""
-          }
-        },
-        "testimonial_QPUyLy": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "none",
-            "heading": "Testimonials",
-            "text": "<p>“The best coat I have found.Great colors and materials for life style.”</p>",
-            "author": "Samantha Taylor",
-            "bio": "Portland, Oregon",
-            "product": ""
-          }
-        },
-        "testimonial_iTzQDb": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "none",
-            "heading": "Testimonials",
-            "text": "<p>“Every item feels like a masterpiece, blending creativity and authenticity beautifully.”</p>",
-            "author": "David Martinez",
-            "bio": "Austin, Texas",
-            "product": ""
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_EtxFFg",
-        "testimonial_QPUyLy",
-        "testimonial_iTzQDb"
-      ],
-      "custom_css": [
-        ".testimonial__inner {max-width: 64rem; margin-left: auto; margin-right: auto;}"
-      ],
+    "feature_tiles": {
+      "type": "multicolumn-icon",
       "settings": {
-        "container": "full",
-        "color_scheme": "scheme-3",
-        "section_header_alignment": "center",
-        "section_header_alignment_mobile": "inherit",
-        "subheading": "",
-        "heading": "What Clients Talk About Us",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h6",
-        "description": "",
-        "text_size": "text-base",
-        "layout": "focused",
-        "card_color_scheme": "scheme-3",
-        "card_content_color_scheme": "",
-        "card_image_ratio": "adapt",
-        "card_heading_size": "h4",
-        "card_text_size": "h2",
-        "author_info_layout": "vertical",
-        "card_trigger_behavior": "click",
-        "show_image": false,
-        "show_author_image": false,
-        "columns_desktop": 2,
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "enable_slider": true,
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "show_progress_bar": true,
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "show_section_divider": false,
-        "divider_width": "fixed"
-      }
-    },
-    "slider_with_multicolumn_aJwbrc": {
-      "type": "slider-with-multicolumn",
-      "blocks": {
-        "slide_wNd9Jh": {
-          "type": "slide",
-          "settings": {
-            "color_scheme": "scheme-inverse",
-            "image_overlay_opacity": 20,
-            "content_position": "top-left",
-            "content_alignment": "left",
-            "subheading": "Hot Deals",
-            "heading": "The Bow Chairs Under $200",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h1",
-            "text": "<p>Introducing the latest styles in women's shoes tailored for every occasion taste.</p>",
-            "button_label": "Shop Now",
-            "button_link": "",
-            "button_style": "btn--primary",
-            "button_icon": "none"
-          }
-        },
-        "slide_cGYakP": {
-          "type": "slide",
-          "settings": {
-            "color_scheme": "scheme-inverse",
-            "image_overlay_opacity": 20,
-            "content_position": "top-left",
-            "content_alignment": "left",
-            "subheading": "Dining & Kitchen",
-            "heading": "Difference in the Details",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h1",
-            "text": "<p>Highlighting the unique touches that set every piece apart, crafted to elevate your style effortlessly.</p>",
-            "button_label": "Shop Now",
-            "button_link": "",
-            "button_style": "btn--primary",
-            "button_icon": "none"
-          }
-        },
-        "image_card_BXpdq6": {
-          "type": "image-card",
-          "settings": {
-            "color_scheme": "",
-            "content_alignment": "center",
-            "heading": "Select Table Lamps",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h5",
-            "heading_size_mobile": "inherit",
-            "heading_size_custom": 18,
-            "text": "<p>Get up to $100 Off</p>",
-            "card_link": ""
-          }
-        },
-        "image_card_yb3htw": {
-          "type": "image-card",
-          "settings": {
-            "color_scheme": "",
-            "content_alignment": "center",
-            "heading": "Select Lounge Chairs",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h5",
-            "heading_size_mobile": "inherit",
-            "heading_size_custom": 18,
-            "text": "<p>From $200</p>",
-            "card_link": ""
-          }
-        },
-        "image_card_7KqpyL": {
-          "type": "image-card",
-          "settings": {
-            "color_scheme": "",
-            "content_alignment": "center",
-            "heading": "Select Side tables",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h5",
-            "heading_size_mobile": "inherit",
-            "heading_size_custom": 18,
-            "text": "<p>Get up to $1.000</p>",
-            "card_link": ""
-          }
-        },
-        "image_card_ag7Eb3": {
-          "type": "image-card",
-          "settings": {
-            "color_scheme": "",
-            "content_alignment": "center",
-            "heading": "Select Home Decors",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h5",
-            "heading_size_mobile": "inherit",
-            "heading_size_custom": 18,
-            "text": "<p>Buy One Get One</p>",
-            "card_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_wNd9Jh",
-        "slide_cGYakP",
-        "image_card_BXpdq6",
-        "image_card_yb3htw",
-        "image_card_7KqpyL",
-        "image_card_ag7Eb3"
-      ],
-      "custom_css": [
-        ".slide__text {max-width: 37rem; --text-margin-top: 2rem;}"
-      ],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "scheme-1",
-        "autoplay": true,
-        "autoplay_delay": 6,
-        "columns_desktop": 2,
-        "column_gap": "2xs",
-        "row_gap": "inherit",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "show_section_divider": false,
-        "divider_width": "fixed",
-        "padding_top": 60,
-        "padding_bottom": 0
-      }
-    },
-    "scrolling_promotion_9Hng8m": {
-      "type": "scrolling-promotion",
-      "blocks": {
-        "text_m9JnRY": {
-          "type": "text",
-          "settings": {
-            "text_link": "",
-            "text": "Lounge Chairs",
-            "text_size": "h2",
-            "text_opacity": 100,
-            "use_custom_color": true,
-            "custom_color": "#1d349a"
-          }
-        },
-        "image_pmGhNr": {
-          "type": "image",
-          "settings": {
-            "image_height": 72,
-            "image_rounded": false,
-            "image_link": "",
-            "image_height_mobile": 60
-          }
-        },
-        "text_gENJV7": {
-          "type": "text",
-          "settings": {
-            "text_link": "",
-            "text": "Bow Chairs",
-            "text_size": "h2",
-            "text_opacity": 100,
-            "use_custom_color": true,
-            "custom_color": "#1d349a"
-          }
-        },
-        "image_KBetgG": {
-          "type": "image",
-          "settings": {
-            "image_height": 72,
-            "image_rounded": false,
-            "image_link": "",
-            "image_height_mobile": 60
-          }
-        },
-        "text_ETiRz6": {
-          "type": "text",
-          "settings": {
-            "text_link": "",
-            "text": "Cross Chair",
-            "text_size": "h2",
-            "text_opacity": 100,
-            "use_custom_color": true,
-            "custom_color": "#1d349a"
-          }
-        },
-        "image_ypAQyf": {
-          "type": "image",
-          "settings": {
-            "image_height": 72,
-            "image_rounded": false,
-            "image_link": "",
-            "image_height_mobile": 60
-          }
-        }
-      },
-      "block_order": [
-        "text_m9JnRY",
-        "image_pmGhNr",
-        "text_gENJV7",
-        "image_KBetgG",
-        "text_ETiRz6",
-        "image_ypAQyf"
-      ],
-      "settings": {
-        "color_scheme": "",
-        "direction": "left",
-        "pause_on_hover": true,
-        "speed": 0.3,
-        "h_spacing": 16,
-        "show_section_divider": false,
-        "padding_top": 20,
-        "padding_bottom": 20
-      }
-    },
-    "buttons_with_icon_c8CzHV": {
-      "type": "buttons-with-icon",
-      "blocks": {
-        "button_item_TXLwjF": {
-          "type": "button_item",
-          "settings": {
-            "button_label": "All eco-certified",
-            "button_link": "",
-            "icon": "check"
-          }
-        },
-        "button_item_tpCdia": {
-          "type": "button_item",
-          "settings": {
-            "button_label": "Product protection",
-            "button_link": "",
-            "icon": "check"
-          }
-        },
-        "button_item_wKgxpM": {
-          "type": "button_item",
-          "settings": {
-            "button_label": "Make it yours",
-            "button_link": "",
-            "icon": "check"
-          }
-        },
-        "button_item_Ngk44m": {
-          "type": "button_item",
-          "settings": {
-            "button_label": "Unique tailored",
-            "button_link": "",
-            "icon": "check"
-          }
-        }
-      },
-      "block_order": [
-        "button_item_TXLwjF",
-        "button_item_tpCdia",
-        "button_item_wKgxpM",
-        "button_item_Ngk44m"
-      ],
-      "custom_css": [
-        ".section__header {--header-padding-bottom: 2.4rem;}",
-        ".section__heading {max-width: 45rem;}"
-      ],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "scheme-9",
-        "section_header_alignment": "center",
-        "section_header_alignment_mobile": "inherit",
-        "subheading": "",
-        "heading": "This approach resulted in the beautiful structure",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h2",
-        "item_alignment": "center",
-        "item_button_style": "btn--primary",
-        "item_button_font": "button",
-        "enable_slider": true,
-        "swipe_on_mobile": true,
-        "show_section_divider": true,
-        "divider_width": "full",
-        "padding_top": 60,
-        "padding_bottom": 0
-      }
-    },
-    "multicolumn_Ff4Wbj": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_YWTLnF": {
-          "type": "column",
-          "settings": {
-            "title": "Comfortable",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h4",
-            "text": "<p>Bow Chair is available in Natural or Black-stained Oak with full EU Ecolabel certification. </p>",
-            "text_size": "text-base",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "btn--underline",
-            "button_icon": "none"
-          }
-        },
-        "column_AwmLJY": {
-          "type": "column",
-          "settings": {
-            "title": "Price transparency",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h4",
-            "text": "<p>Fair pricing ensures you know exactly what you’re paying for, with no hidden costs or markups.</p>",
-            "text_size": "text-base",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "btn--underline",
-            "button_icon": "none"
-          }
-        },
-        "column_j3Pdbn": {
-          "type": "column",
-          "settings": {
-            "title": "All eco-certified",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h4",
-            "text": "<p>All products consider a more holistic environmental impact and are designed for a longer lifetime in a way.</p>",
-            "text_size": "text-base",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "btn--underline",
-            "button_icon": "none"
-          }
-        },
-        "column_MikwAx": {
-          "type": "column",
-          "settings": {
-            "title": "Sustainability",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h4",
-            "text": "<p>Committed to sustainable practices, ethical sourcing, and reducing environmental impact.</p>",
-            "text_size": "text-base",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "btn--underline",
-            "button_icon": "none"
-          }
-        }
-      },
-      "block_order": [
-        "column_YWTLnF",
-        "column_AwmLJY",
-        "column_j3Pdbn",
-        "column_MikwAx"
-      ],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "",
-        "section_header_alignment": "left",
-        "section_header_alignment_mobile": "inherit",
-        "subheading": "",
-        "heading": "",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h1",
-        "description": "",
-        "text_size": "text-base",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "btn--underline",
-        "button_icon": "none",
-        "content_alignment": "left",
-        "show_col_count": false,
-        "show_image": true,
-        "columns_desktop": 4,
-        "column_gap": "medium",
-        "row_gap": "inherit",
+        "columns_desktop": 6,
         "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "show_section_divider": false,
-        "divider_width": "fixed",
-        "padding_top": 40,
-        "padding_bottom": 60
-      }
-    },
-    "scrolling_gallery_image_wJyLJr": {
-      "type": "scrolling-gallery-image",
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "heading": "",
+        "content_alignment": "center"
+      },
       "blocks": {
-        "gallery_zMzedj": {
-          "type": "gallery",
+        "column_1": {
+          "type": "column",
           "settings": {
-            "color_scheme": "",
-            "image_link": "",
-            "social_media": "instagram",
-            "heading": "thisisaaccount"
+            "image": "shopify://shop_images/icon-tile-pacifier.png",
+            "title": "מתנות איכותיות בלבד",
+            "text": ""
           }
         },
-        "gallery_PALf8b": {
-          "type": "gallery",
+        "column_2": {
+          "type": "column",
           "settings": {
-            "color_scheme": "",
-            "image_link": "",
-            "social_media": "instagram",
-            "heading": "furniturelover"
+            "image": "shopify://shop_images/icon-tile-stroller.png",
+            "title": "מתנות איכותיות בלבד",
+            "text": ""
           }
         },
-        "gallery_t8EfbE": {
-          "type": "gallery",
+        "column_3": {
+          "type": "column",
           "settings": {
-            "color_scheme": "",
-            "image_link": "",
-            "social_media": "instagram",
-            "heading": "thisisaaccount"
+            "image": "shopify://shop_images/icon-tile-bunny.png",
+            "title": "מתנות איכותיות בלבד",
+            "text": ""
           }
         },
-        "gallery_HjXBVX": {
-          "type": "gallery",
+        "column_4": {
+          "type": "column",
           "settings": {
-            "color_scheme": "",
-            "image_link": "",
-            "social_media": "instagram",
-            "heading": "baddyjam"
+            "image": "shopify://shop_images/icon-tile-blocks.png",
+            "title": "מתנות איכותיות בלבד",
+            "text": ""
           }
         },
-        "gallery_Hdq7y7": {
-          "type": "gallery",
+        "column_5": {
+          "type": "column",
           "settings": {
-            "color_scheme": "scheme-1",
-            "image_link": "",
-            "social_media": "instagram",
-            "heading": "liamwealthy"
+            "image": "shopify://shop_images/icon-tile-brick.png",
+            "title": "מתנות איכותיות בלבד",
+            "text": ""
           }
         },
-        "gallery_xaTeHP": {
-          "type": "gallery",
+        "column_6": {
+          "type": "column",
           "settings": {
-            "color_scheme": "scheme-1",
-            "image_link": "",
-            "social_media": "instagram",
-            "heading": "baddyjam"
-          }
-        },
-        "gallery_gf99Q7": {
-          "type": "gallery",
-          "settings": {
-            "color_scheme": "scheme-1",
-            "image_link": "",
-            "social_media": "instagram",
-            "heading": "liamwealthy"
+            "image": "shopify://shop_images/icon-tile-dino.png",
+            "title": "מתנות איכותיות בלבד",
+            "text": ""
           }
         }
       },
       "block_order": [
-        "gallery_zMzedj",
-        "gallery_PALf8b",
-        "gallery_t8EfbE",
-        "gallery_HjXBVX",
-        "gallery_Hdq7y7",
-        "gallery_xaTeHP",
-        "gallery_gf99Q7"
-      ],
-      "custom_css": [],
+        "column_1",
+        "column_2",
+        "column_3",
+        "column_4",
+        "column_5",
+        "column_6"
+      ]
+    },
+    "instagram": {
+      "type": "shop-the-feed",
       "settings": {
-        "color_scheme": "scheme-2",
+        "heading": "mekupelet_toys",
         "section_header_alignment": "center",
-        "section_header_alignment_mobile": "inherit",
-        "subheading": "",
-        "heading": "We’re on Gram",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h1",
-        "description": "",
-        "text_size": "text-base",
-        "show_button_on_top": false,
-        "button_label": "@garage_store",
-        "button_link": "",
-        "button_style": "btn--underline",
-        "button_icon": "none",
-        "direction": "left",
-        "speed": 0.1,
-        "pause_on_hover": true,
-        "column_gap": "medium",
-        "show_section_divider": false,
-        "divider_width": "fixed",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "columns_desktop": 5,
+        "enable_slider": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "feed_1": {
+          "type": "feed",
+          "settings": {
+            "image": "shopify://shop_images/insta-1.png",
+            "link": "https://www.instagram.com/mekupelet_toys/"
+          }
+        },
+        "feed_2": {
+          "type": "feed",
+          "settings": {
+            "image": "shopify://shop_images/insta-2.png",
+            "link": "https://www.instagram.com/mekupelet_toys/"
+          }
+        },
+        "feed_3": {
+          "type": "feed",
+          "settings": {
+            "image": "shopify://shop_images/insta-3.png",
+            "link": "https://www.instagram.com/mekupelet_toys/"
+          }
+        },
+        "feed_4": {
+          "type": "feed",
+          "settings": {
+            "image": "shopify://shop_images/insta-4.png",
+            "link": "https://www.instagram.com/mekupelet_toys/"
+          }
+        },
+        "feed_5": {
+          "type": "feed",
+          "settings": {
+            "image": "shopify://shop_images/insta-5.png",
+            "link": "https://www.instagram.com/mekupelet_toys/"
+          }
+        }
+      },
+      "block_order": [
+        "feed_1",
+        "feed_2",
+        "feed_3",
+        "feed_4",
+        "feed_5"
+      ]
+    },
+    "reviews": {
+      "type": "testimonials",
+      "settings": {
+        "heading": "ביקורות",
+        "section_header_alignment": "center",
+        "layout": "card",
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "enable_slider": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      },
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "image": "shopify://shop_images/product-demo-kipod.png",
+            "heading": "שם מלא",
+            "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
+            "author": "11.06.2025"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "image": "shopify://shop_images/product-demo-rattle.png",
+            "heading": "שם מלא",
+            "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
+            "author": "11.06.2025"
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "image": "shopify://shop_images/product-demo-smart-sand.png",
+            "heading": "שם מלא",
+            "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
+            "author": "11.06.2025"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "חדשים באתר?",
+        "description": "<p>הירשמו לניוזלטר ותהנו מכל המבצעים וההטבות לפני כולם</p>",
+        "newsletter_term": "<p>אני מסכימ/ה לקבל הודעות שיווקיות ועדכונים מ-Mekupelet באמצעות דוא\"ל, הודעות טקסט (SMS) והודעות וואטסאפ. ניתן לבטל את ההרשמה בכל עת.</p>",
+        "padding_top": 50,
+        "padding_bottom": 50
       }
     }
   },
   "order": [
-    "collection_list_slider_6qbNfj",
-    "slideshow_q3U4Jn",
-    "featured_collection_bdaamt",
-    "promotion_banner_VCkmzP",
-    "custom_content_HPgFTK",
-    "collection_list_Azm9te",
-    "collection_tabs_VexkkR",
-    "favorite_products_6Tg9Pn",
-    "lookbook_slider_9zCdQJ",
-    "custom_content_JxRy7x",
-    "buttons_with_icon_7zH9F3",
-    "featured_collection_RWUfH9",
-    "image_with_text_aXhRxw",
-    "testimonials_mLThk7",
-    "slider_with_multicolumn_aJwbrc",
-    "scrolling_promotion_9Hng8m",
-    "buttons_with_icon_c8CzHV",
-    "multicolumn_Ff4Wbj",
-    "scrolling_gallery_image_wJyLJr"
+    "slideshow",
+    "mk_gift_finder",
+    "categories",
+    "featured_tabs",
+    "age_pills",
+    "brands",
+    "orly_picks",
+    "promo_banner",
+    "feature_tiles",
+    "instagram",
+    "reviews",
+    "newsletter"
   ]
 }

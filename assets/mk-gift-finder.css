@@ -1,0 +1,55 @@
+/* MK Gift finder: a row of filter dropdowns + submit button that builds a storefront-filter URL. */
+.mk-gift-finder {
+  padding-block: var(--section-padding-top) var(--section-padding-bottom);
+}
+.mk-gift-finder__card {
+  display: block;
+  background: rgb(var(--color-background));
+  border: 1px solid rgba(var(--color-border), var(--color-border-alpha, 1));
+  border-radius: var(--blocks-radius);
+  padding: 1.6rem;
+}
+.mk-gift-finder__heading {
+  margin-block: 0 1.2rem;
+}
+.mk-gift-finder__form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  align-items: center;
+}
+.mk-gift-finder__field.select {
+  width: 100%;
+}
+.mk-gift-finder__select {
+  appearance: none;
+  padding-inline-end: 4rem;
+  cursor: pointer;
+}
+.mk-gift-finder__field .icon {
+  position: absolute;
+  inset-inline-end: 1.6rem;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.mk-gift-finder__submit {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .mk-gift-finder__card {
+    padding: 2rem;
+  }
+  .mk-gift-finder__form {
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  }
+  .mk-gift-finder__submit {
+    width: auto;
+    justify-self: start;
+  }
+}
+@media (min-width: 1024px) {
+  .mk-gift-finder__form {
+    grid-template-columns: repeat(var(--mk-gift-finder-fields, 4), minmax(0, 1fr)) auto;
+  }
+}
