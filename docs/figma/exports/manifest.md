@@ -39,3 +39,4 @@ Source: the merchant's Drive file (124 MB zip, `exports/`). Contents: 58 frames 
 them), 28 assets (`assets/figma/`, tracked), fonts (already in `assets/mk-simplerpro-*.woff2`),
 `tokens-devmode.txt` → `docs/figma/tokens-devmode.txt`, the package manifest →
 `manifest-figma-package.md`, README → `README-figma-export.md`.
+- `hero-revision-desktop.png` | 2880×1062, hero option B with baked text (reference only) | 2026-10-08
