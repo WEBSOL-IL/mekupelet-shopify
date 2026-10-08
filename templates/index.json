@@ -110,11 +110,11 @@
         "section_header_alignment": "center",
         "card_style": "standard",
         "card_image_ratio": "1/1",
-        "card_image_width": "large",
+        "card_image_width": "full",
         "rounded_card_image": true,
         "columns_desktop": 5,
         "mobile_layout": "vertical",
-        "carousel_item_size": "auto",
+        "carousel_item_size": "fixed",
         "padding_top": 40,
         "padding_bottom": 40
       },
@@ -122,33 +122,33 @@
         "featured_collection_1": {
           "type": "featured_collection",
           "settings": {
-            "collection": "בגדי-ילדים",
             "image": "shopify://shop_images/cat-kids-clothing.png",
-            "title": "בגדי ילדים"
+            "title": "בגדי ילדים",
+            "collection": "בגדי-ילדים"
           }
         },
         "featured_collection_2": {
           "type": "featured_collection",
           "settings": {
-            "collection": "כלי-אוכל",
             "image": "shopify://shop_images/cat-tableware.png",
-            "title": "כלי אוכל"
+            "title": "כלי אוכל",
+            "collection": "כלי-אוכל"
           }
         },
         "featured_collection_3": {
           "type": "featured_collection",
           "settings": {
-            "collection": "ספרים",
             "image": "shopify://shop_images/cat-books.png",
-            "title": "ספרים"
+            "title": "ספרים",
+            "collection": "ספרים"
           }
         },
         "featured_collection_4": {
           "type": "featured_collection",
           "settings": {
-            "collection": "צעצועים-ובובות",
             "image": "shopify://shop_images/cat-toys-dolls.png",
-            "title": "צעצועים ובובות"
+            "title": "צעצועים ובובות",
+            "collection": "צעצועים-ובובות"
           }
         },
         "featured_collection_5": {
@@ -161,17 +161,104 @@
         "featured_collection_6": {
           "type": "featured_collection",
           "settings": {
-            "collection": "אביזרים",
             "image": "shopify://shop_images/cat-accessories.png",
-            "title": "אביזרים"
+            "title": "אביזרים",
+            "collection": "אביזרים"
           }
         },
         "featured_collection_7": {
           "type": "featured_collection",
           "settings": {
-            "collection": "כלי-בית",
             "image": "shopify://shop_images/cat-home.png",
-            "title": "כלי בית"
+            "title": "כלי בית",
+            "collection": "כלי-בית"
+          }
+        },
+        "featured_collection_8": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify://shop_images/cat-kids-clothing.png",
+            "title": "בגדי ילדים",
+            "collection": "בגדי-ילדים"
+          }
+        },
+        "featured_collection_9": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify://shop_images/cat-tableware.png",
+            "title": "כלי אוכל",
+            "collection": "כלי-אוכל"
+          }
+        },
+        "featured_collection_10": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify://shop_images/cat-books.png",
+            "title": "ספרים",
+            "collection": "ספרים"
+          }
+        },
+        "featured_collection_11": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify://shop_images/cat-toys-dolls.png",
+            "title": "צעצועים ובובות",
+            "collection": "צעצועים-ובובות"
+          }
+        },
+        "featured_collection_12": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify://shop_images/cat-costumes.png",
+            "title": "תחפושות"
+          }
+        },
+        "featured_collection_13": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify://shop_images/cat-accessories.png",
+            "title": "אביזרים",
+            "collection": "אביזרים"
+          }
+        },
+        "featured_collection_14": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify://shop_images/cat-home.png",
+            "title": "כלי בית",
+            "collection": "כלי-בית"
+          }
+        },
+        "featured_collection_15": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify://shop_images/cat-kids-clothing.png",
+            "title": "בגדי ילדים",
+            "collection": "בגדי-ילדים"
+          }
+        },
+        "featured_collection_16": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify://shop_images/cat-tableware.png",
+            "title": "כלי אוכל",
+            "collection": "כלי-אוכל"
+          }
+        },
+        "featured_collection_17": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify://shop_images/cat-books.png",
+            "title": "ספרים",
+            "collection": "ספרים"
+          }
+        },
+        "featured_collection_18": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify://shop_images/cat-toys-dolls.png",
+            "title": "צעצועים ובובות",
+            "collection": "צעצועים-ובובות"
           }
         }
       },
@@ -182,7 +269,18 @@
         "featured_collection_4",
         "featured_collection_5",
         "featured_collection_6",
-        "featured_collection_7"
+        "featured_collection_7",
+        "featured_collection_8",
+        "featured_collection_9",
+        "featured_collection_10",
+        "featured_collection_11",
+        "featured_collection_12",
+        "featured_collection_13",
+        "featured_collection_14",
+        "featured_collection_15",
+        "featured_collection_16",
+        "featured_collection_17",
+        "featured_collection_18"
       ]
     },
     "featured_tabs": {
@@ -243,7 +341,7 @@
         "pill_1": {
           "type": "pill",
           "settings": {
-            "label": "0-6 חודשים",
+            "label": "0-6 חודשים (0-6)",
             "link": "shopify://collections/age-0-6",
             "color": "#12b15c",
             "text_color": "#ffffff"
@@ -252,7 +350,7 @@
         "pill_2": {
           "type": "pill",
           "settings": {
-            "label": "6-12 חודשים",
+            "label": "6-12 חודשים (6-12)",
             "link": "shopify://collections/age-6-12",
             "color": "#ff661f",
             "text_color": "#ffffff"
@@ -270,7 +368,7 @@
         "pill_4": {
           "type": "pill",
           "settings": {
-            "label": "שנה וחצי (1.5-2)",
+            "label": "שנה וחצי-שנתיים (1.5-2)",
             "link": "shopify://collections/age-1-5-2",
             "color": "#8861ec",
             "text_color": "#ffffff"
@@ -288,7 +386,7 @@
         "pill_6": {
           "type": "pill",
           "settings": {
-            "label": "3+ YEARS",
+            "label": "3+ YEARS (3+)",
             "link": "shopify://collections/age-3-plus",
             "color": "#3bd6d8",
             "text_color": "#ffffff"
@@ -313,7 +411,7 @@
         "columns_mobile": "2",
         "grid_bordered": true,
         "image_width": "medium",
-        "button_label": "צפו בכל המותגים",
+        "button_label": "הצג את כל המותגים",
         "button_link": "shopify://pages/brands",
         "button_style": "btn--primary",
         "padding_top": 40,
@@ -459,86 +557,73 @@
       ]
     },
     "feature_tiles": {
-      "type": "multicolumn-icon",
+      "type": "mk-feature-icons",
       "settings": {
-        "heading": "",
+        "container": "fixed",
+        "color_scheme": "scheme-1",
         "columns_desktop": 6,
         "columns_mobile": "3",
-        "image_position": "top",
-        "content_alignment": "center",
-        "icon_color": "#198492",
+        "icon_size": 72,
         "padding_top": 30,
         "padding_bottom": 30
       },
       "blocks": {
-        "column_1": {
-          "type": "column",
+        "feature_1": {
+          "type": "feature",
           "settings": {
-            "icon": "package",
-            "title": "מתנות בייבוא בלעדי",
-            "text": "",
-            "max_width": 56,
-            "max_width_mb": 44
+            "icon": "boat",
+            "color": "#3cd6dd",
+            "title": "מתנות בייבוא בלעדי"
           }
         },
-        "column_2": {
-          "type": "column",
+        "feature_2": {
+          "type": "feature",
           "settings": {
-            "icon": "check",
-            "title": "מוצרים בתו תקן",
-            "text": "",
-            "max_width": 56,
-            "max_width_mb": 44
+            "icon": "shield-check",
+            "color": "#f295c0",
+            "title": "מוצרים בתו תקן"
           }
         },
-        "column_3": {
-          "type": "column",
+        "feature_3": {
+          "type": "feature",
           "settings": {
-            "icon": "calendar-blank",
-            "title": "מעל 20 שנות ניסיון",
-            "text": "",
-            "max_width": 56,
-            "max_width_mb": 44
+            "icon": "badge-20",
+            "color": "#8861ec",
+            "title": "מעל 20 שנות ניסיון"
           }
         },
-        "column_4": {
-          "type": "column",
+        "feature_4": {
+          "type": "feature",
           "settings": {
-            "icon": "gift",
-            "title": "משחקים שנבחרו בקפידה",
-            "text": "",
-            "max_width": 56,
-            "max_width_mb": 44
+            "icon": "blocks",
+            "color": "#fcbf07",
+            "title": "משחקים שנבחרו בקפידה"
           }
         },
-        "column_5": {
-          "type": "column",
+        "feature_5": {
+          "type": "feature",
           "settings": {
-            "icon": "chat",
-            "title": "ייעוץ אישי בוואטסאפ",
-            "text": "",
-            "max_width": 56,
-            "max_width_mb": 44
+            "icon": "whatsapp",
+            "color": "#00b656",
+            "title": "ייעוץ אישי בוואטסאפ"
           }
         },
-        "column_6": {
-          "type": "column",
+        "feature_6": {
+          "type": "feature",
           "settings": {
             "icon": "truck",
-            "title": "משלוח עד הבית",
-            "text": "",
-            "max_width": 56,
-            "max_width_mb": 44
+            "color": "#ff5404",
+            "title": "משלוח עד הבית"
           }
         }
       },
       "block_order": [
-        "column_1",
-        "column_2",
-        "column_3",
-        "column_4",
-        "column_5",
-        "column_6"
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4",
+        "feature_5",
+        "feature_6"
       ]
     },
     "instagram": {
@@ -601,14 +686,17 @@
       "settings": {
         "heading": "ביקורות",
         "section_header_alignment": "center",
-        "layout": "card",
+        "layout": "standard",
         "card_color_scheme": "scheme-1",
         "columns_desktop": 3,
         "columns_mobile": "1",
         "enable_slider": true,
         "padding_top": 40,
         "padding_bottom": 40,
-        "card_image_ratio": "1/1"
+        "card_image_ratio": "1/1",
+        "show_image": true,
+        "show_author_image": false,
+        "card_text_size": "text-base"
       },
       "blocks": {
         "testimonial_1": {
@@ -616,9 +704,10 @@
           "settings": {
             "icon": "5-stars",
             "image": "shopify://shop_images/product-demo-smart-sand.png",
-            "heading": "שם מלא",
+            "heading": "",
             "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
-            "author": "11.06.2025"
+            "author": "שם מלא",
+            "bio": "11.06.2025"
           }
         },
         "testimonial_2": {
@@ -626,9 +715,10 @@
           "settings": {
             "icon": "5-stars",
             "image": "shopify://shop_images/product-demo-rattle.png",
-            "heading": "שם מלא",
+            "heading": "",
             "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
-            "author": "11.06.2025"
+            "author": "שם מלא",
+            "bio": "11.06.2025"
           }
         },
         "testimonial_3": {
@@ -636,9 +726,10 @@
           "settings": {
             "icon": "5-stars",
             "image": "shopify://shop_images/product-demo-kipod.png",
-            "heading": "שם מלא",
+            "heading": "",
             "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
-            "author": "11.06.2025"
+            "author": "שם מלא",
+            "bio": "11.06.2025"
           }
         }
       },

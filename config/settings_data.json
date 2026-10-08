@@ -10,7 +10,7 @@
 {
   "current": {
     "enable_rtl": true,
-    "language_support_rtl": "he",
+    "language_support_rtl": "",
     "enable_back_to_top": true,
     "logo": "shopify://shop_images/24aadcfe64bc433aa798ddc7eaf6d053.png",
     "logo_width": 250,
@@ -409,7 +409,11 @@
     "color_badge_sale": "#ffe3d6",
     "color_badge_sale_text": "#d6713f",
     "color_cart_bubble": "#ff661f",
-    "color_key_board_focus": "#198492"
+    "color_key_board_focus": "#198492",
+    "pcard_button_style": "btn--primary",
+    "pcard_title_line_limit": "2-lines",
+    "pcard_show_cart_button": true,
+    "pcard_mobile_hide_quick_add": false
   },
   "presets": {
     "Hyper": {

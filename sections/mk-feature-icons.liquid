@@ -1,0 +1,122 @@
+{{ 'mk-feature-icons.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign container = section.settings.container
+-%}
+{% style %}
+  #section-{{ section.id }} {
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --mk-feature-columns: {{ section.settings.columns_desktop }};
+    --mk-feature-columns-mobile: {{ section.settings.columns_mobile }};
+    --mk-feature-icon-size: {{ section.settings.icon_size }}px;
+  }
+{% endstyle %}
+<div
+  id="section-{{ section.id }}"
+  class="mk-feature-icons section color-{{ section.settings.color_scheme }}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="{% if container == 'fixed' %}page-width{% endif %}">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="mk-feature-icons__heading h3">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+    <ul class="mk-feature-icons__list list-unstyled" role="list">
+      {%- for block in section.blocks -%}
+        <li class="mk-feature-icons__item" {{ block.shopify_attributes }} style="--mk-feature-color: {{ block.settings.color }};">
+          {%- if block.settings.link != blank -%}<a class="mk-feature-icons__link" href="{{ block.settings.link }}">{%- endif -%}
+          <span class="mk-feature-icons__icon" aria-hidden="true">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 160 | image_tag: loading: 'lazy', widths: '80, 120, 160', sizes: '80px', alt: '' }}
+            {%- elsif block.settings.icon != 'none' -%}
+              {%- assign icon_file = 'mk-icon-' | append: block.settings.icon | append: '.svg' -%}
+              {{ icon_file | inline_asset_content }}
+            {%- endif -%}
+          </span>
+          <span class="mk-feature-icons__title">{{ block.settings.title | escape }}</span>
+          {%- if block.settings.link != blank -%}</a>{%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MK Feature icons",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "container",
+      "label": "t:general.container.label",
+      "options": [
+        { "value": "full", "label": "t:general.container.options__full.label" },
+        { "value": "fixed", "label": "t:general.container.options__fixed.label" }
+      ],
+      "default": "fixed"
+    },
+    { "type": "color_scheme", "id": "color_scheme", "label": "t:general.colors.label", "default": "scheme-1" },
+    { "type": "text", "id": "heading", "label": "t:general.heading.label" },
+    { "type": "range", "id": "columns_desktop", "min": 2, "max": 6, "step": 1, "label": "Columns (desktop)", "default": 6 },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns (mobile)",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" }
+      ],
+      "default": "3"
+    },
+    { "type": "range", "id": "icon_size", "min": 40, "max": 120, "step": 4, "unit": "px", "label": "Icon size", "default": 72 },
+    { "type": "header", "content": "t:general.padding.section_heading.content" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "t:general.padding.top.label", "default": 30 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "t:general.padding.bottom.label", "default": 30 }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "boat", "label": "Boat (import)" },
+            { "value": "shield-check", "label": "Shield check (standard)" },
+            { "value": "badge-20", "label": "Badge 20 (experience)" },
+            { "value": "blocks", "label": "Blocks (curated)" },
+            { "value": "whatsapp", "label": "WhatsApp (advice)" },
+            { "value": "truck", "label": "Truck (delivery)" }
+          ],
+          "default": "truck"
+        },
+        { "type": "image_picker", "id": "image", "label": "Custom icon image (overrides the icon)" },
+        { "type": "color", "id": "color", "label": "Icon color", "default": "#198492" },
+        { "type": "text", "id": "title", "label": "Caption", "default": "משלוח עד הבית" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MK Feature icons",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "boat", "color": "#3cd6dd", "title": "מתנות בייבוא בלעדי" } },
+        { "type": "feature", "settings": { "icon": "shield-check", "color": "#f295c0", "title": "מוצרים בתו תקן" } },
+        { "type": "feature", "settings": { "icon": "badge-20", "color": "#8861ec", "title": "מעל 20 שנות ניסיון" } },
+        { "type": "feature", "settings": { "icon": "blocks", "color": "#fcbf07", "title": "משחקים שנבחרו בקפידה" } },
+        { "type": "feature", "settings": { "icon": "whatsapp", "color": "#00b656", "title": "ייעוץ אישי בוואטסאפ" } },
+        { "type": "feature", "settings": { "icon": "truck", "color": "#ff5404", "title": "משלוח עד הבית" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

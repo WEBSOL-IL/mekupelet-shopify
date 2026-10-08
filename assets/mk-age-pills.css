@@ -58,6 +58,7 @@
   object-fit: contain;
 }
 .mk-age-pill__label {
+  unicode-bidi: plaintext; /* mixed Hebrew/Latin labels keep their own reading order */
   flex: 1 1 auto;
   display: flex;
   align-items: center;

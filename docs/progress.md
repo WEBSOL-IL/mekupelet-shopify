@@ -123,3 +123,12 @@ Figma exports.
   patterns, colored feature icons, brand/Instagram images in Files, wishlist heart, always-visible
   "add to cart" button on the card (Hyper shows it on hover; needs a card snippet override),
   currency format `69.00 NIS` → `69 ₪` (store setting).
+- Merchant feedback round 1 applied (live): finder RTL (root cause: `language_support_rtl: he` stopped
+  matching and `dir="rtl"` disappeared; set the list blank so RTL applies to every language),
+  categories 5 per row with visible arrows (Hyper caps the slider at 18 blocks, not 20), product card
+  per sketch via CSS grid (always-visible "הוסיפו לסל" pill beside the price, vendor, 2-line title),
+  age pill labels in the sketch format, brands button below the grid renamed "הצג את כל המותגים",
+  new `sections/mk-feature-icons.liquid` with six flat SVG icons (`assets/mk-icon-*.svg`) in the
+  sketch colors, reviews in the standard layout (image, name + date, text, stars), footer per sketch
+  (bold phone, no icons, no payment icons; menu columns use `main-menu` as a stand-in until
+  `footer-1..4` exist). Dev server had died once; new files were pushed with `theme push --only`.
