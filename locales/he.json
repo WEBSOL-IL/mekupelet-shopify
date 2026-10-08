@@ -265,7 +265,9 @@
       "xr_button": "צפייה בחלל שלכם",
       "xr_button_label": "צפייה בחלל שלכם, טוען את הפריט בחלון מציאות רבודה",
       "include_taxes": "כולל מע״מ.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">המשלוח</a> מחושב בתשלום."
+      "shipping_policy_html": "<a href=\"{{ link }}\">המשלוח</a> מחושב בתשלום.",
+      "more_products_in": "למוצרים נוספים:",
+      "description_tab": "תיאור פריט"
     },
     "compare": {
       "alert_message": "ניתן להוסיף להשוואה עד {{ maximum }} מוצרים בלבד.",

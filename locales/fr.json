@@ -274,7 +274,9 @@
       "xr_button": "Voir dans votre espace",
       "xr_button_label": "Afficher dans votre espace, charge l’article dans une fenêtre de réalité augmentée",
       "include_taxes": "Taxes comprises.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Frais de livraison</a> calculés lors du paiement."
+      "shipping_policy_html": "<a href=\"{{ link }}\">Frais de livraison</a> calculés lors du paiement.",
+      "more_products_in": "Plus de produits dans :",
+      "description_tab": "Description"
     },
     "compare": {
       "alert_message": "Vous ne pouvez ajouter qu’un maximum de {{ maximum }} produits à comparer.",

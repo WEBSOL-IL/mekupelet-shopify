@@ -274,7 +274,9 @@
       "xr_button": "In Ihrem Bereich anzeigen",
       "xr_button_label": "In Ihrem Raum anzeigen – Artikel wird im Augmented-Reality-Fenster geladen",
       "include_taxes": "Preis inkl. MwSt.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Versandkosten</a> werden an der Kasse berechnet."
+      "shipping_policy_html": "<a href=\"{{ link }}\">Versandkosten</a> werden an der Kasse berechnet.",
+      "more_products_in": "Weitere Produkte in:",
+      "description_tab": "Beschreibung"
     },
     "compare": {
       "alert_message": "Sie können maximal {{ maximum }} Produkte zum Vergleich hinzufügen.",

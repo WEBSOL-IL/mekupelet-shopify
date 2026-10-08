@@ -1,0 +1,24 @@
+{%- comment -%}
+  MK: "למוצרים נוספים:" pill links to the product's category collections (Figma 52:5172).
+  Skips brand collections (custom.collection_kind = brand), the "all"/frontpage collections and
+  hidden WooCommerce rules. product.collections is a small per-product list, no catalog loop.
+  Usage from a main-product custom_liquid block: {% render 'mk-product-collections' %}
+{%- endcomment -%}
+{%- liquid
+  assign mk_links = ''
+  for mk_col in product.collections
+    if mk_col.handle == 'all' or mk_col.handle == 'frontpage' or mk_col.metafields.custom.collection_kind.value == 'brand'
+      continue
+    endif
+    capture mk_link
+      echo '<a href="' | append: mk_col.url | append: '" class="mk-product-collections__link btn btn--secondary">' | append: mk_col.title | append: '</a>'
+    endcapture
+    assign mk_links = mk_links | append: mk_link
+  endfor
+-%}
+{%- if mk_links != blank -%}
+  <div class="mk-product-collections flex flex-wrap items-center gap-3">
+    <span class="mk-product-collections__label">{{ 'products.product.more_products_in' | t }}</span>
+    {{ mk_links }}
+  </div>
+{%- endif -%}

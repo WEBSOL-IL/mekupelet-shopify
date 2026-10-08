@@ -274,7 +274,9 @@
       "xr_button": "Xem trong không gian của bạn",
       "xr_button_label": "Xem sản phẩm trong không gian thực tế ảo (AR)",
       "include_taxes": "Đã bao gồm thuế.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Phí vận chuyển</a> được tính khi thanh toán."
+      "shipping_policy_html": "<a href=\"{{ link }}\">Phí vận chuyển</a> được tính khi thanh toán.",
+      "more_products_in": "Thêm sản phẩm trong:",
+      "description_tab": "Mô tả"
     },
     "compare": {
       "alert_message": "Bạn chỉ có thể so sánh tối đa {{ maximum }} sản phẩm.",

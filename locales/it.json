@@ -274,7 +274,9 @@
       "xr_button": "Visualizza nel tuo spazio",
       "xr_button_label": "Visualizza nel tuo spazio, apre l'articolo in una finestra di realtà aumentata",
       "include_taxes": "Imposte incluse.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Spedizione</a> calcolata al checkout."
+      "shipping_policy_html": "<a href=\"{{ link }}\">Spedizione</a> calcolata al checkout.",
+      "more_products_in": "Altri prodotti in:",
+      "description_tab": "Descrizione"
     },
     "compare": {
       "alert_message": "Puoi aggiungere al confronto un massimo di {{ maximum }} prodotti.",

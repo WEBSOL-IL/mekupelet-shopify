@@ -1,0 +1,16 @@
+{%- comment -%}
+  MK: "תיאור פריט" accordion for the product description (Figma 52:5172). Hyper's collapsible_tab
+  block cannot take product.description as a dynamic source, so this reuses the same accordion
+  markup from a custom_liquid block: {% render 'mk-product-description-tab' %}
+{%- endcomment -%}
+{%- if product.description != blank -%}
+  <details id="MkDescriptionTab-{{ section.id }}" class="accordion-details mk-description-tab" is="accordion-group" open aria-expanded="true">
+    <summary class="accordion-details__summary flex items-center justify-between">
+      <h2 class="h5 inline-richtext">{{ 'products.product.description_tab' | t }}</h2>
+      {%- render 'icon-plus-toggle' -%}
+    </summary>
+    <div class="accordion-details__content rte text-subtext">
+      {{ product.description }}
+    </div>
+  </details>
+{%- endif -%}

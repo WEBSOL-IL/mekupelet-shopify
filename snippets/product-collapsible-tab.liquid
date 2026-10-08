@@ -1,6 +1,8 @@
 {%- liquid
   assign heading_size = block.settings.heading_size | default: 'h4'
 -%}
+{%- comment -%} MK-CUSTOM start: skip tabs whose content and page are both empty (metafield-driven accordions) {%- endcomment -%}
+{%- if block.settings.content != blank or block.settings.page != blank -%}
 <details
   id="Details-{{ block.id }}-{{ section_id }}"
   class="accordion-details"
@@ -26,3 +28,5 @@
     {{ block.settings.page.content }}
   </div>
 </details>
+{%- endif -%}
+{%- comment -%} MK-CUSTOM end {%- endcomment -%}

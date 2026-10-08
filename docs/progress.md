@@ -185,6 +185,26 @@ Figma exports.
   shows a separate dropdown); filter drawer styling and the age filter's two-column layout wait for
   real filters. Theme check 0 errors.
 
+- Product page round 1 (2026-10-08, live, Figma 52:5172 + mobile 1:10570): template rebuilt
+  (breadcrumbs, main, related, example reviews, newsletter; nine demo sections removed). Main
+  blocks in the Figma order: badges, vendor, title (h3), short description (custom_liquid from
+  `custom.short_description`), inventory, price, divider, variant picker (buttons + circle
+  swatches), quantity + add to cart (no dynamic checkout), gift-wrap checkbox (line item
+  property), free-shipping note (icon-with-text), pickup availability, accordions: תיאור פריט
+  (`snippets/mk-product-description-tab.liquid`, because a rich-text setting cannot take
+  product.description), משלוחים (page), and four metafield accordions via
+  `{{ product.metafields.custom.* | metafield_tag }}` (hidden when empty by a logged core edit in
+  `snippets/product-collapsible-tab.liquid`), collection pills (`snippets/mk-product-collections.liquid`),
+  three feature boxes under the gallery (grid-icon-box, show_below_product_media). Gallery on the
+  inline-end side via `flex-direction: row-reverse` (≥768). `scripts/create-product-metafields.py`
+  created the five product metafield definitions. CSS block 8 (title 24/700, price 24 orange,
+  55px teal button, bordered quantity, gray note pill, boxed features, accordion sizes).
+  Lessons: JSON dynamic sources need `.value` or `| metafield_tag`; inline_richtext accepts
+  single-line only. Verified on /products/261 at 1440 and 390 (all catalog products have one
+  image and one variant, so thumbnails/swatches/compare price are unverified).
+  Open: related heading overridden by a Translate & Adapt entry, currency format, reviews app,
+  wishlist/share icons on the image, mobile title above the gallery (core edit, ask merchant).
+
 ## Next session runbook — collections import (merchant approved 2026-10-08)
 Secrets `SHOPIFY_SHOP`, `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET` were added to the environment
 (Dev Dashboard app, scopes products/navigation/files) and load only in a NEW session. Decisions approved:
