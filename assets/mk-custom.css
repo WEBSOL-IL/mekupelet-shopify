@@ -123,6 +123,8 @@
   object-fit: contain;
   background: #fff;
 }
+/* Uniform image box (Figma 305×210) whatever the photo's own ratio, so every card is the same height */
+.product-card .product-card__image-wrapper .media-wrapper::before { padding-top: 69%; }
 .product-card .product-card__badge {
   grid-row: 1;
   inset-block-start: 1.4rem;
@@ -137,6 +139,9 @@
   font-weight: 600;
   line-height: 1.7rem;
 }
+.product-card { height: 100%; }
+.product-card .product-card__wrapper { height: 100%; grid-template-rows: auto 1fr; align-content: start; }
+.product-card .product-card__title { min-height: calc(2 * 1.4rem * 1.5); }
 .product-card .product-card__info {
   grid-column: 1;
   grid-row: 2;
@@ -486,7 +491,7 @@
 
 /* 8. Product page (Figma 52:5172): gallery on the inline-end side, boxed features, info column ---- */
 @media (min-width: 768px) {
-  .product-info .product { flex-direction: row-reverse; }
+  product-info .product { flex-direction: row-reverse; }
 }
 .product__media-item .media,
 .product__media-item img { border-radius: 1rem; }
@@ -526,19 +531,41 @@
 .product__info-wrapper .accordion-details__content { font-size: 1.6rem; line-height: 2.4rem; color: rgb(var(--mk-color-text)); }
 .mk-product-collections { margin-top: 2rem; font-size: 1.4rem; }
 .mk-product-collections__link.btn { height: 3.2rem; padding-inline: 1.4rem; border-radius: 10rem; font-size: 1.4rem; font-weight: 400; }
-/* three feature boxes under the gallery */
-.product__block--grid-icon-box .grid-icon-box__item,
-.product__block--grid-icon-box .icon-box {
-  background: rgb(var(--mk-color-page));
+/* thumbnails on the outer (inline-end) side of the main image, as in the sketch */
+@media (min-width: 768px) {
+  .product--media-has-many.product--vertical-carousel .product__media-gallery-viewer-wrap {
+    margin-inline-start: 0;
+    margin-inline-end: calc(var(--thumbnails-width) + var(--thumbnails-spacing));
+  }
+  .product--media-has-many.product--vertical-carousel .product__media-gallery-thumbails {
+    inset-inline-start: auto;
+    inset-inline-end: 0;
+  }
+}
+/* three feature boxes under the gallery: #F5F5F5 boxes, wine icons from assets/mk-icon-*.svg */
+.product__block--grid-icon-box .grid-icon-box {
+  background: #f5f5f5;
   border-radius: 1rem;
-  padding: 2rem 1.2rem;
-  text-align: center;
+  padding: 2rem 1.2rem 1.6rem;
+  gap: 1rem;
   font-size: 1.4rem;
   line-height: 2rem;
   color: rgb(var(--mk-color-text));
 }
-.product__block--grid-icon-box .icon { color: #3b0d15; width: 3.2rem; height: 3.2rem; }
+.product__block--grid-icon-box .grid-icon-box > svg,
+.product__block--grid-icon-box .grid-icon-box > .icon { display: none; }
+.product__block--grid-icon-box .grid-icon-box::before {
+  content: "";
+  display: block;
+  width: 3.2rem;
+  height: 3.2rem;
+  background-color: #3b0d15;
+  -webkit-mask: var(--mk-box-icon) center / contain no-repeat;
+  mask: var(--mk-box-icon) center / contain no-repeat;
+}
+.product__block--grid-icon-box .f-column:nth-child(1) .grid-icon-box { --mk-box-icon: url(mk-icon-shield-check.svg); }
+.product__block--grid-icon-box .f-column:nth-child(2) .grid-icon-box { --mk-box-icon: url(mk-icon-truck.svg); }
+.product__block--grid-icon-box .f-column:nth-child(3) .grid-icon-box { --mk-box-icon: url(mk-icon-credit-card.svg); }
 @media (max-width: 767.98px) {
-  .product__block--grid-icon-box .grid-icon-box__item,
-  .product__block--grid-icon-box .icon-box { padding: 1.4rem 0.6rem; font-size: 1.2rem; line-height: 1.6rem; }
+  .product__block--grid-icon-box .grid-icon-box { padding: 1.4rem 0.6rem 1.2rem; font-size: 1.2rem; line-height: 1.6rem; }
 }

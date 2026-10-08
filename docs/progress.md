@@ -213,6 +213,16 @@ Figma exports.
   the primary language (merchant, Settings → Languages); alternative = `translationsRemove` for the
   theme's `he` entries. Added as the top item in docs/merchant-checklist.md.
 
+- Merchant feedback round (2026-10-08, product + collection): the gallery-side rule had not applied
+  (the wrapper is the `<product-info>` element, not a `.product-info` class); fixed with
+  `product-info .product { flex-direction: row-reverse }` so the gallery sits on the left as in the
+  sketch, thumbnails moved to the outer side for multi-image products. Feature boxes under the
+  gallery restyled to the sketch: #F5F5F5 boxes with wine (#3B0D15) sketch icons from
+  `assets/mk-icon-{shield-check,truck,credit-card}.svg` applied by CSS mask on Hyper's grid-icon-box
+  (new `mk-icon-credit-card.svg`). Collection cards equal height: Hyper passed `adapt` ratio, so the
+  image box is now a fixed 69% (Figma 305×210) with object-fit contain, card and wrapper 100%
+  height, title reserved to two lines. Verified on /collections/all at 1440/390 and /products/261.
+
 ## Next session runbook — collections import (merchant approved 2026-10-08)
 Secrets `SHOPIFY_SHOP`, `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET` were added to the environment
 (Dev Dashboard app, scopes products/navigation/files) and load only in a NEW session. Decisions approved:
