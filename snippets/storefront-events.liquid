@@ -1,0 +1,107 @@
+{% comment %}
+  Renders the Shopify standard storefront events and actions setup.
+  Accepts:
+    - position: {string} 'before_header' (render right above content_for_header) or 'after_theme' (render right after theme.js)
+
+  'before_header' registers the theme's Shopify.actions configuration first, because only the first
+  configure() call on an action takes effect and app code in content_for_header could otherwise win.
+  'after_theme' loads the standard events library as an async module: a non-async module would join
+  the defer queue and hold back every later section script (and DOMContentLoaded) while the CDN is
+  slow. Theme code reads window.StandardEvents lazily and skips events without it.
+
+  Usage:
+  {% render 'storefront-events', position: 'before_header' %}
+{% endcomment %}
+
+{%- if position == 'before_header' -%}
+  <script>
+    document.addEventListener('DOMContentLoaded', () => window.FoxTheme?.storefrontActions?.configure(), {
+      once: true
+    });
+  </script>
+{%- else -%}
+  <script src="{{ 'storefront-events.js' | asset_url }}" defer="defer"></script>
+  <script type="module" async>
+    import * as StandardEvents from 'https://cdn.shopify.com/storefront/standard-events.js';
+
+    window.StandardEvents = StandardEvents;
+
+    /**
+     * A card in a fade slider (Swiper's `fade` effect stacks every slide in place, hidden with opacity)
+     * is only seen once its slide is the active one and in view: wait for both, then dispatch once.
+     */
+    const waitForActiveSlide = (element, slide) => {
+      if (element.slideWatcher) return;
+
+      let intersectionObserver = null;
+      const watchInView = () => {
+        if (intersectionObserver || !slide.classList.contains('swiper-slide-active')) return;
+        intersectionObserver = new IntersectionObserver(
+          (entries) => {
+            if (!entries.some((entry) => entry.isIntersecting)) return;
+            intersectionObserver.disconnect();
+            intersectionObserver = null;
+            if (!slide.classList.contains('swiper-slide-active')) return;
+            mutationObserver.disconnect();
+            element.slideWatcher = null;
+            element.dispatchViewEvent();
+          },
+          { threshold: 0.5 }
+        );
+        intersectionObserver.observe(element);
+      };
+      const mutationObserver = new MutationObserver(watchInView);
+      mutationObserver.observe(slide, { attributes: true, attributeFilter: ['class'] });
+      element.slideWatcher = mutationObserver;
+    };
+
+    const defineViewEventElement = () => {
+      if (customElements.get('storefront-view-event')) return;
+
+      customElements.define(
+        'storefront-view-event',
+        class extends StandardEvents.createViewEventElement() {
+          dispatchViewEvent() {
+            // Swiper's loop mode clones slides; the clone of a card is not a second view.
+            if (this.closest('.swiper-slide-duplicate')) return;
+
+            const fadeSlide = this.closest('.swiper-fade .swiper-slide');
+            if (fadeSlide && !fadeSlide.classList.contains('swiper-slide-active')) {
+              waitForActiveSlide(this, fadeSlide);
+              return;
+            }
+
+            // The cart drawer re-renders its body, recommendations included, on every cart change:
+            // report each card once per opening (CartDrawer.show() clears the set).
+            const cartDrawer = this.getAttribute('view-event-trigger') === 'intersect' && this.closest('cart-drawer');
+            if (cartDrawer) {
+              cartDrawer.viewedProducts = cartDrawer.viewedProducts || new Set();
+              const payload = this.getAttribute('view-event-payload');
+              if (cartDrawer.viewedProducts.has(payload)) return;
+              cartDrawer.viewedProducts.add(payload);
+            }
+
+            super.dispatchViewEvent();
+          }
+        }
+      );
+    };
+
+    // Page view first, then the view elements: defining the element dispatches every `connect` view on
+    // the page. Both wait for DOMContentLoaded (after every deferred script, so app listeners are
+    // attached) — the async module can otherwise run while the page is still parsing.
+    const start = () => {
+      document.dispatchEvent(
+        new StandardEvents.PageViewEvent({
+          page: { template: FoxTheme.settings.template, title: document.title, url: window.location.href }
+        })
+      );
+      defineViewEventElement();
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', start, { once: true });
+    } else {
+      start();
+    }
+  </script>
+{%- endif -%}

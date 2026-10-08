@@ -1,0 +1,45 @@
+{%- doc -%}
+  Outputs the ids of the media product-media-gallery shows, comma-separated and in its order.
+
+  The gallery renders exactly these, and the product sections count them for the layout classes around it
+  (product--media-has-*, product--odd-media): with hide_variant_media the gallery shows only the selected
+  variant's media plus the media shared across variants, so product.media.size would size the layout for
+  media that isn't there (a thumbnail column with no thumbnails, a half-width single image).
+
+  @param {object} product - Product object
+  @param {string[]} [variant_images] - Srcs of the product images attached to a variant
+  @param {boolean} [hide_variant_media] - Only the selected variant's media plus the shared media
+
+  @example
+  {%- capture gallery_media_ids -%}
+    {%- render 'product-gallery-media-ids', product: product, variant_images: variant_images, hide_variant_media: true -%}
+  {%- endcapture -%}
+{%- enddoc -%}
+{%- liquid
+  assign sorted_media = product.media
+
+  if hide_variant_media and variant_images.size > 0
+    for media in product.media
+      if variant_images contains media.src
+        assign sorted_media = sorted_media | reject: 'id', media.id
+      endif
+    endfor
+  endif
+
+  assign selected_variant_media = product.selected_or_first_available_variant.featured_media
+  if selected_variant_media
+    assign selected_media = product.media | where: 'id', selected_variant_media.id
+    assign sorted_media = sorted_media | reject: 'id', selected_variant_media.id
+    assign sorted_media = selected_media | concat: sorted_media
+  endif
+
+  # Every media is attached to a variant and the selected one has none: show the full gallery rather
+  # than nothing at all.
+  if sorted_media.size == 0
+    assign sorted_media = product.media
+  endif
+-%}
+{%- for media in sorted_media -%}
+  {{- media.id -}}
+  {%- unless forloop.last -%},{%- endunless -%}
+{%- endfor -%}
