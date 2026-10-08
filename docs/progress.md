@@ -105,3 +105,21 @@ Figma exports.
   (Files, collections, menus) — images and products show placeholders until done.
 - Open questions Q1–Q14 in `docs/implementation-plan.md` (Q13/Q14 were decided provisionally:
   perf toggles off, custom stylesheet as a file).
+
+## 2026-10-08 — session 2c (switch to the approved revision design)
+- Merchant sent the revision Home preview (`docs/figma/exports/home-desktop-revision-preview-small.webp`)
+  and confirmed it is the target. Colors sampled (PROVISIONAL): action teal `#198492`, accent orange
+  `#d6713f`, footer navy `#322e7c`, newsletter cyan `#6fe3e4`, pill/ring palette (green, orange,
+  yellow, purple, pink, cyan, teal), pastel badges.
+- Settings: scheme-1 button teal + orange sale price; scheme-2 = navy footer; scheme-3 = cyan
+  newsletter; badges pastel + percentage sale badge; cards "slightly" rounded; vendor shown.
+- `templates/index.json`: 12 sections in the revision order; categories via `collection-list-slider`
+  on the merchant's Hebrew-handle collections; product rows pull real products from `all` until
+  best-sellers/new/sale exist; `mk-age-pills` now color-per-pill without icons/image; surprise-box
+  banner with a white overlay card; feature icons in brand colors; footer on scheme-2.
+- `assets/mk-custom.css` rewritten for the revision (header icons/search swap, category rings,
+  tab underline, pastel badges, review cards). Verified live at 1440/390, theme check 0 errors.
+- Known gaps (need exports or decisions): hero illustration, surprise-box photo, newsletter side
+  patterns, colored feature icons, brand/Instagram images in Files, wishlist heart, always-visible
+  "add to cart" button on the card (Hyper shows it on hover; needs a card snippet override),
+  currency format `69.00 NIS` → `69 ₪` (store setting).

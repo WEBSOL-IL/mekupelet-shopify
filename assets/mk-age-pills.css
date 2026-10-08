@@ -65,8 +65,8 @@
   min-height: calc(var(--mk-pill-icon-size) - 1.2rem);
   padding-inline: calc(var(--mk-pill-icon-size) / 2 + 1.2rem) 2rem;
   border-radius: 10rem;
-  background: rgb(var(--color-button));
-  color: rgb(var(--color-button-text));
+  background: var(--mk-pill-bg, rgb(var(--color-button)));
+  color: var(--mk-pill-text, rgb(var(--color-button-text)));
   font-weight: var(--font-body-weight-bold);
   font-size: calc(var(--font-body-size) * 1.1);
   transition: filter var(--duration-default) ease;
@@ -74,6 +74,14 @@
 .mk-age-pill:hover .mk-age-pill__label,
 .mk-age-pill:focus-visible .mk-age-pill__label {
   filter: brightness(1.1);
+}
+.mk-age-pill--no-icon {
+  padding-inline-start: 0;
+  min-height: 0;
+}
+.mk-age-pill--no-icon .mk-age-pill__label {
+  min-height: 6rem;
+  padding-inline: 2rem;
 }
 .mk-age-pill:focus-visible {
   outline: 0.2rem solid rgb(var(--color-keyboard-focus, var(--color-foreground)));
@@ -93,5 +101,19 @@
   }
   .mk-age-pills__layout--image-end .mk-age-pills__media {
     order: 2;
+  }
+}
+/* No image: pills alone, centered, max three columns */
+.mk-age-pills__layout--no-image {
+  grid-template-columns: 1fr;
+}
+.mk-age-pills__layout--no-image .mk-age-pills__content {
+  max-width: 108rem;
+  margin-inline: auto;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .mk-age-pills__layout.mk-age-pills__layout--no-image {
+    grid-template-columns: 1fr;
   }
 }

@@ -104,7 +104,7 @@
       ]
     },
     "categories": {
-      "type": "collection-list",
+      "type": "collection-list-slider",
       "settings": {
         "heading": "קטגוריות נבחרות",
         "section_header_alignment": "center",
@@ -112,10 +112,9 @@
         "card_image_ratio": "1/1",
         "card_image_width": "large",
         "rounded_card_image": true,
-        "card_show_border": false,
-        "columns_desktop": 7,
-        "columns_mobile": "3",
-        "swipe_on_mobile": false,
+        "columns_desktop": 5,
+        "mobile_layout": "vertical",
+        "carousel_item_size": "auto",
         "padding_top": 40,
         "padding_bottom": 40
       },
@@ -123,57 +122,56 @@
         "featured_collection_1": {
           "type": "featured_collection",
           "settings": {
-            "collection": "tableware",
-            "image": "shopify://shop_images/cat-tableware.png",
-            "title": "כלי אוכל"
+            "collection": "בגדי-ילדים",
+            "image": "shopify://shop_images/cat-kids-clothing.png",
+            "title": "בגדי ילדים"
           }
         },
         "featured_collection_2": {
           "type": "featured_collection",
           "settings": {
-            "collection": "home",
-            "image": "shopify://shop_images/cat-home.png",
-            "title": "כלי בית"
+            "collection": "כלי-אוכל",
+            "image": "shopify://shop_images/cat-tableware.png",
+            "title": "כלי אוכל"
           }
         },
         "featured_collection_3": {
           "type": "featured_collection",
           "settings": {
-            "collection": "accessories",
-            "image": "shopify://shop_images/cat-accessories.png",
-            "title": "אביזרים"
+            "collection": "ספרים",
+            "image": "shopify://shop_images/cat-books.png",
+            "title": "ספרים"
           }
         },
         "featured_collection_4": {
           "type": "featured_collection",
           "settings": {
-            "collection": "kids-clothing",
-            "image": "shopify://shop_images/cat-kids-clothing.png",
-            "title": "בגדי ילדים"
+            "collection": "צעצועים-ובובות",
+            "image": "shopify://shop_images/cat-toys-dolls.png",
+            "title": "צעצועים ובובות"
           }
         },
         "featured_collection_5": {
           "type": "featured_collection",
           "settings": {
-            "collection": "books",
-            "image": "shopify://shop_images/cat-books.png",
-            "title": "ספרים"
+            "image": "shopify://shop_images/cat-costumes.png",
+            "title": "תחפושות"
           }
         },
         "featured_collection_6": {
           "type": "featured_collection",
           "settings": {
-            "collection": "toys-dolls",
-            "image": "shopify://shop_images/cat-toys-dolls.png",
-            "title": "צעצועים ובובות"
+            "collection": "אביזרים",
+            "image": "shopify://shop_images/cat-accessories.png",
+            "title": "אביזרים"
           }
         },
         "featured_collection_7": {
           "type": "featured_collection",
           "settings": {
-            "collection": "costumes",
-            "image": "shopify://shop_images/cat-costumes.png",
-            "title": "תחפושות"
+            "collection": "כלי-בית",
+            "image": "shopify://shop_images/cat-home.png",
+            "title": "כלי בית"
           }
         }
       },
@@ -190,7 +188,7 @@
     "featured_tabs": {
       "type": "featured-collection",
       "settings": {
-        "heading": "אוספים מומלצים",
+        "heading": "המוצרים שלנו",
         "section_header_alignment": "center",
         "limit": 8,
         "columns": 4,
@@ -204,21 +202,21 @@
         "collection_1": {
           "type": "collection",
           "settings": {
-            "collection": "best-sellers",
+            "collection": "all",
             "title": "מובילים"
           }
         },
         "collection_2": {
           "type": "collection",
           "settings": {
-            "collection": "new",
+            "collection": "all",
             "title": "חדש באתר"
           }
         },
         "collection_3": {
           "type": "collection",
           "settings": {
-            "collection": "sale",
+            "collection": "all",
             "title": "במבצע"
           }
         }
@@ -236,59 +234,64 @@
         "color_scheme": "scheme-1",
         "heading": "רכישה לפי גיל",
         "heading_size": "h3",
-        "image": "shopify://shop_images/photo-age-kids.png",
         "image_position": "end",
-        "columns_desktop": 2,
-        "padding_top": 50,
-        "padding_bottom": 50
+        "columns_desktop": 3,
+        "padding_top": 40,
+        "padding_bottom": 40
       },
       "blocks": {
         "pill_1": {
           "type": "pill",
           "settings": {
-            "icon": "shopify://shop_images/icon-age-0-6.png",
             "label": "0-6 חודשים",
-            "link": "shopify://collections/age-0-6"
+            "link": "shopify://collections/age-0-6",
+            "color": "#12b15c",
+            "text_color": "#ffffff"
           }
         },
         "pill_2": {
           "type": "pill",
           "settings": {
-            "icon": "shopify://shop_images/icon-age-6-12.png",
             "label": "6-12 חודשים",
-            "link": "shopify://collections/age-6-12"
+            "link": "shopify://collections/age-6-12",
+            "color": "#ff661f",
+            "text_color": "#ffffff"
           }
         },
         "pill_3": {
           "type": "pill",
           "settings": {
-            "icon": "shopify://shop_images/icon-age-1-1-5.png",
             "label": "שנה-שנה וחצי (1-1.5)",
-            "link": "shopify://collections/age-1-1-5"
+            "link": "shopify://collections/age-1-1-5",
+            "color": "#f2c124",
+            "text_color": "#ffffff"
           }
         },
         "pill_4": {
           "type": "pill",
           "settings": {
-            "icon": "shopify://shop_images/icon-age-1-5-2.png",
             "label": "שנה וחצי (1.5-2)",
-            "link": "shopify://collections/age-1-5-2"
+            "link": "shopify://collections/age-1-5-2",
+            "color": "#8861ec",
+            "text_color": "#ffffff"
           }
         },
         "pill_5": {
           "type": "pill",
           "settings": {
-            "icon": "shopify://shop_images/icon-age-2-3.png",
             "label": "שנתיים-שלוש (2-3)",
-            "link": "shopify://collections/age-2-3"
+            "link": "shopify://collections/age-2-3",
+            "color": "#f58ec5",
+            "text_color": "#ffffff"
           }
         },
         "pill_6": {
           "type": "pill",
           "settings": {
-            "icon": "shopify://shop_images/icon-age-3-plus.png",
             "label": "3+ YEARS",
-            "link": "shopify://collections/age-3-plus"
+            "link": "shopify://collections/age-3-plus",
+            "color": "#3bd6d8",
+            "text_color": "#ffffff"
           }
         }
       },
@@ -320,8 +323,8 @@
         "logo_1": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/brand-we-are-gommu.png",
-            "image_link": "shopify://collections/we-are-gommu"
+            "image": "shopify://shop_images/brand-famokids.png",
+            "image_link": "shopify://collections/famokids"
           }
         },
         "logo_2": {
@@ -334,22 +337,22 @@
         "logo_3": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/brand-my-creative-box.png",
-            "image_link": "shopify://collections/my-creative-box"
+            "image": "shopify://shop_images/brand-ulanik.png",
+            "image_link": "shopify://collections/ulanik"
           }
         },
         "logo_4": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/brand-famokids.png",
-            "image_link": "shopify://collections/famokids"
+            "image": "shopify://shop_images/brand-jaba-daba-do.png",
+            "image_link": "shopify://collections/jaba-daba-do"
           }
         },
         "logo_5": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/brand-ulanik.png",
-            "image_link": "shopify://collections/ulanik"
+            "image": "shopify://shop_images/brand-my-creative-box.png",
+            "image_link": "shopify://collections/my-creative-box"
           }
         },
         "logo_6": {
@@ -362,15 +365,15 @@
         "logo_7": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/brand-jaba-daba-do.png",
-            "image_link": "shopify://collections/jaba-daba-do"
+            "image": "shopify://shop_images/brand-banana-panda.png",
+            "image_link": "shopify://collections/banana-panda"
           }
         },
         "logo_8": {
           "type": "logo",
           "settings": {
-            "image": "shopify://shop_images/brand-banana-panda.png",
-            "image_link": "shopify://collections/banana-panda"
+            "image": "shopify://shop_images/brand-we-are-gommu.png",
+            "image_link": "shopify://collections/we-are-gommu"
           }
         }
       },
@@ -385,10 +388,10 @@
         "logo_8"
       ]
     },
-    "orly_picks": {
+    "featured_row": {
       "type": "featured-collection",
       "settings": {
-        "heading": "המומלצים של אורלי",
+        "heading": "קטגוריות נבחרות",
         "section_header_alignment": "center",
         "limit": 8,
         "columns": 4,
@@ -402,8 +405,8 @@
         "collection_1": {
           "type": "collection",
           "settings": {
-            "collection": "orly-picks",
-            "title": "המומלצים של אורלי"
+            "collection": "all",
+            "title": "קטגוריות נבחרות"
           }
         }
       },
@@ -411,34 +414,41 @@
         "collection_1"
       ]
     },
-    "promo_banner": {
+    "surprise_box": {
       "type": "image-with-text-overlay",
       "settings": {
         "container": "fixed",
-        "image": "shopify://shop_images/banner-promo-desktop.png",
-        "image_mobile": "shopify://shop_images/banner-promo-mobile.png",
+        "image": "shopify://shop_images/photo-box.png",
+        "desktop_height": "medium",
+        "mobile_height": "medium",
+        "overlay_opacity": 0,
+        "content_position": "middle-left",
+        "content_alignment": "center",
+        "content_position_mobile": "bottom-center-mobile",
         "padding_top": 40,
-        "padding_bottom": 40
+        "padding_bottom": 40,
+        "color_scheme": "scheme-1"
       },
       "blocks": {
         "heading_1": {
           "type": "heading",
           "settings": {
-            "heading": "מבצע מיוחד על צעצועים חינוכיים"
+            "heading": "קופסת ההפתעה של מקופלת",
+            "heading_size": "h2"
           }
         },
         "text_2": {
           "type": "text",
           "settings": {
-            "text": "<p>זוהי עבודה מבוססת שולשת של הקורא חובב ספרות על ידי טקסט קריא כאשר</p>"
+            "text": "<p>אתם בוחרים תקציב, גיל ותחומי עניין ואורלי מרכיבה במיוחד בשבילכם קופסה מלאה בהפתעות כיפיות</p>"
           }
         },
         "button_3": {
           "type": "button",
           "settings": {
-            "button_label": "עברו לקטגוריה",
-            "button_link": "shopify://collections/sale",
-            "button_style": "btn--outline"
+            "button_label": "להרכבת הקופסה",
+            "button_link": "shopify://pages/surprise-box",
+            "button_style": "btn--primary"
           }
         }
       },
@@ -451,60 +461,74 @@
     "feature_tiles": {
       "type": "multicolumn-icon",
       "settings": {
-        "columns_desktop": 6,
-        "columns_mobile": "2",
-        "padding_top": 30,
-        "padding_bottom": 30,
         "heading": "",
-        "content_alignment": "center"
+        "columns_desktop": 6,
+        "columns_mobile": "3",
+        "image_position": "top",
+        "content_alignment": "center",
+        "icon_color": "#198492",
+        "padding_top": 30,
+        "padding_bottom": 30
       },
       "blocks": {
         "column_1": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/icon-tile-pacifier.png",
-            "title": "מתנות איכותיות בלבד",
-            "text": ""
+            "icon": "package",
+            "title": "מתנות בייבוא בלעדי",
+            "text": "",
+            "max_width": 56,
+            "max_width_mb": 44
           }
         },
         "column_2": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/icon-tile-stroller.png",
-            "title": "מתנות איכותיות בלבד",
-            "text": ""
+            "icon": "check",
+            "title": "מוצרים בתו תקן",
+            "text": "",
+            "max_width": 56,
+            "max_width_mb": 44
           }
         },
         "column_3": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/icon-tile-bunny.png",
-            "title": "מתנות איכותיות בלבד",
-            "text": ""
+            "icon": "calendar-blank",
+            "title": "מעל 20 שנות ניסיון",
+            "text": "",
+            "max_width": 56,
+            "max_width_mb": 44
           }
         },
         "column_4": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/icon-tile-blocks.png",
-            "title": "מתנות איכותיות בלבד",
-            "text": ""
+            "icon": "gift",
+            "title": "משחקים שנבחרו בקפידה",
+            "text": "",
+            "max_width": 56,
+            "max_width_mb": 44
           }
         },
         "column_5": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/icon-tile-brick.png",
-            "title": "מתנות איכותיות בלבד",
-            "text": ""
+            "icon": "chat",
+            "title": "ייעוץ אישי בוואטסאפ",
+            "text": "",
+            "max_width": 56,
+            "max_width_mb": 44
           }
         },
         "column_6": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/icon-tile-dino.png",
-            "title": "מתנות איכותיות בלבד",
-            "text": ""
+            "icon": "truck",
+            "title": "משלוח עד הבית",
+            "text": "",
+            "max_width": 56,
+            "max_width_mb": 44
           }
         }
       },
@@ -578,18 +602,20 @@
         "heading": "ביקורות",
         "section_header_alignment": "center",
         "layout": "card",
+        "card_color_scheme": "scheme-1",
         "columns_desktop": 3,
         "columns_mobile": "1",
         "enable_slider": true,
         "padding_top": 40,
-        "padding_bottom": 40
+        "padding_bottom": 40,
+        "card_image_ratio": "1/1"
       },
       "blocks": {
         "testimonial_1": {
           "type": "testimonial",
           "settings": {
             "icon": "5-stars",
-            "image": "shopify://shop_images/product-demo-kipod.png",
+            "image": "shopify://shop_images/product-demo-smart-sand.png",
             "heading": "שם מלא",
             "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
             "author": "11.06.2025"
@@ -609,7 +635,7 @@
           "type": "testimonial",
           "settings": {
             "icon": "5-stars",
-            "image": "shopify://shop_images/product-demo-smart-sand.png",
+            "image": "shopify://shop_images/product-demo-kipod.png",
             "heading": "שם מלא",
             "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
             "author": "11.06.2025"
@@ -625,11 +651,13 @@
     "newsletter": {
       "type": "newsletter",
       "settings": {
+        "color_scheme": "scheme-3",
         "heading": "חדשים באתר?",
         "description": "<p>הירשמו לניוזלטר ותהנו מכל המבצעים וההטבות לפני כולם</p>",
         "newsletter_term": "<p>אני מסכימ/ה לקבל הודעות שיווקיות ועדכונים מ-Mekupelet באמצעות דוא\"ל, הודעות טקסט (SMS) והודעות וואטסאפ. ניתן לבטל את ההרשמה בכל עת.</p>",
-        "padding_top": 50,
-        "padding_bottom": 50
+        "button_icon": "arrow-left",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     }
   },
@@ -640,8 +668,8 @@
     "featured_tabs",
     "age_pills",
     "brands",
-    "orly_picks",
-    "promo_banner",
+    "featured_row",
+    "surprise_box",
     "feature_tiles",
     "instagram",
     "reviews",

@@ -72,14 +72,14 @@
       "custom_css": [],
       "settings": {
         "container": "fixed",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "enable_follow_on_shop": false,
         "show_social": true,
         "enable_country_selector": false,
         "enable_language_selector": false,
         "payment_enable": true,
         "footer_bottom_menu": "footer-bottom",
-        "show_section_divider": true,
+        "show_section_divider": false,
         "divider_width": "fixed",
         "padding_top": 40,
         "padding_bottom": 40
