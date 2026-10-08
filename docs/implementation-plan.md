@@ -96,7 +96,7 @@ and a short `:root { --mk-* }` block in `assets/mk-custom.css` only for tokens H
 
 | Template | Original | Revision | Diff (to fill from exports) |
 |---|---|---|---|
-| Home | `1:266` | `18:4094` | section order, hero image option (`69:4498` vs `69:4497`), USP bar copy, category tiles (PNG on brand colors), badges |
+| Home | `1:266` | `18:4094` | section order (see §4.2 Home map, from previews), hero image option (`69:4498` vs `69:4497`), USP bar copy, category tiles (PNG on brand colors), badges, button color pink → blue |
 | Product | `1:1794` | `52:5172` | buttons, card border in recommendations, badges, stars |
 | Collection | `1:949` | `69:5443` | card border, badges, filters styling |
 
@@ -133,16 +133,37 @@ Effort: S < 0.5 day, M 0.5–1.5 days, L > 1.5 days.
 
 ### 4.2 Core commerce (Phase 3)
 
+#### Home — section map (from the merchant's preview screenshots, 2026-10-08)
+Source: whole-page previews of the Home desktop and mobile frames (`docs/figma/exports/manifest.md`).
+Which desktop frame they show must be confirmed: the action buttons are **pink**, while the approved
+revision says blue, so this is most likely the original `1:266` / `1:7075`. Values (spacing, type,
+exact colors) still need the 2x exports; order and components are reliable.
+
+| # | Section (Hebrew heading) | Desktop | Mobile | Hyper mapping | Tier | Effort |
+|---|---|---|---|---|---|---|
+| 1 | Top bar (one-line notice) | text, light gray | same | `topbar` text block | T1 | S |
+| 2 | Header: icons (cart, wishlist, account) start, logo center, search end; nav row with 11 items + chevrons | logo-center | hamburger + search end, logo center, heart + cart start | `header` `logo-center`, `main-menu`; wishlist icon pending Q2 | T1 + T2 | M |
+| 3 | Hero slideshow: pink patterned bg, image each side, title, USP line with truck icon, arrows, dots | full width | stacked, dots below | `slideshow` (merchant images already set) | T1 + T2 | S |
+| 4 | Gift finder bar: 4 dropdowns (גיל, מיקום/סוג…, טווח מחירים) + button "מצאו לי מתנה" | one row | stacked, full-width button | **no Hyper equivalent** → `mk-gift-finder` section: selects from section settings (menu/collection/tag values) that build a filtered collection URL | T3 | M |
+| 5 | "קטגוריות נבחרות": 14 circular image tiles with labels (2 × 7) | 7 columns | 3 columns, 5 rows | `collection-list` with `rounded_card_image`, 7 cols desktop / 3 mobile (check max), tile background color via CSS | T1 + T2 | S |
+| 6 | "אוספים מומלצים": 3 tabs (מובילים / חדש באתר / במבצע) + 4-product slider; card = badge, heart, image, title, vendor, price, pink CTA | 4 cols slider | 2 cols slider, round "+" add button | `featured-collection` with tabs; product card per Phase 1 | T1 + T2 | S |
+| 7 | "רכישה לפי גיל": image + 6 pills (icon circle + pink pill) in 2 columns, gray bg | image start, pills end | image, then 6 full-width pills | `image-with-text` + `icon_with_text` blocks is text-only; pills with icon+link = `buttons-with-icon` (`icon_img` + label) inside a 2-column layout → likely `mk-age-pills` section (image + 6 link blocks) | T3 (or T1 if `buttons-with-icon` is accepted without the image) | S–M |
+| 8 | "מותגי הבית": 8 logos (4 × 2) in bordered boxes + button "צפו בכל המותגים" | 4 cols | 2 cols | `brand-logos` (`grid_bordered`, link per logo) + button | T1 + T2 | S |
+| 9 | "המומלצים של אורלי": 4-product slider incl. gift card | 4 cols | slider | `featured-collection` | T1 | S |
+| 10 | Promo banner: full-width photo with overlay card (title, text, outlined button) | card at start | card at bottom | `image-with-text-overlay` | T1 + T2 | S |
+| 11 | 6 feature tiles: beige rounded square, outline icon, caption | 6 cols | 2 cols × 3 | `multicolumn-icon` (custom `image` icon per column) | T1 + T2 | S |
+| 12 | "mekupelet_toys" + Instagram icon: 5 video thumbnails slider | 5 cols | 3 cols | `shop-the-feed` (uploaded video/image blocks + links). Native, no app. Resolves Q4 unless a live feed is wanted | T1 + T2 | S |
+| 13 | "ביקורות": 3 testimonial cards (quote icon, product image, name, text, 5 stars, date) | 3 cols slider | 1 col slider | `testimonials` (icon = stars 1–5, image, heading = name, text). **No date field** natively → date in the text or `mk-` block setting | T1 + T2 (T3 for date) | S |
+| 14 | Newsletter "חדשים באתר?": text, email input + black button, consent checkbox text | gray band | same | `newsletter` (`newsletter_term`); checkbox UI vs text only to verify in exports | T1 + T2 | S |
+| 15 | Footer: contact column (address, phone, email, hours on one line, social icons) + 4 link columns, copyright | 5 columns | accordions + contact block | `footer` (`contact_information` + 4 `menu` blocks, `show_social`) | T1 + T2 | S–M |
+
+Design states not visible in the previews (to request with the exports): hover/focus on cards and
+pills, empty tabs, long Hebrew titles on cards, sold-out card, slider end states.
+
+#### Collection and Product
+
 | Page / section | Mapping | Tier | Effort |
 |---|---|---|---|
-| Home — hero | `slideshow` (already has merchant images) | T1 + T2 | S |
-| Home — USP bar | `mk-usp-bar` or `multicolumn-icon` (template-level) | T3/T1 | S |
-| Home — categories with PNG tiles | `collection-list` / `collection-cards` (image per collection, color scheme per block) | T1 + T2 | M |
-| Home — featured products (new/bestsellers) | `featured-collection` (tabs) | T1 | S |
-| Home — brands grid | `brand-logos` (logo + link per block) | T1 + T2 | S |
-| Home — boxes teaser / promo banners | `custom-content` / `image-with-text-overlay` / `grid-banner` | T1 + T2 | S–M |
-| Home — Instagram feed | Q4 (app vs `scrolling-gallery-image` with Files images) | T1 or app | S |
-| Home — remaining sections | **[needs exports]** per-section rows added after the diff | – | – |
 | Collection | `main-collection-banner` + `main-collection-product-grid` settings; filters via Search & Discovery (merchant checklist); CSS | T1 + T2 | M |
 | Collection mobile filter/sort states | native facets drawer + CSS | T2 | S–M |
 | Product | `templates/product.json` blocks + CSS; gallery layout per design | T1 + T2 | M–L |
