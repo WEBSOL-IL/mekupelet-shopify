@@ -70,6 +70,7 @@
         "type_AzgBQT",
         "variants_RYYmjz"
       ],
+      "disabled": true,
       "settings": {}
     },
     "quick-view": {
@@ -161,10 +162,12 @@
         "variant_picker",
         "buy_buttons"
       ],
+      "disabled": true,
       "settings": {
         "show_image_border": false,
         "enable_sticky_info": true,
-        "enable_video_looping": true
+        "enable_video_looping": true,
+        "hide_variant_media": false
       }
     },
     "popup": {
@@ -180,7 +183,8 @@
           "type": "heading",
           "settings": {
             "heading": "Sign up to get 10% OFF <br>your first order",
-            "text_size": "h2"
+            "text_size": "h2",
+            "heading_tag": "h3"
           }
         },
         "text": {
@@ -209,6 +213,7 @@
         "form",
         "socials"
       ],
+      "disabled": true,
       "settings": {
         "enable": true,
         "show_for_homepage_only": true,
@@ -309,6 +314,7 @@
         "item_dQn9tr",
         "item_xfLhK8"
       ],
+      "disabled": true,
       "custom_css": [
         ".spotlight__item-content {max-width: 22rem;}"
       ],
@@ -322,6 +328,7 @@
         "highlight_style_color": "",
         "highlight_text_color": "",
         "heading_size": "h4",
+        "heading_tag": "h2",
         "teaser_button_label": "Special Offers For You",
         "teaser_button_background": "#c4301c",
         "teaser_button_text_color": "#ffffff",
