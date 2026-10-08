@@ -17,3 +17,6 @@ docs/import/out/*
 
 # Python
 __pycache__/
+
+# Merchant data files (not for git)
+docs/import/in/
