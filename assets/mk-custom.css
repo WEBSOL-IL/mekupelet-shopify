@@ -176,6 +176,12 @@
 .product-card .f-price .f-price__sale {
   color: rgb(var(--mk-color-accent));
 }
+/* Add-to-cart always visible (Hyper fades it in on hover only) */
+.product-card:not(.product-card--simple) .product-card__actions .btn,
+.product-card:not(.product-card--simple) .product-card__main-actions .product-card__atc {
+  opacity: 1;
+  transform: none;
+}
 .product-card .product-card__main-actions {
   position: static;
   grid-column: 2;
