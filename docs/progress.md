@@ -257,6 +257,14 @@ Figma exports.
   FAQ template now uses it with the four old tabs and their icons from Files. Verified at 1440/390
   and tab switching on the live page; theme check unchanged (0 errors).
 
+- Verifone VR360 app (2026-10-08): read the merchant's WooCommerce plugin
+  (`verifone-vr360-woocommerce` 1.8.1: CreateInvoice with SKU lines, receipts, Multipass/BuyMe
+  vouchers, customer lookup, credits, PDF, GetStock sync) and wrote the design for the Shopify
+  equivalent in `docs/verifone-vr360-shopify-plan.md` (Remix app + worker on WEBSOL's server,
+  order-details admin block, webhooks, inventorySetQuantities sync, data model, field mapping,
+  security, ~19 working days). Planning only, nothing built; six open questions for the merchant
+  and Verifone are listed in the plan.
+
 ## Next session runbook — collections import (merchant approved 2026-10-08)
 Secrets `SHOPIFY_SHOP`, `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET` were added to the environment
 (Dev Dashboard app, scopes products/navigation/files) and load only in a NEW session. Decisions approved:
