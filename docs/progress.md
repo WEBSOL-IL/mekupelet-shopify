@@ -172,7 +172,16 @@ internal WooCommerce rules, run via the script. Steps:
   all 470 plan collections to the Online Store (0 errors), spot-checked: `/collections/4m`,
   `stephen-joseph`, `re-cycle-me`, `re-cycle-me-2`, `gifts-for-newborns` → 200.
 
+- Runbook step 6 done: merchant sent `products-190924-1122.xlsx` (1,763 rows). Mapping in
+  `docs/import/products-mapping.md`, approved, executed with `scripts/update-products.py` (pilot 5, then
+  full, 0 errors): 1,292 products matched by SKU (10 by handle) got category tags incl. ancestors and the
+  coupon-exclusion tags, 8 vendors normalized, 66 prices, 742 stock quantities; 531 store products absent
+  from the file set to stock 0. Smart collections now fill (e.g. `djeco` 482, `פאזלים` 113). App scopes now
+  also include read/write_inventory + read_locations. Store facts: 1,824 products (not 4,000+), one variant
+  each, handle = WooCommerce id, single location `ניר צבי`.
+
 ### Blocked
+- 471 file rows have no store product (132 newer ids, 339 older): need a product import (not in scope yet).
 - Runbook step 5 (menus): the `menuCreate` execution and a `shopify theme pull` of
   `sections/footer-group.json` were denied by the session's permission classifier. To finish:
   `python3 -I scripts/create-menus.py --execute`, then point the four footer menu blocks at
@@ -180,9 +189,9 @@ internal WooCommerce rules, run via the script. Steps:
   are in the script (pages and age collections that do not exist yet are path links).
   Main menu: merchant picks 11 of the 33 roots (list: `docs/import/shopify_collections.json`
   → `navigation.categories`).
-- Runbook step 6 (product tagging + vendor normalization): waits for the product migration file.
 
 ### Open questions (for the merchant)
+0. Product import for the 471 file-only products: same file, or a full product export (images, descriptions)?
 1. Footer item lists in `scripts/create-menus.py`: confirm or edit before `--execute`.
 2. Age collections: Home pills and footer-4 use `age-0-6 … age-3-plus` (not yet created, tag-based,
    see `docs/merchant-checklist.md`); the import also created the old site's `מתנות לפי גיל` tree

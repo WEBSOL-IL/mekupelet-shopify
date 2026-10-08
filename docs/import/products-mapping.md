@@ -2,7 +2,8 @@
 
 Source: `products-190924-1122.xlsx` (merchant upload, 2026-10-08; 1 sheet, 1,763 rows, 10 columns).
 Kept out of git (`docs/import/in/` is ignored); copy it there before running the script.
-Status: **mapping proposed, waiting for merchant approval. Nothing executed.**
+Status: **approved and executed 2026-10-08** (decisions: store-only products → stock 0; prices and stock from the
+file, which is the most current snapshot; first-brand rule; coupon-exclusion rules kept as tags). See "Result".
 
 ## Store state (read 2026-10-08)
 - 1,824 products, all ACTIVE, exactly one variant each, 0 tags, 100 distinct vendors.
@@ -43,8 +44,8 @@ No SKU/handle conflicts, no duplicate SKUs on either side.
 | | `MAGPAD|סופר קידס` | MAGPAD |
 | | `Smart Snow|סופר קידס` | Smart Snow |
 
-## Execution (after approval)
-`scripts/update-products.py` (to be written): dry run by default, reads the xlsx from `docs/import/in/`,
+## Execution
+`scripts/update-products.py`: dry run by default, reads the xlsx from `docs/import/in/`,
 matches as above, prints the diff counts, writes the planned mutations to `docs/import/out/`, and with
 `--execute` runs them in batches: `tagsAdd` + `productUpdate(vendor)` per product, `productVariantsBulkUpdate`
 for price/compareAtPrice, `inventorySetQuantities` for stock (only when the scopes exist). Every change is
@@ -58,3 +59,17 @@ logged to `docs/import/out/products-log.json` with the previous value for rollba
    `read_locations` to the app. Which snapshot is current, the file or the store?
 4. Multi-brand rule "first brand" OK?
 5. Internal rules skipped. Keep a tag for `לא לכלול בקופונים` (460 products) for future discount exclusions?
+
+## Result (2026-10-08)
+Pilot `--limit 5` verified, then the full run; 0 errors. Second dry run plans 0 changes.
+| Step | Products |
+|---|---|
+| tags added (`legacy-category-<id>`, incl. ancestors and the two coupon-exclusion rules 53 / 627) | 1,292 |
+| vendor changed | 8 |
+| price / compare-at set | 66 (29 on sale with compare-at) |
+| stock set from the file | 742 |
+| store-only products set to stock 0 (531 products, 529 had stock) | 531 |
+| inventory tracking enabled | 2 |
+Spot checks: `tag:legacy-category-31` → 1,196 products, coupon rule 53 → 341, collection `djeco` → 482
+products, `פאזלים` → 113. Rollback record with previous values: `docs/import/out/products-log.json`.
+Still open: the 471 file rows without a store product (new products) need a product import.

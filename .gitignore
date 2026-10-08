@@ -14,6 +14,7 @@ docs/lighthouse/raw/
 docs/import/out/*
 !docs/import/out/result-log.json
 !docs/import/out/menus-log.json
+!docs/import/out/products-log.json
 
 # Python
 __pycache__/
