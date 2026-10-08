@@ -16,7 +16,7 @@ function fetchViaCurl(target) {
   if (cache.has(target)) return cache.get(target);
   let result = null;
   try {
-    const out = execFileSync('curl', ['-sS', '-L', '--max-time', '30', '-w', '\n%{content_type}', target], { maxBuffer: 64 * 1024 * 1024 });
+    const out = execFileSync('curl', ['-sS', '-L', '--max-time', '30', '-A', 'Mozilla/5.0 (X11; Linux x86_64) Chrome/141 Safari/537.36', '-w', '\n%{content_type}', target], { maxBuffer: 64 * 1024 * 1024 });
     const nl = out.lastIndexOf(0x0a);
     result = { body: out.subarray(0, nl), contentType: out.subarray(nl + 1).toString().trim() || 'application/octet-stream' };
   } catch (e) { console.error('curl failed:', target.slice(0, 120)); result = null; }
@@ -32,7 +32,8 @@ for (const w of widths) {
   const reroute = (u) => u.includes(BLOCKED_HOST)
     ? u.replace(BLOCKED_HOST, ALLOWED_HOST)
     : u.replace(/^https?:\/\/127\.0\.0\.1:\d+\/cdn\//, `https://${ALLOWED_HOST}/cdn/`);
-  await page.route((u) => u.hostname === BLOCKED_HOST || (u.hostname === '127.0.0.1' && u.pathname.startsWith('/cdn/')), async (route) => {
+  // Live-site URLs on the allowed host are fetched through curl as well (the browser has no proxy).
+  await page.route((u) => u.hostname === BLOCKED_HOST || u.hostname === ALLOWED_HOST || (u.hostname === '127.0.0.1' && u.pathname.startsWith('/cdn/')), async (route) => {
     const target = reroute(route.request().url());
     const res = fetchViaCurl(target);
     if (!res) return route.abort();

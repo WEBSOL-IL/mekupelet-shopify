@@ -92,8 +92,12 @@ Figma exports.
 - `docs/merchant-checklist.md`: Files upload, collections + handles, tags, filters, menus.
 - `scripts/screenshot.mjs`: Playwright helper that works around the sandbox network policy.
 
+- `locales/he.json` created (423 keys, mirrors `en.default.json`), live on the storefront (Hebrew is the
+  published primary language). Note: the local `theme dev` proxy renders in English, so locale checks
+  use the live URL; `scripts/screenshot.mjs` can capture both.
+
 ### In progress
-- `locales/he.json` (agent translating en.default.json; storefront strings are still English).
+- Nothing running. Next: refine from Figma 2x exports; merchant admin checklist.
 
 ### Blocked / waiting
 - Figma 2x frame exports + Dev-Mode values → `docs/figma/EXPORT-CHECKLIST.md`. Until then all
