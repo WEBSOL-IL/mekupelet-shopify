@@ -5,8 +5,13 @@ docs/import/shopify_collections.json.
 
 Default is a DRY RUN: it prints a summary and writes batched mutation payloads to
 docs/import/out/*.graphql.json without touching the store. Running against the store requires an
-explicit --execute plus an Admin API token in SHOPIFY_ADMIN_TOKEN (custom app with write_products,
-write_metafields / read_metafields, write_online_store_navigation) and the shop host in SHOPIFY_SHOP.
+explicit --execute plus credentials in the environment:
+  SHOPIFY_SHOP            e.g. mekupelet-store.myshopify.com
+  SHOPIFY_CLIENT_ID + SHOPIFY_CLIENT_SECRET   Dev Dashboard app installed on the store (client
+                          credentials grant: the script exchanges them for a 24h Admin API token), or
+  SHOPIFY_ADMIN_TOKEN     a ready Admin API access token (legacy admin-created custom app).
+Scopes the app version needs: read_products, write_products, read_online_store_navigation,
+write_online_store_navigation, read_files, write_files.
 
 Decisions encoded as flags (see docs/import/import-plan.md):
   --handles ids|slug      collection handles: "category-24" (plan default) or the source slug
@@ -99,9 +104,35 @@ def build(args):
     return definitions, inputs, batches
 
 
+_TOKEN = None
+
+
+def access_token():
+    """Return an Admin API token: SHOPIFY_ADMIN_TOKEN as is, or one obtained with the client
+    credentials grant from SHOPIFY_CLIENT_ID / SHOPIFY_CLIENT_SECRET (valid for 24 hours)."""
+    global _TOKEN
+    if _TOKEN:
+        return _TOKEN
+    if os.environ.get("SHOPIFY_ADMIN_TOKEN"):
+        _TOKEN = os.environ["SHOPIFY_ADMIN_TOKEN"]
+        return _TOKEN
+    shop = os.environ["SHOPIFY_SHOP"]
+    body = json.dumps({
+        "client_id": os.environ["SHOPIFY_CLIENT_ID"],
+        "client_secret": os.environ["SHOPIFY_CLIENT_SECRET"],
+        "grant_type": "client_credentials",
+    }).encode()
+    req = urllib.request.Request(f"https://{shop}/admin/oauth/access_token", data=body, headers={"Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        data = json.load(r)
+    _TOKEN = data["access_token"]
+    print("access token obtained; scopes:", data.get("scope"), "| expires_in:", data.get("expires_in"))
+    return _TOKEN
+
+
 def gql(query, variables):
     shop = os.environ["SHOPIFY_SHOP"]
-    token = os.environ["SHOPIFY_ADMIN_TOKEN"]
+    token = access_token()
     req = urllib.request.Request(
         f"https://{shop}/admin/api/{API_VERSION}/graphql.json",
         data=json.dumps({"query": query, "variables": variables}).encode(),
@@ -117,7 +148,9 @@ def main():
     ap.add_argument("--skip-internal", action="store_true")
     ap.add_argument("--kinds", default="category,brand")
     ap.add_argument("--batch", type=int, default=20)
-    ap.add_argument("--execute", action="store_true", help="run against the store (needs SHOPIFY_SHOP + SHOPIFY_ADMIN_TOKEN)")
+    ap.add_argument("--execute", action="store_true", help="run against the store (needs SHOPIFY_SHOP + credentials, see module docstring)")
+    ap.add_argument("--check-access", action="store_true", help="only obtain a token and read the shop name + collection count")
+    ap.add_argument("--limit", type=int, default=0, help="create only the first N collections (pilot run)")
     args = ap.parse_args()
     args.kinds = args.kinds.split(",")
     definitions, inputs, batches = build(args)
@@ -135,9 +168,20 @@ def main():
     dups = {h: n for h, n in dup.items() if n > 1}
     if dups:
         print("DUPLICATE HANDLES:", dups)
+    if args.check_access:
+        res = gql("{ shop { name myshopifyDomain } collectionsCount { count } }", {})
+        print(json.dumps(res, ensure_ascii=False))
+        return
     if not args.execute:
         print("dry run only; payloads in", OUT)
         return
+    if args.limit:
+        batches = batches[:1]
+        keep = {f"in{j}" for j in range(args.limit)}
+        batches[0]["variables"] = {k: v for k, v in batches[0]["variables"].items() if k in keep}
+        batches[0]["query"] = re.sub(r"\n  c(\d+): collectionCreate\(input: \$in(\d+)\)[^\n]*", lambda m: m.group(0) if int(m.group(2)) < args.limit else "", batches[0]["query"])
+        batches[0]["query"] = re.sub(r", \$in(\d+): CollectionInput!", lambda m: m.group(0) if int(m.group(1)) < args.limit else "", batches[0]["query"])
+        print(f"PILOT: creating only {args.limit} collections")
     log = []
     for d in definitions:
         res = gql("mutation($def: MetafieldDefinitionInput!) { metafieldDefinitionCreate(definition: $def) { createdDefinition { id } userErrors { field message code } } }", {"def": d})
