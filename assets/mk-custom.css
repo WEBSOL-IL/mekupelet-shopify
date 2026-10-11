@@ -173,7 +173,12 @@
   text-transform: none;
   color: rgb(var(--mk-color-caption));
 }
-.product-card .f-price { font-size: 1.6rem; font-weight: 600; }
+.product-card .f-price { font-size: 1.6rem; font-weight: 600; line-height: 1.2; }
+/* Tight stack: no row gap, compact line heights (Simpler Pro carries extra leading) */
+.product-card .product-card__wrapper .product-card__info { gap: 0; }
+.product-card .product-card__vendor,
+.product-card .product-card__type { line-height: 1.3; }
+.product-card .product-card__title { line-height: 1.3; margin-block: 0.1rem; }
 .product-card .f-price .f-price__sale { color: rgb(var(--mk-color-accent)); }
 /* Round icon add-to-cart over the image, bottom-start, visible without hover (Hyper fades it in) */
 .product-card .product-card__main-actions {
