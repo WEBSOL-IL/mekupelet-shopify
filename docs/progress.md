@@ -364,3 +364,15 @@ continues in a NEW session. Starting point for that session:
   the merchant's editor changes first (custom-liquid section removed, logo widths). Screenshots in
   `docs/screenshots/feedback-pkg1/`. Theme check unchanged (13 Hyper warnings, 0 errors).
   Open: social links (merchant), OUTLET colour confirmation, the rest of the plan (packages 2–6).
+
+- Feedback package 2 (2026-10-11): product card restyled in `mk-custom.css` block 4 (rewritten on
+  Hyper's own card structure instead of our grid): no border, image edge to edge in a fixed 1:1 box,
+  title clamped to 2 lines with an ellipsis and full width, brand regular weight, 0.2rem gaps,
+  text start-aligned (`!important` needed against Hyper's alignment utilities), round 3.6rem teal
+  icon add-to-cart at the image's bottom-left (inline end), always visible, label kept for screen
+  readers. Verified on Home (1440/390) and the collection grid. Also: social links set in theme
+  settings (Facebook, Instagram, TikTok, YouTube) → footer and mobile-drawer icons now render;
+  WhatsApp (054-664-7175, wa.me link) placed in the footer contact row "כתבו לנו".
+  Merchant answers logged: sections = latest products / best sellers / on sale with a sane limit;
+  mega menu = first 3 products of the collection for now; missing collections = my call for now;
+  reviews = pull from the Google Business profile until a review system exists.

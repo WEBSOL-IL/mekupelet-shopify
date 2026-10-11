@@ -97,40 +97,29 @@
   color: rgb(var(--mk-color-text));
 }
 
-/* 4. Product card (290×400, r10, 1px #DDDDDD): image, badge, title, vendor, price + ATC --------- */
+/* 4. Product card (feedback 2026-10-11, kipod / baby-star reference): no border, image edge to
+   edge in a fixed 1:1 box, title up to 2 lines with an ellipsis, brand in regular weight, tight
+   gaps, round icon add-to-cart at the image's bottom-start corner, always visible ---------------- */
+.product-card { height: 100%; }
 .product-card .product-card__wrapper {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  column-gap: 0.8rem;
-  border: 1px solid rgb(var(--mk-color-border));
-  border-radius: var(--mk-radius-card);
-  background: rgb(var(--color-background));
-  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
 }
 .product-card .product-card__image-wrapper {
-  display: contents;
-}
-.product-card .product-card__image-wrapper > a,
-.product-card .product-card__image-wrapper > .product-card__image-link {
-  grid-column: 1 / -1;
-  grid-row: 1;
-  display: block;
-  overflow: hidden;
-  margin: 1.4rem 1.4rem 0;
+  position: relative;
   border-radius: 1rem;
-}
-.product-card .product-card__image-wrapper img {
-  object-fit: contain;
+  overflow: hidden;
   background: #fff;
 }
-/* Uniform image box (Figma 305×210) whatever the photo's own ratio, so every card is the same height */
-.product-card .product-card__image-wrapper .media-wrapper::before { padding-top: 69%; }
-.product-card .product-card__badge {
-  grid-row: 1;
-  inset-block-start: 1.4rem;
-  inset-inline-start: 1.4rem;
-}
+.product-card .product-card__image-wrapper img { object-fit: contain; background: #fff; }
+/* Same box for every photo (1:1), so all cards in a row share one height */
+.product-card .product-card__image-wrapper .media-wrapper::before { padding-top: 100%; }
+.product-card .product-card__badge { inset-block-start: 0.8rem; inset-inline-start: 0.8rem; }
 .f-badge {
   height: 2.5rem;
   padding: 0.4rem 1rem;
@@ -140,21 +129,23 @@
   font-weight: 600;
   line-height: 1.7rem;
 }
-.product-card { height: 100%; }
-.product-card .product-card__wrapper { height: 100%; grid-template-rows: auto 1fr; align-content: start; }
-.product-card .product-card__title { min-height: calc(2 * 1.4rem * 1.5); }
 .product-card .product-card__info {
-  grid-column: 1;
-  grid-row: 2;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  padding: 1.2rem 1.6rem 1.6rem;
+  padding: 1rem 0 0;
 }
-/* Figma card order: title, vendor, price */
-.product-card .product-card__info > .product-card__title { order: 1; }
-.product-card .product-card__info > .product-card__vendor,
-.product-card .product-card__info > .product-card__type { order: 2; }
+/* Text starts at the inline start and spans the card (Hyper centres it) */
+.product-card .product-card__wrapper .product-card__info,
+.product-card .product-card__wrapper .product-card__info > *,
+.product-card .product-card__wrapper .product-card__info .f-price,
+.product-card .product-card__wrapper .product-card__info .price { text-align: start; justify-content: flex-start; }
+/* Hyper centres the info column via alignment utilities with the same specificity, hence !important */
+.product-card .product-card__wrapper .product-card__info { align-items: stretch !important; text-align: start !important; }
+.product-card .product-card__wrapper .product-card__info .f-price { justify-content: flex-start !important; width: 100%; }
+.product-card .product-card__wrapper .product-card__title,
+.product-card .product-card__wrapper .product-card__title a { width: 100%; }
+/* Order: title, brand, price */
 .product-card .product-card__info > * { order: 3; }
 .product-card .product-card__info > .product-card__title { order: 1; }
 .product-card .product-card__info > .product-card__vendor,
@@ -162,53 +153,68 @@
 .product-card .product-card__title {
   font-size: 1.4rem;
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.4;
   color: rgb(var(--mk-color-text));
+  min-height: calc(2 * 1.4rem * 1.4);
+}
+.product-card .product-card__title a,
+.product-card .product-card__title .reversed-link {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .product-card .product-card__vendor,
+.product-card .product-card__type,
 .product-card .product-card__info .text-subtext {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+  text-transform: none;
   color: rgb(var(--mk-color-caption));
 }
-.product-card .f-price {
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-.product-card .f-price .f-price__sale {
-  color: rgb(var(--mk-color-accent));
-}
-/* Add-to-cart always visible (Hyper fades it in on hover only) */
-.product-card:not(.product-card--simple) .product-card__actions .btn,
-.product-card:not(.product-card--simple) .product-card__main-actions .product-card__atc {
-  opacity: 1;
-  transform: none;
-}
+.product-card .f-price { font-size: 1.6rem; font-weight: 600; }
+.product-card .f-price .f-price__sale { color: rgb(var(--mk-color-accent)); }
+/* Round icon add-to-cart over the image, bottom-start, visible without hover (Hyper fades it in) */
 .product-card .product-card__main-actions {
-  position: static;
-  grid-column: 2;
-  grid-row: 2;
-  inset: auto;
+  inset-inline: auto;
+  inset-inline-end: 0.8rem;
+  bottom: 0.8rem;
+  justify-content: flex-end;
   opacity: 1;
   visibility: visible;
   transform: none;
-  padding-inline-end: 1.6rem;
-  padding-block-end: 1.6rem;
-  justify-content: flex-end;
 }
+.product-card:not(.product-card--simple) .product-card__actions .btn,
 .product-card .product-card__atc {
-  --buttons-height: 2.8rem;
-  --buttons-padding: 1.2rem;
-  --buttons-radius: 0.4rem;
-  width: auto;
-  min-width: 8.4rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  white-space: nowrap;
-  background: rgb(var(--mk-color-action-alt));
-  color: #fff;
-  border-color: rgb(var(--mk-color-action-alt));
+  opacity: 1;
+  transform: none;
 }
-/* Hover: darker teal with white text (Hyper inverts primary buttons to white, which hid the label) */
+.product-card .product-card__atc,
+.product-card .product-card__action-button {
+  width: 3.6rem !important;
+  height: 3.6rem !important;
+  min-width: 0;
+  padding: 0;
+  border-radius: 50%;
+  background: rgb(var(--mk-color-action-alt));
+  border-color: rgb(var(--mk-color-action-alt));
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+.product-card .product-card__atc .btn__text { gap: 0; justify-content: center; }
+.product-card .product-card__atc .product-card__atc-icon { display: inline-flex; }
+.product-card .product-card__atc .icon { width: 1.8rem; height: 1.8rem; }
+/* Keep the label for screen readers only */
+.product-card .product-card__atc .product-card__atc-text,
+.product-card .product-card__atc .product-card__action-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
 .product-card .product-card__atc:hover,
 .product-card .product-card__atc:focus-visible {
   background: rgb(var(--mk-color-action-dark));
@@ -217,41 +223,12 @@
 }
 .product-card .product-card__atc::before,
 .product-card .product-card__atc::after { display: none; }
-.product-card .product-card__atc .product-card__atc-icon { display: none; }
-.product-card .product-card__atc .product-card__atc-text { display: inline; }
 .product-card .product-card__quickview,
 .product-card .product-card__list-actions { display: none; }
-.tabs__btn.btn--underline {
-  font-size: 1.6rem;
-}
-.tabs__btn.btn--underline.active {
-  color: rgb(var(--mk-color-text));
-}
+.tabs__btn.btn--underline { font-size: 1.6rem; }
+.tabs__btn.btn--underline.active { color: rgb(var(--mk-color-text)); }
 .tabs__btn.btn--underline.active::after,
-.tabs__btn.btn--underline.active .btn__text::after {
-  background-color: rgb(var(--mk-color-accent));
-}
-@media (max-width: 767.98px) {
-  .product-card .product-card__wrapper { grid-template-columns: 1fr; }
-  .product-card .product-card__main-actions {
-    grid-column: 1; grid-row: 3; justify-content: flex-start;
-    padding-inline: 1.6rem 0; padding-block: 0 1.6rem;
-  }
-  .product-card .product-card__info { padding-block-end: 0.8rem; }
-  .product-card .product-card__action-button,
-  .product-card .product-card__atc {
-    width: auto !important;
-    height: 2.8rem !important;
-    min-width: 0;
-    border-radius: 0.4rem;
-    padding: 0 1.2rem;
-    font-size: 1.2rem;
-  }
-  .product-card .product-card__atc .product-card__action-text,
-  .product-card .product-card__atc .product-card__atc-text {
-    position: static; max-width: none; display: inline; font-size: inherit;
-  }
-}
+.tabs__btn.btn--underline.active .btn__text::after { background-color: rgb(var(--mk-color-accent)); }
 
 /* 5. Home sections ----------------------------------------------------------------------------- */
 /* 5a. Gift finder: 85px pill bar, white pill selects with 1px #DDDDDD, 600/14 #353535 labels */

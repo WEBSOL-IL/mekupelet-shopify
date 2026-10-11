@@ -184,10 +184,10 @@
             "icon": "paperplane",
             "title": "כתבו לנו",
             "heading_size": "h6",
-            "text": "<p></p>",
+            "text": "<p>וואטסאפ: 054-664-7175</p>",
             "text_size": "text-base",
-            "button_label": "",
-            "button_link": "",
+            "button_label": "שלחו הודעה",
+            "button_link": "https://wa.me/972546647175",
             "button_style": "btn--plain",
             "button_icon": "none"
           }
