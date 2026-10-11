@@ -328,3 +328,14 @@ continues in a NEW session. Starting point for that session:
   synced) and 1440 (unchanged); screenshots in `docs/screenshots/header-search/`. Pulled the
   merchant's editor version of `sections/header-group.json` (adds a disabled custom-liquid section)
   before touching the header. Theme check: 13 pre-existing Hyper warnings, 0 errors.
+
+- Instagram heading (2026-10-11): the merchant added Instafeed to Home (Hyper "Apps" section, app
+  block title "mekupelet_toys") and wants an Instagram icon before the heading with the whole
+  heading linking to the profile. Hyper's Apps section has no heading and Instafeed renders its
+  title client-side, so a tier-3 section `sections/mk-instagram.liquid` (heading + link + icon,
+  size/tag/alignment, `@app` blocks) now wraps the same Instafeed block; the block's own title is
+  emptied. `templates/index.json` rebased on the merchant's editor version (age-pill labels, gift
+  finder order) with the Apps section swapped for `mk_instagram` at the same position. CSS block 11.
+  Verified live at 390/1440: link, target=_blank, icon at the start (RTL right). The feed script
+  host (cdn.nfcube.com) is unreachable from the sandbox, so the feed itself was only checked by
+  leaving the app block untouched; merchant to confirm on a phone.

@@ -1,0 +1,116 @@
+{%- comment -%}
+  MK Instagram: a section heading (optional Instagram icon, the whole heading is a link to the
+  profile) above app blocks such as the Instafeed feed. Hyper's own "Apps" section has no heading,
+  and the Instafeed title is rendered by the app's script with no link or icon.
+{%- endcomment -%}
+{%- liquid
+  assign container = section.settings.container
+  assign heading = section.settings.heading
+  assign link = section.settings.link
+-%}
+{% style %}
+  #section-{{ section.id }} {
+    --section-padding-top: {{ section.settings.padding_top }}px;
+    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{% endstyle %}
+<div id="section-{{ section.id }}" class="mk-instagram section section--padding color-{{ section.settings.color_scheme }}">
+  <div class="section__container{% if container == 'fixed' %} page-width{% endif %}">
+    {%- if heading != blank -%}
+      <div class="section__header s__header rich-text rich-text--tight text-{{ section.settings.alignment }} flex flex-col items-{{ section.settings.alignment | replace: 'left', 'start' | replace: 'right', 'end' }}">
+        <{{ section.settings.heading_tag }} class="rich-text__heading inline-richtext {{ section.settings.heading_size }}">
+          {%- if link != blank -%}
+            <a
+              href="{{ link }}"
+              class="mk-instagram__link"
+              {% if section.settings.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}
+            >
+          {%- else -%}
+            <span class="mk-instagram__link">
+          {%- endif -%}
+          {%- if section.settings.show_icon -%}
+            {%- render 'icon-instagram', size: 'large' -%}
+          {%- endif -%}
+          <span class="mk-instagram__title">{{ heading | escape }}</span>
+          {%- if link != blank -%}
+            </a>
+          {%- else -%}
+            </span>
+          {%- endif -%}
+        </{{ section.settings.heading_tag }}>
+      </div>
+    {%- endif -%}
+    <div class="section__content">
+      {%- for block in section.blocks -%}
+        {% render block %}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MK Instagram",
+  "tag": "section",
+  "class": "section-mk-instagram",
+  "settings": [
+    {
+      "type": "select",
+      "id": "container",
+      "label": "t:general.container.label",
+      "options": [
+        { "value": "fixed", "label": "t:general.container.options__fixed" },
+        { "value": "full", "label": "t:general.container.options__full" }
+      ],
+      "default": "fixed"
+    },
+    { "type": "color_scheme", "id": "color_scheme", "label": "t:general.colors.label", "default": "scheme-1" },
+    { "type": "header", "content": "Heading" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "mekupelet_toys" },
+    { "type": "url", "id": "link", "label": "Heading link (Instagram profile)", "info": "The icon and the text become one link." },
+    { "type": "checkbox", "id": "open_in_new_tab", "label": "Open the link in a new tab", "default": true },
+    { "type": "checkbox", "id": "show_icon", "label": "Show the Instagram icon before the heading", "default": true },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h1", "label": "Large" },
+        { "value": "h2", "label": "Medium" },
+        { "value": "h3", "label": "Small" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading tag (SEO)",
+      "options": [
+        { "value": "h2", "label": "h2" },
+        { "value": "h3", "label": "h3" },
+        { "value": "div", "label": "div" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Heading alignment",
+      "options": [
+        { "value": "left", "label": "Start" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "center"
+    },
+    { "type": "header", "content": "t:general.padding.section_heading.content" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "t:general.padding.top.label", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "t:general.padding.bottom.label", "default": 0 }
+  ],
+  "blocks": [
+    { "type": "@app" }
+  ],
+  "presets": [
+    { "name": "MK Instagram" }
+  ]
+}
+{% endschema %}

@@ -620,3 +620,15 @@
   .search-open .header__search .search__form { max-width: none; }
   .mk-search-toggle { width: 2.4rem; height: 2.4rem; }
 }
+
+/* 11. MK Instagram section: icon + heading as one link ------------------------------------------- */
+.mk-instagram__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: inherit;
+  text-decoration: none;
+}
+.mk-instagram__link .icon-instagram { width: 0.9em; height: 0.9em; flex-shrink: 0; }
+a.mk-instagram__link:hover .mk-instagram__title { text-decoration: underline; text-underline-offset: 0.2em; }
+.mk-instagram #insta-feed h2:empty { display: none; }

@@ -16,8 +16,8 @@
           "type": "slide",
           "settings": {
             "color_scheme": "scheme-inverse",
-            "background": "shopify://shop_images/HEADER_VALUE-DESKTOP.webp",
-            "background_mobile": "shopify://shop_images/HEADER_VALUE-MOBILE.webp",
+            "background": "shopify://shop_images/SITE_DESKTOP_IL26_BLUE.webp",
+            "background_mobile": "shopify://shop_images/SITE_MOBILE_IL26_NEW.webp",
             "image_overlay_opacity": 0,
             "content_position": "middle-center",
             "text_alignment": "center",
@@ -53,59 +53,6 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
-    "mk_gift_finder": {
-      "type": "mk-gift-finder",
-      "blocks": {
-        "filter_1": {
-          "type": "filter",
-          "settings": {
-            "label": "גיל",
-            "param": "filter.p.tag",
-            "options": "0-6 חודשים|גיל-0-6\n6-12 חודשים|גיל-6-12\nשנה-שנה וחצי|גיל-12-18\nשנה וחצי-שנתיים|גיל-18-24\nשנתיים-שלוש|גיל-24-36\n3+|גיל-3-plus"
-          }
-        },
-        "filter_2": {
-          "type": "filter",
-          "settings": {
-            "label": "סוג מתנה",
-            "param": "filter.p.product_type",
-            "options": "משחקי קופסה|משחקי קופסה\nספרים|ספרים\nצעצועי עץ|צעצועי עץ\nיצירה|יצירה"
-          }
-        },
-        "filter_3": {
-          "type": "filter",
-          "settings": {
-            "label": "מותג",
-            "param": "filter.p.vendor",
-            "options": "Ulanik|Ulanik\nKooglo|Kooglo\nJaba Daba Do|Jaba Daba Do\nBanana Panda|Banana Panda"
-          }
-        },
-        "filter_4": {
-          "type": "filter",
-          "settings": {
-            "label": "טווח מחירים",
-            "param": "filter.v.price",
-            "options": "עד 50 ₪|0-50\n50–100 ₪|50-100\n100–200 ₪|100-200\n200 ₪ ומעלה|200-100000"
-          }
-        }
-      },
-      "block_order": [
-        "filter_1",
-        "filter_2",
-        "filter_3",
-        "filter_4"
-      ],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "scheme-1",
-        "heading": "",
-        "target_url": "",
-        "button_label": "מצאו לי מתנה",
-        "button_style": "btn--primary",
-        "padding_top": 24,
-        "padding_bottom": 24
-      }
-    },
     "categories": {
       "type": "collection-list-slider",
       "blocks": {
@@ -113,7 +60,7 @@
           "type": "featured_collection",
           "settings": {
             "collection": "בגדי-ילדים",
-            "image": "shopify://shop_images/12b0e14688a67cb8fd5e256dfe861499.png",
+            "image": "shopify://shop_images/Group_172.png",
             "title": "תחפושות"
           }
         },
@@ -121,6 +68,7 @@
           "type": "featured_collection",
           "settings": {
             "collection": "כלי-אוכל",
+            "image": "shopify://shop_images/Group_381.png",
             "title": "כלי אוכל"
           }
         },
@@ -128,6 +76,7 @@
           "type": "featured_collection",
           "settings": {
             "collection": "ספרים",
+            "image": "shopify://shop_images/cce98c69b1065abc0cf00a8ab5d989ff_ee2158d8-576b-4642-8b7d-86fe1db50514.png",
             "title": "ספרים"
           }
         },
@@ -135,13 +84,15 @@
           "type": "featured_collection",
           "settings": {
             "collection": "צעצועים-ובובות",
-            "title": "צעצועים ובובות"
+            "image": "shopify://shop_images/Group_381.png",
+            "title": "בובות"
           }
         },
         "featured_collection_5": {
           "type": "featured_collection",
           "settings": {
             "collection": "",
+            "image": "shopify://shop_images/Group_381.png",
             "title": "תחפושות"
           }
         },
@@ -149,6 +100,7 @@
           "type": "featured_collection",
           "settings": {
             "collection": "אביזרים",
+            "image": "shopify://shop_images/Group_381.png",
             "title": "אביזרים"
           }
         },
@@ -156,6 +108,7 @@
           "type": "featured_collection",
           "settings": {
             "collection": "כלי-בית",
+            "image": "shopify://shop_images/Group_381.png",
             "title": "כלי בית"
           }
         },
@@ -163,6 +116,7 @@
           "type": "featured_collection",
           "settings": {
             "collection": "בגדי-ילדים",
+            "image": "shopify://shop_images/Group_381.png",
             "title": "בגדי ילדים"
           }
         },
@@ -257,13 +211,14 @@
         "featured_collection_17",
         "featured_collection_18"
       ],
+      "custom_css": [],
       "settings": {
         "container": "fixed",
         "color_scheme": "",
         "section_header_alignment": "center",
         "section_header_alignment_mobile": "inherit",
         "subheading": "",
-        "heading": "קטגוריות נבחרות",
+        "heading": "",
         "highlight_style": "none",
         "highlight_font_style": "italic",
         "highlight_style_color": "",
@@ -278,19 +233,75 @@
         "button_icon": "none",
         "card_color_scheme": "",
         "card_style": "standard",
-        "card_heading_size": "text-base",
+        "card_heading_size": "h6",
         "card_image_ratio": "1/1",
         "card_image_width": "full",
         "card_image_padding": "none",
-        "rounded_card_image": true,
+        "rounded_card_image": false,
         "mobile_layout": "vertical",
         "carousel_item_size": "fixed",
-        "columns_desktop": 5,
+        "columns_desktop": 8,
         "carousel_control_color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 40,
+        "padding_top": 60,
+        "padding_bottom": 0,
         "show_section_divider": false,
         "divider_width": "fixed"
+      }
+    },
+    "mk_gift_finder": {
+      "type": "mk-gift-finder",
+      "blocks": {
+        "filter_1": {
+          "type": "filter",
+          "settings": {
+            "label": "גיל",
+            "param": "filter.p.tag",
+            "options": "0-6 חודשים|גיל-0-6\n6-12 חודשים|גיל-6-12\nשנה-שנה וחצי|גיל-12-18\nשנה וחצי-שנתיים|גיל-18-24\nשנתיים-שלוש|גיל-24-36\n3+|גיל-3-plus"
+          }
+        },
+        "filter_2": {
+          "type": "filter",
+          "settings": {
+            "label": "סוג מתנה",
+            "param": "filter.p.product_type",
+            "options": "משחקי קופסה|משחקי קופסה\nספרים|ספרים\nצעצועי עץ|צעצועי עץ\nיצירה|יצירה"
+          }
+        },
+        "filter_3": {
+          "type": "filter",
+          "settings": {
+            "label": "מותג",
+            "param": "filter.p.vendor",
+            "options": "Ulanik|Ulanik\nKooglo|Kooglo\nJaba Daba Do|Jaba Daba Do\nBanana Panda|Banana Panda"
+          }
+        },
+        "filter_4": {
+          "type": "filter",
+          "settings": {
+            "label": "טווח מחירים",
+            "param": "filter.v.price",
+            "options": "עד 50 ₪|0-50\n50–100 ₪|50-100\n100–200 ₪|100-200\n200 ₪ ומעלה|200-100000"
+          }
+        }
+      },
+      "block_order": [
+        "filter_1",
+        "filter_2",
+        "filter_3",
+        "filter_4"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.mk-gift-finder {padding-top: 12px !important; }}"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "heading": "",
+        "target_url": "",
+        "button_label": "מצאו לי מתנה",
+        "button_style": "btn--primary",
+        "padding_top": 40,
+        "padding_bottom": 24
       }
     },
     "featured_tabs": {
@@ -300,10 +311,10 @@
           "type": "collection",
           "settings": {
             "collection": "all",
-            "title": "מובילים",
+            "title": "בסט סלרס",
             "show_banner": false,
             "color_scheme": "",
-            "card_link": "",
+            "card_link": "shopify://collections",
             "image_overlay_opacity": 0,
             "content_position": "top-left",
             "content_alignment": "left",
@@ -389,6 +400,18 @@
         "collection_2",
         "collection_3"
       ],
+      "custom_css": [
+        ".tabs-nav__inner {justify-content: safe center;}",
+        "div {--f-column-gap: 1.2rem;}",
+        ".product-card__wrapper {border: 0; grid-template-columns: minmax(0, 1fr);}",
+        ".product-card__image-wrapper > a {margin: 0;}",
+        ".media-wrapper:before {padding-top: 100%;}",
+        ".product-card__info {padding: 1rem 4px 8px; text-align: center; align-items: center;}",
+        ".product-card__vendor * {font-weight: 400;}",
+        ".f-price {justify-content: center;}",
+        ".product-card__actions {grid-area: 3/1; justify-content: center; padding: 0 0 12px;}",
+        ".text-limit-2-lines {-webkit-line-clamp: 3;}"
+      ],
       "settings": {
         "container": "fixed",
         "color_scheme": "",
@@ -408,14 +431,14 @@
         "button_link": "",
         "button_style": "btn--underline",
         "button_icon": "none",
-        "limit": 8,
-        "columns": 4,
+        "limit": 12,
+        "columns": 5,
         "column_gap": "medium",
         "row_gap": "inherit",
         "enable_slider": true,
         "content_overflow": false,
-        "navigation_position": "middle",
-        "pcard_image_ratio": "4/3",
+        "navigation_position": "bottom",
+        "pcard_image_ratio": "3/4",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "show_progress_bar": true,
@@ -431,7 +454,7 @@
         "pill_1": {
           "type": "pill",
           "settings": {
-            "label": "0-6 חודשים (0-6)",
+            "label": "0-6 חודשים",
             "link": "shopify://collections/age-0-6",
             "color": "#12b15c",
             "text_color": "#ffffff"
@@ -440,7 +463,7 @@
         "pill_2": {
           "type": "pill",
           "settings": {
-            "label": "6-12 חודשים (6-12)",
+            "label": "6-12 חודשים",
             "link": "shopify://collections/age-6-12",
             "color": "#ff661f",
             "text_color": "#ffffff"
@@ -449,7 +472,7 @@
         "pill_3": {
           "type": "pill",
           "settings": {
-            "label": "שנה-שנה וחצי (1-1.5)",
+            "label": "12-18 חודשים",
             "link": "shopify://collections/age-1-1-5",
             "color": "#f2c124",
             "text_color": "#ffffff"
@@ -458,7 +481,7 @@
         "pill_4": {
           "type": "pill",
           "settings": {
-            "label": "שנה וחצי-שנתיים (1.5-2)",
+            "label": "שנה וחצי-שנתיים",
             "link": "shopify://collections/age-1-5-2",
             "color": "#8861ec",
             "text_color": "#ffffff"
@@ -467,7 +490,7 @@
         "pill_5": {
           "type": "pill",
           "settings": {
-            "label": "שנתיים-שלוש (2-3)",
+            "label": "2-3 שנים",
             "link": "shopify://collections/age-2-3",
             "color": "#f58ec5",
             "text_color": "#ffffff"
@@ -476,7 +499,7 @@
         "pill_6": {
           "type": "pill",
           "settings": {
-            "label": "3+ YEARS (3+)",
+            "label": "3 שנים ומעלה",
             "link": "shopify://collections/age-3-plus",
             "color": "#3bd6d8",
             "text_color": "#ffffff"
@@ -495,7 +518,7 @@
         "container": "fixed",
         "color_scheme": "scheme-1",
         "heading": "רכישה לפי גיל",
-        "heading_size": "h3",
+        "heading_size": "h2",
         "image_position": "end",
         "columns_desktop": 3,
         "padding_top": 40,
@@ -622,7 +645,7 @@
         "row_gap": "inherit",
         "grid_bordered": false,
         "columns_mobile": "2",
-        "swipe_on_mobile": true,
+        "swipe_on_mobile": false,
         "padding_top": 40,
         "padding_bottom": 40,
         "show_section_divider": false,
@@ -671,7 +694,7 @@
         "section_header_alignment": "center",
         "section_header_alignment_mobile": "inherit",
         "subheading": "",
-        "heading": "קטגוריות נבחרות",
+        "heading": "הבחירות של אורלי",
         "highlight_style": "none",
         "highlight_font_style": "italic",
         "highlight_style_color": "",
@@ -707,7 +730,7 @@
         "heading_1": {
           "type": "heading",
           "settings": {
-            "heading": "קופסת ההפתעה של מקופלת",
+            "heading": "<strong>קופסה בהפתעה</strong>",
             "highlight_style": "none",
             "highlight_font_style": "italic",
             "highlight_style_color": "",
@@ -741,17 +764,18 @@
       "settings": {
         "container": "fixed",
         "image": "shopify://shop_images/MEKUPELET_BG_2.png",
-        "desktop_height": "extra-small",
+        "desktop_height": "adapt",
         "overlay_opacity": 0,
         "enable_parallax": false,
         "parallax_direction": "vertical",
         "color_scheme": "scheme-1",
         "content_position": "middle-right",
         "content_alignment": "center",
-        "mobile_height": "medium",
+        "image_mobile": "shopify://shop_images/Colourful_Confetti_Birthday_Party_Setup.png",
+        "mobile_height": "large",
         "content_position_mobile": "bottom-center-mobile",
-        "content_alignment_mobile": "left",
-        "padding_top": 0,
+        "content_alignment_mobile": "center",
+        "padding_top": 40,
         "padding_bottom": 40,
         "enable_preload_image": false
       }
@@ -764,7 +788,7 @@
           "settings": {
             "icon": "boat",
             "color": "#3cd6dd",
-            "title": "מתנות בייבוא בלעדי",
+            "title": "מותגים בייבוא בלעדי",
             "link": ""
           }
         },
@@ -831,100 +855,6 @@
         "icon_size": 80,
         "padding_top": 30,
         "padding_bottom": 30
-      }
-    },
-    "instagram": {
-      "type": "shop-the-feed",
-      "blocks": {
-        "feed_1": {
-          "type": "feed",
-          "settings": {
-            "link": "https://www.instagram.com/mekupelet_toys/",
-            "author": "Author",
-            "account": "@account",
-            "icon": "tiktok",
-            "product": ""
-          }
-        },
-        "feed_2": {
-          "type": "feed",
-          "settings": {
-            "link": "https://www.instagram.com/mekupelet_toys/",
-            "author": "Author",
-            "account": "@account",
-            "icon": "tiktok",
-            "product": ""
-          }
-        },
-        "feed_3": {
-          "type": "feed",
-          "settings": {
-            "link": "https://www.instagram.com/mekupelet_toys/",
-            "author": "Author",
-            "account": "@account",
-            "icon": "tiktok",
-            "product": ""
-          }
-        },
-        "feed_4": {
-          "type": "feed",
-          "settings": {
-            "link": "https://www.instagram.com/mekupelet_toys/",
-            "author": "Author",
-            "account": "@account",
-            "icon": "tiktok",
-            "product": ""
-          }
-        },
-        "feed_5": {
-          "type": "feed",
-          "settings": {
-            "link": "https://www.instagram.com/mekupelet_toys/",
-            "author": "Author",
-            "account": "@account",
-            "icon": "tiktok",
-            "product": ""
-          }
-        }
-      },
-      "block_order": [
-        "feed_1",
-        "feed_2",
-        "feed_3",
-        "feed_4",
-        "feed_5"
-      ],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "",
-        "section_header_alignment": "center",
-        "section_header_alignment_mobile": "inherit",
-        "subheading": "",
-        "heading": "mekupelet_toys",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h1",
-        "heading_tag": "h2",
-        "description": "",
-        "text_size": "text-base",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "btn--underline",
-        "button_icon": "none",
-        "columns_desktop": 5,
-        "column_gap": "medium",
-        "row_gap": "inherit",
-        "enable_slider": true,
-        "card_color_scheme": "",
-        "card_image_ratio": "3/4",
-        "swipe_on_mobile": true,
-        "show_progress_bar": true,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "show_section_divider": false,
-        "divider_width": "fixed"
       }
     },
     "reviews": {
@@ -1016,7 +946,7 @@
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "container": "fixed",
+        "container": "full",
         "color_scheme": "scheme-3",
         "layout": "vertical",
         "subheading": "",
@@ -1042,19 +972,59 @@
         "show_section_divider": false,
         "divider_width": "fixed"
       }
+    },
+    "mk_instagram": {
+      "type": "mk-instagram",
+      "blocks": {
+        "instafeed_app_block_XET89K": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": true,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_XET89K"
+      ],
+      "name": "Instagram",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "heading": "mekupelet_toys",
+        "link": "https://www.instagram.com/mekupelet_toys/",
+        "open_in_new_tab": true,
+        "show_icon": true,
+        "heading_size": "h2",
+        "heading_tag": "h2",
+        "alignment": "center",
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "slideshow",
-    "mk_gift_finder",
     "categories",
+    "mk_gift_finder",
     "featured_tabs",
     "age_pills",
     "brands",
     "featured_row",
     "surprise_box",
     "feature_tiles",
-    "instagram",
+    "mk_instagram",
     "reviews",
     "newsletter"
   ]
