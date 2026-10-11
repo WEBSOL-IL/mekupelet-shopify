@@ -72,6 +72,9 @@ exactly. Updated 2026-10-08 for the Home page (approximate build).
 | מסנני קולקציה | Apps → Search & Discovery → Filters | להוסיף: גיל (metafield/תגית), מותג (Vendor), היילייטס (תגיות חדש/רב מכר/מבצע), מחיר, זמינות. שמות הקבוצות בעברית בדיוק כמו ב-`expand_filter_groups` בתבנית: "גיל, מחיר, היילייטס, מותג, זמינות". |
 | תיוג מוצרים לקטגוריות | שלב המיגרציה של המוצרים (קובץ מוצרים מ-WooCommerce) | הקולקציות המיובאות ריקות עד שהמוצרים יקבלו תגיות `legacy-category-<id>`; קופסת "קטגוריות נבחרות" ופירורי הלחם כבר עובדים. |
 | כרטיס תמונה בגריד | Theme editor → Collection → Product grid → בלוק Image card | התבנית מכילה בלוק ריק (scheme-3, מיקום 11) לפי הסקיצה; להעלות תמונה + טקסט + קישור, או למחוק. |
+| **תמונת רקע לקולקציה (נוסף 2026-10-11)** | Products → Collections → הקולקציה → בצד "Theme template": לבחור `mk-banner` | רק קולקציות עם התבנית הזו מקבלות באנר רקע עם הכותרת בלבן. ברירת המחדל: תמונת הקולקציה (זו של עיגולי הקטגוריות, לא תמיד מתאימה לבאנר רחב). |
+| תמונת באנר ייעודית לקולקציה | Settings → Custom data → Collections → Add definition: Name `Collection banner`, Namespace and key `foxtheme.collection_banner`, Type: File (image). אופציונלי גם `foxtheme.collection_banner_mobile` | Hyper קוראת את המטא-שדה הזה ומעדיפה אותו על תמונת הקולקציה. להעלות תמונה רחבה (מומלץ 2880×700) לקולקציות עם התבנית `mk-banner`. |
+| תיאור לקולקציה | Products → Collections → הקולקציה → Description | מוצג מתחת לכותרת בכל תבניות הקולקציה (רשות). |
 
 ## 10. עמוד מוצר (נוסף 2026-10-08)
 | מה | איפה | למה |

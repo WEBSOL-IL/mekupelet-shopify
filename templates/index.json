@@ -799,37 +799,6 @@
         "divider_width": "fixed"
       }
     },
-    "newsletter": {
-      "type": "newsletter",
-      "settings": {
-        "container": "full",
-        "color_scheme": "scheme-3",
-        "layout": "vertical",
-        "subheading": "",
-        "heading": "חדשים באתר?",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h2",
-        "heading_tag": "h2",
-        "description": "<p>הירשמו לניוזלטר ותהנו מכל המבצעים וההטבות לפני כולם</p>",
-        "text_size": "text-base",
-        "alignment": "center",
-        "alignment_mobile": "inherit",
-        "width_settings": "custom",
-        "form_width": 500,
-        "newsletter_term": "<p>אני מסכימ/ה לקבל הודעות שיווקיות ועדכונים מ-Mekupelet באמצעות דוא\"ל, הודעות טקסט (SMS) והודעות וואטסאפ. ניתן לבטל את ההרשמה בכל עת.</p>",
-        "newsletter_term_size": "text-base",
-        "button_style": "btn--primary",
-        "button_icon": "arrow-left",
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "show_section_divider": false,
-        "divider_width": "fixed",
-        "consent_checkbox": true
-      }
-    },
     "mk_instagram": {
       "type": "mk-instagram",
       "blocks": {
@@ -1105,7 +1074,6 @@
     "surprise_box",
     "feature_tiles",
     "mk_instagram",
-    "reviews",
-    "newsletter"
+    "reviews"
   ]
 }

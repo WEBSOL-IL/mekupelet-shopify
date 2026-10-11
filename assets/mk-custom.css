@@ -461,6 +461,11 @@
 .collection-hero .collection-hero__title { font-size: 3.2rem; line-height: 4rem; font-weight: 700; color: rgb(var(--mk-color-heading)); }
 .collection-hero .collection-hero__description { font-size: 1.6rem; line-height: 2.4rem; color: rgb(var(--mk-color-text)); max-width: 72rem; }
 .collection-hero--no-image .collection-hero__info { padding-block: 0 1.6rem; }
+/* Alternate template collection.mk-banner: image as background, white text over the overlay */
+.collection-hero--image-as-bg { border-radius: 1rem; overflow: hidden; }
+.collection-hero--image-as-bg .collection-hero__title,
+.collection-hero--image-as-bg .collection-hero__description { color: #fff; }
+.collection-hero--image-as-bg .collection-hero__description { margin-inline: auto; }
 .collection__content { --facet-width: clamp(24rem, calc(21% + 0.6rem), 33.4rem); }
 /* Sidebar: every filter group is a #F8F8F8 box, 16/700 heading over a #E0E0E0 rule */
 #FacetFiltersContainer .facet-accordion-details {

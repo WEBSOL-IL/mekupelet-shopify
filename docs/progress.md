@@ -423,3 +423,14 @@ continues in a NEW session. Starting point for that session:
   injected image), but all 1,824 products have exactly one image, so it is a content task.
   Screenshots: `docs/screenshots/collection-pkg1/` (before/ + after). Open: "__% הנחה" wording
   (package 3 with the badge edit), packages 2–5 per the plan.
+- Collection feedback package 2 (2026-10-11), all T1 + 4 CSS lines: newsletter moved from
+  index.json into `sections/footer-group.json` (`mk_newsletter`, order contact row → newsletter →
+  footer, site-wide; merchant chose footer only); `mk-feature-icons` instance added to
+  templates/collection.json after the grid (same 6 tiles as Home); new alternate template
+  `templates/collection.mk-banner.json` = collection.json + banner `show_collection_image`,
+  `as-bg`, small height, overlay 30, scheme-inverse, white title via CSS. Hyper's banner already
+  reads `collection.metafields.foxtheme.collection_banner` (+ `_mobile`), so no dynamic source is
+  needed; the merchant assigns the template per collection and optionally fills that metafield
+  (checklist §9). A global `show_collection_image: true` was rejected because every category/brand
+  collection has a tile image. Verified with `?view=mk-banner` on /collections/amos at 1440/390
+  (`docs/screenshots/collection-pkg2/`). Keep collection.mk-banner.json in sync with collection.json.

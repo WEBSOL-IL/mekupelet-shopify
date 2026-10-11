@@ -1,0 +1,192 @@
+/*
+ * Alternate collection template "mk-banner": same as collection.json plus the collection image
+ * (or the foxtheme.collection_banner metafield) as a background banner. Assign per collection in
+ * the admin (Theme template). Keep in sync with collection.json.
+ */
+{
+  "sections": {
+    "breadcrumbs_Gxg9wp": {
+      "type": "breadcrumbs",
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "start",
+        "padding_top": 16,
+        "padding_bottom": 12
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "blocks": {
+        "collection_info_zUNyKV": {
+          "type": "collection_info",
+          "settings": {
+            "heading_size": "h1",
+            "heading_tag": "h1",
+            "show_description": true,
+            "padding_top": 24,
+            "padding_bottom": 24
+          }
+        }
+      },
+      "block_order": [
+        "collection_info_zUNyKV"
+      ],
+      "custom_css": [],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-inverse",
+        "text_alignment": "center",
+        "show_collection_image": true,
+        "image_overlay_opacity": 30,
+        "image_position": "as-bg",
+        "image_height": "small",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "image_height_mobile": "adapt",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "image_card_mwkyJy": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "image_position": 11,
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 10,
+            "content_position": "split-bottom-button",
+            "content_alignment": "center",
+            "content_spacing": "small",
+            "content_gap": "fitted",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h3",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_mwkyJy"
+      ],
+      "custom_css": [],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "products_per_page": 24,
+        "columns_desktop": 4,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "pagination": "infinite",
+        "enable_filtering": true,
+        "enable_color_swatch": true,
+        "filter_type": "vertical",
+        "expand_filter_groups": "קטגוריות נבחרות, גיל, מחיר, היילייטס, מותג, זמינות",
+        "enable_sorting": true,
+        "enable_layout_switching": false,
+        "columns_mobile": "2",
+        "padding_top": 24,
+        "padding_bottom": 60,
+        "show_section_divider": true,
+        "divider_width": "fixed"
+      }
+    },
+    "mk_feature_icons": {
+      "type": "mk-feature-icons",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "boat",
+            "color": "#3cd6dd",
+            "title": "מותגים בייבוא בלעדי",
+            "link": ""
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "shield-check",
+            "color": "#f295c0",
+            "title": "מוצרים בתו תקן",
+            "link": ""
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "badge-20",
+            "color": "#8861ec",
+            "title": "מעל 20 שנות ניסיון",
+            "link": ""
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "icon": "blocks",
+            "color": "#fcbf07",
+            "title": "משחקים שנבחרו בקפידה",
+            "link": ""
+          }
+        },
+        "feature_5": {
+          "type": "feature",
+          "settings": {
+            "icon": "whatsapp",
+            "color": "#00b656",
+            "title": "ייעוץ אישי בוואטסאפ",
+            "link": ""
+          }
+        },
+        "feature_6": {
+          "type": "feature",
+          "settings": {
+            "icon": "truck",
+            "color": "#ff5404",
+            "title": "משלוח עד הבית",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4",
+        "feature_5",
+        "feature_6"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "heading": "",
+        "columns_desktop": 6,
+        "columns_mobile": "3",
+        "icon_size": 80,
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs_Gxg9wp",
+    "banner",
+    "product-grid",
+    "mk_feature_icons"
+  ]
+}
