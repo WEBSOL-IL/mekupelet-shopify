@@ -95,7 +95,7 @@
         "columns_desktop": 4,
         "column_gap": "medium",
         "row_gap": "medium",
-        "pagination": "number",
+        "pagination": "infinite",
         "enable_filtering": true,
         "enable_color_swatch": true,
         "filter_type": "vertical",

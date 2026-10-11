@@ -411,3 +411,15 @@ continues in a NEW session. Starting point for that session:
   add-to-cart. Verified with a curl-prefilled cart at 390/1440 (`docs/screenshots/cart-drawer/`).
   Note: a `theme pull` of locales/he.json returns the file with a `/* */` header; parse with the
   header stripped before diffing (a bad copy briefly emptied the local file; restored from git).
+- Collection feedback doc (2026-10-11), plan in `docs/collection-feedback-plan.md`. Package 1 done
+  (CSS block 7 + one template setting): sort control boxed like the filter button; active filter
+  chips are light pills (#F8F8F8, round) with teal + white on hover; breadcrumb chevron now points
+  the right way in RTL (U+203A, the glyph is bidi-mirrored) and the current page is in the text
+  colour; mobile/tablet toolbar = filter + sort on one row (toolbar halves flattened with
+  `display: contents`, drawer sort hidden), count below, 1px divider under the toolbar, 12px
+  breadcrumbs; `pagination: infinite` in templates/collection.json (23 → 138 cards on scroll, no
+  page numbers). Body class is `collection-template` (the old `.template-collection` rules never
+  applied). Second-image hover: Hyper's own feature works with our card CSS (tested with an
+  injected image), but all 1,824 products have exactly one image, so it is a content task.
+  Screenshots: `docs/screenshots/collection-pkg1/` (before/ + after). Open: "__% הנחה" wording
+  (package 3 with the badge edit), packages 2–5 per the plan.

@@ -443,11 +443,21 @@
 }
 
 /* 7. Collection page (Figma 69:5443): plain title, boxed filter groups, orange count, chips ------ */
-.template-collection .breadcrumbs,
-.template-collection .breadcrumbs a { font-size: 1.4rem; color: rgb(var(--mk-color-caption)); }
-/* Figma breadcrumbs use chevrons, not Hyper's hairline */
+.collection-template .breadcrumbs,
+.collection-template .breadcrumbs a { font-size: 1.4rem; color: rgb(var(--mk-color-caption)); }
+/* Current page in the text colour, not grey (collection feedback 2026-10-11) */
+.collection-template .breadcrumbs .breadcrumbs--last { color: rgb(var(--mk-color-text)); }
+/* Figma breadcrumbs use chevrons, not Hyper's hairline. The glyph is bidi-mirrored, so U+203A
+   renders as "‹" in the RTL page, pointing from the parent to the current page */
 .breadcrumbs .breadcrumbs--sep { width: auto; height: auto; background: none; margin: 0 0.8rem; color: rgb(var(--mk-color-caption)); line-height: 1; }
-.breadcrumbs .breadcrumbs--sep::before { content: "\2039"; font-size: 1.6rem; }
+.breadcrumbs .breadcrumbs--sep::before { content: "\203A"; font-size: 1.6rem; }
+@media (max-width: 767.98px) {
+  .collection-template .breadcrumbs,
+  .collection-template .breadcrumbs a { font-size: 1.2rem; }
+  .collection-template .breadcrumbs .breadcrumbs--sep { margin: 0 0.5rem; }
+  .collection-template .breadcrumbs .breadcrumbs--sep::before { font-size: 1.3rem; }
+  .collection-template .section-breadcrumb { --section-padding-top: 1rem; --section-padding-bottom: 0.6rem; }
+}
 .collection-hero .collection-hero__title { font-size: 3.2rem; line-height: 4rem; font-weight: 700; color: rgb(var(--mk-color-heading)); }
 .collection-hero .collection-hero__description { font-size: 1.6rem; line-height: 2.4rem; color: rgb(var(--mk-color-text)); max-width: 72rem; }
 .collection-hero--no-image .collection-hero__info { padding-block: 0 1.6rem; }
@@ -479,32 +489,60 @@
 .collection__toolbar { padding-block: 1.6rem; margin-bottom: 1.6rem; }
 .collection__toolbar #ProductCount { font-size: 1.6rem; font-weight: 600; color: rgb(var(--mk-color-accent)); }
 .facets-active { margin-bottom: 2rem; }
+/* Selected filters are light pills, unlike the bordered filter/sort controls; hover = accent + white */
 .facets-active .facet-remove {
-  background: #fff;
-  border: 1px solid rgb(var(--mk-color-border));
-  border-radius: 0.4rem;
+  background: rgb(var(--mk-color-page));
+  border: 1px solid transparent;
+  border-radius: 2rem;
   color: rgb(var(--mk-color-text));
   font-size: 1.4rem;
-  padding: 0.6rem 1.2rem;
+  padding: 0.6rem 1.4rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+.facets-active .facet-remove:hover,
+.facets-active .facet-remove:focus-visible {
+  background: rgb(var(--mk-color-action-alt));
+  border-color: rgb(var(--mk-color-action-alt));
+  color: #fff;
 }
 .facets-active .facet-clear-all { font-size: 1.4rem; text-decoration: underline; text-underline-offset: 0.3rem; }
+/* Sort: same bordered box as the filter button */
 #SortByContainer label { font-size: 1.6rem; font-weight: 400; }
+#SortByContainer .facet-short {
+  border: 1px solid rgb(var(--mk-color-border));
+  border-radius: 0.4rem;
+  padding-inline: 1.4rem 1.2rem;
+  min-height: 4.4rem;
+  background: #fff;
+}
 #SortByContainer .facet-short select {
   --inputs-border-width: 0;
   border: 0;
   padding-inline-start: 0;
+  min-height: 4.2rem;
   font-size: 1.6rem;
   font-weight: 600;
   background-color: transparent;
 }
 .facet-drawer-button { border-radius: 0.4rem; font-size: 1.6rem; }
-/* Mobile: filter and sort side by side as two bordered controls (Figma 1:7815) */
+/* Mobile + tablet: filter and sort on one row as two bordered controls, count below, thin divider
+   under the toolbar. Hyper hides the sort below lg and repeats it inside the drawer. */
 @media (max-width: 1023.98px) {
-  .collection__toolbar { gap: 1.2rem; }
-  .collection__toolbar-left { flex-direction: row; flex-wrap: wrap; align-items: center; width: 100%; justify-content: space-between; }
+  .collection__toolbar { gap: 1.2rem; padding-block: 1.2rem 1.4rem; margin-bottom: 1.6rem; border-bottom: 1px solid rgb(var(--mk-color-divider)); }
+  /* Flatten both toolbar halves so filter, sort and count lay out on the toolbar itself */
+  .collection__toolbar-left,
+  .collection__toolbar-right { display: contents; }
+  .collection__toolbar .facet-drawer-wrapper { order: 1; }
+  .collection__toolbar #SortByContainer { display: flex; order: 2; margin-inline-start: auto; max-width: 60%; }
+  .collection__toolbar > [data-facet-loading],
   .collection__toolbar-left > [data-facet-loading] { order: 3; width: 100%; }
-  .collection__toolbar-right { display: none; }
-  .facet-drawer-button.btn--secondary { border: 1px solid rgb(var(--mk-color-border)); color: rgb(var(--mk-color-text)); }
+  .collection__toolbar compare-switch,
+  .collection__toolbar layout-switcher { display: none; }
+  .facet-drawer-button.btn--secondary { border: 1px solid rgb(var(--mk-color-border)); color: rgb(var(--mk-color-text)); min-height: 4.4rem; }
+  .collection__toolbar #SortByContainer label { display: none; }
+  .collection__toolbar #SortByContainer .facet-short { flex-grow: 0; max-width: 100%; }
+  .collection__toolbar #SortByContainer .facet-short select { font-size: 1.4rem; min-width: 0; }
+  .facet-drawer .facet-short-drawer { display: none; }
 }
 
 /* 8. Product page (Figma 52:5172): gallery on the inline-end side, boxed features, info column ---- */
