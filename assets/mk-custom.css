@@ -207,12 +207,16 @@
   color: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
-.product-card .product-card__atc .btn__text { gap: 0; justify-content: center; }
-.product-card .product-card__atc .product-card__atc-icon { display: inline-flex; }
-.product-card .product-card__atc .icon { width: 1.8rem; height: 1.8rem; }
-/* Keep the label for screen readers only */
+.product-card .product-card__atc .btn__text,
+.product-card .product-card__action-button .btn__text { gap: 0; justify-content: center; }
+.product-card .product-card__atc .product-card__atc-icon,
+.product-card .product-card__action-button .product-card__action-icon { display: inline-flex; }
+.product-card .product-card__atc .icon,
+.product-card .product-card__action-button .icon { width: 1.8rem; height: 1.8rem; }
+/* Keep the label for screen readers only (also the drawer's upsell cards, which use action-button only) */
 .product-card .product-card__atc .product-card__atc-text,
-.product-card .product-card__atc .product-card__action-text {
+.product-card .product-card__atc .product-card__action-text,
+.product-card .product-card__action-button .product-card__action-text {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -649,3 +653,21 @@ a.mk-instagram__link:hover .mk-instagram__title { text-decoration: underline; te
   accent-color: rgb(var(--mk-color-action-alt));
 }
 .mk-newsletter-consent__text p { margin: 0; }
+
+/* 14. Cart drawer (merchant notes 2026-10-11): checkout only, neutral goal text, black add-on
+   buttons, divider above the upsell row ------------------------------------------------------- */
+/* Only "מעבר לתשלום": Hyper has no setting for the view-cart button */
+.cart-drawer .drawer__footer-buttons > a.btn--secondary { display: none; }
+/* Free-shipping goal text in the page text colour instead of the accent */
+.cart-drawer .free-shipping-goal__label { color: rgb(var(--mk-color-text)); }
+/* Note / shipping calculator / coupon: black outline buttons */
+.cart-drawer .cart-drawer__addons .btn--secondary {
+  color: rgb(var(--mk-color-text));
+  border-color: rgb(var(--mk-color-text));
+  background: transparent;
+}
+/* Products, then a divider, then the upsell row */
+.cart-drawer .cart-drawer-products-recommendation {
+  border-top: 1px solid rgb(var(--mk-color-border));
+  padding-top: 1.6rem;
+}

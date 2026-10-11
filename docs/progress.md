@@ -398,3 +398,14 @@ continues in a NEW session. Starting point for that session:
   Two logged core edits: dropdown heading in `snippets/desktop-menu.liquid`, consent checkbox in
   `sections/newsletter.liquid` (`consent_checkbox` setting, on for Home; native validation blocks
   submit until checked). CSS block 13. Screenshots in `docs/screenshots/feedback-pkg5-6/`.
+
+- Cart drawer notes (PDF, 2026-10-11): all done with Hyper settings, locale strings and CSS
+  block 14 — drawer message "משלוחים חינם בכל רכישה מעל 299 ₪" (cart_message), free-shipping
+  threshold 299 (theme setting; the announcement bar still says 300, merchant's copy), footer
+  note → "חישוב משלוח מחושב בהמשך" (4 locale keys, no link), view-cart button hidden (no Hyper
+  setting), goal text and the note/shipping/coupon buttons in black, upsell row = Hyper's cart
+  recommendations with a hand-picked list of 8 best sellers ≤59 ₪ (no collection source in Hyper)
+  under "מוצרים משלימים עד 59 ₪" with a divider above; drawer upsell cards get the same icon-only
+  add-to-cart. Verified with a curl-prefilled cart at 390/1440 (`docs/screenshots/cart-drawer/`).
+  Note: a `theme pull` of locales/he.json returns the file with a `/* */` header; parse with the
+  header stripped before diffing (a bad copy briefly emptied the local file; restored from git).

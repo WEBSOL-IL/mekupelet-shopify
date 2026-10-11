@@ -77,7 +77,7 @@
     "quick_view_type": "modal",
     "cart_type": "drawer",
     "cart_icon": "shopping-bag",
-    "free_shipping_minimum_amount": "500",
+    "free_shipping_minimum_amount": "299",
     "cart_empty_message": "<p>Not sure where to start? Try these collections:</p>",
     "collection_card_color_scheme": "scheme-1",
     "collection_image_ratio": "4/3",

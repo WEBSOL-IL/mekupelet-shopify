@@ -20,12 +20,21 @@
         "show_free_shipping_goal": true,
         "enable_cart_recommendations": true,
         "cart_recommendations_color_scheme": "",
-        "cart_recommendations_heading": "Pair Well With",
-        "cart_recommendations_limit": 3,
-        "cart_recommendations_products": [],
+        "cart_recommendations_heading": "מוצרים משלימים עד 59 ₪",
+        "cart_recommendations_limit": 6,
+        "cart_recommendations_products": [
+          "121790",
+          "121783",
+          "121779",
+          "121097",
+          "120895",
+          "120750",
+          "120423",
+          "120421"
+        ],
         "cart_recommendations_layout": "grid",
         "cart_mess_color_scheme": "scheme-2",
-        "cart_message": "✌🏼 Free Express Shipping on orders $500!",
+        "cart_message": "משלוחים חינם בכל רכישה מעל 299 ₪",
         "cart_message_alignment": "center"
       }
     },
