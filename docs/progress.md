@@ -376,3 +376,14 @@ continues in a NEW session. Starting point for that session:
   Merchant answers logged: sections = latest products / best sellers / on sale with a sane limit;
   mega menu = first 3 products of the collection for now; missing collections = my call for now;
   reviews = pull from the Google Business profile until a review system exists.
+
+- Feedback packages 3 + 4 (2026-10-11): created three automated collections with
+  `scripts/create-home-collections.py` (new-arrivals = all products newest first, best-sellers =
+  all products best selling, on-sale = compare-at price > 0; published to the Online Store) and
+  replaced the tabbed "המוצרים שלנו" with three `featured-collection` sections (10 products each,
+  heading + "לכל … ‹" plain link with Hyper's caret icon). Mega menus: the four empty
+  `promotion_banner` blocks became `product_list` blocks ("מומלצים", first 3 products of each
+  collection, 3 columns, 40% width / 34% for the 6-column toys menu); Hyper renders them on the
+  left on desktop and as a 2-column row inside the mobile drawer. Screenshots in
+  `docs/screenshots/feedback-pkg3/`. Google reviews cannot be fetched from the sandbox (google.com
+  unresolvable); the merchant must paste the review texts.
