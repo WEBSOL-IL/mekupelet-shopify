@@ -403,8 +403,8 @@ continues in a NEW session. Starting point for that session:
   block 14 — drawer message "משלוחים חינם בכל רכישה מעל 299 ₪" (cart_message), free-shipping
   threshold 299 (theme setting; the announcement bar still says 300, merchant's copy), footer
   tax/shipping note removed from the drawer (CSS `.cart-drawer .tax-note`; the 4 locale keys
-  keep Hyper's Hebrew for the cart page), shipping-calculator button renamed
-  "חישוב משלוח מחושב בהמשך" (`general.cart.shipping_calculator.title`), view-cart button hidden
+  keep Hyper's Hebrew for the cart page), shipping-calculator button removed
+  (`show_shipping_rates_calculator: false`, locale title back to Hyper's), view-cart button hidden
   (no Hyper setting), goal text and the note/shipping/coupon buttons in black, upsell row = Hyper's cart
   recommendations with a hand-picked list of 8 best sellers ≤59 ₪ (no collection source in Hyper)
   under "מוצרים משלימים עד 59 ₪" with a divider above; drawer upsell cards get the same icon-only
