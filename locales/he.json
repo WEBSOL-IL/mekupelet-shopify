@@ -74,7 +74,7 @@
         "congratulations_html": "מגיע לכם משלוח חינם!"
       },
       "shipping_calculator": {
-        "title": "חישוב עלות משלוח",
+        "title": "חישוב משלוח מחושב בהמשך",
         "button": "חישוב",
         "error": "אירעה שגיאה אחת או יותר בעת שליפת תעריפי המשלוח:",
         "not_found": "מצטערים, אנחנו לא שולחים לכתובת שלכם.",
@@ -363,10 +363,10 @@
       "estimated_total": "סה״כ משוער",
       "checkout": "מעבר לתשלום",
       "empty": "סל הקניות שלכם ריק כרגע.",
-      "taxes_and_shipping_policy_at_checkout_html": "חישוב משלוח מחושב בהמשך",
-      "taxes_included_but_shipping_at_checkout": "חישוב משלוח מחושב בהמשך",
-      "taxes_included_and_shipping_policy_html": "חישוב משלוח מחושב בהמשך",
-      "taxes_and_shipping_at_checkout": "חישוב משלוח מחושב בהמשך",
+      "taxes_and_shipping_policy_at_checkout_html": "מע״מ ו<a href=\"{{ link }}\" class=\"btn--link text-sm-extra\">משלוח</a> מחושבים בתשלום",
+      "taxes_included_but_shipping_at_checkout": "כולל מע״מ, המשלוח מחושב בתשלום",
+      "taxes_included_and_shipping_policy_html": "כולל מע״מ. <a href=\"{{ link }}\" class=\"btn--link text-sm-extra\">משלוח</a> והנחות מחושבים בתשלום.",
+      "taxes_and_shipping_at_checkout": "מע״מ ומשלוח מחושבים בתשלום",
       "headings": {
         "product": "מוצר",
         "total": "סה״כ",

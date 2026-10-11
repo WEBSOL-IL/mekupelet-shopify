@@ -402,8 +402,10 @@ continues in a NEW session. Starting point for that session:
 - Cart drawer notes (PDF, 2026-10-11): all done with Hyper settings, locale strings and CSS
   block 14 — drawer message "משלוחים חינם בכל רכישה מעל 299 ₪" (cart_message), free-shipping
   threshold 299 (theme setting; the announcement bar still says 300, merchant's copy), footer
-  note → "חישוב משלוח מחושב בהמשך" (4 locale keys, no link), view-cart button hidden (no Hyper
-  setting), goal text and the note/shipping/coupon buttons in black, upsell row = Hyper's cart
+  tax/shipping note removed from the drawer (CSS `.cart-drawer .tax-note`; the 4 locale keys
+  keep Hyper's Hebrew for the cart page), shipping-calculator button renamed
+  "חישוב משלוח מחושב בהמשך" (`general.cart.shipping_calculator.title`), view-cart button hidden
+  (no Hyper setting), goal text and the note/shipping/coupon buttons in black, upsell row = Hyper's cart
   recommendations with a hand-picked list of 8 best sellers ≤59 ₪ (no collection source in Hyper)
   under "מוצרים משלימים עד 59 ₪" with a divider above; drawer upsell cards get the same icon-only
   add-to-cart. Verified with a curl-prefilled cart at 390/1440 (`docs/screenshots/cart-drawer/`).

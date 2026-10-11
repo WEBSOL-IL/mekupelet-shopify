@@ -656,6 +656,8 @@ a.mk-instagram__link:hover .mk-instagram__title { text-decoration: underline; te
 
 /* 14. Cart drawer (merchant notes 2026-10-11): checkout only, neutral goal text, black add-on
    buttons, divider above the upsell row ------------------------------------------------------- */
+/* No tax/shipping note under the subtotal (merchant), only in the drawer */
+.cart-drawer .tax-note { display: none; }
 /* Only "מעבר לתשלום": Hyper has no setting for the view-cart button */
 .cart-drawer .drawer__footer-buttons > a.btn--secondary { display: none; }
 /* Free-shipping goal text in the page text colour instead of the accent */
