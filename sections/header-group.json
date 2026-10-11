@@ -372,13 +372,22 @@
             "button_style_5": "btn--primary",
             "button_icon_5": "none"
           }
+        },
+        "mk_outlet_highlight": {
+          "type": "hightlight_link",
+          "settings": {
+            "hl_link_title": "OUTLET",
+            "hl_link_style": "star_twinkle",
+            "hl_link_color": "#e3262f"
+          }
         }
       },
       "block_order": [
         "mega_toys",
         "mega_skills",
         "mega_boxes",
-        "mega_home"
+        "mega_home",
+        "mk_outlet_highlight"
       ],
       "custom_css": [
         "@media (max-width: 1023px) {.header__top {--header-grid-template: \"icons-left logo icons\" \"search search search\" / 1fr auto 1fr; } .header__logo {justify-self: center; }}"
@@ -405,22 +414,10 @@
         "navigation_padding_top": 0,
         "navigation_padding_bottom": 12
       }
-    },
-    "custom_liquid_VmFBnX": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "name": "t:sections.custom-liquid.name",
-      "settings": {
-        "custom_liquid": "",
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
     "topbar_3YD96h",
-    "header",
-    "custom_liquid_VmFBnX"
+    "header"
   ]
 }

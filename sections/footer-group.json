@@ -146,9 +146,94 @@
         "enable_sticky_bar": true,
         "show_text": true
       }
+    },
+    "mk_contact_row": {
+      "type": "multicolumn-icon",
+      "blocks": {
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "icon": "chat",
+            "title": "שירות לקוחות",
+            "heading_size": "h6",
+            "text": "<p></p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--plain",
+            "button_icon": "none"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "icon": "phone",
+            "title": "התקשרו אלינו",
+            "heading_size": "h6",
+            "text": "<p></p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--plain",
+            "button_icon": "none"
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "icon": "paperplane",
+            "title": "כתבו לנו",
+            "heading_size": "h6",
+            "text": "<p></p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--plain",
+            "button_icon": "none"
+          }
+        },
+        "column_4": {
+          "type": "column",
+          "settings": {
+            "icon": "map-pin",
+            "title": "כתובת",
+            "heading_size": "h6",
+            "text": "<p></p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--plain",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_1",
+        "column_2",
+        "column_3",
+        "column_4"
+      ],
+      "name": "פרטי קשר (מעל הפוטר)",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "header_layout": "vertical",
+        "heading": "",
+        "content_alignment": "left",
+        "image_position": "left",
+        "columns_desktop": 4,
+        "column_gap": "medium",
+        "show_divider_col": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "icon_color": "#006576"
+      }
     }
   },
   "order": [
+    "mk_contact_row",
     "footer",
     "mobile_sticky_bar_aYhgJK"
   ]

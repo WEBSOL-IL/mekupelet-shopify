@@ -352,3 +352,15 @@ continues in a NEW session. Starting point for that session:
   2 need small logged core edits (dropdown heading, newsletter consent checkbox), 2 are data
   (navigation from the Google Sheet, missing collections), 2 are merchant decisions (reviews app,
   social links). Nothing implemented yet; waiting for the merchant's answers in §D.
+
+- Feedback package 1 (2026-10-11): merchant said go. Done on the live theme, all T1/T2:
+  OUTLET (menu item renamed via `create-menus.py`, Hyper `hightlight_link` block, star twinkle,
+  red #e3262f, CSS so the colour wins over our menu colour); cart bubble #FF5400 + digit centred;
+  mobile menu air above the first separator; category circles `card_image_width: medium` (80px)
+  and arrows centred on the circle (`--swiper-navigation-top-offset: 4rem`); brand logos in Hyper's
+  bordered 6-column grid with heading at the start and "לכל המותגים ‹" at the end (CSS 5c rewritten),
+  2 columns on mobile; "הבחירות של אורלי" aligned with the featured-tab settings; `multicolumn-icon`
+  contact row (4 empty columns, teal icons) added to the footer group above the footer. Adopted
+  the merchant's editor changes first (custom-liquid section removed, logo widths). Screenshots in
+  `docs/screenshots/feedback-pkg1/`. Theme check unchanged (13 Hyper warnings, 0 errors).
+  Open: social links (merchant), OUTLET colour confirmation, the rest of the plan (packages 2–6).

@@ -325,9 +325,9 @@
 .section--related-products .swiper { overflow: hidden; }
 .product-card .product-card__wrapper { box-sizing: border-box; }
 
-/* 5c. Brand logos: 100px boxes with 1px #DDDDDD; the logo may use most of the box (square PNGs) */
+/* 5c. Brand logos (feedback 2026-10-11): Hyper's bordered grid, heading at the start and the
+   "לכל המותגים ‹" link at the end of the same row (baby-star reference); boxes 10rem high */
 .brand-logos .brand-logos__wrapper {
-  border: 1px solid rgb(var(--mk-color-border));
   background: #fff;
   min-height: 10rem;
   padding: 0.8rem 1.6rem;
@@ -348,11 +348,7 @@
   max-height: 8.4rem;
   object-fit: contain;
 }
-.brand-logos .section__wrapper { display: flex; flex-direction: column; }
-.brand-logos .section__wrapper > .section__header { display: contents; }
-.brand-logos .section__header .section__header--text { order: 1; margin-block-end: 2.4rem; text-align: center; }
-.brand-logos .section__wrapper > .section__content { order: 2; }
-.brand-logos .section__header .section__header--buttons { order: 3; margin-block-start: 2.4rem; text-align: center; }
+.brand-logos .section__header .section__header--buttons .btn--plain { font-size: 1.4rem; font-weight: 600; }
 
 /* 5d. Surprise-box banner: r20 image, white r20 card at the inline start */
 .image-with-text-overlay .media-wrapper,
@@ -633,3 +629,15 @@
 .mk-instagram__link .mk-instagram__logo { width: 1em; height: 1em; flex-shrink: 0; border-radius: 0.22em; object-fit: contain; }
 a.mk-instagram__link:hover .mk-instagram__title { text-decoration: underline; text-underline-offset: 0.2em; }
 .mk-instagram #insta-feed h2:empty { display: none; }
+
+/* 12. Feedback doc, package 1: cart bubble, mobile menu spacing, category slider arrows ---------- */
+/* Digit centred in the bubble (Simpler Pro's tall line-height pushed it down) */
+.cart-count { line-height: 1; font-size: 1.2rem; padding-block-start: 0.1em; }
+/* A little air above the first separator line in the mobile menu */
+.menu-drawer__nav > .menu-drawer__item:first-child,
+.menu-drawer nav .v-scrollable > ul > .menu-drawer__item:first-child { padding-block-start: 2rem; }
+/* Arrows centred on the category circle (8rem image) instead of circle + label */
+.collection-list-slider .swiper-show-nav-on-hover:has(.swiper-controls--nav-floating) { --swiper-navigation-top-offset: 4rem; }
+/* The OUTLET highlight link keeps Hyper's highlight colour (our block 1 forces the menu text colour) */
+.header .menu__item.hightlight-link,
+.menu-drawer__item-link.hightlight-link { color: var(--hl-link-color, rgb(var(--color-primary))); }
