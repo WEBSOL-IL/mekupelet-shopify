@@ -671,3 +671,13 @@ a.mk-instagram__link:hover .mk-instagram__title { text-decoration: underline; te
   border-top: 1px solid rgb(var(--mk-color-border));
   padding-top: 1.6rem;
 }
+/* Horizontal/list cards (cart drawer upsell on desktop) keep Hyper's small text button: only the
+   mobile wrapper there is icon-only, so the round 3.6rem treatment must not shrink the text one */
+.product-card--simple .product-card__atc-wrap:not(.md\:hidden) .product-card__action-button {
+  width: auto !important;
+  height: 3.2rem !important;
+  min-width: 0;
+  padding: 0 1.4rem;
+  border-radius: 2rem;
+  box-shadow: none;
+}
