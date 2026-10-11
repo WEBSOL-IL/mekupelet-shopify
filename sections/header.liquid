@@ -74,6 +74,18 @@
           >
             <span class="hamburger-line"></span>
           </button>
+          {%- comment -%} MK-CUSTOM start: mobile search toggle (search bar hidden below lg until opened) {%- endcomment -%}
+          <button
+            type="button"
+            class="mk-search-toggle btn btn--inherit flex items-center justify-center lg:hidden"
+            aria-controls="PredictiveSearch-{{ section.id }}"
+            aria-expanded="false"
+            aria-label="{{ 'general.search.search' | t }}"
+          >
+            {%- render 'icon-search', size: 'large', class: 'pointer-events-none' -%}
+          </button>
+          <script src="{{ 'mk-header-search.js' | asset_url }}" defer="defer"></script>
+          {%- comment -%} MK-CUSTOM end {%- endcomment -%}
         </div>
       </div>
     {%- endif -%}

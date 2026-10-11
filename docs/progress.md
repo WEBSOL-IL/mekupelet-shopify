@@ -317,3 +317,14 @@ continues in a NEW session. Starting point for that session:
 4. Still needed from the merchant: Dev Dashboard app (`npm run config:link`) or client_id/secret
    as env secrets, server domain, Verifone whitelist/HTTPS + test numerator, one test order each
    from Tranzila and BuyMe.
+
+- Mobile header search (2026-10-11): merchant wants the search bar hidden on mobile behind an icon
+  next to the menu button (like the reference screenshots). Hyper has no such option (3 header
+  layouts, no mobile-search setting), but it has a `search-open` body state with its own close
+  button and overlay, so the build is small: logged core edit in `sections/header.liquid`
+  (`mk-search-toggle` button after the hamburger + deferred `assets/mk-header-search.js`), and
+  `mk-custom.css` block 10 (`.header__search` hidden below 1024px until `body.search-open`, full
+  width when open). Verified live at 390 (closed / open / closed via X, input focused, aria-expanded
+  synced) and 1440 (unchanged); screenshots in `docs/screenshots/header-search/`. Pulled the
+  merchant's editor version of `sections/header-group.json` (adds a disabled custom-liquid section)
+  before touching the header. Theme check: 13 pre-existing Hyper warnings, 0 errors.

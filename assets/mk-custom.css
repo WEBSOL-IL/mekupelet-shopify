@@ -611,3 +611,12 @@
   margin-inline: auto;
 }
 .shopify-section[id$="__whatsapp"] .multicolumn .card-media { align-items: center; }
+
+/* 10. Mobile header: search bar hidden behind the icon next to the menu button until opened ------ */
+/* Hyper has no setting for this; it builds on Hyper's own `search-open` body state (close X, overlay). */
+@media (max-width: 1023.98px) {
+  .header__search { display: none; }
+  .search-open .header__search { display: flex; }
+  .search-open .header__search .search__form { max-width: none; }
+  .mk-search-toggle { width: 2.4rem; height: 2.4rem; }
+}
