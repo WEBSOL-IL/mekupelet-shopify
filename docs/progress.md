@@ -387,3 +387,14 @@ continues in a NEW session. Starting point for that session:
   left on desktop and as a 2-column row inside the mobile drawer. Screenshots in
   `docs/screenshots/feedback-pkg3/`. Google reviews cannot be fetched from the sandbox (google.com
   unresolvable); the merchant must paste the review texts.
+
+- Feedback packages 5 + 6 (2026-10-11): main menu "משחקים וצעצועים" rebuilt per the Google Sheet
+  (6 columns: משחקי חשיבה וקופסה, צעצועים ובובות, ערכות יצירה ואומנות, לתינוקות, משחקים לכל מטרה,
+  ספרים; written with `create-menus.py --only main-menu --execute`). My call for the items without
+  collections: column 5 holds only the three that exist (לחוץ ולחצר, לנסיעה, לאמבטיה ולבריכה) and
+  links its heading to the toys collection; the six without products (יחידני, שיתופי, תחרותי,
+  תחושה, לשחק לבד, עם ההורים) were left out until collections/tags exist. Existing extra items
+  (אפייה לקטנטנים, פעילות חושית, מתנות ליולדת, כריות הנקה) kept at the end of their columns.
+  Two logged core edits: dropdown heading in `snippets/desktop-menu.liquid`, consent checkbox in
+  `sections/newsletter.liquid` (`consent_checkbox` setting, on for Home; native validation blocks
+  submit until checked). CSS block 13. Screenshots in `docs/screenshots/feedback-pkg5-6/`.

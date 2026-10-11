@@ -618,3 +618,29 @@ a.mk-instagram__link:hover .mk-instagram__title { text-decoration: underline; te
 /* The OUTLET highlight link keeps Hyper's highlight colour (our block 1 forces the menu text colour) */
 .header .menu__item.hightlight-link,
 .menu-drawer__item-link.hightlight-link { color: var(--hl-link-color, rgb(var(--color-primary))); }
+
+/* 13. Feedback package 6: dropdown heading (core edit in desktop-menu.liquid) and the newsletter
+   consent checkbox (core edit in sections/newsletter.liquid) ------------------------------------ */
+.dropdown__nav .mk-dropdown-heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: rgb(var(--mk-color-heading));
+  margin-block-end: 0.4rem;
+  padding-block-end: 0.8rem;
+  border-block-end: 1px solid rgba(var(--color-foreground), 0.1);
+}
+.mk-newsletter-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  cursor: pointer;
+  text-align: start;
+}
+.mk-newsletter-consent__box {
+  flex-shrink: 0;
+  width: 1.8rem;
+  height: 1.8rem;
+  margin: 0.2rem 0 0;
+  accent-color: rgb(var(--mk-color-action-alt));
+}
+.mk-newsletter-consent__text p { margin: 0; }

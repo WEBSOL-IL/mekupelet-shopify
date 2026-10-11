@@ -150,9 +150,18 @@
           button_icon: section.settings.button_icon
         %}
         {%- if section.settings.newsletter_term != blank -%}
-          <div class="rich-text__text rte text-subtext {{ section.settings.newsletter_term_size }}">
-            {{ section.settings.newsletter_term }}
-          </div>
+          {%- comment -%} MK-CUSTOM start: optional consent checkbox; `form=` ties it to the form's native validation {%- endcomment -%}
+          {%- if section.settings.consent_checkbox -%}
+            <label class="mk-newsletter-consent rich-text__text rte text-subtext {{ section.settings.newsletter_term_size }}">
+              <input type="checkbox" class="mk-newsletter-consent__box" form="ContactSubscribe-{{ section.id }}" required>
+              <span class="mk-newsletter-consent__text">{{ section.settings.newsletter_term }}</span>
+            </label>
+          {%- else -%}
+            <div class="rich-text__text rte text-subtext {{ section.settings.newsletter_term_size }}">
+              {{ section.settings.newsletter_term }}
+            </div>
+          {%- endif -%}
+          {%- comment -%} MK-CUSTOM end {%- endcomment -%}
         {%- endif -%}
       </motion-element>
     </div>
@@ -452,6 +461,12 @@
       "id": "newsletter_term",
       "label": "t:sections.footer.blocks.newsletter.settings.newsletter_term.label",
       "default": "<p>By subscribing you agree to the <a href='#'>Terms of Use</a> & <a href='#'>Privacy Policy.</a></p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "consent_checkbox",
+      "label": "Show the terms as a required consent checkbox",
+      "default": false
     },
     {
       "type": "select",

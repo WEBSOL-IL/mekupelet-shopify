@@ -97,6 +97,9 @@
               <div class="dropdown">
                 <div class="dropdown__container color-{{ settings.overlay_color_scheme }}">
                   <ul class="dropdown__nav" role="list">
+                    {%- comment -%} MK-CUSTOM start: parent title as a heading above simple dropdown items (like a mega-menu column) {%- endcomment -%}
+                    <li class="mk-dropdown-heading h6 font-heading" aria-hidden="true">{{ link.title | escape }}</li>
+                    {%- comment -%} MK-CUSTOM end {%- endcomment -%}
                     {%- for childlink in link.links -%}
                       {%- if childlink.links != blank -%}
                         <li class="relative text-subtext">
