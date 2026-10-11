@@ -345,3 +345,10 @@ continues in a NEW session. Starting point for that session:
   `mk-instagram-logo.png` with the new `scripts/upload-file.py` (stagedUploadsCreate + fileCreate)
   and set it in `templates/index.json`. Verified live at 390/1440 (img rendered, 26/32px next to
   32/40px text).
+
+- Home + menu feedback doc (2026-10-11): the merchant sent a Word doc with 17 requests
+  (screenshots + baby-star/kipod references) and asked for a plan first. Audited each one
+  against Hyper 1.5.0 and wrote `docs/home-menu-feedback-plan.md`: 11 are Hyper settings/CSS,
+  2 need small logged core edits (dropdown heading, newsletter consent checkbox), 2 are data
+  (navigation from the Google Sheet, missing collections), 2 are merchant decisions (reviews app,
+  social links). Nothing implemented yet; waiting for the merchant's answers in §D.
