@@ -145,17 +145,17 @@
 .product-card .product-card__wrapper .product-card__info .f-price { justify-content: flex-start !important; width: 100%; }
 .product-card .product-card__wrapper .product-card__title,
 .product-card .product-card__wrapper .product-card__title a { width: 100%; }
-/* Order: title, brand, price */
-.product-card .product-card__info > * { order: 3; }
-.product-card .product-card__info > .product-card__title { order: 1; }
+/* Order: brand, title, price (Hyper's own order); nothing reserved, so no gap under short titles */
 .product-card .product-card__info > .product-card__vendor,
-.product-card .product-card__info > .product-card__type { order: 2; }
+.product-card .product-card__info > .product-card__type { order: 1; }
+.product-card .product-card__info > .product-card__title { order: 2; }
+.product-card .product-card__info > .f-price,
+.product-card .product-card__info > .price { order: 3; }
 .product-card .product-card__title {
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 1.4;
   color: rgb(var(--mk-color-text));
-  min-height: calc(2 * 1.4rem * 1.4);
 }
 .product-card .product-card__title a,
 .product-card .product-card__title .reversed-link {
