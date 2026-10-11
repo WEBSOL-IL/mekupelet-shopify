@@ -301,3 +301,19 @@ internal WooCommerce rules, run via the script. Steps:
    categories / 6 age collections) and the main menu (merchant to pick 11 of the 33 roots).
 6. Product tagging is a separate step (needs a product migration file): `legacy-category-<id>` tags
    incl. ancestors + vendor normalization via `vendor_aliases`.
+
+## Next session runbook — VR360 app (phase 1)
+Per the merchant (2026-10-11): theme work continues in the existing session, the VR360 app
+continues in a NEW session. Starting point for that session:
+1. Code: `apps/verifone-vr360/` (README.md has setup, phase table and first-time Dev Dashboard
+   steps). Design: `docs/verifone-vr360-shopify-plan.md` (§5 field mapping, §9a defaults).
+2. Phase 1 = invoice builder: port `class-wc-vr360-invoice-builder.php` (the plugin zip is in
+   the uploads of session 49395edf…; re-upload if missing) into `app/vr360/invoice-builder.ts`
+   with recorded-order JSON fixtures under `tests/fixtures/` and the customer resolver
+   (`GetCustomer ByEmail` → `CreateOrUpdateCustomer` → default customer). Then wire
+   `app/jobs/documents.server.ts` (`issue-invoice`) to it, with the advisory lock + Document row.
+3. Local checks: `npm test`, `npm run typecheck`, `npm run lint`, `npm run build`; a local
+   Postgres + Redis were used for the smoke test (`service postgresql start`, `redis-server --daemonize yes`).
+4. Still needed from the merchant: Dev Dashboard app (`npm run config:link`) or client_id/secret
+   as env secrets, server domain, Verifone whitelist/HTTPS + test numerator, one test order each
+   from Tranzila and BuyMe.
