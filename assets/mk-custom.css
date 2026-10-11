@@ -630,5 +630,6 @@
   text-decoration: none;
 }
 .mk-instagram__link .icon-instagram { width: 0.9em; height: 0.9em; flex-shrink: 0; }
+.mk-instagram__link .mk-instagram__logo { width: 1em; height: 1em; flex-shrink: 0; border-radius: 0.22em; object-fit: contain; }
 a.mk-instagram__link:hover .mk-instagram__title { text-decoration: underline; text-underline-offset: 0.2em; }
 .mk-instagram #insta-feed h2:empty { display: none; }

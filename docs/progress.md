@@ -339,3 +339,9 @@ continues in a NEW session. Starting point for that session:
   Verified live at 390/1440: link, target=_blank, icon at the start (RTL right). The feed script
   host (cdn.nfcube.com) is unreachable from the sandbox, so the feed itself was only checked by
   leaving the app block untouched; merchant to confirm on a phone.
+  Round 2: the merchant sent the colourful Instagram logo PNG, wanted on the LEFT of the text. Added
+  `icon_image` (image_picker) + `icon_side` (start/left; left sets `dir="ltr"` on the link) to the
+  section; the logo is sized 1em via CSS. Uploaded the trimmed 256px PNG to Files as
+  `mk-instagram-logo.png` with the new `scripts/upload-file.py` (stagedUploadsCreate + fileCreate)
+  and set it in `templates/index.json`. Verified live at 390/1440 (img rendered, 26/32px next to
+  32/40px text).

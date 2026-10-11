@@ -1010,7 +1010,9 @@
         "heading_tag": "h2",
         "alignment": "center",
         "padding_top": 40,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "icon_image": "shopify://shop_images/mk-instagram-logo.png",
+        "icon_side": "left"
       }
     }
   },

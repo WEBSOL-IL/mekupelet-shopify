@@ -23,13 +23,22 @@
             <a
               href="{{ link }}"
               class="mk-instagram__link"
+              {% if section.settings.icon_side == 'left' %}dir="ltr"{% endif %}
               {% if section.settings.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}
             >
           {%- else -%}
-            <span class="mk-instagram__link">
+            <span class="mk-instagram__link"{% if section.settings.icon_side == 'left' %} dir="ltr"{% endif %}>
           {%- endif -%}
           {%- if section.settings.show_icon -%}
-            {%- render 'icon-instagram', size: 'large' -%}
+            {%- if section.settings.icon_image != blank -%}
+              {{-
+                section.settings.icon_image
+                | image_url: width: 128
+                | image_tag: class: 'mk-instagram__logo', width: 64, height: 64, loading: 'lazy', alt: ''
+              -}}
+            {%- else -%}
+              {%- render 'icon-instagram', size: 'large' -%}
+            {%- endif -%}
           {%- endif -%}
           <span class="mk-instagram__title">{{ heading | escape }}</span>
           {%- if link != blank -%}
@@ -70,6 +79,17 @@
     { "type": "url", "id": "link", "label": "Heading link (Instagram profile)", "info": "The icon and the text become one link." },
     { "type": "checkbox", "id": "open_in_new_tab", "label": "Open the link in a new tab", "default": true },
     { "type": "checkbox", "id": "show_icon", "label": "Show the Instagram icon before the heading", "default": true },
+    { "type": "image_picker", "id": "icon_image", "label": "Icon image (square PNG/SVG)", "info": "Replaces the theme's line icon; sized to the heading text." },
+    {
+      "type": "select",
+      "id": "icon_side",
+      "label": "Icon side",
+      "options": [
+        { "value": "start", "label": "Start of the text (right in Hebrew)" },
+        { "value": "left", "label": "Left of the text" }
+      ],
+      "default": "left"
+    },
     {
       "type": "select",
       "id": "heading_size",
