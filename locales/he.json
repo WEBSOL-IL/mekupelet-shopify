@@ -298,7 +298,18 @@
         "other": "{{ count }} פריטים"
       },
       "sort_by_label": "מיון",
-      "to": "עד"
+      "to": "עד",
+      "sort_options": {
+        "manual": "מומלצים",
+        "most_relevant": "הרלוונטיים ביותר",
+        "best_selling": "הנמכרים ביותר",
+        "title_ascending": "שם, א-ת",
+        "title_descending": "שם, ת-א",
+        "price_ascending": "מחיר, מהנמוך לגבוה",
+        "price_descending": "מחיר, מהגבוה לנמוך",
+        "created_ascending": "תאריך, מהישן לחדש",
+        "created_descending": "תאריך, מהחדש לישן"
+      }
     }
   },
   "collections": {

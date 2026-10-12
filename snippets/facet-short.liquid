@@ -11,16 +11,45 @@
     aria-describedby="a11y-refresh-page-message"
     is="facet-short"
   >
+    {%- comment -%}
+      MK-CUSTOM start: sort names from the theme locale (products.facets.sort_options.*, Shopify only
+      localizes them in the store's primary language) and optional hiding of values listed in the
+      theme setting mk_sort_hidden; the active sort is always listed.
+    {%- endcomment -%}
+    {%- liquid
+      assign hidden_sorts = settings.mk_sort_hidden | default: '' | split: ','
+    -%}
     {%- for option in results.sort_options -%}
+      {%- liquid
+        assign hide_option = false
+        if option.value != sort_by
+          for hidden in hidden_sorts
+            assign hidden_value = hidden | strip
+            if hidden_value == option.value
+              assign hide_option = true
+              break
+            endif
+          endfor
+        endif
+        if hide_option
+          continue
+        endif
+        assign option_key = option.value | replace: '-', '_' | prepend: 'products.facets.sort_options.'
+        assign option_name = option_key | t
+        if option_name contains 'ranslation missing'
+          assign option_name = option.name
+        endif
+      -%}
       <option
         value="{{ option.value | escape }}"
         {% if option.value == sort_by %}
           selected="selected"
         {% endif %}
       >
-        {{ option.name | escape }}
+        {{ option_name | escape }}
       </option>
     {%- endfor -%}
+    {%- comment -%} MK-CUSTOM end {%- endcomment -%}
   </select>
   {% render 'icon-caret-down', size: '2xs' %}
 </div>

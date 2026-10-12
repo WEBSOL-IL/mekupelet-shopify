@@ -434,3 +434,14 @@ continues in a NEW session. Starting point for that session:
   (checklist §9). A global `show_collection_image: true` was rejected because every category/brand
   collection has a tile image. Verified with `?view=mk-banner` on /collections/amos at 1440/390
   (`docs/screenshots/collection-pkg2/`). Keep collection.mk-banner.json in sync with collection.json.
+- Collection sort translated (2026-10-12, feedback plan A4, merchant asked for it now): Hyper
+  prints Shopify's `sort_options` names, which are localized only in the store's primary language
+  (English here). Core edit in `snippets/facet-short.liquid` (MK-CUSTOM): names from
+  `products.facets.sort_options.*` (he.json Hebrew, en.default.json + de/es/fr/it/vi English so
+  MatchingTranslations stays clean) with fallback to Shopify's name, and values listed in the new
+  theme setting `mk_sort_hidden` (settings_schema group "MK custom", default `manual,
+  most-relevant, title-ascending, title-descending`) are left out unless active. Verified: collection
+  dropdown + drawer show the 5 requested options in Hebrew, `?sort_by=manual` keeps "מומלצים"
+  listed, search shows רלוונטיות + prices, selecting price-ascending reloads sorted. Note:
+  /collections/all is set to alphabetical in the admin, so "שם, א-ת" stays listed there until the
+  collection's default sort is changed. Logged in CUSTOMIZATIONS.md.

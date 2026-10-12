@@ -307,7 +307,18 @@
         "other": "{{ count }} productos"
       },
       "sort_by_label": "Ordenar por",
-      "to": "Hasta"
+      "to": "Hasta",
+      "sort_options": {
+        "manual": "Featured",
+        "most_relevant": "Most relevant",
+        "best_selling": "Best selling",
+        "title_ascending": "Alphabetically, A-Z",
+        "title_descending": "Alphabetically, Z-A",
+        "price_ascending": "Price, low to high",
+        "price_descending": "Price, high to low",
+        "created_ascending": "Date, old to new",
+        "created_descending": "Date, new to old"
+      }
     }
   },
   "collections": {
