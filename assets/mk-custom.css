@@ -19,6 +19,7 @@
   --mk-color-border: 221, 221, 221;       /* grey-300 #DDDDDD */
   --mk-color-divider: 224, 224, 224;      /* grey-200 #E0E0E0 */
   --mk-color-page: 248, 248, 248;         /* #F8F8F8 filter boxes (Figma 69:5443) */
+  --mk-color-success: 39, 174, 96;        /* #27AE60 free-shipping progress (merchant, 2026-10-12) */
   --mk-color-star: 255, 191, 0;           /* yellow #FFBF00 */
   --mk-color-heart: 255, 84, 0;           /* active heart circle */
   --mk-palette-1: #007D91;
@@ -703,8 +704,19 @@ a.mk-instagram__link:hover .mk-instagram__title { text-decoration: underline; te
 .cart-drawer .tax-note { display: none; }
 /* Only "מעבר לתשלום": Hyper has no setting for the view-cart button */
 .cart-drawer .drawer__footer-buttons > a.btn--secondary { display: none; }
-/* Free-shipping goal text in the page text colour instead of the accent */
+/* Free-shipping goal: centred text in the page colour, green progress bar (merchant 2026-10-12) */
+.cart-drawer .free-shipping-goal { text-align: center; }
 .cart-drawer .free-shipping-goal__label { color: rgb(var(--mk-color-text)); }
+.cart-drawer .free-shipping-goal .progress-bar { color: rgb(var(--mk-color-success)); }
+/* "סל הקניות שלכם (3)" on one line: the count is inline, never wrapped (Safari put it below) */
+.cart-drawer .drawer__heading { display: flex; align-items: baseline; gap: 0.4rem; white-space: nowrap; }
+.cart-drawer .drawer__heading .cart-count--blank { display: inline; padding: 0; font-size: 0.8em; line-height: inherit; }
+/* Tighter list: 1.6rem between items instead of 2.4rem, smaller thumbnails */
+.cart-drawer ul:has(> .cart-item) { gap: 1.6rem; }
+.cart-drawer .cart-item__media { flex-basis: 9rem; }
+@media (max-width: 767.98px) {
+  .cart-drawer .cart-item__media { flex-basis: 8rem; }
+}
 /* Note / shipping calculator / coupon: black outline buttons */
 .cart-drawer .cart-drawer__addons .btn--secondary {
   color: rgb(var(--mk-color-text));
@@ -716,6 +728,16 @@ a.mk-instagram__link:hover .mk-instagram__title { text-decoration: underline; te
   border-top: 1px solid rgb(var(--mk-color-border));
   padding-top: 1.6rem;
 }
+/* Upsell: bigger heading, three small cards per row on every width, icon-only add-to-cart like the
+   rest of the site (Hyper shows a text button from md up) */
+.cart-drawer .cart-drawer-products-recommendation__header p { font-size: 1.8rem; font-weight: 700; }
+.cart-drawer .cart-drawer-products-recommendation__container.swipe-mobile--2-cols { --column-width-mobile: 28vw; }
+.cart-drawer .cart-drawer-products-recommendation .product-card__atc-wrap.hidden { display: none !important; }
+.cart-drawer .cart-drawer-products-recommendation .product-card__atc-wrap.md\:hidden { display: block !important; }
+.cart-drawer .cart-drawer-products-recommendation .product-card__title { font-size: 1.3rem; }
+.cart-drawer .cart-drawer-products-recommendation .f-price { font-size: 1.4rem; }
+.cart-drawer .cart-drawer-products-recommendation .product-card__atc,
+.cart-drawer .cart-drawer-products-recommendation .product-card__action-button { width: 3.2rem !important; height: 3.2rem !important; }
 /* Horizontal/list cards (cart drawer upsell on desktop) keep Hyper's small text button: only the
    mobile wrapper there is icon-only, so the round 3.6rem treatment must not shrink the text one */
 .product-card--simple .product-card__atc-wrap:not(.md\:hidden) .product-card__action-button {

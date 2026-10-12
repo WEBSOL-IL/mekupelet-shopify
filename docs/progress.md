@@ -445,3 +445,11 @@ continues in a NEW session. Starting point for that session:
   listed, search shows רלוונטיות + prices, selecting price-ascending reloads sorted. Note:
   /collections/all is set to alphabetical in the admin, so "שם, א-ת" stays listed there until the
   collection's default sort is changed. Logged in CUSTOMIZATIONS.md.
+- Cart drawer round 2 (Word doc, 2026-10-12), CSS block 14 + one drawer setting: upsell heading
+  "מוצרים שווים עד 59 ₪" at 18/700; upsell cards 3 per row on every width (28vw column on mobile)
+  with the icon-only add-to-cart on desktop too (Hyper's text-button wrapper hidden, the md:hidden
+  icon wrapper forced visible), 3.2rem icons, 13/14px title/price; free-shipping label centred and
+  the progress bar green (`--mk-color-success` #27AE60, merchant liked the babystar look); list gap
+  2.4 → 1.6rem via `ul:has(> .cart-item)` and 9rem/8rem thumbnails; heading "(3)" kept on one line
+  (flex + nowrap, the custom element wrapped in Safari). Verified with 3 items at 390/1440
+  (`docs/screenshots/cart-drawer/drawer-*.png`, `drawer-upsell-*.png`).
