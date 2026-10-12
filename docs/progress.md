@@ -494,3 +494,8 @@ continues in a NEW session. Starting point for that session:
   Category import done: 1,751 products, 0 errors (משחקים וצעצועים 1,641, משחקי חשיבה וקופסה
   1,282, ערכות יצירה 504, צעצועים ובובות 455, … מארזים/קופסאות 1 each); 43 matched products
   carry none of the 25 menu categories in the Excel.
+  Merchant created the S&D filters (2026-10-12): live labels are "מתאים לגיל" (7 values),
+  "מיומנות" (52), "מותג" (99), "מחיר", "זמינות"; no "קטגוריה" filter yet. Chips facet label and
+  `expand_filter_groups` switched to the merchant's label "מתאים לגיל". Verified live at 1440/390
+  with `?filter.p.m.custom.age_range=3+שנים`: chips active state, sidebar checkbox in sync, 26 of
+  1,824 products (`docs/screenshots/collection-pkg5/live/`).
