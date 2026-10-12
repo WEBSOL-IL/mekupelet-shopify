@@ -491,3 +491,6 @@ continues in a NEW session. Starting point for that session:
   1440/390 (`docs/screenshots/collection-pkg5/`): chips render outside Hyper's paginate block,
   active chip filled, links carry the view param. Hero on the mk-banner template without an
   image no longer renders a black box. Merchant: create the 5 S&D filters per checklist §9.
+  Category import done: 1,751 products, 0 errors (משחקים וצעצועים 1,641, משחקי חשיבה וקופסה
+  1,282, ערכות יצירה 504, צעצועים ובובות 455, … מארזים/קופסאות 1 each); 43 matched products
+  carry none of the 25 menu categories in the Excel.
