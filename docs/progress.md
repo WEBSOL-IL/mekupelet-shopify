@@ -499,3 +499,6 @@ continues in a NEW session. Starting point for that session:
   `expand_filter_groups` switched to the merchant's label "מתאים לגיל". Verified live at 1440/390
   with `?filter.p.m.custom.age_range=3+שנים`: chips active state, sidebar checkbox in sync, 26 of
   1,824 products (`docs/screenshots/collection-pkg5/live/`).
+  "קטגוריה" filter added by the merchant: 23 values live, first group, "זמינות" removed; final
+  order קטגוריה / מתאים לגיל / מיומנות / מותג / מחיר in sidebar and drawer; category=ספרים → 89
+  products. Collection package 5 complete.
