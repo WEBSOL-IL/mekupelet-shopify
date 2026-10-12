@@ -76,6 +76,15 @@ exactly. Updated 2026-10-08 for the Home page (approximate build).
 | תמונת באנר ייעודית לקולקציה | Settings → Custom data → Collections → Add definition: Name `Collection banner`, Namespace and key `foxtheme.collection_banner`, Type: File (image). אופציונלי גם `foxtheme.collection_banner_mobile` | Hyper קוראת את המטא-שדה הזה ומעדיפה אותו על תמונת הקולקציה. להעלות תמונה רחבה (מומלץ 2880×700) לקולקציות עם התבנית `mk-banner`. |
 | תיאור לקולקציה | Products → Collections → הקולקציה → Description | מוצג מתחת לכותרת בכל תבניות הקולקציה (רשות). |
 
+## 9a. מפתח מיומנויות כרשימת בחירה (נוסף 2026-10-12)
+ההגדרה הקיימת `custom.skills` היא טקסט עשיר (rich text) וריקה (0 מוצרים). אי אפשר לשנות סוג של הגדרה, לכן מוחקים ויוצרים מחדש באותו מפתח (התבנית של עמוד המוצר ממשיכה לעבוד).
+הרשימה המלאה (39 ערכים מהאקסל) ב-`docs/import/skills-choices.json`; סקריפט מוכן: `python3 -I scripts/create-skills-definition.py --execute` (באישורכם, מבוצע על ידי).
+לביצוע ידני באדמין:
+| צעד | איפה |
+|---|---|
+| מחיקת ההגדרה הישנה | Settings → Custom data → Products → "מפתח מיומנויות" → Delete |
+| הגדרה חדשה | Add definition: Name `מפתח מיומנויות`, Namespace and key `custom.skills`, Type: Single line text → **List of values**, Validation: "Limit to preset choices" ולהזין את 39 הערכים מהקובץ, אחד בכל שורה; Storefront access: on |
+
 ## 10. עמוד מוצר (נוסף 2026-10-08)
 | מה | איפה | למה |
 |---|---|---|
