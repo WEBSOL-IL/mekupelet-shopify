@@ -78,8 +78,8 @@ exactly. Updated 2026-10-08 for the Home page (approximate build).
 
 ## 9a. מפתח מיומנויות כרשימת בחירה (נוסף 2026-10-12)
 ההגדרה הקיימת `custom.skills` היא טקסט עשיר (rich text) וריקה (0 מוצרים). אי אפשר לשנות סוג של הגדרה, לכן מוחקים ויוצרים מחדש באותו מפתח (התבנית של עמוד המוצר ממשיכה לעבוד).
-הרשימה המלאה (39 ערכים מהאקסל) ב-`docs/import/skills-choices.json`; סקריפט מוכן: `python3 -I scripts/create-skills-definition.py --execute` (באישורכם, מבוצע על ידי).
-לביצוע ידני באדמין:
+**בוצע 2026-10-12 באישור המרצ'נט** (`scripts/create-skills-definition.py --execute`): ההגדרה החדשה היא רשימת טקסט מוגבלת ל-39 הערכים מ-`docs/import/skills-choices.json`, מוצמדת (pinned), נגישה ל-Storefront. לעדכון הרשימה בעתיד: לערוך את ה-JSON ולהריץ שוב (מעדכן את הבחירות בלבד).
+הצעדים הידניים, לתיעוד בלבד:
 | צעד | איפה |
 |---|---|
 | מחיקת ההגדרה הישנה | Settings → Custom data → Products → "מפתח מיומנויות" → Delete |

@@ -453,3 +453,11 @@ continues in a NEW session. Starting point for that session:
   2.4 → 1.6rem via `ul:has(> .cart-item)` and 9rem/8rem thumbnails; heading "(3)" kept on one line
   (flex + nowrap, the custom element wrapped in Safari). Verified with 3 items at 390/1440
   (`docs/screenshots/cart-drawer/drawer-*.png`, `drawer-upsell-*.png`).
+- Skills metafield (2026-10-12, merchant Excel + approval): `custom.skills` was an empty
+  rich_text_field; replaced (delete + create, same key so templates/product.json tab keeps working)
+  with `list.single_line_text_field` + `choices` validation of 39 values
+  (`docs/import/skills-choices.json`, `scripts/create-skills-definition.py`). New definition
+  gid://shopify/MetafieldDefinition/306584256706, pinned, storefront PUBLIC_READ. Merchant asked
+  about overlapping values (פאזלים ×3, קריאה ×2, ספרים ×2, אנגלית ×2, חשבון ×3): kept as given.
+  Next: the product tab renders the list via `metafield_tag` (plain <ul>); chip styling when the
+  first products carry values; S&D filter "מיומנות" on this field in collection package 5.
