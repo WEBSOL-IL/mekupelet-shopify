@@ -742,6 +742,18 @@ a.mk-instagram__link:hover .mk-instagram__title { text-decoration: underline; te
 .cart-drawer .cart-drawer-products-recommendation .f-price { font-size: 1.4rem; }
 .cart-drawer .cart-drawer-products-recommendation .product-card__atc,
 .cart-drawer .cart-drawer-products-recommendation .product-card__action-button { width: 3.2rem !important; height: 3.2rem !important; }
+/* Icon sits on the image at the bottom inline-end corner, like the collection cards (merchant 2026-10-12) */
+.cart-drawer .cart-drawer-products-recommendation .product-card__image-wrapper .product-card__atc-wrap {
+  position: absolute;
+  bottom: 0.8rem;
+  inset-inline-end: 0.8rem;
+  margin: 0;
+  z-index: 2;
+}
+/* Mobile: drawer title at the upsell heading size */
+@media (max-width: 767.98px) {
+  .cart-drawer .drawer__heading { font-size: 1.8rem; }
+}
 /* Horizontal/list cards (cart drawer upsell on desktop) keep Hyper's small text button: only the
    mobile wrapper there is icon-only, so the round 3.6rem treatment must not shrink the text one */
 .product-card--simple .product-card__atc-wrap:not(.md\:hidden) .product-card__action-button {

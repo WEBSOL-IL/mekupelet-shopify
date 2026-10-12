@@ -453,6 +453,10 @@ continues in a NEW session. Starting point for that session:
   2.4 → 1.6rem via `ul:has(> .cart-item)` and 9rem/8rem thumbnails; heading "(3)" kept on one line
   (flex + nowrap, the custom element wrapped in Safari). Verified with 3 items at 390/1440
   (`docs/screenshots/cart-drawer/drawer-*.png`, `drawer-upsell-*.png`).
+  Round 3 (2026-10-12): upsell add-to-cart icon absolutely positioned on the image's bottom
+  inline-end corner (8px/8px, same as the collection cards; the list card's mobile wrapper sits
+  inside `.product-card__image-wrapper`), and the drawer title at 18px below md to match the
+  upsell heading.
 - Skills metafield (2026-10-12, merchant Excel + approval): `custom.skills` was an empty
   rich_text_field; replaced (delete + create, same key so templates/product.json tab keeps working)
   with `list.single_line_text_field` + `choices` validation of 39 values
