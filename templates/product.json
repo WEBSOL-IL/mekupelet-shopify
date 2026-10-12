@@ -158,7 +158,7 @@
             "heading": "מתאים לגיל",
             "heading_size": "h5",
             "icon": "none",
-            "content": "<p>{{ product.metafields.custom.age_range.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.age_range.value | join: ', ' }}</p>",
             "page": "",
             "default_open": false,
             "show_below_product_media": false

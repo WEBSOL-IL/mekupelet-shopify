@@ -456,8 +456,15 @@ continues in a NEW session. Starting point for that session:
 - Skills metafield (2026-10-12, merchant Excel + approval): `custom.skills` was an empty
   rich_text_field; replaced (delete + create, same key so templates/product.json tab keeps working)
   with `list.single_line_text_field` + `choices` validation of 39 values
-  (`docs/import/skills-choices.json`, `scripts/create-skills-definition.py`). New definition
+  (`docs/import/skills-choices.json`, `scripts/create-choice-definition.py`). New definition
   gid://shopify/MetafieldDefinition/306584256706, pinned, storefront PUBLIC_READ. Merchant asked
   about overlapping values (פאזלים ×3, קריאה ×2, ספרים ×2, אנגלית ×2, חשבון ×3): kept as given.
   Next: the product tab renders the list via `metafield_tag` (plain <ul>); chip styling when the
   first products carry values; S&D filter "מיומנות" on this field in collection package 5.
+- Age metafield (2026-10-12, merchant list): `custom.age_range` single_line_text_field (0 values)
+  replaced with list.single_line_text_field + 12 choices (`docs/import/age-choices.json`), new
+  definition gid://shopify/MetafieldDefinition/306597986498. Script generalized to
+  `scripts/create-choice-definition.py <config.json> [--execute]`. templates/product.json tab
+  "מתאים לגיל" now joins the list with ", " (a bare `.value` would concatenate the array).
+  These two fields are the S&D filters "גיל" and "מיומנות" for collection package 5; the Home
+  age pills / gift finder still use the age tags and can move to this field later.

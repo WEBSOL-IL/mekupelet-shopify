@@ -78,12 +78,15 @@ exactly. Updated 2026-10-08 for the Home page (approximate build).
 
 ## 9a. מפתח מיומנויות כרשימת בחירה (נוסף 2026-10-12)
 ההגדרה הקיימת `custom.skills` היא טקסט עשיר (rich text) וריקה (0 מוצרים). אי אפשר לשנות סוג של הגדרה, לכן מוחקים ויוצרים מחדש באותו מפתח (התבנית של עמוד המוצר ממשיכה לעבוד).
-**בוצע 2026-10-12 באישור המרצ'נט** (`scripts/create-skills-definition.py --execute`): ההגדרה החדשה היא רשימת טקסט מוגבלת ל-39 הערכים מ-`docs/import/skills-choices.json`, מוצמדת (pinned), נגישה ל-Storefront. לעדכון הרשימה בעתיד: לערוך את ה-JSON ולהריץ שוב (מעדכן את הבחירות בלבד).
+**בוצע 2026-10-12 באישור המרצ'נט** (`scripts/create-choice-definition.py docs/import/skills-choices.json --execute`): ההגדרה החדשה היא רשימת טקסט מוגבלת ל-39 הערכים מ-`docs/import/skills-choices.json`, מוצמדת (pinned), נגישה ל-Storefront. לעדכון הרשימה בעתיד: לערוך את ה-JSON ולהריץ שוב (מעדכן את הבחירות בלבד).
 הצעדים הידניים, לתיעוד בלבד:
 | צעד | איפה |
 |---|---|
 | מחיקת ההגדרה הישנה | Settings → Custom data → Products → "מפתח מיומנויות" → Delete |
 | הגדרה חדשה | Add definition: Name `מפתח מיומנויות`, Namespace and key `custom.skills`, Type: Single line text → **List of values**, Validation: "Limit to preset choices" ולהזין את 39 הערכים מהקובץ, אחד בכל שורה; Storefront access: on |
+
+## 9b. מתאים לגיל כרשימת בחירה (בוצע 2026-10-12)
+`custom.age_range` ("מתאים לגיל") הוחלף מטקסט חופשי לרשימת בחירה מ-12 ערכים (`docs/import/age-choices.json`): גיל לידה, 0-3 / 3-6 / 6-9 / 9-12 / 12-18 / 18-24 חודשים, שנתיים, 3 שנים, 4-5 שנים, 6-7 שנים, 8 ומעלה. אפשר לסמן כמה טווחים למוצר. הטאב בעמוד המוצר מציג אותם מופרדים בפסיק. לעדכון: לערוך את ה-JSON ולהריץ `python3 -I scripts/create-choice-definition.py docs/import/age-choices.json --execute`.
 
 ## 10. עמוד מוצר (נוסף 2026-10-08)
 | מה | איפה | למה |

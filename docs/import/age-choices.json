@@ -1,0 +1,24 @@
+{
+  "source": "merchant message 2026-10-12",
+  "definition": {
+    "ownerType": "PRODUCT",
+    "namespace": "custom",
+    "key": "age_range",
+    "name": "מתאים לגיל",
+    "type": "list.single_line_text_field"
+  },
+  "choices": [
+    "גיל לידה",
+    "0-3 חודשים",
+    "3-6 חודשים",
+    "6-9 חודשים",
+    "9-12 חודשים",
+    "12-18 חודשים",
+    "18-24 חודשים",
+    "שנתיים",
+    "3 שנים",
+    "4-5 שנים",
+    "6-7 שנים",
+    "8 ומעלה"
+  ]
+}

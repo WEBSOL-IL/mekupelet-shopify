@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Replace the empty rich-text definition custom.skills (מפתח מיומנויות) with a choice list:
-list.single_line_text_field limited to the values in docs/import/skills-choices.json.
-Refuses to run when any product already has a custom.skills value (the old type cannot be converted).
-Usage: python3 -I scripts/create-skills-definition.py [--execute]   (env as import-collections.py)"""
+"""Create or replace a product metafield definition as a choice list: list.single_line_text_field
+limited to the values of a config file (docs/import/skills-choices.json, docs/import/age-choices.json).
+A definition of another type is deleted and recreated under the same key, so it refuses to run when
+any product already has a value. Re-running on an existing list definition only updates the choices.
+Usage: python3 -I scripts/create-choice-definition.py docs/import/<config>.json [--execute]"""
 import importlib.util, json, os, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -11,7 +12,8 @@ imp = importlib.util.module_from_spec(spec); spec.loader.exec_module(imp)
 gql = imp.gql
 execute = "--execute" in sys.argv
 
-cfg = json.load(open(os.path.join(HERE, "..", "docs", "import", "skills-choices.json"), encoding="utf-8"))
+cfg_path = next((a for a in sys.argv[1:] if a.endswith(".json")), None) or sys.exit(__doc__)
+cfg = json.load(open(cfg_path, encoding="utf-8"))
 d, choices = cfg["definition"], cfg["choices"]
 assert len(choices) == len(set(choices)) and 0 < len(choices) <= 100, "choices must be unique, 1..100"
 
