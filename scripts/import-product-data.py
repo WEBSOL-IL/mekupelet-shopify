@@ -43,12 +43,30 @@ def norm_code(s):
     s = re.sub(r"\s+", "", s or "")
     return s[:-2] if re.fullmatch(r"\d+\.0", s) else s
 def split_list(s, sep):
-    return [x.strip() for x in (s or "").split(sep) if x.strip()]
+    out = []
+    for x in (s or "").split(sep):
+        x = x.strip()
+        if x and x not in out:          # Shopify rejects lists with duplicates
+            out.append(x)
+    return out
+def safe_url(u):
+    # Shopify rejects raw non-ASCII / en-dash characters in originalSource; keep already-encoded parts
+    return urllib.parse.quote(u, safe=":/?&=%+@~-._")
 def file_key(url):
-    name = urllib.parse.unquote(url.split("?")[0].rsplit("/", 1)[-1]).lower()
-    name = re.sub(r"_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}(?=\.)", "", name)   # shopify uuid suffix
+    """Comparable file name. Shopify stores non-ASCII names percent-encoded with "%" turned into "_"
+    (מגנטים.jpg -> D7_9E_D7_92....jpg), so both sides are reduced to that encoded form."""
+    name = url.split("?")[0].rsplit("/", 1)[-1]
+    name = re.sub(r"_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}(?=\.)", "", name, flags=re.I)  # shopify uuid suffix
+    name = urllib.parse.quote(urllib.parse.unquote(name), safe="-._").replace("%", "_").lstrip("_").lower()
     name = re.sub(r"-\d{2,4}x\d{2,4}(?=\.)", "", name)                                                # wp thumbnails
-    return name
+    name = re.sub(r"\.jpeg$", ".jpg", name)                                                           # shopify re-extensions
+    stem, dot, ext = name.rpartition(".")
+    return (stem[:60] if stem else ext) + "." + ext if dot else name                                   # long names are truncated
+def same_list(value, items):
+    try:
+        return json.loads(value or "null") == items
+    except ValueError:
+        return False
 
 excel = []
 seen_codes = {}
@@ -58,7 +76,7 @@ for r in rows:
         continue
     excel.append({"code": code, "sku": cell(r, "sku"), "name": cell(r, "name"), "short": cell(r, "short"),
                   "skills": split_list(cell(r, "skills"), ","), "age": split_list(cell(r, "age"), ","),
-                  "gallery": [u for u in split_list(cell(r, "gallery"), "|") if u.startswith("http")],
+                  "gallery": [u for u in split_list(cell(r, "gallery"), "|") if u.startswith("http") and re.search(r"\.(jpe?g|png|gif|webp)$", u.split("?")[0], re.I)],
                   "main": cell(r, "main")})
     seen_codes.setdefault(code, 0); seen_codes[code] += 1
 dup_rows = {c: n for c, n in seen_codes.items() if n > 1}
@@ -114,9 +132,9 @@ for row in excel:
     mfs = []
     if row["short"] and row["short"] != (pr["sd"] or {}).get("value"):
         mfs.append({"key": "short_description", "type": "multi_line_text_field", "value": row["short"]})
-    if skills and json.dumps(skills, ensure_ascii=False) != (pr["sk"] or {}).get("value"):
+    if skills and not same_list((pr["sk"] or {}).get("value"), skills):
         mfs.append({"key": "skills", "type": "list.single_line_text_field", "value": json.dumps(skills, ensure_ascii=False)})
-    if ages and json.dumps(ages, ensure_ascii=False) != (pr["ag"] or {}).get("value"):
+    if ages and not same_list((pr["ag"] or {}).get("value"), ages):
         mfs.append({"key": "age_range", "type": "list.single_line_text_field", "value": json.dumps(ages, ensure_ascii=False)})
     if mfs or new_imgs:
         plan.append({"id": pid, "handle": pr["handle"], "title": pr["title"], "code": row["code"], "metafields": mfs,
@@ -148,7 +166,7 @@ for i, p in enumerate(plan[:limit] if limit else plan):
             errors.append({"handle": p["handle"], "step": "metafields", "err": ue}); continue
     if p["images"]:
         r = gql('mutation($id:ID!,$m:[CreateMediaInput!]!){ productCreateMedia(productId:$id, media:$m){ mediaUserErrors{ field message code } } }',
-                {"id": p["id"], "m": [{"originalSource": u, "mediaContentType": "IMAGE", "alt": p["alt"]} for u in p["images"]]})
+                {"id": p["id"], "m": [{"originalSource": safe_url(u), "mediaContentType": "IMAGE", "alt": p["alt"]} for u in p["images"]]})
         ue = r.get("data", {}).get("productCreateMedia", {}).get("mediaUserErrors") or r.get("errors")
         if ue:
             errors.append({"handle": p["handle"], "step": "images", "err": ue}); continue
