@@ -467,6 +467,10 @@
 .collection-hero--image-as-bg .collection-hero__title,
 .collection-hero--image-as-bg .collection-hero__description { color: #fff; }
 .collection-hero--image-as-bg .collection-hero__description { margin-inline: auto; }
+/* Same template on a collection without an image: plain heading instead of a black box */
+.collection-hero--no-image.color-scheme-inverse { background: transparent; }
+.collection-hero--no-image.color-scheme-inverse .collection-hero__title { color: rgb(var(--mk-color-heading)); }
+.collection-hero--no-image.color-scheme-inverse .collection-hero__description { color: rgb(var(--mk-color-text)); }
 .collection__content { --facet-width: clamp(24rem, calc(21% + 0.6rem), 33.4rem); }
 /* Sidebar: every filter group is a #F8F8F8 box, 16/700 heading over a #E0E0E0 rule */
 #FacetFiltersContainer .facet-accordion-details {

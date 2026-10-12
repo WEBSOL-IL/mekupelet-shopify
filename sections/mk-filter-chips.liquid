@@ -1,0 +1,204 @@
+{%- comment -%}
+  MK Filter chips: a row of quick filters on the collection page. Chips come from one storefront
+  filter group (Search & Discovery) chosen by its label, e.g. "גיל", and use Shopify's own
+  url_to_add / url_to_remove, so they stay in sync with the sidebar and drawer filters. Manual
+  chips (blocks) link anywhere. Renders nothing when there is neither.
+{%- endcomment -%}
+{{ 'mk-filter-chips.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign facet_label = section.settings.facet_label | strip | downcase
+  assign facet = null
+  if facet_label != blank and collection.filters.size > 0
+    for filter in collection.filters
+      assign label = filter.label | downcase
+      if label == facet_label and filter.type == 'list'
+        assign facet = filter
+        break
+      endif
+    endfor
+  endif
+  assign has_active = false
+  if facet and facet.active_values.size > 0
+    assign has_active = true
+  endif
+  assign chip_count = section.blocks.size
+  if facet
+    assign chip_count = chip_count | plus: facet.values.size
+  endif
+-%}
+{%- if chip_count > 0 -%}
+  <div
+    id="section-{{ section.id }}"
+    class="mk-filter-chips section color-{{ section.settings.color_scheme }} page-width page-width--{{ section.settings.container }}"
+    style="--section-padding-top: {{ section.settings.padding_top }}px; --section-padding-bottom: {{ section.settings.padding_bottom }}px;"
+    data-section-id="{{ section.id }}"
+  >
+    <nav class="mk-filter-chips__nav" aria-label="{{ section.settings.heading | default: section.settings.facet_label | escape }}">
+      {%- if section.settings.heading != blank -%}
+        <span class="mk-filter-chips__heading h6">{{ section.settings.heading | escape }}</span>
+      {%- endif -%}
+      <ul class="mk-filter-chips__list list-unstyled{% if section.settings.align == 'center' %} mk-filter-chips__list--center{% endif %}" role="list">
+        {%- if facet -%}
+          {%- if section.settings.show_all -%}
+            {%- liquid
+              assign all_url = collection.url
+              if has_active
+                assign all_url = facet.url_to_remove
+              endif
+            -%}
+            <li class="mk-filter-chips__item">
+              <a class="mk-chip{% unless has_active %} mk-chip--active{% endunless %}" href="{{ all_url }}" {% unless has_active %}aria-current="true"{% endunless %}>
+                {{- 'products.facets.all' | t -}}
+              </a>
+            </li>
+          {%- endif -%}
+          {%- for value in facet.values limit: section.settings.max_chips -%}
+            {%- if value.count == 0 and value.active == false -%}
+              {%- continue -%}
+            {%- endif -%}
+            <li class="mk-filter-chips__item">
+              <a
+                class="mk-chip{% if value.active %} mk-chip--active{% endif %}"
+                href="{% if value.active %}{{ value.url_to_remove }}{% else %}{{ value.url_to_add }}{% endif %}"
+                {% if value.active %}aria-current="true"{% endif %}
+              >
+                {{- value.label | escape -}}
+                {%- if section.settings.show_count -%}
+                  <span class="mk-chip__count">{{ value.count }}</span>
+                {%- endif -%}
+              </a>
+            </li>
+          {%- endfor -%}
+        {%- endif -%}
+        {%- for block in section.blocks -%}
+          {%- if block.settings.label == blank -%}
+            {%- continue -%}
+          {%- endif -%}
+          {%- liquid
+            assign is_current = false
+            if block.settings.link != blank and block.settings.link == request.path
+              assign is_current = true
+            endif
+          -%}
+          <li class="mk-filter-chips__item" {{ block.shopify_attributes }}>
+            <a class="mk-chip{% if is_current %} mk-chip--active{% endif %}" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% else %}role="link" aria-disabled="true"{% endif %} {% if is_current %}aria-current="page"{% endif %}>
+              {{- block.settings.label | escape -}}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "MK Filter chips",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": { "templates": ["collection"] },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Quick filters as chips. Chips come from one filter group of the Search & Discovery app (by its label) and apply that filter to the current collection; manual chips below link anywhere."
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "t:general.container.label",
+      "options": [
+        { "value": "full", "label": "t:general.container.options__full.label" },
+        { "value": "fixed", "label": "t:general.container.options__fixed.label" }
+      ],
+      "default": "fixed"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:general.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading (optional)"
+    },
+    {
+      "type": "text",
+      "id": "facet_label",
+      "label": "Filter group label",
+      "info": "Exactly as named in Search & Discovery, e.g. גיל or קטגוריה. Leave empty for manual chips only.",
+      "default": "גיל"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_all",
+      "label": "Show an \"all\" chip",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_count",
+      "label": "Show product counts",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "max_chips",
+      "min": 4,
+      "max": 30,
+      "step": 1,
+      "label": "Maximum chips from the filter group",
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "align",
+      "label": "Alignment",
+      "options": [
+        { "value": "start", "label": "Start" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "header",
+      "content": "t:general.padding.section_heading.content"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "t:general.padding.top.label",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "t:general.padding.bottom.label",
+      "default": 16
+    }
+  ],
+  "blocks": [
+    {
+      "type": "chip",
+      "name": "Manual chip",
+      "limit": 12,
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "חדש באתר" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "MK Filter chips" }
+  ]
+}
+{% endschema %}

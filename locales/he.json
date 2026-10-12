@@ -309,7 +309,8 @@
         "price_descending": "מחיר, מהגבוה לנמוך",
         "created_ascending": "תאריך, מהישן לחדש",
         "created_descending": "תאריך, מהחדש לישן"
-      }
+      },
+      "all": "הכל"
     }
   },
   "collections": {

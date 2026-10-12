@@ -478,3 +478,16 @@ continues in a NEW session. Starting point for that session:
   URLs); pass 2 after fixes: 1,191 ok / 0 errors. Final dry run: 1 image left (a URL Shopify
   rejects). Lessons in the script: Shopify renames files (percent-encoding with "_", jpeg→jpg,
   truncation), rejects duplicate list values, needs encoded originalSource URLs.
+- Collection package 5 (2026-10-12), theme side done, admin side pending: new product metafield
+  `custom.category` ("קטגוריה", list + 25 choices = main-menu categories levels 0–1 that exist in
+  the Excel, gift-by-age and sale groups left out; `docs/import/category-choices.json`), filled by
+  `scripts/import-product-data.py` from `taxonomy:product_cat:names` (1,751 products, pass in
+  progress). New section `sections/mk-filter-chips.liquid` + `assets/mk-filter-chips.css` (T3):
+  chips from one S&D filter group by label (`collection.filters`, `url_to_add`/`url_to_remove`,
+  active state, optional "הכל" chip via `products.facets.all`, counts) plus manual chip blocks;
+  horizontal scroll on mobile with the page-gutter bleed. Added to templates/collection.json and
+  collection.mk-banner.json before the grid with facet "גיל"; `expand_filter_groups` = "קטגוריה,
+  גיל, מיומנות, מותג, מחיר". Verified with the live "זמינות" facet on `?view=mk-banner` at
+  1440/390 (`docs/screenshots/collection-pkg5/`): chips render outside Hyper's paginate block,
+  active chip filled, links carry the view param. Hero on the mk-banner template without an
+  image no longer renders a black box. Merchant: create the 5 S&D filters per checklist §9.

@@ -1,0 +1,37 @@
+{
+  "source": "main menu levels 0-1 mapped to WooCommerce category names present in the product Excel (2026-10-12); gift-by-age and sale/outlet groups left out (covered by the age filter and compare-at prices)",
+  "definition": {
+    "ownerType": "PRODUCT",
+    "namespace": "custom",
+    "key": "category",
+    "name": "קטגוריה",
+    "type": "list.single_line_text_field"
+  },
+  "choices": [
+    "משחקים וצעצועים",
+    "משחקי חשיבה וקופסה",
+    "צעצועים ובובות",
+    "ערכות יצירה ואומנות",
+    "לתינוקות",
+    "ספרים",
+    "משחקים התפתחותיים",
+    "משחקי למידה",
+    "על הרצף",
+    "מארזים",
+    "קופסאות בהפתעה",
+    "חגים ומסיבה",
+    "תחפושות",
+    "מסיכות",
+    "כתרים וכובעים",
+    "קישוטים ושולחן מסיבה",
+    "כרטיסי ברכה",
+    "משחקי הפעלה",
+    "חנוכה",
+    "כלי בית ואקססוריז",
+    "כלי אוכל",
+    "כלי בית",
+    "אקססוריז",
+    "בגדי ילדים",
+    "סנדלים ונעלי טרום הליכה"
+  ]
+}

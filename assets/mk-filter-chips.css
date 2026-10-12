@@ -1,0 +1,85 @@
+/* MK Filter chips: bordered pills in one row; the active one is filled. Horizontal scroll below md. */
+.mk-filter-chips {
+  padding-block: var(--section-padding-top) var(--section-padding-bottom);
+}
+.mk-filter-chips__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.mk-filter-chips__heading {
+  flex: 0 0 auto;
+  margin: 0;
+}
+.mk-filter-chips__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.mk-filter-chips__list--center {
+  justify-content: center;
+  flex-grow: 1;
+}
+.mk-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 4rem;
+  padding: 0.6rem 1.6rem;
+  border: 1px solid rgb(var(--mk-color-border, 221, 221, 221));
+  border-radius: 2rem;
+  background: #fff;
+  color: rgb(var(--mk-color-text, 28, 28, 28));
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.mk-chip:hover,
+.mk-chip:focus-visible {
+  border-color: rgb(var(--mk-color-text, 28, 28, 28));
+  color: rgb(var(--mk-color-text, 28, 28, 28));
+}
+.mk-chip--active,
+.mk-chip--active:hover {
+  background: rgb(var(--mk-color-text, 28, 28, 28));
+  border-color: rgb(var(--mk-color-text, 28, 28, 28));
+  color: #fff;
+}
+.mk-chip__count {
+  font-size: 1.2rem;
+  font-weight: 400;
+  opacity: 0.7;
+}
+@media (max-width: 767.98px) {
+  .mk-filter-chips__nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+  .mk-filter-chips__list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-block: 0.2rem;
+    /* bleed to the page edge so the first chip starts at the gutter and the row scrolls edge to edge */
+    margin-inline: calc(-1 * var(--page-padding, 1.6rem));
+    padding-inline: var(--page-padding, 1.6rem);
+    scroll-padding-inline: var(--page-padding, 1.6rem);
+  }
+  .mk-filter-chips__list::-webkit-scrollbar {
+    display: none;
+  }
+  .mk-filter-chips__list--center {
+    justify-content: flex-start;
+  }
+  .mk-chip {
+    min-height: 3.6rem;
+    padding: 0.5rem 1.4rem;
+  }
+}

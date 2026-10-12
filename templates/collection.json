@@ -99,7 +99,7 @@
         "enable_filtering": true,
         "enable_color_swatch": true,
         "filter_type": "vertical",
-        "expand_filter_groups": "קטגוריות נבחרות, גיל, מחיר, היילייטס, מותג, זמינות",
+        "expand_filter_groups": "קטגוריה, גיל, מיומנות, מותג, מחיר",
         "enable_sorting": true,
         "enable_layout_switching": false,
         "columns_mobile": "2",
@@ -185,11 +185,27 @@
         "padding_top": 30,
         "padding_bottom": 30
       }
+    },
+    "mk_filter_chips": {
+      "type": "mk-filter-chips",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "heading": "",
+        "facet_label": "גיל",
+        "show_all": true,
+        "show_count": false,
+        "max_chips": 12,
+        "align": "start",
+        "padding_top": 0,
+        "padding_bottom": 16
+      }
     }
   },
   "order": [
     "breadcrumbs_Gxg9wp",
     "banner",
+    "mk_filter_chips",
     "product-grid",
     "mk_feature_icons"
   ]

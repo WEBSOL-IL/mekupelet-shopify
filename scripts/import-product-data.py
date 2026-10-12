@@ -8,6 +8,7 @@ Per matched product:
   - custom.skills (list, choices) <- "מיומנות - קלוד AI" (", "-separated; values outside the choice
     list are dropped and reported)
   - custom.age_range (list, choices) <- "גילאים - מדויק" (same rule)
+  - custom.category (list, choices) <- "taxonomy:product_cat:names" ("|"-separated; menu categories only)
 Dry run by default: prints the match report and writes docs/import/out/product-data-report.json.
 Usage: python3 -I scripts/import-product-data.py <excel.xlsx> [--execute] [--limit N] [--no-images]
 (env as import-collections.py)"""
@@ -25,10 +26,10 @@ execute = "--execute" in args
 no_images = "--no-images" in args
 limit = int(args[args.index("--limit") + 1]) if "--limit" in args else None
 
-COL = {"name": "שם", "short": "תיאור קצר - קלוד", "age": "גילאים - מדויק", "skills": "מיומנות - קלוד AI",
+COL = {"name": "שם", "short": "תיאור קצר - קלוד", "age": "גילאים - מדויק", "skills": "מיומנות - קלוד AI", "category": "taxonomy:product_cat:names",
        "gallery": "גלריית תמונות", "main": "תמונה ראשית", "barcode": "barcode", "sku": "meta:jk_sku"}
 choices = {k: json.load(open(os.path.join(ROOT, "docs", "import", f), encoding="utf-8"))["choices"]
-           for k, f in (("skills", "skills-choices.json"), ("age", "age-choices.json"))}
+           for k, f in (("skills", "skills-choices.json"), ("age", "age-choices.json"), ("category", "category-choices.json"))}
 
 # ---- Excel ------------------------------------------------------------------------------------
 import openpyxl
@@ -76,6 +77,7 @@ for r in rows:
         continue
     excel.append({"code": code, "sku": cell(r, "sku"), "name": cell(r, "name"), "short": cell(r, "short"),
                   "skills": split_list(cell(r, "skills"), ","), "age": split_list(cell(r, "age"), ","),
+                  "category": split_list(cell(r, "category"), "|"),
                   "gallery": [u for u in split_list(cell(r, "gallery"), "|") if u.startswith("http") and re.search(r"\.(jpe?g|png|gif|webp)$", u.split("?")[0], re.I)],
                   "main": cell(r, "main")})
     seen_codes.setdefault(code, 0); seen_codes[code] += 1
@@ -89,6 +91,7 @@ while True:
         variants(first:20){ nodes{ id sku barcode } }
         media(first:50){ nodes{ ... on MediaImage { id image { url } } } }
         sd: metafield(namespace:"custom", key:"short_description"){ value }
+        ca: metafield(namespace:"custom", key:"category"){ value }
         sk: metafield(namespace:"custom", key:"skills"){ value }
         ag: metafield(namespace:"custom", key:"age_range"){ value } } } }''', {"c": cursor})["data"]["products"]
     products += p["nodes"]
@@ -122,6 +125,7 @@ for row in excel:
     ages = [a for a in row["age"] if a in choices["age"]]
     for a in row["age"]:
         if a not in choices["age"]: bad_values["age"][a] = bad_values["age"].get(a, 0) + 1
+    cats = [c for c in choices["category"] if c in row["category"]]          # menu order, choice values only
     have = {file_key(m["image"]["url"]) for m in pr["media"]["nodes"] if m.get("image")}
     new_imgs, seen = [], set()
     for u in row["gallery"]:
@@ -134,6 +138,8 @@ for row in excel:
         mfs.append({"key": "short_description", "type": "multi_line_text_field", "value": row["short"]})
     if skills and not same_list((pr["sk"] or {}).get("value"), skills):
         mfs.append({"key": "skills", "type": "list.single_line_text_field", "value": json.dumps(skills, ensure_ascii=False)})
+    if cats and not same_list((pr["ca"] or {}).get("value"), cats):
+        mfs.append({"key": "category", "type": "list.single_line_text_field", "value": json.dumps(cats, ensure_ascii=False)})
     if ages and not same_list((pr["ag"] or {}).get("value"), ages):
         mfs.append({"key": "age_range", "type": "list.single_line_text_field", "value": json.dumps(ages, ensure_ascii=False)})
     if mfs or new_imgs:
@@ -147,7 +153,7 @@ report = {"excel_rows_with_barcode": len(excel), "duplicate_barcodes_in_excel": 
           "to_update": len(plan), "with_new_images": sum(1 for p in plan if p["images"]),
           "new_images_total": sum(len(p["images"]) for p in plan),
           "metafield_writes": {k: sum(1 for p in plan for m in p["metafields"] if m["key"] == k)
-                               for k in ("short_description", "skills", "age_range")},
+                               for k in ("short_description", "skills", "age_range", "category")},
           "values_outside_choices": {k: dict(sorted(v.items(), key=lambda x: -x[1])) for k, v in bad_values.items()}}
 os.makedirs(os.path.join(ROOT, "docs", "import", "out"), exist_ok=True)
 json.dump({"report": report, "plan": plan}, open(os.path.join(ROOT, "docs", "import", "out", "product-data-report.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)

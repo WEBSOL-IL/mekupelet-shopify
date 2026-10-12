@@ -318,7 +318,8 @@
         "price_descending": "Price, high to low",
         "created_ascending": "Date, old to new",
         "created_descending": "Date, new to old"
-      }
+      },
+      "all": "All"
     }
   },
   "collections": {
