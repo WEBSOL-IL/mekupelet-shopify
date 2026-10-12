@@ -23,7 +23,7 @@ old = existing[0] if existing else None
 print("existing:", old)
 if old and old["type"]["name"] == d["type"]:
     print("already a", d["type"], "definition: only the choices would be updated")
-if old and old["metafieldsCount"]:
+if old and old["metafieldsCount"] and old["type"]["name"] != d["type"]:
     sys.exit(f"{old['metafieldsCount']} products carry a value; convert them first")
 
 new_input = {"ownerType": d["ownerType"], "namespace": d["namespace"], "key": d["key"], "name": d["name"], "type": d["type"],
