@@ -468,3 +468,13 @@ continues in a NEW session. Starting point for that session:
   "מתאים לגיל" now joins the list with ", " (a bare `.value` would concatenate the array).
   These two fields are the S&D filters "גיל" and "מיומנות" for collection package 5; the Home
   age pills / gift finder still use the age tags and can move to this field later.
+- Product data import from the merchant's Excel (2026-10-12, `scripts/import-product-data.py`,
+  matched by variant barcode or SKU; merchant instruction): 1,794 of 1,824 products matched (30
+  Shopify products without a matching barcode, 1,157 Excel rows without a product). Written:
+  gallery images appended (≈4,380 media, existing main image kept first), custom.short_description
+  on 1,794, custom.skills on 1,794 (choice list extended to 55 on the merchant's approval, second
+  pass rewrote the lists), custom.age_range on 66 (the Excel "גילאים - מדויק" column is filled for
+  86 rows only). Pass 1: 1,781 ok / 13 errors (duplicate list values, raw Hebrew/en-dash image
+  URLs); pass 2 after fixes: 1,191 ok / 0 errors. Final dry run: 1 image left (a URL Shopify
+  rejects). Lessons in the script: Shopify renames files (percent-encoding with "_", jpeg→jpg,
+  truncation), rejects duplicate list values, needs encoded originalSource URLs.
