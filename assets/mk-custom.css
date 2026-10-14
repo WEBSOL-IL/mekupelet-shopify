@@ -684,7 +684,8 @@
   font-weight: 600;
 }
 .mk-age-chips--badges .mk-age-chip:not([style]) { color: rgb(var(--mk-color-text)); }
-.product__info-wrapper .product__block--custom_liquid:has(> .mk-age-chips--badges) { margin-bottom: -1.2rem; }
+.product__info-wrapper .product__block--custom_liquid:has(> .mk-age-chips--badges) { margin-bottom: 0; }
+.product__info-wrapper .product__block--custom_liquid:has(> .mk-age-chips--badges) + .product__block--meta { margin-top: 1.2rem; }
 /* Gift-wrap checkbox on the product page (Hyper's gift-wrapping element): no gift-note field here */
 .product__info-wrapper .mk-product-gift-wrap gift-note { display: none; }
 .product__info-wrapper .mk-product-gift-wrap label { font-size: 1.6rem; }

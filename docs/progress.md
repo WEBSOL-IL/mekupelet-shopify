@@ -540,3 +540,13 @@ continues in a NEW session. Starting point for that session:
   "value|#hex" per line, defaults from the Home age pills). Hyper's `badges` block was already the
   first block. Verified on /products/261 (3 שנים pink, 4-5 שנים teal) at 1440/390. theme check
   reports the snippet as orphaned (it is referenced from template JSON only), 0 errors.
+- Product package 4, recommendations (2026-10-14): new `sections/mk-more-from-brand.liquid` (T3):
+  brand collection from `product.collections` (custom.collection_kind = brand), first 50 products,
+  same-age (custom.age_range) first, current product skipped, Hyper's product-slider + card-product
+  markup (5 columns, bottom nav + progress line like Home, 2 columns mobile), button to the brand
+  collection, hidden when the brand has < 3 other products. `related-products` renamed "מוצרים
+  שחשבנו שתאהב", 5 columns, bottom nav, and a logged core edit renders same-age recommendations
+  first and skips the gift-wrap product (it was recommended). Hyper's `recently-viewed-products`
+  added ("מוצרים שצפית בהם לאחרונה", 5 columns). Order: main → brand → recommendations → recently
+  viewed → reviews. Verified on /products/261 (djeco: 10 cards) after visiting /products/121790
+  (1 recently viewed) at 1440/390 (`docs/screenshots/product-feedback/brand-*.png`).

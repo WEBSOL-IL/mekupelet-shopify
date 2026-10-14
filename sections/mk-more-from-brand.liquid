@@ -1,0 +1,193 @@
+{%- comment -%}
+  MK "עוד מהמותג": products from the current product's brand collection (the automated vendor
+  collection, custom.collection_kind = brand) in Hyper's product slider, like the Home featured rows.
+  Products sharing an age range with the current product come first (optional). Reads at most the
+  first 50 products of the brand collection, never the catalog. Renders nothing without a brand
+  collection or with fewer than `min_products` other products.
+{%- endcomment -%}
+{%- liquid
+  assign brand_collection = null
+  for col in product.collections
+    if col.metafields.custom.collection_kind.value == 'brand'
+      assign brand_collection = col
+      break
+    endif
+  endfor
+-%}
+{%- if brand_collection and brand_collection.products_count > section.settings.min_products -%}
+  {%- liquid
+    assign limit = section.settings.limit
+    assign columns_desktop = section.settings.columns
+    assign columns_mobile = section.settings.columns_mobile | plus: 0
+    assign columns_tablet = columns_desktop | minus: 1
+    if columns_desktop < 3 or request.design_mode
+      assign columns_tablet = columns_desktop
+    endif
+    assign navigation_position = section.settings.navigation_position
+    assign pagination_type = 'progressbar'
+    assign current_ages = product.metafields.custom.age_range.value
+
+    # Same-age products first, then the rest, both in collection order, current product skipped
+    assign first_ids = ''
+    assign other_ids = ''
+    for item in brand_collection.products limit: 50
+      if item.id == product.id
+        continue
+      endif
+      assign is_match = false
+      if section.settings.prefer_same_age and current_ages != blank
+        for age in item.metafields.custom.age_range.value
+          if current_ages contains age
+            assign is_match = true
+            break
+          endif
+        endfor
+      endif
+      if is_match
+        assign first_ids = first_ids | append: item.id | append: ','
+      else
+        assign other_ids = other_ids | append: item.id | append: ','
+      endif
+    endfor
+    assign ordered_ids = first_ids | append: other_ids | split: ','
+    assign products_to_display = ordered_ids.size
+    if products_to_display > limit
+      assign products_to_display = limit
+    endif
+    assign enable_swipe_mobile = false
+    if section.settings.swipe_on_mobile and products_to_display > columns_mobile
+      assign enable_swipe_mobile = true
+    endif
+  -%}
+  {%- capture image_sizes -%}
+    (max-width: 767px) calc((100vw - 30px) / {{ columns_mobile }}),
+    (max-width: 1023px) calc((100vw - 30px) / {{ columns_tablet }}),
+    {{ settings.page_width | divided_by: columns_desktop }}px
+  {%- endcapture -%}
+  <script src="{{ 'product-slider.js' | asset_url }}" defer="defer"></script>
+  {% style %}
+    .section-{{ section.id }} {
+      --section-padding-top: {{ section.settings.padding_top }}px;
+      --section-padding-bottom: {{ section.settings.padding_bottom }}px;
+      --f-columns-mobile: {{ columns_mobile }};
+      --f-columns-md: {{ columns_tablet }};
+      --f-columns-lg: {{ columns_desktop }};
+    }
+  {% endstyle %}
+  {% render 'divider', show_divider: section.settings.show_section_divider, divider_width: section.settings.divider_width %}
+  <div
+    class="section section-{{ section.id }} section--padding mk-more-from-brand page-width page-width--{{ section.settings.container }} color-{{ section.settings.color_scheme }}"
+    data-id="{{ section.id }}"
+  >
+    {%- liquid
+      assign button_visible = false
+      if section.settings.button_label != blank
+        assign button_visible = true
+      endif
+    -%}
+    {% render 'section-heading',
+      section_settings: section.settings,
+      button_visible: button_visible,
+      button_label: section.settings.button_label,
+      button_link: brand_collection.url,
+      button_style: section.settings.button_style,
+      button_icon: section.settings.button_icon
+    %}
+    <product-slider
+      class="block{% if navigation_position == 'middle' %} swiper-show-nav-on-hover relative{% endif %}"
+      data-section-id="{{ section.id }}"
+      data-enable-slider="{{ section.settings.enable_slider }}"
+      data-items="{{ columns_desktop }}"
+      data-tablet-items="{{ columns_tablet }}"
+      data-total-items="{{ products_to_display }}"
+      data-pagination-type="{{ pagination_type }}"
+      data-navigation-position="{{ navigation_position }}"
+    >
+      <div
+        class="products-grid-wrap{% if section.settings.enable_slider %} swiper swiper-equal-height overflow-visible{% endif %}{% if enable_swipe_mobile %} swipe-mobile swipe-mobile--{{ columns_mobile }}-cols{% endif %}"
+        id="product-list-{{ section.id }}"
+      >
+        <div class="products-grid f-grid f-grid--gap-{{ section.settings.column_gap }} f-grid--row-gap-{{ section.settings.row_gap }}{% if section.settings.enable_slider %} swiper-wrapper{% endif %}{% if enable_swipe_mobile %} swipe-mobile__inner{% endif %}">
+          {%- assign rendered = 0 -%}
+          {%- for pid in ordered_ids -%}
+            {%- if rendered >= limit or pid == blank -%}
+              {%- break -%}
+            {%- endif -%}
+            {%- assign pid_num = pid | plus: 0 -%}
+            {%- for item in brand_collection.products limit: 50 -%}
+              {%- if item.id == pid_num -%}
+                {%- assign rendered = rendered | plus: 1 -%}
+                <div class="f-column swiper-slide">
+                  {% render 'card-product',
+                    view_context: 'recommendation',
+                    product: item,
+                    parent_color_scheme: section.settings.color_scheme,
+                    image_sizes: image_sizes,
+                    image_ratio: section.settings.pcard_image_ratio,
+                    section_index: section.index,
+                    index: rendered
+                  %}
+                </div>
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endfor -%}
+        </div>
+      </div>
+      {%- if section.settings.enable_slider -%}
+        <div class="swiper-controls{% if navigation_position == 'bottom' %} swiper-controls--grouped{% else %} swiper-controls--nav-floating{% endif %} swiper-controls--pagination-{{ pagination_type }} hidden{% if products_to_display > columns_tablet %} md:flex{% endif %}{% if products_to_display > columns_desktop %} lg:flex{% else %} lg:hidden{% endif %}">
+          <button class="swiper-button swiper-button-prev btn{% if navigation_position == 'middle' %} swiper-button--drop-shadow{% endif %}" name="previous" aria-label="{{ 'general.slider.previous_slide' | t }}">
+            <span class="btn__text">{% render 'icon-caret-left' %}</span>
+          </button>
+          {% if navigation_position == 'bottom' %}<div class="swiper-pagination"></div>{% endif %}
+          <button class="swiper-button swiper-button-next btn{% if navigation_position == 'middle' %} swiper-button--drop-shadow{% endif %}" name="next" aria-label="{{ 'general.slider.next_slide' | t }}">
+            <span class="btn__text">{% render 'icon-caret-right' %}</span>
+          </button>
+        </div>
+      {%- endif -%}
+      {%- if enable_swipe_mobile and section.settings.show_progress_bar -%}
+        <scroll-progress-bar class="md:hidden" target="product-list-{{ section.id }}">
+          <div class="progress-container"><div class="progress-bar no-empty"></div></div>
+        </scroll-progress-bar>
+      {%- endif -%}
+    </product-slider>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "MK More from the brand",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": { "templates": ["product"] },
+  "settings": [
+    { "type": "paragraph", "content": "Products from the current product's brand collection (automated vendor collection with custom.collection_kind = brand). " },
+    { "type": "select", "id": "container", "label": "t:general.container.label", "options": [{ "value": "full", "label": "t:general.container.options__full.label" }, { "value": "fixed", "label": "t:general.container.options__fixed.label" }], "default": "fixed" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "t:general.colors.label", "default": "scheme-1" },
+    { "type": "select", "id": "section_header_alignment", "label": "Heading alignment", "options": [{ "value": "left", "label": "Start" }, { "value": "center", "label": "Center" }], "default": "center" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "עוד מהמותג" },
+    { "type": "select", "id": "heading_size", "label": "Heading size", "options": [{ "value": "h3", "label": "Small" }, { "value": "h2", "label": "Medium" }, { "value": "h1", "label": "Large" }], "default": "h1" },
+    { "type": "text", "id": "button_label", "label": "Button label (links to the brand collection)", "default": "לכל המוצרים של המותג" },
+    { "type": "select", "id": "button_style", "label": "Button style", "options": [{ "value": "btn--plain", "label": "Plain" }, { "value": "btn--primary", "label": "Primary" }, { "value": "btn--secondary", "label": "Secondary" }], "default": "btn--plain" },
+    { "type": "select", "id": "button_icon", "label": "Button icon", "options": [{ "value": "none", "label": "None" }, { "value": "caret-left", "label": "Caret" }], "default": "caret-left" },
+    { "type": "checkbox", "id": "prefer_same_age", "label": "Show products for the same age first", "default": true },
+    { "type": "range", "id": "limit", "min": 4, "max": 20, "step": 1, "label": "Maximum products", "default": 10 },
+    { "type": "range", "id": "min_products", "min": 1, "max": 10, "step": 1, "label": "Hide when the brand has fewer other products than", "default": 3 },
+    { "type": "range", "id": "columns", "min": 2, "max": 6, "step": 1, "label": "Columns (desktop)", "default": 5 },
+    { "type": "select", "id": "columns_mobile", "label": "Columns (mobile)", "options": [{ "value": "1", "label": "1" }, { "value": "2", "label": "2" }], "default": "2" },
+    { "type": "select", "id": "column_gap", "label": "Column gap", "options": [{ "value": "small", "label": "Small" }, { "value": "medium", "label": "Medium" }, { "value": "large", "label": "Large" }], "default": "medium" },
+    { "type": "select", "id": "row_gap", "label": "Row gap", "options": [{ "value": "inherit", "label": "Same as columns" }, { "value": "small", "label": "Small" }, { "value": "medium", "label": "Medium" }], "default": "inherit" },
+    { "type": "select", "id": "pcard_image_ratio", "label": "Card image ratio", "options": [{ "value": "", "label": "Theme setting" }, { "value": "1/1", "label": "1:1" }, { "value": "3/4", "label": "3:4" }, { "value": "4/3", "label": "4:3" }], "default": "" },
+    { "type": "checkbox", "id": "enable_slider", "label": "Slider on desktop", "default": true },
+    { "type": "select", "id": "navigation_position", "label": "Slider navigation", "options": [{ "value": "bottom", "label": "Bottom" }, { "value": "middle", "label": "Middle" }], "default": "bottom" },
+    { "type": "checkbox", "id": "swipe_on_mobile", "label": "Swipe on mobile", "default": true },
+    { "type": "checkbox", "id": "show_progress_bar", "label": "Progress bar on mobile", "default": true },
+    { "type": "header", "content": "t:general.padding.section_heading.content" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "t:general.padding.top.label", "default": 60 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "t:general.padding.bottom.label", "default": 10 },
+    { "type": "checkbox", "id": "show_section_divider", "label": "Section divider", "default": false },
+    { "type": "select", "id": "divider_width", "label": "Divider width", "options": [{ "value": "fixed", "label": "Fixed" }, { "value": "full", "label": "Full" }], "default": "fixed" }
+  ],
+  "presets": [{ "name": "MK More from the brand" }]
+}
+{% endschema %}
