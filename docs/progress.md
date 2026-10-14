@@ -550,3 +550,11 @@ continues in a NEW session. Starting point for that session:
   added ("מוצרים שצפית בהם לאחרונה", 5 columns). Order: main → brand → recommendations → recently
   viewed → reviews. Verified on /products/261 (djeco: 10 cards) after visiting /products/121790
   (1 recently viewed) at 1440/390 (`docs/screenshots/product-feedback/brand-*.png`).
+- Product package 5, linked products (2026-10-14): definitions `custom.linked_products`
+  (list.product_reference, "מוצרים קשורים") and `custom.variant_label` (single line, "תווית
+  וריאציה"), both pinned + storefront read; `snippets/mk-linked-products.liquid` in a custom_liquid
+  block after the price: current product first (framed, bold label) then the linked ones, 8rem
+  thumbnails + label (variant_label or title), sold-out dimmed, locale
+  `products.product.linked_products_label` = "דגמים נוספים". Demo group set on the three potty
+  books (121790 טוסיקים / 121783 דובי / 121779 גילי); merchant fills real groups (JABADABADO
+  kitchen). Verified at 1440/390 (`docs/screenshots/product-feedback/linked-*.png`).

@@ -213,6 +213,12 @@
           "settings": {
             "custom_liquid": "{% render 'mk-age-chips' %}"
           }
+        },
+        "linked_products": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'mk-linked-products' %}"
+          }
         }
       },
       "block_order": [
@@ -225,6 +231,7 @@
         "inventory",
         "price",
         "divider_top",
+        "linked_products",
         "variant_picker",
         "buy_buttons",
         "gift_wrap",

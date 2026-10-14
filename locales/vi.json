@@ -277,7 +277,8 @@
       "shipping_policy_html": "<a href=\"{{ link }}\">Phí vận chuyển</a> được tính khi thanh toán.",
       "more_products_in": "Thêm sản phẩm trong:",
       "description_tab": "Mô tả",
-      "age_chips_label": "Suitable for ages"
+      "age_chips_label": "Suitable for ages",
+      "linked_products_label": "More options"
     },
     "compare": {
       "alert_message": "Bạn chỉ có thể so sánh tối đa {{ maximum }} sản phẩm.",

@@ -268,7 +268,8 @@
       "shipping_policy_html": "<a href=\"{{ link }}\">המשלוח</a> מחושב בתשלום.",
       "more_products_in": "למוצרים נוספים:",
       "description_tab": "תיאור פריט",
-      "age_chips_label": "מתאים לגיל"
+      "age_chips_label": "מתאים לגיל",
+      "linked_products_label": "דגמים נוספים"
     },
     "compare": {
       "alert_message": "ניתן להוסיף להשוואה עד {{ maximum }} מוצרים בלבד.",

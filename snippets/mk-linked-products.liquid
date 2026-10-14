@@ -1,0 +1,36 @@
+{%- comment -%}
+  MK: products linked through custom.linked_products (list of products) shown like a variant picker:
+  the current product plus every linked one as a thumbnail with its custom.variant_label (or title),
+  each a link to that product. Fill the list on every product of the group. Renders nothing without
+  linked products. Usage from a main-product custom_liquid block: {% render 'mk-linked-products' %}
+{%- endcomment -%}
+{%- liquid
+  assign linked = product.metafields.custom.linked_products.value
+-%}
+{%- if linked != blank and linked.size > 0 -%}
+  <div class="mk-linked-products">
+    <span class="mk-linked-products__label">{{ 'products.product.linked_products_label' | t }}:</span>
+    <ul class="mk-linked-products__list list-unstyled" role="list">
+      {%- comment -%} current product first, then the linked ones in the order of the list {%- endcomment -%}
+      <li class="mk-linked-products__item">
+        <a class="mk-linked-product mk-linked-product--current" href="{{ product.url }}" aria-current="page">
+          {%- if product.featured_image -%}
+            {{ product.featured_image | image_url: width: 160 | image_tag: loading: 'lazy', widths: '80, 160', sizes: '8rem', alt: '', class: 'mk-linked-product__image' }}
+          {%- endif -%}
+          <span class="mk-linked-product__label">{{ product.metafields.custom.variant_label.value | default: product.title | escape }}</span>
+        </a>
+      </li>
+      {%- for item in linked -%}
+        {%- if item.id == product.id -%}{%- continue -%}{%- endif -%}
+        <li class="mk-linked-products__item">
+          <a class="mk-linked-product{% unless item.available %} mk-linked-product--soldout{% endunless %}" href="{{ item.url }}">
+            {%- if item.featured_image -%}
+              {{ item.featured_image | image_url: width: 160 | image_tag: loading: 'lazy', widths: '80, 160', sizes: '8rem', alt: '', class: 'mk-linked-product__image' }}
+            {%- endif -%}
+            <span class="mk-linked-product__label">{{ item.metafields.custom.variant_label.value | default: item.title | escape }}</span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}

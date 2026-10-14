@@ -277,7 +277,8 @@
       "shipping_policy_html": "<a href=\"{{ link }}\">Versandkosten</a> werden an der Kasse berechnet.",
       "more_products_in": "Weitere Produkte in:",
       "description_tab": "Beschreibung",
-      "age_chips_label": "Suitable for ages"
+      "age_chips_label": "Suitable for ages",
+      "linked_products_label": "More options"
     },
     "compare": {
       "alert_message": "Sie können maximal {{ maximum }} Produkte zum Vergleich hinzufügen.",

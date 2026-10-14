@@ -277,7 +277,8 @@
       "shipping_policy_html": "<a href=\"{{ link }}\">Envío</a> calculado al finalizar la compra.",
       "more_products_in": "Más productos en:",
       "description_tab": "Descripción",
-      "age_chips_label": "Suitable for ages"
+      "age_chips_label": "Suitable for ages",
+      "linked_products_label": "More options"
     },
     "compare": {
       "alert_message": "Solo puedes añadir un máximo de {{ maximum }} productos para comparar.",
