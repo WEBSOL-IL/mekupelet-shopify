@@ -337,7 +337,7 @@
       ],
       "settings": {
         "section_header_alignment": "center",
-        "heading": "חוות דעת של לקוחות",
+        "heading": "ביקורות",
         "layout": "standard",
         "card_color_scheme": "scheme-1",
         "card_image_ratio": "1/1",
@@ -347,7 +347,7 @@
         "columns_desktop": 3,
         "enable_slider": true,
         "columns_mobile": "1",
-        "padding_top": 40,
+        "padding_top": 60,
         "padding_bottom": 40
       }
     },
@@ -410,11 +410,57 @@
         "show_section_divider": false,
         "divider_width": "fixed"
       }
+    },
+    "mk_product_videos": {
+      "type": "mk-product-media",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "section_header_alignment": "center",
+        "subheading": "",
+        "heading_size": "h1",
+        "description": "",
+        "columns": 4,
+        "columns_mobile": "2",
+        "column_gap": "medium",
+        "enable_slider": true,
+        "padding_top": 60,
+        "padding_bottom": 10,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "source": "videos",
+        "heading": "סרטונים",
+        "ratio": "9 / 16"
+      }
+    },
+    "mk_customer_photos": {
+      "type": "mk-product-media",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "section_header_alignment": "center",
+        "subheading": "",
+        "heading_size": "h1",
+        "description": "",
+        "columns": 5,
+        "columns_mobile": "2",
+        "column_gap": "medium",
+        "enable_slider": true,
+        "padding_top": 60,
+        "padding_bottom": 10,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "source": "photos",
+        "heading": "תמונות אמיתיות ששלחתם לי",
+        "ratio": "1 / 1"
+      }
     }
   },
   "order": [
     "breadcrumbs",
     "main",
+    "mk_product_videos",
+    "mk_customer_photos",
     "mk_more_from_brand",
     "related-products",
     "recently_viewed",

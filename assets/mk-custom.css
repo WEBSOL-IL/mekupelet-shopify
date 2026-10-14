@@ -726,6 +726,14 @@
   .product__block--grid-icon-box .grid-icon-box { padding: 0.6rem 0.2rem; font-size: 1.2rem; line-height: 1.6rem; }
 }
 
+/* 8b. MK product media rows (customer photos / reels): fixed ratio cards, media fills them */
+.mk-product-media__item { position: relative; aspect-ratio: var(--mk-media-ratio, 1 / 1); overflow: hidden; background: rgb(var(--mk-color-page)); }
+.mk-product-media__item img,
+.mk-product-media__item video,
+.mk-product-media__item .mk-product-media__video,
+.mk-product-media__item .media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.mk-product-media__item .media img { object-fit: cover; }
+
 /* 9. Migrated content pages: icon columns in the WhatsApp block stay icon-sized (sections named "whatsapp") */
 .shopify-section[id$="__whatsapp"] .multicolumn .card-media__media {
   width: 8rem;

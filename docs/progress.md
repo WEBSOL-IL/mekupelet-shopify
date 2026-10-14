@@ -558,3 +558,12 @@ continues in a NEW session. Starting point for that session:
   `products.product.linked_products_label` = "דגמים נוספים". Demo group set on the three potty
   books (121790 טוסיקים / 121783 דובי / 121779 גילי); merchant fills real groups (JABADABADO
   kitchen). Verified at 1440/390 (`docs/screenshots/product-feedback/linked-*.png`).
+- Product package 6, what needs no app (2026-10-14): reviews section heading "ביקורות" + 60px
+  above (the review layout itself waits on the Judge.me / own-section decision); definitions
+  `custom.customer_photos` (list.file_reference, images) and `custom.product_videos`
+  (list.file_reference, videos) and one section `sections/mk-product-media.liquid` with a `source`
+  setting, two instances in product.json ("סרטונים" 9:16, 4 columns; "תמונות אמיתיות ששלחתם לי"
+  1:1, 5 columns), Hyper slider + video snippet, hidden when the list is empty. Demo: one uploaded
+  image (`mk-demo-customer-photo.png`, Files) on /products/121790. Order now: main → videos →
+  customer photos → brand → recommendations → recently viewed → reviews. Still open: reviews app,
+  loyalty app (club points), both need the merchant's choice.
