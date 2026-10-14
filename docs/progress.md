@@ -567,3 +567,11 @@ continues in a NEW session. Starting point for that session:
   image (`mk-demo-customer-photo.png`, Files) on /products/121790. Order now: main → videos →
   customer photos → brand → recommendations → recently viewed → reviews. Still open: reviews app,
   loyalty app (club points), both need the merchant's choice.
+- Home feedback round 2 (2026-10-14, Word doc "תיקונים לעמוד הבית"): plan only in
+  `docs/home-feedback-plan-2.md` (16 notes audited against Hyper and the live Home; baseline
+  screenshots in `docs/screenshots/home-feedback-2/before/`). Findings: the toys menu order and the
+  scroll progress bar are already live; price order, mobile card gap, heading/link rows, dropdown
+  alignment + underline, drawer footer band, newsletter checkbox are CSS/settings (package 1); the
+  age section becomes Hyper `grid-banner` (6 photo tiles) or `banners-with-categories` pills; "לפי
+  גיל" becomes a 2-column mega menu with `custom_card` photos; the hidden brand section is a
+  disabled `featured-collection` with banner. Waiting on the merchant's answers (6 questions).
