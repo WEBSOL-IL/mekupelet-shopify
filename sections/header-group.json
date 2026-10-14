@@ -134,10 +134,39 @@
             "hl_link_style": "star_twinkle",
             "hl_link_color": "#e3262f"
           }
+        },
+        "mega_age_cards": {
+          "type": "custom_card",
+          "settings": {
+            "menu_title": "לפי גיל",
+            "menu_columns": 2,
+            "enable_hl_link": false,
+            "hl_link_style": "text_color",
+            "hl_link_color": "",
+            "promotions_width": 40,
+            "promotion_columns": 2,
+            "heading_1": "0-6 חודשים",
+            "heading_size_1": "h5",
+            "description_1": "",
+            "promotion_link_1": "/collections/all?filter.p.m.custom.age_range=%D7%92%D7%99%D7%9C%20%D7%9C%D7%99%D7%93%D7%94&filter.p.m.custom.age_range=0-3%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D&filter.p.m.custom.age_range=3-6%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D",
+            "heading_2": "6-12 חודשים",
+            "heading_size_2": "h5",
+            "description_2": "",
+            "promotion_link_2": "/collections/all?filter.p.m.custom.age_range=6-9%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D&filter.p.m.custom.age_range=9-12%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D",
+            "heading_3": "12-18 חודשים",
+            "heading_size_3": "h5",
+            "description_3": "",
+            "promotion_link_3": "/collections/all?filter.p.m.custom.age_range=12-18%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D",
+            "heading_4": "שנה וחצי-שנתיים",
+            "heading_size_4": "h5",
+            "description_4": "",
+            "promotion_link_4": "/collections/all?filter.p.m.custom.age_range=18-24%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D&filter.p.m.custom.age_range=%D7%A9%D7%A0%D7%AA%D7%99%D7%99%D7%9D"
+          }
         }
       },
       "block_order": [
         "mega_toys_products",
+        "mega_age_cards",
         "mega_skills_products",
         "mega_boxes_products",
         "mega_home_products",

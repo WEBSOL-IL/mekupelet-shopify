@@ -118,3 +118,116 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Tiles layout (design "אריחי תמונה" 2026-10-14, 1280 artboard: r28 tinted tiles in a 3 x 2 grid,
+   20px gap, label pill 18/700 with a white chevron circle at the bottom-start corner).
+   Mobile is not in the design: 2 columns, 4:3 tiles, 14px pill (assumption). */
+.mk-age-tiles__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.6rem;
+  margin-block-end: 2.4rem;
+}
+.mk-age-pills--tiles .mk-age-pills__heading {
+  margin: 0;
+  text-align: start;
+}
+.mk-age-tiles__subheading {
+  margin: 0.4rem 0 0;
+  font-size: 1.6rem;
+  color: rgba(var(--color-foreground), 0.7);
+}
+.mk-age-tiles__link {
+  flex-shrink: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+  color: rgb(var(--color-foreground));
+}
+.mk-age-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin: 0;
+  padding: 0;
+}
+.mk-age-tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  border-radius: 2rem;
+  overflow: hidden;
+  background: var(--mk-tile-tint, #f3f3f3);
+  color: inherit;
+  text-decoration: none;
+}
+.mk-age-tile__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+/* Product photos (white background): keep the tint as a frame */
+.mk-age-tile:not(.mk-age-tile--custom) .mk-age-tile__image {
+  object-fit: contain;
+  padding: 8% 8% 22%;
+  mix-blend-mode: multiply;
+}
+.mk-age-tile:hover .mk-age-tile__image,
+.mk-age-tile:focus-visible .mk-age-tile__image {
+  transform: scale(1.04);
+}
+.mk-age-tile__pill {
+  position: absolute;
+  inset-block-end: 1rem;
+  inset-inline-start: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: calc(100% - 2rem);
+  padding: 0.6rem 1.2rem 0.6rem 0.8rem;
+  border-radius: 10rem;
+  background: var(--mk-pill-bg);
+  color: var(--mk-pill-text, #1a1a1a);
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+.mk-age-tile__label { unicode-bidi: plaintext; }
+.mk-age-tile__chevron {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: #fff;
+  color: #1a1a1a;
+}
+.mk-age-tile__chevron .icon { width: 1.1rem; height: 1.1rem; }
+.mk-age-tile:focus-visible {
+  outline: 0.2rem solid rgb(var(--color-keyboard-focus, var(--color-foreground)));
+  outline-offset: 0.3rem;
+}
+@media (min-width: 768px) {
+  .mk-age-tiles {
+    grid-template-columns: repeat(var(--mk-age-pills-columns, 3), minmax(0, 1fr));
+    gap: 2rem;
+  }
+  .mk-age-tile { aspect-ratio: 3 / 2; border-radius: 2.8rem; }
+  .mk-age-tile__pill {
+    inset-block-end: 1.8rem;
+    inset-inline-start: 1.8rem;
+    gap: 1rem;
+    padding: 1rem 2rem 1rem 1.4rem;
+    font-size: 1.8rem;
+  }
+  .mk-age-tile__chevron { width: 3rem; height: 3rem; }
+  .mk-age-tile__chevron .icon { width: 1.4rem; height: 1.4rem; }
+  .mk-age-tiles__header { margin-block-end: 3.2rem; }
+  .mk-age-tiles__subheading { font-size: 1.7rem; }
+  .mk-age-tiles__link { font-size: 1.6rem; font-weight: 500; }
+}

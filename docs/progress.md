@@ -586,3 +586,16 @@ continues in a NEW session. Starting point for that session:
   hidden brand-spotlight section `mk_brand_spotlight` (featured-collection with banner, JABADABADO
   placeholder, `disabled: true`) after the brands grid. The announcement bar text (299 ₪) pulled
   from the editor. Not done: the progress line on the category circles (optional core edit).
+- Home round 2, packages 2 + 3 (2026-10-14): age section rebuilt per the merchant's mockup
+  ("אריחי תמונה" zip): `mk-age-pills` got a `layout: tiles` mode (heading + sub-line + end link,
+  3 x 2 tinted r28 tiles, label pill with a white chevron circle; mobile 2 columns 4:3 as an
+  assumption), block settings `image` / `product` (photo fallback = representative product's
+  image, contained on the tint) / `tint`. Links now go to `/collections/all` filtered by
+  `custom.age_range` (the old `age-*` collections never existed, the pills were 404s): 0-6 = גיל
+  לידה + 0-3 + 3-6 חודשים … 3+ = 3 שנים, 4-5, 6-7, 8 ומעלה. Main menu: "לפי גיל" is now two
+  columns, "לפי גיל" (the 6 groups, HTTP links to the filtered pages) and "מתנות לפי גיל" (the 6
+  gift collections), written with `create-menus.py --only main-menu --execute`; header block
+  `mega_age_cards` (custom_card, 2 columns, headings + links for 4 cards, photos pending) turns it
+  into a mega menu. Hidden brand section left as is (merchant: later). Reviews: Judge.me free plan
+  recommended, install steps in the checklist (§9e). Screenshots
+  `docs/screenshots/home-feedback-2/pkg2-3/`.

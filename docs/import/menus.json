@@ -257,28 +257,64 @@
           "c": "gifts-by-age",
           "i": [
             {
-              "t": "מתנות ללידה",
-              "c": "gifts-for-newborns"
+              "t": "לפי גיל",
+              "u": "/collections/all",
+              "i": [
+                {
+                  "t": "0-6 חודשים",
+                  "u": "/collections/all?filter.p.m.custom.age_range=%D7%92%D7%99%D7%9C%20%D7%9C%D7%99%D7%93%D7%94&filter.p.m.custom.age_range=0-3%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D&filter.p.m.custom.age_range=3-6%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D"
+                },
+                {
+                  "t": "6-12 חודשים",
+                  "u": "/collections/all?filter.p.m.custom.age_range=6-9%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D&filter.p.m.custom.age_range=9-12%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D"
+                },
+                {
+                  "t": "12-18 חודשים",
+                  "u": "/collections/all?filter.p.m.custom.age_range=12-18%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D"
+                },
+                {
+                  "t": "שנה וחצי-שנתיים",
+                  "u": "/collections/all?filter.p.m.custom.age_range=18-24%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D&filter.p.m.custom.age_range=%D7%A9%D7%A0%D7%AA%D7%99%D7%99%D7%9D"
+                },
+                {
+                  "t": "2-3 שנים",
+                  "u": "/collections/all?filter.p.m.custom.age_range=%D7%A9%D7%A0%D7%AA%D7%99%D7%99%D7%9D&filter.p.m.custom.age_range=3%20%D7%A9%D7%A0%D7%99%D7%9D"
+                },
+                {
+                  "t": "3 שנים ומעלה",
+                  "u": "/collections/all?filter.p.m.custom.age_range=3%20%D7%A9%D7%A0%D7%99%D7%9D&filter.p.m.custom.age_range=4-5%20%D7%A9%D7%A0%D7%99%D7%9D&filter.p.m.custom.age_range=6-7%20%D7%A9%D7%A0%D7%99%D7%9D&filter.p.m.custom.age_range=8%20%D7%95%D7%9E%D7%A2%D7%9C%D7%94"
+                }
+              ]
             },
             {
-              "t": "מתנות לגיל שנה",
-              "c": "gifts-age-1"
-            },
-            {
-              "t": "מתנות לגיל שנתיים",
-              "c": "gifts-age-2"
-            },
-            {
-              "t": "מתנות לגיל שלוש",
-              "c": "gifts-age-3"
-            },
-            {
-              "t": "מתנות לגיל ארבע",
-              "c": "gifts-age-4"
-            },
-            {
-              "t": "מתנות לגיל חמש",
-              "c": "gifts-age-5"
+              "t": "מתנות לפי גיל",
+              "c": "gifts-by-age",
+              "i": [
+                {
+                  "t": "מתנות ללידה",
+                  "c": "gifts-for-newborns"
+                },
+                {
+                  "t": "מתנות לגיל שנה",
+                  "c": "gifts-age-1"
+                },
+                {
+                  "t": "מתנות לגיל שנתיים",
+                  "c": "gifts-age-2"
+                },
+                {
+                  "t": "מתנות לגיל שלוש",
+                  "c": "gifts-age-3"
+                },
+                {
+                  "t": "מתנות לגיל ארבע",
+                  "c": "gifts-age-4"
+                },
+                {
+                  "t": "מתנות לגיל חמש",
+                  "c": "gifts-age-5"
+                }
+              ]
             }
           ]
         },

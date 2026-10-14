@@ -1,22 +1,90 @@
 {{ 'mk-age-pills.css' | asset_url | stylesheet_tag }}
 {%- liquid
   assign container = section.settings.container
+  assign layout = section.settings.layout | default: 'pills'
   assign image = section.settings.image
   assign image_position = section.settings.image_position
+  assign tile_count = section.blocks.size
+  assign tile_columns = section.settings.columns_desktop
+  if layout == 'tiles'
+    assign tile_columns = 3
+    if tile_count == 4 or tile_count == 8
+      assign tile_columns = 4
+    endif
+  endif
 -%}
 {% style %}
   #section-{{ section.id }} {
     --section-padding-top: {{ section.settings.padding_top }}px;
     --section-padding-bottom: {{ section.settings.padding_bottom }}px;
-    --mk-age-pills-columns: {{ section.settings.columns_desktop }};
+    --mk-age-pills-columns: {{ tile_columns }};
   }
 {% endstyle %}
 <div
   id="section-{{ section.id }}"
-  class="mk-age-pills section color-{{ section.settings.color_scheme }}"
+  class="mk-age-pills mk-age-pills--{{ layout }} section color-{{ section.settings.color_scheme }}"
   data-section-id="{{ section.id }}"
 >
   <div class="{% if container == 'fixed' %}page-width{% endif %}">
+    {%- if layout == 'tiles' -%}
+      {%- comment -%}
+        Tiles (design "רכישה לפי גיל – אריחי תמונה", 2026-10-14): header row with heading, sub-line and a
+        link at the end; 3 x 2 grid of tinted tiles, each with a photo (block image, else the
+        representative product's image), and the age label as a coloured pill with a chevron.
+      {%- endcomment -%}
+      {%- if section.settings.heading != blank or section.settings.button_label != blank -%}
+        <div class="mk-age-tiles__header">
+          <div class="mk-age-tiles__header-text">
+            {%- if section.settings.heading != blank -%}
+              <h2 class="mk-age-pills__heading {{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
+            {%- endif -%}
+            {%- if section.settings.subheading != blank -%}
+              <p class="mk-age-tiles__subheading">{{ section.settings.subheading | escape }}</p>
+            {%- endif -%}
+          </div>
+          {%- if section.settings.button_label != blank -%}
+            <a class="mk-age-tiles__link" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label | escape }}</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+      <ul class="mk-age-tiles list-unstyled" role="list">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign tile_image = block.settings.image
+            assign tile_alt = block.settings.label
+            if tile_image == blank and block.settings.product != blank
+              assign tile_image = block.settings.product.featured_image
+              assign tile_alt = block.settings.product.title
+            endif
+          -%}
+          <li class="mk-age-tiles__item" {{ block.shopify_attributes }}>
+            <a
+              class="mk-age-tile{% if tile_image == blank %} mk-age-tile--no-image{% elsif block.settings.image != blank %} mk-age-tile--custom{% endif %}"
+              style="--mk-tile-tint: {{ block.settings.tint | default: '#f3f3f3' }}; --mk-pill-bg: {{ block.settings.color | default: '#1c1c1c' }}; --mk-pill-text: {{ block.settings.text_color | default: '#1a1a1a' }};"
+              {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% else %}role="link" aria-disabled="true"{% endif %}
+            >
+              {%- if tile_image != blank -%}
+                {{
+                  tile_image
+                  | image_url: width: 900
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '300, 450, 600, 750, 900',
+                    sizes: '(min-width: 1024px) 400px, (min-width: 768px) 33vw, 50vw',
+                    alt: tile_alt,
+                    class: 'mk-age-tile__image',
+                    is: 'image-lazy'
+                }}
+              {%- endif -%}
+              <span class="mk-age-tile__pill">
+                <span class="mk-age-tile__label">{{ block.settings.label | escape }}</span>
+                <span class="mk-age-tile__chevron" aria-hidden="true">{% render 'icon-caret-left', size: 'small' %}</span>
+              </span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- else -%}
     <div class="mk-age-pills__layout mk-age-pills__layout--image-{{ image_position }}{% if image == blank %} mk-age-pills__layout--no-image{% endif %}">
       {%- if image != blank -%}
         <div class="mk-age-pills__media">
@@ -56,6 +124,7 @@
         </ul>
       </div>
     </div>
+    {%- endif -%}
   </div>
 </div>
 
@@ -68,6 +137,16 @@
     "groups": ["header", "footer", "custom.overlay"]
   },
   "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        { "value": "pills", "label": "Pills (optional image beside them)" },
+        { "value": "tiles", "label": "Photo tiles (3 per row, label pill on each)" }
+      ],
+      "default": "pills"
+    },
     {
       "type": "select",
       "id": "container",
@@ -102,14 +181,31 @@
       "default": "h3"
     },
     {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sub-line (tiles layout)",
+      "default": "כל שלב – והצעצועים שלו"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Link label at the end of the heading row (tiles layout)",
+      "default": "לכל הצעצועים"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link"
+    },
+    {
       "type": "image_picker",
       "id": "image",
-      "label": "Image"
+      "label": "Image (pills layout)"
     },
     {
       "type": "select",
       "id": "image_position",
-      "label": "Image position (desktop)",
+      "label": "Image position (desktop, pills layout)",
       "options": [
         { "value": "start", "label": "Start" },
         { "value": "end", "label": "End" }
@@ -122,7 +218,7 @@
       "min": 1,
       "max": 3,
       "step": 1,
-      "label": "Pill columns (desktop)",
+      "label": "Pill columns (desktop, pills layout)",
       "default": 3
     },
     {
@@ -153,14 +249,19 @@
   "blocks": [
     {
       "type": "pill",
-      "name": "Age pill",
+      "name": "Age",
       "limit": 8,
       "settings": [
-        { "type": "image_picker", "id": "icon", "label": "Icon (optional, square SVG or PNG)" },
         { "type": "text", "id": "label", "label": "Label", "default": "0-6 חודשים" },
-        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "url", "id": "link", "label": "Link", "info": "Collection filtered by age: /collections/all?filter.p.m.custom.age_range=<value> (repeat the parameter for several values)." },
         { "type": "color", "id": "color", "label": "Pill color", "info": "Leave empty to use the scheme button color." },
-        { "type": "color", "id": "text_color", "label": "Pill text color", "default": "#ffffff" }
+        { "type": "color", "id": "text_color", "label": "Pill text color", "default": "#ffffff" },
+        { "type": "header", "content": "Photo tiles layout" },
+        { "type": "image_picker", "id": "image", "label": "Photo", "info": "Shown on the tile. Without it the representative product's image is used." },
+        { "type": "product", "id": "product", "label": "Representative product (photo fallback)" },
+        { "type": "color", "id": "tint", "label": "Tile background", "default": "#f3f3f3" },
+        { "type": "header", "content": "Pills layout" },
+        { "type": "image_picker", "id": "icon", "label": "Icon (optional, square SVG or PNG)" }
       ]
     }
   ],
@@ -168,12 +269,12 @@
     {
       "name": "MK Age pills",
       "blocks": [
-        { "type": "pill", "settings": { "label": "0-6 חודשים", "color": "#12b15c" } },
-        { "type": "pill", "settings": { "label": "6-12 חודשים", "color": "#ff661f" } },
-        { "type": "pill", "settings": { "label": "שנה-שנה וחצי (1-1.5)", "color": "#f2c124" } },
-        { "type": "pill", "settings": { "label": "שנה וחצי (1.5-2)", "color": "#8861ec" } },
-        { "type": "pill", "settings": { "label": "שנתיים-שלוש (2-3)", "color": "#f58ec5" } },
-        { "type": "pill", "settings": { "label": "3+ YEARS", "color": "#3bd6d8" } }
+        { "type": "pill", "settings": { "label": "0-6 חודשים", "color": "#13b25b", "tint": "#e2f5ea" } },
+        { "type": "pill", "settings": { "label": "6-12 חודשים", "color": "#ff6622", "tint": "#ffe8dc" } },
+        { "type": "pill", "settings": { "label": "12-18 חודשים", "color": "#f2c424", "tint": "#fdf3d3" } },
+        { "type": "pill", "settings": { "label": "שנה וחצי-שנתיים", "color": "#8a63ee", "tint": "#eee7fd" } },
+        { "type": "pill", "settings": { "label": "2-3 שנים", "color": "#f58fc6", "tint": "#fde7f2" } },
+        { "type": "pill", "settings": { "label": "3 שנים ומעלה", "color": "#3dd8d8", "tint": "#ddf7f7" } }
       ]
     }
   ]
