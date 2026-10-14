@@ -12,13 +12,13 @@
     "breadcrumbs": {
       "type": "breadcrumbs",
       "custom_css": [
-        "@media (min-width: 1280px) {.breadcrumbs {padding-inline: 5rem; }}"
+        "@media (min-width: 1280px) {.breadcrumbs {padding-inline: 7rem; }}"
       ],
       "settings": {
         "container": "fixed",
         "text_alignment": "start",
         "padding_top": 16,
-        "padding_bottom": 20
+        "padding_bottom": 24
       }
     },
     "main": {
@@ -50,7 +50,7 @@
           "type": "inventory",
           "settings": {
             "text_style": "body",
-            "inventory_threshold": 10,
+            "inventory_threshold": 8,
             "show_inventory_quantity": true
           }
         },
@@ -87,7 +87,7 @@
           "type": "line_item_property",
           "settings": {
             "property_type": "checkbox",
-            "property_name": "אריזת מתנה בתוספת 3 ש\"ח",
+            "property_name": "הוספת אריזת מתנה בתוספת 3 ₪",
             "property_placeholder": "",
             "required": false,
             "property_options": "",
@@ -140,25 +140,13 @@
             "show_below_product_media": false
           }
         },
-        "tab_development": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "מדד מקופלת להתפתחות הילד",
-            "heading_size": "h5",
-            "icon": "none",
-            "content": "{{ product.metafields.custom.development_index | metafield_tag }}",
-            "page": "",
-            "default_open": false,
-            "show_below_product_media": false
-          }
-        },
         "tab_age": {
           "type": "collapsible_tab",
           "settings": {
             "heading": "מתאים לגיל",
             "heading_size": "h5",
             "icon": "none",
-            "content": "<p>{{ product.metafields.custom.age_range.value | join: ', ' }}</p>",
+            "content": "{{ product.metafields.custom.age_range | metafield_tag }}",
             "page": "",
             "default_open": false,
             "show_below_product_media": false
@@ -199,7 +187,7 @@
           "settings": {
             "show_below_product_media": true,
             "columns_desktop": 3,
-            "column_gap": "small",
+            "column_gap": "medium",
             "row_gap": "small",
             "columns_mobile": "3",
             "swipe_on_mobile": false,
@@ -237,7 +225,6 @@
         "pickup_availability",
         "tab_description",
         "tab_shipping",
-        "tab_development",
         "tab_age",
         "tab_skills",
         "tab_details",
@@ -253,7 +240,7 @@
         "enable_sticky_info": true,
         "media_size": "large",
         "gallery_layout": "vertical-carousel",
-        "mobile_thumbnails": "hide",
+        "mobile_thumbnails": "show",
         "show_image_border": true,
         "enable_image_zoom": true,
         "enable_video_looping": true,
@@ -349,25 +336,12 @@
         "padding_top": 40,
         "padding_bottom": 40
       }
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "settings": {
-        "color_scheme": "scheme-3",
-        "heading": "חדשים באתר?",
-        "description": "<p>הירשמו לניוזלטר ותהנו מכל המבצעים וההטבות לפני כולם</p>",
-        "newsletter_term": "<p>אני מסכימ/ה לקבל הודעות שיווקיות ועדכונים מ-Mekupelet באמצעות דוא\"ל, הודעות טקסט (SMS) והודעות וואטסאפ. ניתן לבטל את ההרשמה בכל עת.</p>",
-        "button_icon": "arrow-left",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
     }
   },
   "order": [
     "breadcrumbs",
     "main",
     "related-products",
-    "reviews",
-    "newsletter"
+    "reviews"
   ]
 }

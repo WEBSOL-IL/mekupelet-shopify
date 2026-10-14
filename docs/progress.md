@@ -506,3 +506,20 @@ continues in a NEW session. Starting point for that session:
   "קטגוריה" filter added by the merchant: 23 values live, first group, "זמינות" removed; final
   order קטגוריה / מתאים לגיל / מיומנות / מותג / מחיר in sidebar and drawer; category=ספרים → 89
   products. Collection package 5 complete.
+- Product page feedback (Word doc, 2026-10-14), plan in `docs/product-feedback-plan.md`. Package 1
+  done (template settings, 6 locale strings, 1 snippet line, CSS block 8): info column aligned on
+  one line (breadcrumbs custom_css padding 5 → 7rem, inventory dot moved after the text); vendor
+  line 13px/400 grey without "מותג:" (locale `products.product.vendor` emptied, label span + Hyper's
+  ::after underline hidden); inventory threshold 8, strings "מלאי נמוך - נותרו X במלאי" / "זמין
+  במלאי", pulsing dot green/orange/red, progress bar hidden; description tab closed by default and
+  chained with the metafield tabs (custom_liquid margin fix), smaller headings inside, green ✓
+  bullets, metafield lists (age, skills) as grey chips; shipping note 32px above; "למוצרים נוספים"
+  chips teal + white on hover; feature notes under the gallery without frame (Hyper inset shadow
+  off), Hyper line icons, as wide as the main image; thumbnails at the far left on desktop
+  (`!important` on the viewer margin / thumbs inset, Hyper's section CSS wins otherwise); mobile
+  thumbnail strip (`mobile_thumbnails: show`); duplicate newsletter removed from product.json;
+  gift-wrap property renamed "הוספת אריזת מתנה בתוספת 3 ₪" (the `"` was URL-encoded in the cart).
+  Gotchas: block `content` settings are validated as dynamic sources, `| join: ', '` is rejected
+  (so the earlier age-tab edit never reached the store; `| metafield_tag` is used instead), and the
+  merchant deleted `custom.development_index`, so its tab block had to go for the template to push.
+  Verified on /products/121790 at 1440/390 (`docs/screenshots/product-feedback/`).

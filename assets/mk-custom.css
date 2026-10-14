@@ -597,42 +597,90 @@
 .product__info-wrapper .accordion-details__content { font-size: 1.6rem; line-height: 2.4rem; color: rgb(var(--mk-color-text)); }
 .mk-product-collections { margin-top: 2rem; font-size: 1.4rem; }
 .mk-product-collections__link.btn { height: 3.2rem; padding-inline: 1.4rem; border-radius: 10rem; font-size: 1.4rem; font-weight: 400; }
-/* thumbnails on the outer (inline-end) side of the main image, as in the sketch */
+/* Thumbnails at the far left of the page (inline-end in RTL), main image next to the info column
+   (merchant, product feedback 2026-10-14). Hyper's default already places them at inline-end; the
+   earlier override is dropped. */
 @media (min-width: 768px) {
-  .product--media-has-many.product--vertical-carousel .product__media-gallery-viewer-wrap {
-    margin-inline-start: 0;
-    margin-inline-end: calc(var(--thumbnails-width) + var(--thumbnails-spacing));
+  product-info .product.product--vertical-carousel.product--media-has-many .product__media-gallery-viewer-wrap {
+    margin-inline-start: 0 !important;
+    margin-inline-end: calc(var(--thumbnails-width) + var(--thumbnails-spacing)) !important;
   }
-  .product--media-has-many.product--vertical-carousel .product__media-gallery-thumbails {
-    inset-inline-start: auto;
-    inset-inline-end: 0;
+  product-info .product.product--vertical-carousel.product--media-has-many .product__media-gallery-thumbails {
+    inset-inline-start: auto !important;
+    inset-inline-end: 0 !important;
   }
 }
-/* three feature boxes under the gallery: #F5F5F5 boxes, solid wine icons (assets/mk-icon-pdp-*.svg) */
+/* Feedback 2026-10-14: vendor line thin/grey/small without the "מותג:" label (locale emptied) */
+.product__info-wrapper .product__block--meta { font-size: 1.3rem; font-weight: 400; }
+.product__info-wrapper .product__block--meta .product__vendor a { font-weight: 400; text-decoration: none; }
+.product__info-wrapper .product__block--meta .product__vendor a::after { display: none; } /* Hyper's btn--link underline */
+.product__info-wrapper .product__vendor > span:first-child { display: none; } /* the "מותג:" label span */
+/* Inventory text starts on the column line; the pulsing dot follows the text */
+.product__info-wrapper .product__inventory-icon { order: 2; margin-inline: 0.2rem 0; }
+/* Metafield lists (age, skills) as small grey chips inside the tabs */
+.product__info-wrapper .accordion-details__content ul.list-single-line-text-field { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0; }
+.product__info-wrapper .accordion-details__content ul.list-single-line-text-field li { padding: 0.4rem 1.2rem; margin: 0; border-radius: 2rem; background: rgb(var(--mk-color-page)); font-size: 1.4rem; }
+.product__info-wrapper .accordion-details__content ul.list-single-line-text-field li::before { display: none; }
+/* Inventory: dot + text only, no progress bar; colour by status (green / orange / red) */
+.product__info-wrapper .product__inventory { --status-color: rgb(var(--mk-color-success)); font-weight: 600; }
+.product__info-wrapper .product__inventory--low-stock { --status-color: #f59e0b; }
+.product__info-wrapper .product__inventory--low-stock .product__inventory-icon { display: block; }
+.product__info-wrapper .product__inventory--out-of-stock { --status-color: #d93025; }
+.product__info-wrapper .product__inventory-stock-bar { display: none; }
+/* Tabs: even rhythm, smaller headings inside the description, green check bullets */
+.product__info-wrapper .product__block--collapsible_tab,
+.product__info-wrapper .mk-description-tab { margin-block: 0; }
+.product__info-wrapper .mk-description-tab { margin-top: 2.4rem; }
+.product__info-wrapper .accordion-details__summary { padding-block: 1.4rem; }
+.product__info-wrapper .accordion-details__content { padding-block: 0.4rem 2rem; }
+.product__info-wrapper .accordion-details__content h2,
+.product__info-wrapper .accordion-details__content h3,
+.product__info-wrapper .accordion-details__content h4 { font-size: 1.7rem; line-height: 1.4; margin-block: 1.6rem 0.6rem; }
+.product__info-wrapper .accordion-details__content ul { list-style: none; padding-inline-start: 0; margin-block: 0.4rem 1.2rem; }
+.product__info-wrapper .accordion-details__content ul li {
+  position: relative;
+  padding-inline-start: 2.4rem;
+  margin-block: 0.4rem;
+}
+.product__info-wrapper .accordion-details__content ul li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.5rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: rgb(var(--mk-color-success));
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' d='M2.5 8.5l3.5 3.5 7.5-8'/></svg>") center / contain no-repeat;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' d='M2.5 8.5l3.5 3.5 7.5-8'/></svg>") center / contain no-repeat;
+}
+/* Description tab (custom_liquid block) chains with the collapsible tabs below it */
+.product__info-wrapper .product__block--custom_liquid:has(> .mk-description-tab) { margin-bottom: 0; }
+.product__info-wrapper .product__block--custom_liquid:has(> .mk-description-tab) + .product__block--collapsible_tab { margin-top: -1.6rem; }
+/* More air above the free-shipping note */
+.product__info-wrapper .product__block--icon-with-text { margin-top: 3.2rem; }
+/* "למוצרים נוספים" chips: accent fill and white text on hover */
+.mk-product-collections__link.btn:hover,
+.mk-product-collections__link.btn:focus-visible { background: rgb(var(--mk-color-action-alt)); border-color: rgb(var(--mk-color-action-alt)); color: #fff; }
+/* Three feature notes under the gallery (feedback 2026-10-14): no box, Hyper line icons, as wide
+   as the main image only (the thumbnail column is excluded on desktop) */
 .product__block--grid-icon-box .grid-icon-box {
-  background: #f5f5f5;
+  background: transparent;
   border: 0;
-  border-radius: 1rem;
-  padding: 2.2rem 1.6rem 2rem;
-  gap: 1.2rem;
-  font-size: 1.4rem;
-  line-height: 2rem;
+  box-shadow: none; /* Hyper draws the frame with an inset shadow */
+  padding: 0.8rem 0.4rem;
+  gap: 0.8rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
   color: rgb(var(--mk-color-text));
 }
-.product__block--grid-icon-box .grid-icon-box > svg,
-.product__block--grid-icon-box .grid-icon-box > .icon { display: none; }
-.product__block--grid-icon-box .grid-icon-box::before {
-  content: "";
-  display: block;
-  width: 3.2rem;
-  height: 3.2rem;
-  background: var(--mk-box-icon) center / contain no-repeat;
+.product__block--grid-icon-box .grid-icon-box .icon { width: 2.8rem; height: 2.8rem; }
+@media (min-width: 768px) {
+  .product--media-has-many.product--vertical-carousel .product__block--grid-icon-box {
+    margin-inline-end: calc(var(--thumbnails-width) + var(--thumbnails-spacing));
+  }
 }
-.product__block--grid-icon-box .f-column:nth-child(1) .grid-icon-box { --mk-box-icon: url(mk-icon-pdp-shield.svg); }
-.product__block--grid-icon-box .f-column:nth-child(2) .grid-icon-box { --mk-box-icon: url(mk-icon-pdp-truck.svg); }
-.product__block--grid-icon-box .f-column:nth-child(3) .grid-icon-box { --mk-box-icon: url(mk-icon-pdp-cards.svg); }
 @media (max-width: 767.98px) {
-  .product__block--grid-icon-box .grid-icon-box { padding: 1.4rem 0.6rem 1.2rem; font-size: 1.2rem; line-height: 1.6rem; }
+  .product__block--grid-icon-box .grid-icon-box { padding: 0.6rem 0.2rem; font-size: 1.2rem; line-height: 1.6rem; }
 }
 
 /* 9. Migrated content pages: icon columns in the WhatsApp block stay icon-sized (sections named "whatsapp") */
