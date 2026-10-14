@@ -523,3 +523,13 @@ continues in a NEW session. Starting point for that session:
   (so the earlier age-tab edit never reached the store; `| metafield_tag` is used instead), and the
   merchant deleted `custom.development_index`, so its tab block had to go for the template to push.
   Verified on /products/121790 at 1440/390 (`docs/screenshots/product-feedback/`).
+- Product package 2, gift wrap (2026-10-14, merchant approved): `scripts/create-gift-wrap.py`
+  created product "אריזת מתנה" (handle gift-wrap, 3 ₪, tag gift-wrap, untracked, no shipping,
+  gid://shopify/Product/15513325764802, published), menu `gift-wrapping` → that product (Hyper's
+  native gift-wrap hook) and an automated `all` collection ("מוצרים", best selling, rule tag ≠
+  gift-wrap) so the wrap stays out of /collections/all (1,824 products, unchanged). Theme: the
+  product-page block is now a custom_liquid rendering `snippets/mk-product-gift-wrap.liquid`, which
+  reuses Hyper's `gift-wrapping` element/script (loaded by the drawer on every page); locale
+  `general.cart.gift_wrapping.message_html` = "הוספת אריזת מתנה בתוספת {{ price }}" (drawer + PDP);
+  gift note field hidden on the PDP. End-to-end test: check → cart attribute gift-wrapping + 3 ₪
+  line; add to cart → 55 + 3 = 58 ₪. The old line-item property block is gone (it never charged).

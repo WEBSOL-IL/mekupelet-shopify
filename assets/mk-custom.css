@@ -656,6 +656,9 @@
 /* Description tab (custom_liquid block) chains with the collapsible tabs below it */
 .product__info-wrapper .product__block--custom_liquid:has(> .mk-description-tab) { margin-bottom: 0; }
 .product__info-wrapper .product__block--custom_liquid:has(> .mk-description-tab) + .product__block--collapsible_tab { margin-top: -1.6rem; }
+/* Gift-wrap checkbox on the product page (Hyper's gift-wrapping element): no gift-note field here */
+.product__info-wrapper .mk-product-gift-wrap gift-note { display: none; }
+.product__info-wrapper .mk-product-gift-wrap label { font-size: 1.6rem; }
 /* More air above the free-shipping note */
 .product__info-wrapper .product__block--icon-with-text { margin-top: 3.2rem; }
 /* "למוצרים נוספים" chips: accent fill and white text on hover */

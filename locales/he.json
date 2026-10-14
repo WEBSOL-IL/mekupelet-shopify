@@ -86,7 +86,7 @@
         "other": "{{ count }} פריטים"
       },
       "gift_wrapping": {
-        "message_html": "תמורת {{ price }}, אנא ארזו את המוצרים בהזמנה זו כמתנה.",
+        "message_html": "הוספת אריזת מתנה בתוספת {{ price }}",
         "note_placeholder": "ברכה למתנה (חינם, לא חובה)",
         "note": "הערה"
       }

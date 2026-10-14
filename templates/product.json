@@ -84,16 +84,9 @@
           }
         },
         "gift_wrap": {
-          "type": "line_item_property",
+          "type": "custom_liquid",
           "settings": {
-            "property_type": "checkbox",
-            "property_name": "הוספת אריזת מתנה בתוספת 3 ₪",
-            "property_placeholder": "",
-            "required": false,
-            "property_options": "",
-            "property_radio_layout": "vertical",
-            "property_checked_value": "כן",
-            "property_uncheck_value": "לא"
+            "custom_liquid": "{% render 'mk-product-gift-wrap' %}"
           }
         },
         "shipping_note": {

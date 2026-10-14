@@ -1,0 +1,22 @@
+{%- comment -%}
+  MK: Hyper's gift-wrapping checkbox on the product page. Same element and script as the cart
+  drawer (snippets/gift-wrapping.liquid + assets/gift-wrapping.js, loaded by the drawer on every
+  page): checking it adds the gift-wrap product (menu `gift-wrapping`) to the cart and sets the
+  `gift-wrapping` cart attribute, so the 3 ₪ charge is real. Renders nothing without the menu.
+  Usage from a main-product custom_liquid block: {% render 'mk-product-gift-wrap' %}
+{%- endcomment -%}
+{%- liquid
+  if linklists['gift-wrapping'].links != blank and linklists['gift-wrapping'].links.first.type == 'product_link'
+    assign gift_wrapping = linklists['gift-wrapping'].links.first
+    assign gift_wrap_id = gift_wrapping.object.variants.first.id
+    assign gift_wraps_in_cart = 0
+    for item in cart.items
+      if item.id == gift_wrap_id
+        assign gift_wraps_in_cart = item.quantity
+        break
+      endif
+    endfor
+    assign items_in_cart = cart.item_count | minus: gift_wraps_in_cart
+    render 'gift-wrapping', section_id: section.id, gift_wrapping: gift_wrapping, gift_wrap_id: gift_wrap_id, gift_wraps_in_cart: gift_wraps_in_cart, items_in_cart: items_in_cart, class: 'mk-product-gift-wrap text-base'
+  endif
+-%}
