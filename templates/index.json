@@ -547,7 +547,7 @@
       "settings": {
         "container": "fixed",
         "color_scheme": "",
-        "section_header_alignment": "center",
+        "section_header_alignment": "left",
         "section_header_alignment_mobile": "inherit",
         "subheading": "",
         "heading": "הבחירות של אורלי",
@@ -575,7 +575,7 @@
         "swipe_on_mobile": true,
         "show_progress_bar": true,
         "padding_top": 40,
-        "padding_bottom": 40,
+        "padding_bottom": 24,
         "show_section_divider": false,
         "divider_width": "fixed"
       }
@@ -881,7 +881,7 @@
       "settings": {
         "container": "fixed",
         "color_scheme": "",
-        "section_header_alignment": "center",
+        "section_header_alignment": "left",
         "section_header_alignment_mobile": "inherit",
         "subheading": "",
         "heading": "חדש באתר",
@@ -908,8 +908,8 @@
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "show_progress_bar": true,
-        "padding_top": 30,
-        "padding_bottom": 10,
+        "padding_top": 40,
+        "padding_bottom": 24,
         "show_section_divider": false,
         "divider_width": "fixed"
       }
@@ -954,7 +954,7 @@
       "settings": {
         "container": "fixed",
         "color_scheme": "",
-        "section_header_alignment": "center",
+        "section_header_alignment": "left",
         "section_header_alignment_mobile": "inherit",
         "subheading": "",
         "heading": "בסט סלרס",
@@ -981,8 +981,8 @@
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "show_progress_bar": true,
-        "padding_top": 30,
-        "padding_bottom": 10,
+        "padding_top": 40,
+        "padding_bottom": 24,
         "show_section_divider": false,
         "divider_width": "fixed"
       }
@@ -1027,7 +1027,7 @@
       "settings": {
         "container": "fixed",
         "color_scheme": "",
-        "section_header_alignment": "center",
+        "section_header_alignment": "left",
         "section_header_alignment_mobile": "inherit",
         "subheading": "",
         "heading": "במבצע",
@@ -1054,11 +1054,85 @@
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "show_progress_bar": true,
-        "padding_top": 30,
-        "padding_bottom": 10,
+        "padding_top": 40,
+        "padding_bottom": 24,
         "show_section_divider": false,
         "divider_width": "fixed"
       }
+    },
+    "mk_brand_spotlight": {
+      "type": "featured-collection",
+      "blocks": {
+        "collection_1": {
+          "type": "collection",
+          "settings": {
+            "collection": "jabadabo",
+            "title": "JABADABADO",
+            "show_banner": true,
+            "color_scheme": "",
+            "card_link": "shopify://collections/jabadabo",
+            "image_overlay_opacity": 20,
+            "content_position": "bottom-left",
+            "content_alignment": "left",
+            "subheading": "המותג",
+            "subheading_style": "",
+            "heading": "JABADABADO",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_tag": "div",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "text_size": "text-base",
+            "button_label": "לכל המוצרים",
+            "button_style": "btn--secondary",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "collection_1"
+      ],
+      "name": "מותג בפוקוס (מוסתר)",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "עוד מ-JABADABADO",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "לכל המוצרים של המותג",
+        "button_link": "shopify://collections/jabadabo",
+        "button_style": "btn--plain",
+        "button_icon": "caret-left",
+        "limit": 8,
+        "columns": 5,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "enable_slider": true,
+        "content_overflow": false,
+        "navigation_position": "bottom",
+        "pcard_image_ratio": "3/4",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "show_progress_bar": true,
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      },
+      "disabled": true
     }
   },
   "order": [
@@ -1070,6 +1144,7 @@
     "featured_sale",
     "age_pills",
     "brands",
+    "mk_brand_spotlight",
     "featured_row",
     "surprise_box",
     "feature_tiles",

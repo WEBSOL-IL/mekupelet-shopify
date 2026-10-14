@@ -252,7 +252,7 @@
         "width_settings": "custom",
         "form_width": 500,
         "newsletter_term": "<p>אני מסכימ/ה לקבל הודעות שיווקיות ועדכונים מ-Mekupelet באמצעות דוא\"ל, הודעות טקסט (SMS) והודעות וואטסאפ. ניתן לבטל את ההרשמה בכל עת.</p>",
-        "newsletter_term_size": "text-base",
+        "newsletter_term_size": "text-sm",
         "button_style": "btn--primary",
         "button_icon": "arrow-left",
         "padding_top": 60,

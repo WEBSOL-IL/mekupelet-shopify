@@ -575,3 +575,14 @@ continues in a NEW session. Starting point for that session:
   age section becomes Hyper `grid-banner` (6 photo tiles) or `banners-with-categories` pills; "לפי
   גיל" becomes a 2-column mega menu with `custom_card` photos; the hidden brand section is a
   disabled `featured-collection` with banner. Waiting on the merchant's answers (6 questions).
+- Home round 2, package 1 (2026-10-14): settings + CSS block 15, all live and verified at 390/1440
+  (`docs/screenshots/home-feedback-2/pkg1/`): sale price now left of the struck price everywhere
+  (`order: -1` on the compare item); the four product rows + brands use `section_header_alignment:
+  left` (heading at the start, "לכל …" link at the end on one row, also on mobile via CSS), caret
+  1rem, rows padded 40/24; mobile cards 8px apart, progress line 3px; dropdown heading padded like
+  the items and no underline under open/hovered menu items; mobile menu footer = black band with
+  the login row and white social icons centred; newsletter disclaimer `text-sm`, box centred on the
+  text and white/dark via Hyper's checkbox variables (`--background`, `--border`, `--active`);
+  hidden brand-spotlight section `mk_brand_spotlight` (featured-collection with banner, JABADABADO
+  placeholder, `disabled: true`) after the brands grid. The announcement bar text (299 ₪) pulled
+  from the editor. Not done: the progress line on the category circles (optional core edit).
