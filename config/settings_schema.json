@@ -1971,6 +1971,23 @@
         "label": "Hidden sort options",
         "default": "manual, most-relevant, title-ascending, title-descending",
         "info": "Comma-separated sort values to leave out of the sort dropdown: manual, most-relevant, best-selling, title-ascending, title-descending, price-ascending, price-descending, created-ascending, created-descending. The active sort is always shown."
+      },
+      {
+        "type": "header",
+        "content": "Product page: age"
+      },
+      {
+        "type": "checkbox",
+        "id": "mk_age_badges",
+        "label": "Show age labels above the product title",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "mk_age_colors",
+        "label": "Age label colours",
+        "info": "One per line: value|#hex, e.g. 3 שנים|#f2c124. Values without a colour use the default grey.",
+        "default": "גיל לידה|#12b15c\n0-3 חודשים|#12b15c\n3-6 חודשים|#12b15c\n6-9 חודשים|#ff661f\n9-12 חודשים|#ff661f\n12-18 חודשים|#f2c124\n18-24 חודשים|#f2c124\nשנתיים|#8861ec\n3 שנים|#f58ec5\n4-5 שנים|#3bd6d8\n6-7 שנים|#1d349a\n8 ומעלה|#312e7d"
       }
     ]
   }

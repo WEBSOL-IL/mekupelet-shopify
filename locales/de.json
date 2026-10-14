@@ -276,7 +276,8 @@
       "include_taxes": "Preis inkl. MwSt.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Versandkosten</a> werden an der Kasse berechnet.",
       "more_products_in": "Weitere Produkte in:",
-      "description_tab": "Beschreibung"
+      "description_tab": "Beschreibung",
+      "age_chips_label": "Suitable for ages"
     },
     "compare": {
       "alert_message": "Sie können maximal {{ maximum }} Produkte zum Vergleich hinzufügen.",

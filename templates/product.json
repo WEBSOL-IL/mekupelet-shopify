@@ -201,13 +201,27 @@
             "icon_8": "none",
             "heading_8": ""
           }
+        },
+        "age_badges": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'mk-age-chips', mode: 'badges' %}"
+          }
+        },
+        "age_chips": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'mk-age-chips' %}"
+          }
         }
       },
       "block_order": [
         "badges",
+        "age_badges",
         "meta",
         "title",
         "short_description",
+        "age_chips",
         "inventory",
         "price",
         "divider_top",

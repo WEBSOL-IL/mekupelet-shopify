@@ -1,0 +1,42 @@
+{%- comment -%}
+  MK: the product's age ranges (custom.age_range, list with fixed choices) as links to the
+  collection filtered by that age (same filter URLs as the collection chips, so the sidebar matches).
+  mode: 'chips' (default, grey pills under the short description) or 'badges' (small coloured
+  labels above the title; colours from the theme setting mk_age_colors, one "value|#hex" per line).
+  Usage from a main-product custom_liquid block: {% render 'mk-age-chips' %} / mode: 'badges'
+{%- endcomment -%}
+{%- liquid
+  assign ages = product.metafields.custom.age_range.value
+  assign mode = mode | default: 'chips'
+  if mode == 'badges' and settings.mk_age_badges == false
+    assign ages = blank
+  endif
+-%}
+{%- if ages != blank and ages.size > 0 -%}
+  {%- liquid
+    assign color_lines = settings.mk_age_colors | default: '' | newline_to_br | split: '<br />'
+    assign base_url = routes.all_products_collection_url | append: '?filter.p.m.custom.age_range='
+  -%}
+  <ul class="mk-age-chips mk-age-chips--{{ mode }} list-unstyled" role="list" aria-label="{{ 'products.product.age_chips_label' | t }}">
+    {%- for age in ages -%}
+      {%- liquid
+        assign color = ''
+        if mode == 'badges'
+          for line in color_lines
+            assign pair = line | strip | split: '|'
+            assign key = pair[0] | strip
+            if key == age and pair[1] != blank
+              assign color = pair[1] | strip
+              break
+            endif
+          endfor
+        endif
+      -%}
+      <li class="mk-age-chips__item">
+        <a class="mk-age-chip" href="{{ base_url }}{{ age | url_param_escape }}" {% if color != blank %}style="--mk-age-color: {{ color }};"{% endif %}>
+          {{- age | escape -}}
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+{%- endif -%}

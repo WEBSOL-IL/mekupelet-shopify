@@ -276,7 +276,8 @@
       "include_taxes": "Đã bao gồm thuế.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Phí vận chuyển</a> được tính khi thanh toán.",
       "more_products_in": "Thêm sản phẩm trong:",
-      "description_tab": "Mô tả"
+      "description_tab": "Mô tả",
+      "age_chips_label": "Suitable for ages"
     },
     "compare": {
       "alert_message": "Bạn chỉ có thể so sánh tối đa {{ maximum }} sản phẩm.",

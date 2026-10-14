@@ -267,7 +267,8 @@
       "include_taxes": "כולל מע״מ.",
       "shipping_policy_html": "<a href=\"{{ link }}\">המשלוח</a> מחושב בתשלום.",
       "more_products_in": "למוצרים נוספים:",
-      "description_tab": "תיאור פריט"
+      "description_tab": "תיאור פריט",
+      "age_chips_label": "מתאים לגיל"
     },
     "compare": {
       "alert_message": "ניתן להוסיף להשוואה עד {{ maximum }} מוצרים בלבד.",

@@ -533,3 +533,10 @@ continues in a NEW session. Starting point for that session:
   `general.cart.gift_wrapping.message_html` = "הוספת אריזת מתנה בתוספת {{ price }}" (drawer + PDP);
   gift note field hidden on the PDP. End-to-end test: check → cart attribute gift-wrapping + 3 ₪
   line; add to cart → 55 + 3 = 58 ₪. The old line-item property block is gone (it never charged).
+- Product package 3, age (2026-10-14): `snippets/mk-age-chips.liquid` renders custom.age_range
+  as links to `/collections/all?filter.p.m.custom.age_range=<value>` in two modes: grey chips under
+  the short description (custom_liquid block `age_chips`) and coloured labels above the title
+  (block `age_badges`, before `meta`; theme settings `mk_age_badges` on/off and `mk_age_colors`
+  "value|#hex" per line, defaults from the Home age pills). Hyper's `badges` block was already the
+  first block. Verified on /products/261 (3 שנים pink, 4-5 שנים teal) at 1440/390. theme check
+  reports the snippet as orphaned (it is referenced from template JSON only), 0 errors.

@@ -276,7 +276,8 @@
       "include_taxes": "Tax included.",
       "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
       "more_products_in": "More products in:",
-      "description_tab": "Description"
+      "description_tab": "Description",
+      "age_chips_label": "Suitable for ages"
     },
     "compare": {
       "alert_message": "You can only add a maximum of {{ maximum }} products to compare.",
