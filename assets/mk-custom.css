@@ -271,6 +271,10 @@
 }
 
 /* 5b. Category circles: 2px colored ring, white, 20px labels, arrows always visible */
+/* Round 2 (2026-10-15): 7 per row, bigger circles (Hyper 'large' = 11rem; 12.4rem from 1280px) */
+@media (min-width: 1280px) {
+  .collection-list-slider .collection-card--image-large .collection-card__image { width: 12.4rem; }
+}
 .collection-list-slider .collection-card__image.rounded {
   box-shadow: inset 0 0 0 2px var(--mk-ring, var(--mk-palette-1));
   background: #fff;

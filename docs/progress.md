@@ -599,3 +599,9 @@ continues in a NEW session. Starting point for that session:
   into a mega menu. Hidden brand section left as is (merchant: later). Reviews: Judge.me free plan
   recommended, install steps in the checklist (§9e). Screenshots
   `docs/screenshots/home-feedback-2/pkg2-3/`.
+- 2026-10-15: toys menu order confirmed by the merchant. Category circles: 7 per row,
+  `card_image_width: large` + 12.4rem from 1280px (CSS 5b), verified at 1440/390. Product type
+  scheme proposed (merchant's ask): `docs/product-type-scheme.md` (57 types in 9 families, each
+  with a Shopify standard category) and `scripts/propose-product-types.py` → draft per product in
+  `docs/import/out/product-type-proposal.xlsx` (1,041 high / 612 medium / 138 low confidence, 33
+  unresolved). Nothing written to products; apply script comes after the merchant's review.
