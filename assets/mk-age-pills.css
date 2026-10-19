@@ -142,8 +142,7 @@
   flex-shrink: 0;
   font-size: 1.4rem;
   font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
+  text-decoration: none;
   color: rgb(var(--color-foreground));
 }
 .mk-age-tiles {
@@ -229,5 +228,10 @@
   .mk-age-tile__chevron .icon { width: 1.4rem; height: 1.4rem; }
   .mk-age-tiles__header { margin-block-end: 3.2rem; }
   .mk-age-tiles__subheading { font-size: 1.7rem; }
-  .mk-age-tiles__link { font-size: 1.6rem; font-weight: 500; }
+}
+
+/* Tiles without the label pill: the age stays readable for screen readers */
+.mk-age-tiles--no-labels .mk-age-tile__pill {
+  position: absolute;
+  width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; padding: 0;
 }

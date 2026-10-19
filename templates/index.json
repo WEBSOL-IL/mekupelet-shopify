@@ -304,559 +304,6 @@
         "padding_bottom": 24
       }
     },
-    "age_pills": {
-      "type": "mk-age-pills",
-      "blocks": {
-        "pill_1": {
-          "type": "pill",
-          "settings": {
-            "label": "0-6 חודשים",
-            "link": "/collections/all?filter.p.m.custom.age_range=%D7%92%D7%99%D7%9C%20%D7%9C%D7%99%D7%93%D7%94&filter.p.m.custom.age_range=0-3%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D&filter.p.m.custom.age_range=3-6%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D",
-            "color": "#13b25b",
-            "text_color": "#1a1a1a",
-            "product": "94768",
-            "tint": "#e2f5ea"
-          }
-        },
-        "pill_2": {
-          "type": "pill",
-          "settings": {
-            "label": "6-12 חודשים",
-            "link": "/collections/all?filter.p.m.custom.age_range=6-9%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D&filter.p.m.custom.age_range=9-12%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D",
-            "color": "#ff6622",
-            "text_color": "#1a1a1a",
-            "product": "120301",
-            "tint": "#ffe8dc"
-          }
-        },
-        "pill_3": {
-          "type": "pill",
-          "settings": {
-            "label": "12-18 חודשים",
-            "link": "/collections/all?filter.p.m.custom.age_range=12-18%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D",
-            "color": "#f2c424",
-            "text_color": "#1a1a1a",
-            "product": "120646",
-            "tint": "#fdf3d3"
-          }
-        },
-        "pill_4": {
-          "type": "pill",
-          "settings": {
-            "label": "שנה וחצי-שנתיים",
-            "link": "/collections/all?filter.p.m.custom.age_range=18-24%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D&filter.p.m.custom.age_range=%D7%A9%D7%A0%D7%AA%D7%99%D7%99%D7%9D",
-            "color": "#8a63ee",
-            "text_color": "#1a1a1a",
-            "product": "4669",
-            "tint": "#eee7fd"
-          }
-        },
-        "pill_5": {
-          "type": "pill",
-          "settings": {
-            "label": "2-3 שנים",
-            "link": "/collections/all?filter.p.m.custom.age_range=%D7%A9%D7%A0%D7%AA%D7%99%D7%99%D7%9D&filter.p.m.custom.age_range=3%20%D7%A9%D7%A0%D7%99%D7%9D",
-            "color": "#f58fc6",
-            "text_color": "#1a1a1a",
-            "product": "120613",
-            "tint": "#fde7f2"
-          }
-        },
-        "pill_6": {
-          "type": "pill",
-          "settings": {
-            "label": "3 שנים ומעלה",
-            "link": "/collections/all?filter.p.m.custom.age_range=3%20%D7%A9%D7%A0%D7%99%D7%9D&filter.p.m.custom.age_range=4-5%20%D7%A9%D7%A0%D7%99%D7%9D&filter.p.m.custom.age_range=6-7%20%D7%A9%D7%A0%D7%99%D7%9D&filter.p.m.custom.age_range=8%20%D7%95%D7%9E%D7%A2%D7%9C%D7%94",
-            "color": "#3dd8d8",
-            "text_color": "#1a1a1a",
-            "product": "7721",
-            "tint": "#ddf7f7"
-          }
-        }
-      },
-      "block_order": [
-        "pill_1",
-        "pill_2",
-        "pill_3",
-        "pill_4",
-        "pill_5",
-        "pill_6"
-      ],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "scheme-1",
-        "heading": "רכישה לפי גיל",
-        "heading_size": "h2",
-        "image_position": "end",
-        "columns_desktop": 3,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "layout": "tiles",
-        "subheading": "כל שלב – והצעצועים שלו",
-        "button_label": "לכל הצעצועים",
-        "button_link": "shopify://collections/משחקים-וצעצועים"
-      }
-    },
-    "brands": {
-      "type": "brand-logos",
-      "blocks": {
-        "logo_1": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/jabadabado.png",
-            "image_link": "shopify://collections/jabadabo"
-          }
-        },
-        "logo_2": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Banana-Panda.png",
-            "image_link": "shopify://collections/banana-panda"
-          }
-        },
-        "logo_3": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Ulanik.png",
-            "image_link": "shopify://collections/ulanik"
-          }
-        },
-        "logo_4": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/TUBS-WORKS-LOGO.png",
-            "image_link": "shopify://collections/tub-works"
-          }
-        },
-        "logo_5": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/APLI.png",
-            "image_link": "shopify://collections/apli"
-          }
-        },
-        "logo_6": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/qbi.png",
-            "image_link": "shopify://collections/qbi"
-          }
-        },
-        "logo_7": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/MY-Creative-BOX.png",
-            "image_link": "shopify://collections/my-creative-box"
-          }
-        },
-        "logo_8": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/INSPIRE-MY-PLAY.png",
-            "image_link": "shopify://collections/inspire-play"
-          }
-        },
-        "logo_z4iLr7": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/chalk-chuckles.png",
-            "image_link": "shopify://collections/chalk-chuckles-משחקים-חינוכיים-והתפתחותיים-לילד"
-          }
-        },
-        "logo_qXaMRi": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/we-are-gommu.jpg",
-            "image_link": "shopify://collections/we-are-gommu"
-          }
-        },
-        "logo_hpwmEN": {
-          "type": "logo",
-          "settings": {
-            "image": "shopify://shop_images/Ette-fefe.png",
-            "image_link": "shopify://collections/ettetete"
-          }
-        }
-      },
-      "block_order": [
-        "logo_1",
-        "logo_2",
-        "logo_3",
-        "logo_4",
-        "logo_5",
-        "logo_6",
-        "logo_7",
-        "logo_8",
-        "logo_z4iLr7",
-        "logo_qXaMRi",
-        "logo_hpwmEN"
-      ],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "",
-        "section_header_alignment": "left",
-        "section_header_alignment_mobile": "inherit",
-        "subheading": "",
-        "heading": "מותגי הבית",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h2",
-        "heading_tag": "h2",
-        "description": "",
-        "text_size": "text-sm",
-        "button_label": "לכל המותגים",
-        "button_link": "shopify://pages/brands",
-        "button_style": "btn--plain",
-        "button_icon": "caret-left",
-        "image_padding": "small",
-        "image_width": "medium",
-        "columns_desktop": 6,
-        "column_gap": "medium",
-        "row_gap": "inherit",
-        "grid_bordered": true,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "show_section_divider": false,
-        "divider_width": "fixed"
-      }
-    },
-    "featured_row": {
-      "type": "featured-collection",
-      "blocks": {
-        "collection_1": {
-          "type": "collection",
-          "settings": {
-            "collection": "all",
-            "title": "קטגוריות נבחרות",
-            "show_banner": false,
-            "color_scheme": "",
-            "card_link": "",
-            "image_overlay_opacity": 0,
-            "content_position": "top-left",
-            "content_alignment": "left",
-            "subheading": "",
-            "subheading_style": "",
-            "heading": "Collections",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h2",
-            "heading_tag": "div",
-            "heading_size_mobile": "inherit",
-            "heading_size_custom": 18,
-            "description": "",
-            "text_size": "text-base",
-            "button_label": "Button label",
-            "button_style": "btn--primary",
-            "button_icon": "none"
-          }
-        }
-      },
-      "block_order": [
-        "collection_1"
-      ],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "",
-        "section_header_alignment": "left",
-        "section_header_alignment_mobile": "inherit",
-        "subheading": "",
-        "heading": "הבחירות של אורלי",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h1",
-        "heading_tag": "h2",
-        "description": "",
-        "text_size": "text-base",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "btn--underline",
-        "button_icon": "none",
-        "limit": 12,
-        "columns": 5,
-        "column_gap": "medium",
-        "row_gap": "inherit",
-        "enable_slider": true,
-        "content_overflow": false,
-        "navigation_position": "bottom",
-        "pcard_image_ratio": "3/4",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "show_progress_bar": true,
-        "padding_top": 40,
-        "padding_bottom": 24,
-        "show_section_divider": false,
-        "divider_width": "fixed"
-      }
-    },
-    "surprise_box": {
-      "type": "image-with-text-overlay",
-      "blocks": {
-        "heading_1": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>קופסה בהפתעה</strong>",
-            "highlight_style": "none",
-            "highlight_font_style": "italic",
-            "highlight_style_color": "",
-            "highlight_text_color": "",
-            "heading_size": "h2",
-            "heading_tag": "h2"
-          }
-        },
-        "text_2": {
-          "type": "text",
-          "settings": {
-            "text": "<p>אתם בוחרים תקציב, גיל ותחומי עניין ואורלי מרכיבה במיוחד בשבילכם קופסה מלאה בהפתעות כיפיות</p>",
-            "text_size": "text-base"
-          }
-        },
-        "button_3": {
-          "type": "button",
-          "settings": {
-            "button_label": "להרכבת הקופסה",
-            "button_link": "shopify://pages/surprise-box",
-            "button_style": "btn--primary",
-            "button_icon": "none"
-          }
-        }
-      },
-      "block_order": [
-        "heading_1",
-        "text_2",
-        "button_3"
-      ],
-      "settings": {
-        "container": "fixed",
-        "image": "shopify://shop_images/MEKUPELET_BG_2.png",
-        "desktop_height": "adapt",
-        "overlay_opacity": 0,
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "color_scheme": "scheme-1",
-        "content_position": "middle-right",
-        "content_alignment": "center",
-        "image_mobile": "shopify://shop_images/Colourful_Confetti_Birthday_Party_Setup.png",
-        "mobile_height": "large",
-        "content_position_mobile": "bottom-center-mobile",
-        "content_alignment_mobile": "center",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "enable_preload_image": false
-      }
-    },
-    "feature_tiles": {
-      "type": "mk-feature-icons",
-      "blocks": {
-        "feature_1": {
-          "type": "feature",
-          "settings": {
-            "icon": "boat",
-            "color": "#3cd6dd",
-            "title": "מותגים בייבוא בלעדי",
-            "link": ""
-          }
-        },
-        "feature_2": {
-          "type": "feature",
-          "settings": {
-            "icon": "shield-check",
-            "color": "#f295c0",
-            "title": "מוצרים בתו תקן",
-            "link": ""
-          }
-        },
-        "feature_3": {
-          "type": "feature",
-          "settings": {
-            "icon": "badge-20",
-            "color": "#8861ec",
-            "title": "מעל 20 שנות ניסיון",
-            "link": ""
-          }
-        },
-        "feature_4": {
-          "type": "feature",
-          "settings": {
-            "icon": "blocks",
-            "color": "#fcbf07",
-            "title": "משחקים שנבחרו בקפידה",
-            "link": ""
-          }
-        },
-        "feature_5": {
-          "type": "feature",
-          "settings": {
-            "icon": "whatsapp",
-            "color": "#00b656",
-            "title": "ייעוץ אישי בוואטסאפ",
-            "link": ""
-          }
-        },
-        "feature_6": {
-          "type": "feature",
-          "settings": {
-            "icon": "truck",
-            "color": "#ff5404",
-            "title": "משלוח עד הבית",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "feature_1",
-        "feature_2",
-        "feature_3",
-        "feature_4",
-        "feature_5",
-        "feature_6"
-      ],
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "scheme-1",
-        "heading": "",
-        "columns_desktop": 6,
-        "columns_mobile": "3",
-        "icon_size": 80,
-        "padding_top": 30,
-        "padding_bottom": 30
-      }
-    },
-    "reviews": {
-      "type": "testimonials",
-      "blocks": {
-        "testimonial_1": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "5-stars",
-            "heading": "",
-            "heading_tag": "h3",
-            "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
-            "author": "שם מלא",
-            "author_html_tag": "h3",
-            "bio": "11.06.2025",
-            "product": ""
-          }
-        },
-        "testimonial_2": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "5-stars",
-            "heading": "",
-            "heading_tag": "h3",
-            "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
-            "author": "שם מלא",
-            "author_html_tag": "h3",
-            "bio": "11.06.2025",
-            "product": ""
-          }
-        },
-        "testimonial_3": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "5-stars",
-            "heading": "",
-            "heading_tag": "h3",
-            "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
-            "author": "שם מלא",
-            "author_html_tag": "h3",
-            "bio": "11.06.2025",
-            "product": ""
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_1",
-        "testimonial_2",
-        "testimonial_3"
-      ],
-      "settings": {
-        "container": "full",
-        "color_scheme": "",
-        "section_header_alignment": "center",
-        "section_header_alignment_mobile": "inherit",
-        "subheading": "",
-        "heading": "ביקורות",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h1",
-        "heading_tag": "h2",
-        "description": "",
-        "text_size": "text-base",
-        "layout": "standard",
-        "card_color_scheme": "scheme-1",
-        "card_content_color_scheme": "",
-        "card_image_ratio": "1/1",
-        "card_heading_size": "h4",
-        "card_text_size": "text-base",
-        "author_info_layout": "vertical",
-        "card_trigger_behavior": "click",
-        "show_image": true,
-        "show_author_image": false,
-        "columns_desktop": 3,
-        "column_gap": "medium",
-        "row_gap": "medium",
-        "enable_slider": true,
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "show_progress_bar": true,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "show_section_divider": false,
-        "divider_width": "fixed"
-      }
-    },
-    "mk_instagram": {
-      "type": "mk-instagram",
-      "blocks": {
-        "instafeed_app_block_XET89K": {
-          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
-          "settings": {
-            "title": "",
-            "title_color": "",
-            "title_size_v2": 0,
-            "alignment": "center",
-            "instafeed_margin_top": 0,
-            "instafeed_margin_bottom": 0,
-            "instafeed_margin_sides": 0,
-            "show_instagram_link": true,
-            "link_alignment": "left",
-            "link_color": "#000000",
-            "background_color": "",
-            "feed_id": "",
-            "html_area": ""
-          }
-        }
-      },
-      "block_order": [
-        "instafeed_app_block_XET89K"
-      ],
-      "name": "Instagram",
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "scheme-1",
-        "heading": "mekupelet_toys",
-        "link": "https://www.instagram.com/mekupelet_toys/",
-        "open_in_new_tab": true,
-        "show_icon": true,
-        "heading_size": "h2",
-        "heading_tag": "h2",
-        "alignment": "center",
-        "padding_top": 40,
-        "padding_bottom": 0,
-        "icon_image": "shopify://shop_images/mk-instagram-logo.png",
-        "icon_side": "left"
-      }
-    },
     "featured_new": {
       "type": "featured-collection",
       "blocks": {
@@ -1076,6 +523,226 @@
         "divider_width": "fixed"
       }
     },
+    "age_pills": {
+      "type": "mk-age-pills",
+      "blocks": {
+        "pill_1": {
+          "type": "pill",
+          "settings": {
+            "label": "0-6 חודשים",
+            "link": "/collections/all?filter.p.m.custom.age_range=%D7%92%D7%99%D7%9C%20%D7%9C%D7%99%D7%93%D7%94&filter.p.m.custom.age_range=0-3%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D&filter.p.m.custom.age_range=3-6%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D",
+            "color": "#13b25b",
+            "text_color": "#1a1a1a",
+            "product": "94768",
+            "tint": "#e2f5ea"
+          }
+        },
+        "pill_2": {
+          "type": "pill",
+          "settings": {
+            "label": "6-12 חודשים",
+            "link": "/collections/all?filter.p.m.custom.age_range=6-9%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D&filter.p.m.custom.age_range=9-12%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D",
+            "color": "#ff6622",
+            "text_color": "#1a1a1a",
+            "product": "120301",
+            "tint": "#ffe8dc"
+          }
+        },
+        "pill_3": {
+          "type": "pill",
+          "settings": {
+            "label": "12-18 חודשים",
+            "link": "/collections/all?filter.p.m.custom.age_range=12-18%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D",
+            "color": "#f2c424",
+            "text_color": "#1a1a1a",
+            "product": "120646",
+            "tint": "#fdf3d3"
+          }
+        },
+        "pill_4": {
+          "type": "pill",
+          "settings": {
+            "label": "שנה וחצי-שנתיים",
+            "link": "/collections/all?filter.p.m.custom.age_range=18-24%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D&filter.p.m.custom.age_range=%D7%A9%D7%A0%D7%AA%D7%99%D7%99%D7%9D",
+            "color": "#8a63ee",
+            "text_color": "#1a1a1a",
+            "product": "4669",
+            "tint": "#eee7fd"
+          }
+        },
+        "pill_5": {
+          "type": "pill",
+          "settings": {
+            "label": "2-3 שנים",
+            "link": "/collections/all?filter.p.m.custom.age_range=%D7%A9%D7%A0%D7%AA%D7%99%D7%99%D7%9D&filter.p.m.custom.age_range=3%20%D7%A9%D7%A0%D7%99%D7%9D",
+            "color": "#f58fc6",
+            "text_color": "#1a1a1a",
+            "product": "120613",
+            "tint": "#fde7f2"
+          }
+        },
+        "pill_6": {
+          "type": "pill",
+          "settings": {
+            "label": "3 שנים ומעלה",
+            "link": "/collections/all?filter.p.m.custom.age_range=3%20%D7%A9%D7%A0%D7%99%D7%9D&filter.p.m.custom.age_range=4-5%20%D7%A9%D7%A0%D7%99%D7%9D&filter.p.m.custom.age_range=6-7%20%D7%A9%D7%A0%D7%99%D7%9D&filter.p.m.custom.age_range=8%20%D7%95%D7%9E%D7%A2%D7%9C%D7%94",
+            "color": "#3dd8d8",
+            "text_color": "#1a1a1a",
+            "product": "7721",
+            "tint": "#ddf7f7"
+          }
+        }
+      },
+      "block_order": [
+        "pill_1",
+        "pill_2",
+        "pill_3",
+        "pill_4",
+        "pill_5",
+        "pill_6"
+      ],
+      "settings": {
+        "layout": "tiles",
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "heading": "רכישה לפי גיל",
+        "heading_size": "h2",
+        "subheading": "כל שלב – והצעצועים שלו",
+        "button_label": "הכל",
+        "button_link": "shopify://collections/משחקים-וצעצועים",
+        "image_position": "end",
+        "columns_desktop": 3,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "brands": {
+      "type": "brand-logos",
+      "blocks": {
+        "logo_1": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/jabadabado.png",
+            "image_link": "shopify://collections/jabadabo"
+          }
+        },
+        "logo_2": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Banana-Panda.png",
+            "image_link": "shopify://collections/banana-panda"
+          }
+        },
+        "logo_3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Ulanik.png",
+            "image_link": "shopify://collections/ulanik"
+          }
+        },
+        "logo_4": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/TUBS-WORKS-LOGO.png",
+            "image_link": "shopify://collections/tub-works"
+          }
+        },
+        "logo_5": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/APLI.png",
+            "image_link": "shopify://collections/apli"
+          }
+        },
+        "logo_6": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/qbi.png",
+            "image_link": "shopify://collections/qbi"
+          }
+        },
+        "logo_7": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/MY-Creative-BOX.png",
+            "image_link": "shopify://collections/my-creative-box"
+          }
+        },
+        "logo_8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/INSPIRE-MY-PLAY.png",
+            "image_link": "shopify://collections/inspire-play"
+          }
+        },
+        "logo_z4iLr7": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/chalk-chuckles.png",
+            "image_link": "shopify://collections/chalk-chuckles-משחקים-חינוכיים-והתפתחותיים-לילד"
+          }
+        },
+        "logo_qXaMRi": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/we-are-gommu.jpg",
+            "image_link": "shopify://collections/we-are-gommu"
+          }
+        },
+        "logo_hpwmEN": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Ette-fefe.png",
+            "image_link": "shopify://collections/ettetete"
+          }
+        }
+      },
+      "block_order": [
+        "logo_1",
+        "logo_2",
+        "logo_3",
+        "logo_4",
+        "logo_5",
+        "logo_6",
+        "logo_7",
+        "logo_8",
+        "logo_z4iLr7",
+        "logo_qXaMRi",
+        "logo_hpwmEN"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "מותגי הבית",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "heading_tag": "h2",
+        "description": "",
+        "text_size": "text-sm",
+        "button_label": "לכל המותגים",
+        "button_link": "shopify://pages/brands",
+        "button_style": "btn--plain",
+        "button_icon": "caret-left",
+        "image_padding": "small",
+        "image_width": "medium",
+        "columns_desktop": 6,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "grid_bordered": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
     "mk_brand_spotlight": {
       "type": "featured-collection",
       "blocks": {
@@ -1112,6 +779,7 @@
       "block_order": [
         "collection_1"
       ],
+      "disabled": true,
       "name": "מותג בפוקוס (מוסתר)",
       "settings": {
         "container": "fixed",
@@ -1147,8 +815,346 @@
         "padding_bottom": 24,
         "show_section_divider": false,
         "divider_width": "fixed"
+      }
+    },
+    "featured_row": {
+      "type": "featured-collection",
+      "blocks": {
+        "collection_1": {
+          "type": "collection",
+          "settings": {
+            "collection": "all",
+            "title": "קטגוריות נבחרות",
+            "show_banner": false,
+            "color_scheme": "",
+            "card_link": "",
+            "image_overlay_opacity": 0,
+            "content_position": "top-left",
+            "content_alignment": "left",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "Collections",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_tag": "div",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "text_size": "text-base",
+            "button_label": "Button label",
+            "button_style": "btn--primary",
+            "button_icon": "none"
+          }
+        }
       },
-      "disabled": true
+      "block_order": [
+        "collection_1"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "הבחירות של אורלי",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "limit": 12,
+        "columns": 5,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "enable_slider": true,
+        "content_overflow": false,
+        "navigation_position": "bottom",
+        "pcard_image_ratio": "3/4",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "show_progress_bar": true,
+        "padding_top": 40,
+        "padding_bottom": 24,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "surprise_box": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>קופסה בהפתעה</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_tag": "h2"
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>אתם בוחרים תקציב, גיל ותחומי עניין ואורלי מרכיבה במיוחד בשבילכם קופסה מלאה בהפתעות כיפיות</p>",
+            "text_size": "text-base"
+          }
+        },
+        "button_3": {
+          "type": "button",
+          "settings": {
+            "button_label": "להרכבת הקופסה",
+            "button_link": "shopify://pages/surprise-box",
+            "button_style": "btn--primary",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_1",
+        "text_2",
+        "button_3"
+      ],
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/MEKUPELET_BG_2.png",
+        "desktop_height": "adapt",
+        "overlay_opacity": 0,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "scheme-1",
+        "content_position": "middle-right",
+        "content_alignment": "center",
+        "image_mobile": "shopify://shop_images/Colourful_Confetti_Birthday_Party_Setup.png",
+        "mobile_height": "large",
+        "content_position_mobile": "bottom-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "enable_preload_image": false
+      }
+    },
+    "feature_tiles": {
+      "type": "mk-feature-icons",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "boat",
+            "image": "shopify://shop_images/6_2.png",
+            "color": "#3cd6dd",
+            "title": "מותגים בייבוא בלעדי",
+            "link": ""
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "shield-check",
+            "image": "shopify://shop_images/4_2.png",
+            "color": "#f295c0",
+            "title": "מוצרים בתו תקן",
+            "link": ""
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "badge-20",
+            "image": "shopify://shop_images/5_2.png",
+            "color": "#8861ec",
+            "title": "מעל 20 שנות ניסיון",
+            "link": ""
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "icon": "blocks",
+            "image": "shopify://shop_images/3_2.png",
+            "color": "#fcbf07",
+            "title": "משחקים שנבחרו בקפידה",
+            "link": ""
+          }
+        },
+        "feature_5": {
+          "type": "feature",
+          "settings": {
+            "icon": "whatsapp",
+            "image": "shopify://shop_images/2_2.png",
+            "color": "#00b656",
+            "title": "ייעוץ אישי בוואטסאפ",
+            "link": ""
+          }
+        },
+        "feature_6": {
+          "type": "feature",
+          "settings": {
+            "icon": "truck",
+            "image": "shopify://shop_images/2_ca72b732-0ee8-49a5-95bb-089e463ffa44.png",
+            "color": "#ff5404",
+            "title": "משלוח עד הבית",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4",
+        "feature_5",
+        "feature_6"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "heading": "",
+        "columns_desktop": 6,
+        "columns_mobile": "3",
+        "icon_size": 80,
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
+    },
+    "mk_instagram": {
+      "type": "mk-instagram",
+      "blocks": {
+        "instafeed_app_block_XET89K": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": true,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_XET89K"
+      ],
+      "name": "Instagram",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "heading": "mekupelet_toys",
+        "link": "https://www.instagram.com/mekupelet_toys/",
+        "open_in_new_tab": true,
+        "show_icon": true,
+        "icon_image": "shopify://shop_images/mk-instagram-logo.png",
+        "icon_side": "left",
+        "heading_size": "h2",
+        "heading_tag": "h2",
+        "alignment": "center",
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "reviews": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "heading": "",
+            "heading_tag": "h3",
+            "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
+            "author": "שם מלא",
+            "author_html_tag": "h3",
+            "bio": "11.06.2025",
+            "product": ""
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "heading": "",
+            "heading_tag": "h3",
+            "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
+            "author": "שם מלא",
+            "author_html_tag": "h3",
+            "bio": "11.06.2025",
+            "product": ""
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "heading": "",
+            "heading_tag": "h3",
+            "text": "<p>משחקי מדע הם כלי חינוכי שמחבר בין למידה לכיף. הם מעודדים סקרנות, חשיבה ביקורתית ויצירתיות ומזמינים את הילדים לחקור את העולם בדרך חווייתית.</p>",
+            "author": "שם מלא",
+            "author_html_tag": "h3",
+            "bio": "11.06.2025",
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ],
+      "settings": {
+        "container": "full",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "ביקורות",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "layout": "standard",
+        "card_color_scheme": "scheme-1",
+        "card_content_color_scheme": "",
+        "card_image_ratio": "1/1",
+        "card_heading_size": "h4",
+        "card_text_size": "text-base",
+        "author_info_layout": "vertical",
+        "card_trigger_behavior": "click",
+        "show_image": true,
+        "show_author_image": false,
+        "columns_desktop": 3,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_slider": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "show_progress_bar": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
     }
   },
   "order": [

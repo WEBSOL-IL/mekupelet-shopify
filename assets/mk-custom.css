@@ -774,7 +774,7 @@ a.mk-instagram__link:hover .mk-instagram__title { text-decoration: underline; te
 .menu-drawer__nav > .menu-drawer__item:first-child,
 .menu-drawer nav .v-scrollable > ul > .menu-drawer__item:first-child { padding-block-start: 2rem; }
 /* Arrows centred on the category circle (8rem image) instead of circle + label */
-.collection-list-slider .swiper-show-nav-on-hover:has(.swiper-controls--nav-floating) { --swiper-navigation-top-offset: 4rem; }
+.collection-list-slider .swiper-show-nav-on-hover:has(.swiper-controls--nav-floating) { --swiper-navigation-top-offset: 6.2rem; }
 /* The OUTLET highlight link keeps Hyper's highlight colour (our block 1 forces the menu text colour) */
 .header .menu__item.hightlight-link,
 .menu-drawer__item-link.hightlight-link { color: var(--hl-link-color, rgb(var(--color-primary))); }
@@ -786,8 +786,7 @@ a.mk-instagram__link:hover .mk-instagram__title { text-decoration: underline; te
   font-weight: 700;
   color: rgb(var(--mk-color-heading));
   margin-block-end: 0.4rem;
-  padding-block-end: 0.8rem;
-  border-block-end: 1px solid rgba(var(--color-foreground), 0.1);
+  padding-block-end: 0.4rem;
 }
 .mk-newsletter-consent {
   display: flex;
@@ -909,14 +908,22 @@ a.mk-instagram__link:hover .mk-instagram__title { text-decoration: underline; te
 .menu-drawer .menu-drawer__footer {
   margin-inline: -1.6rem;
   margin-block-start: auto;
-  padding: 2rem 1.6rem 2.4rem;
-  background: rgb(var(--mk-color-text));
+  padding: 0 0 2rem;
+  gap: 1.6rem;
+  background: #312e7d; /* footer blue (round 3) */
   color: #fff;
-  align-items: center;
+  align-items: stretch;
   text-align: center;
 }
-.menu-drawer .menu-drawer__footer .account-button,
-.menu-drawer .menu-drawer__footer .grid { color: #fff; justify-items: center; }
+/* Login row: light grey band, tighter */
+.menu-drawer .menu-drawer__footer > .grid {
+  background: #e9e9e9;
+  color: rgb(var(--mk-color-text));
+  padding: 1.2rem 1.6rem;
+  gap: 0.8rem;
+  justify-items: center;
+}
+.menu-drawer .menu-drawer__footer .account-button { color: inherit; }
 .menu-drawer .menu-drawer__social-icons { display: flex; justify-content: center; }
 .menu-drawer .menu-drawer__social-icons .social__link {
   --social-size: 3.6rem;
@@ -938,3 +945,45 @@ a.mk-instagram__link:hover .mk-instagram__title { text-decoration: underline; te
   margin: 0;
 }
 .mk-newsletter-consent input.mk-newsletter-consent__box:focus-visible { outline: 2px solid rgb(var(--mk-color-text)); outline-offset: 2px; }
+
+/* 16. Home + menu feedback round 3, package 1 (docs/home-feedback-plan-3.md) ------------------- */
+/* A2. Open drawers (menu, cart) above every app widget (chat bubble, accessibility button) */
+/* The menu drawer lives inside the sticky header section (z 30): lift that section while it is open.
+   The cart drawer is a body-level fixed element (z 32). */
+.header-section:has(.menu-drawer[open]),
+.cart-drawer[open],
+#CartDrawer[open] { z-index: 2147483000; }
+/* C2. Contact row: the numbers use non-breaking hyphens in the text, no CSS needed */
+/* B2. Toys mega menu: 5 columns, "ספרים" (6th group) under "משחקים לכל מטרה" (5th column).
+   Hyper fills columns by index modulo, so the columns become transparent and the groups are
+   placed on the grid themselves. The first four groups span both rows to keep their dividers. */
+#Mega-menu-item-mega_toys_products .mega-menu__list { grid-auto-rows: auto; column-gap: 0; }
+#Mega-menu-item-mega_toys_products .mega-menu__list .mega-menu__column { display: contents; }
+#Mega-menu-item-mega_toys_products .mega-menu__list .mega-menu__item {
+  padding-inline: 2rem;
+  border-inline-end: 0.1rem solid rgba(var(--color-border), var(--color-border-alpha, 1));
+}
+#Mega-menu-item-mega_toys_products .mega-menu__list .mega-menu__column:nth-child(-n + 4) .mega-menu__item { grid-row: 1 / span 2; }
+#Mega-menu-item-mega_toys_products .mega-menu__list .mega-menu__column:nth-child(5) .mega-menu__item { grid-column: 5; grid-row: 1; border-inline-end: 0; }
+#Mega-menu-item-mega_toys_products .mega-menu__list .mega-menu__column:nth-child(1) .mega-menu__item:nth-child(2) { grid-column: 5; grid-row: 2; border-inline-end: 0; }
+/* D3. Mobile: the row link reads "הכל" (desktop keeps the full label) */
+@media (max-width: 767.98px) {
+  .featured-collection .section__header--buttons .btn--plain .btn__text { font-size: 0; }
+  .featured-collection .section__header--buttons .btn--plain .btn__text::before { content: "הכל"; font-size: 1.4rem; }
+}
+/* D4. Age tiles: the header link styled like the rows' "הכל ‹" (no underline) */
+.mk-age-tiles__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.mk-age-tiles__link:hover { text-decoration: underline; text-underline-offset: 0.3rem; }
+.mk-age-tiles__link .icon { width: 1rem; height: 1rem; }
+/* D6. Instagram: the handle text is only for screen readers; the icon stays the link */
+.mk-instagram__title {
+  position: absolute !important;
+  width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}

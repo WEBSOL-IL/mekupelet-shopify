@@ -45,7 +45,7 @@
           "type": "product_list",
           "settings": {
             "menu_title": "משחקים וצעצועים",
-            "menu_columns": 6,
+            "menu_columns": 5,
             "show_menu_column_divider": true,
             "enable_hl_link": false,
             "hl_link_style": "text_color",

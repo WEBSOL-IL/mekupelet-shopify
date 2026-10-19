@@ -11,6 +11,169 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "mk_contact_row": {
+      "type": "multicolumn-icon",
+      "blocks": {
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "icon": "chat",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "מיקה סוכנת AI",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p>יכולים לשאול אותה הכל!</p>",
+            "text_size": "text-base",
+            "button_label": "שיחה עם מיקה",
+            "button_link": "#",
+            "button_style": "btn--plain",
+            "button_icon": "none"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "icon": "phone",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "התקשרו אלינו",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p><a href=\"tel:0777804800\">077‑780‑4800</a></p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "tel:0777804800",
+            "button_style": "btn--plain",
+            "button_icon": "none"
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "icon": "paperplane",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "שירות לקוחות",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p><a href=\"https://wa.me/972546647175\" target=\"_blank\" rel=\"noopener\">וואטסאפ: 054‑664‑7175</a></p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "https://wa.me/972546647175",
+            "button_style": "btn--plain",
+            "button_icon": "none"
+          }
+        },
+        "column_4": {
+          "type": "column",
+          "settings": {
+            "icon": "map-pin",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "כתובת החנות",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p><a href=\"https://waze.com/ul/hsv8vc26ue\" target=\"_blank\" rel=\"noopener\">אשל 5, מושב ניר צבי</a></p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "https://waze.com/ul/hsv8vc26ue",
+            "button_style": "btn--plain",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_1",
+        "column_2",
+        "column_3",
+        "column_4"
+      ],
+      "name": "פרטי קשר (מעל הפוטר)",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "enable_sticky": false,
+        "card_color_scheme": "",
+        "content_alignment": "left",
+        "image_position": "left",
+        "icon_color": "#006576",
+        "columns_desktop": 4,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "show_divider_col": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 30,
+        "padding_bottom": 30
+      }
+    },
+    "mk_newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "container": "full",
+        "color_scheme": "scheme-3",
+        "layout": "vertical",
+        "subheading": "",
+        "heading": "חדשים באתר?",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "heading_tag": "h2",
+        "description": "<p>הירשמו לניוזלטר ותהנו מכל המבצעים וההטבות לפני כולם</p>",
+        "text_size": "text-base",
+        "alignment": "center",
+        "alignment_mobile": "inherit",
+        "width_settings": "custom",
+        "form_width": 500,
+        "newsletter_term": "<p>אני מסכימ/ה לקבל הודעות שיווקיות ועדכונים מ-Mekupelet באמצעות דוא\"ל, הודעות טקסט (SMS) והודעות וואטסאפ. ניתן לבטל את ההרשמה בכל עת.</p>",
+        "consent_checkbox": true,
+        "newsletter_term_size": "text-sm",
+        "button_style": "btn--primary",
+        "button_icon": "arrow-left",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -145,121 +308,6 @@
       "settings": {
         "enable_sticky_bar": true,
         "show_text": true
-      }
-    },
-    "mk_contact_row": {
-      "type": "multicolumn-icon",
-      "blocks": {
-        "column_1": {
-          "type": "column",
-          "settings": {
-            "icon": "chat",
-            "title": "שירות לקוחות",
-            "heading_size": "h6",
-            "text": "<p></p>",
-            "text_size": "text-base",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "btn--plain",
-            "button_icon": "none"
-          }
-        },
-        "column_2": {
-          "type": "column",
-          "settings": {
-            "icon": "phone",
-            "title": "התקשרו אלינו",
-            "heading_size": "h6",
-            "text": "<p></p>",
-            "text_size": "text-base",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "btn--plain",
-            "button_icon": "none"
-          }
-        },
-        "column_3": {
-          "type": "column",
-          "settings": {
-            "icon": "paperplane",
-            "title": "כתבו לנו",
-            "heading_size": "h6",
-            "text": "<p>וואטסאפ: 054-664-7175</p>",
-            "text_size": "text-base",
-            "button_label": "שלחו הודעה",
-            "button_link": "https://wa.me/972546647175",
-            "button_style": "btn--plain",
-            "button_icon": "none"
-          }
-        },
-        "column_4": {
-          "type": "column",
-          "settings": {
-            "icon": "map-pin",
-            "title": "כתובת",
-            "heading_size": "h6",
-            "text": "<p></p>",
-            "text_size": "text-base",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "btn--plain",
-            "button_icon": "none"
-          }
-        }
-      },
-      "block_order": [
-        "column_1",
-        "column_2",
-        "column_3",
-        "column_4"
-      ],
-      "name": "פרטי קשר (מעל הפוטר)",
-      "settings": {
-        "container": "fixed",
-        "color_scheme": "scheme-1",
-        "header_layout": "vertical",
-        "heading": "",
-        "content_alignment": "left",
-        "image_position": "left",
-        "columns_desktop": 4,
-        "column_gap": "medium",
-        "show_divider_col": true,
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 30,
-        "padding_bottom": 30,
-        "icon_color": "#006576"
-      }
-    },
-    "mk_newsletter": {
-      "type": "newsletter",
-      "settings": {
-        "container": "full",
-        "color_scheme": "scheme-3",
-        "layout": "vertical",
-        "subheading": "",
-        "heading": "חדשים באתר?",
-        "highlight_style": "none",
-        "highlight_font_style": "italic",
-        "highlight_style_color": "",
-        "highlight_text_color": "",
-        "heading_size": "h2",
-        "heading_tag": "h2",
-        "description": "<p>הירשמו לניוזלטר ותהנו מכל המבצעים וההטבות לפני כולם</p>",
-        "text_size": "text-base",
-        "alignment": "center",
-        "alignment_mobile": "inherit",
-        "width_settings": "custom",
-        "form_width": 500,
-        "newsletter_term": "<p>אני מסכימ/ה לקבל הודעות שיווקיות ועדכונים מ-Mekupelet באמצעות דוא\"ל, הודעות טקסט (SMS) והודעות וואטסאפ. ניתן לבטל את ההרשמה בכל עת.</p>",
-        "newsletter_term_size": "text-sm",
-        "button_style": "btn--primary",
-        "button_icon": "arrow-left",
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "show_section_divider": false,
-        "divider_width": "fixed",
-        "consent_checkbox": true
       }
     }
   },

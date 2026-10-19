@@ -43,11 +43,14 @@
             {%- endif -%}
           </div>
           {%- if section.settings.button_label != blank -%}
-            <a class="mk-age-tiles__link" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label | escape }}</a>
+            <a class="mk-age-tiles__link" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
+              <span>{{ section.settings.button_label | escape }}</span>
+              {% render 'icon-caret-left', size: 'small' %}
+            </a>
           {%- endif -%}
         </div>
       {%- endif -%}
-      <ul class="mk-age-tiles list-unstyled" role="list">
+      <ul class="mk-age-tiles list-unstyled{% unless section.settings.show_labels %} mk-age-tiles--no-labels{% endunless %}" role="list">
         {%- for block in section.blocks -%}
           {%- liquid
             assign tile_image = block.settings.image
@@ -185,6 +188,13 @@
       "id": "subheading",
       "label": "Sub-line (tiles layout)",
       "default": "כל שלב – והצעצועים שלו"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_labels",
+      "label": "Show the age label on the tiles",
+      "info": "Off = photo only; the label stays for screen readers.",
+      "default": true
     },
     {
       "type": "text",

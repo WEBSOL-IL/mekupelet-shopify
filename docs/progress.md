@@ -612,3 +612,17 @@ continues in a NEW session. Starting point for that session:
   Bibs, Masks, Tableware, Candles…), 4 types keep a parent category (Puzzles, Educational Toys, Toys
   ×2). Report: `docs/import/out/product-types-report.json` (gitignored). The "סוג מוצר" filter must
   be created by the merchant in Search & Discovery; collection templates already open that group.
+- Home round 3, package 1 (2026-10-19): live and verified at 390/1440
+  (`docs/screenshots/home-feedback-3/pkg1/`). Search placeholder "מה תרצו לחפש?" (he.json). Toys
+  mega menu 5 columns with "ספרים" under "משחקים לכל מטרה" (CSS 16: the columns become
+  `display: contents`, groups placed on the grid, first four span two rows for the dividers). Open
+  drawers above every app widget: the menu drawer sits inside the sticky header section, so
+  `.header-section:has(.menu-drawer[open])` and the cart drawer get z-index 2147483000 (tested with
+  a fake z 999999 widget). Dropdown heading without the line. Mobile menu footer: blue #312E7D
+  band, login row grey #E9E9E9 (1.2rem). Contact row: 2 per row on mobile, phone / WhatsApp /
+  address are links in the text (tel:, wa.me, Waze) with non-breaking hyphens, buttons removed
+  (the "מיקה" chat button kept). Circle arrows offset 6.2rem. Product rows on mobile read "הכל"
+  (CSS swap, desktop keeps the label). Age tiles: "הכל ‹" link without underline, new setting
+  `show_labels` (photo-only tiles, label kept for screen readers). Instagram handle visually hidden
+  (icon stays the link). Left for the merchant: accessibility widget position (app settings), row
+  descriptions, Google reviews text, footer frame export, skills sheet, box products.
