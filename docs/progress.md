@@ -605,3 +605,10 @@ continues in a NEW session. Starting point for that session:
   with a Shopify standard category) and `scripts/propose-product-types.py` → draft per product in
   `docs/import/out/product-type-proposal.xlsx` (1,041 high / 612 medium / 138 low confidence, 33
   unresolved). Nothing written to products; apply script comes after the merchant's review.
+- Product types written (2026-10-19, merchant approved the scheme): `scripts/apply-product-types.py
+  --execute` set `productType` + the Shopify standard category on 1,791 products (0 errors; 33 left
+  without a type = the "לבדיקה" rows, mostly books/decor under vendor "מוצרים נוספים"; gift-wrap
+  skipped). Taxonomy names fixed to real entries (Play Vehicles, Toy Kitchens & Play Food, Rattles,
+  Bibs, Masks, Tableware, Candles…), 4 types keep a parent category (Puzzles, Educational Toys, Toys
+  ×2). Report: `docs/import/out/product-types-report.json` (gitignored). The "סוג מוצר" filter must
+  be created by the merchant in Search & Discovery; collection templates already open that group.
