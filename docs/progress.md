@@ -620,7 +620,7 @@ continues in a NEW session. Starting point for that session:
   `.header-section:has(.menu-drawer[open])` and the cart drawer get z-index 2147483000 (tested with
   a fake z 999999 widget). Dropdown heading without the line. Mobile menu footer: blue #312E7D
   band, login row grey #E9E9E9 (1.2rem). Contact row: 2 per row on mobile, phone / WhatsApp /
-  address are links in the text (tel:, wa.me, Waze) with non-breaking hyphens, buttons removed
+  address are links in the text (tel:, wa.me, Waze; numbers LTR + nowrap, WhatsApp number on its own line), buttons removed
   (the "מיקה" chat button kept). Circle arrows offset 6.2rem. Product rows on mobile read "הכל"
   (CSS swap, desktop keeps the label). Age tiles: "הכל ‹" link without underline, new setting
   `show_labels` (photo-only tiles, label kept for screen readers). Instagram handle visually hidden

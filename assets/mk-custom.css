@@ -953,7 +953,10 @@ a.mk-instagram__link:hover .mk-instagram__title { text-decoration: underline; te
 .header-section:has(.menu-drawer[open]),
 .cart-drawer[open],
 #CartDrawer[open] { z-index: 2147483000; }
-/* C2. Contact row: the numbers use non-breaking hyphens in the text, no CSS needed */
+/* C2. Contact row: phone and WhatsApp numbers on one line, read left to right (non-breaking
+   hyphens reversed the digits in RTL) */
+.multicolumn-icon .multicolumn-card__text a[href^="tel:"],
+.multicolumn-icon .multicolumn-card__text a[href*="wa.me"] { white-space: nowrap; direction: ltr; unicode-bidi: isolate; }
 /* B2. Toys mega menu: 5 columns, "ספרים" (6th group) under "משחקים לכל מטרה" (5th column).
    Hyper fills columns by index modulo, so the columns become transparent and the groups are
    placed on the grid themselves. The first four groups span both rows to keep their dividers. */
