@@ -261,28 +261,52 @@
               "u": "/collections/all",
               "i": [
                 {
-                  "t": "0-6 חודשים",
-                  "u": "/collections/all?filter.p.m.custom.age_range=%D7%92%D7%99%D7%9C%20%D7%9C%D7%99%D7%93%D7%94&filter.p.m.custom.age_range=0-3%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D&filter.p.m.custom.age_range=3-6%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D"
+                  "t": "גיל לידה",
+                  "u": "/collections/all?filter.p.m.custom.age_range=%D7%92%D7%99%D7%9C%20%D7%9C%D7%99%D7%93%D7%94"
                 },
                 {
-                  "t": "6-12 חודשים",
-                  "u": "/collections/all?filter.p.m.custom.age_range=6-9%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D&filter.p.m.custom.age_range=9-12%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D"
+                  "t": "0-3 חודשים",
+                  "u": "/collections/all?filter.p.m.custom.age_range=0-3%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D"
+                },
+                {
+                  "t": "3-6 חודשים",
+                  "u": "/collections/all?filter.p.m.custom.age_range=3-6%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D"
+                },
+                {
+                  "t": "6-9 חודשים",
+                  "u": "/collections/all?filter.p.m.custom.age_range=6-9%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D"
+                },
+                {
+                  "t": "9-12 חודשים",
+                  "u": "/collections/all?filter.p.m.custom.age_range=9-12%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D"
                 },
                 {
                   "t": "12-18 חודשים",
                   "u": "/collections/all?filter.p.m.custom.age_range=12-18%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D"
                 },
                 {
-                  "t": "שנה וחצי-שנתיים",
-                  "u": "/collections/all?filter.p.m.custom.age_range=18-24%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D&filter.p.m.custom.age_range=%D7%A9%D7%A0%D7%AA%D7%99%D7%99%D7%9D"
+                  "t": "18-24 חודשים",
+                  "u": "/collections/all?filter.p.m.custom.age_range=18-24%20%D7%97%D7%95%D7%93%D7%A9%D7%99%D7%9D"
                 },
                 {
-                  "t": "2-3 שנים",
-                  "u": "/collections/all?filter.p.m.custom.age_range=%D7%A9%D7%A0%D7%AA%D7%99%D7%99%D7%9D&filter.p.m.custom.age_range=3%20%D7%A9%D7%A0%D7%99%D7%9D"
+                  "t": "שנתיים",
+                  "u": "/collections/all?filter.p.m.custom.age_range=%D7%A9%D7%A0%D7%AA%D7%99%D7%99%D7%9D"
                 },
                 {
-                  "t": "3 שנים ומעלה",
-                  "u": "/collections/all?filter.p.m.custom.age_range=3%20%D7%A9%D7%A0%D7%99%D7%9D&filter.p.m.custom.age_range=4-5%20%D7%A9%D7%A0%D7%99%D7%9D&filter.p.m.custom.age_range=6-7%20%D7%A9%D7%A0%D7%99%D7%9D&filter.p.m.custom.age_range=8%20%D7%95%D7%9E%D7%A2%D7%9C%D7%94"
+                  "t": "3 שנים",
+                  "u": "/collections/all?filter.p.m.custom.age_range=3%20%D7%A9%D7%A0%D7%99%D7%9D"
+                },
+                {
+                  "t": "4-5 שנים",
+                  "u": "/collections/all?filter.p.m.custom.age_range=4-5%20%D7%A9%D7%A0%D7%99%D7%9D"
+                },
+                {
+                  "t": "6-7 שנים",
+                  "u": "/collections/all?filter.p.m.custom.age_range=6-7%20%D7%A9%D7%A0%D7%99%D7%9D"
+                },
+                {
+                  "t": "8 ומעלה",
+                  "u": "/collections/all?filter.p.m.custom.age_range=8%20%D7%95%D7%9E%D7%A2%D7%9C%D7%94"
                 }
               ]
             },
@@ -499,44 +523,6 @@
           ]
         },
         {
-          "t": "חגים ומסיבה",
-          "c": "חגים-ומסיבה",
-          "i": [
-            {
-              "t": "תחפושות",
-              "c": "תחפושות"
-            },
-            {
-              "t": "מסיכות",
-              "c": "מסיכות"
-            },
-            {
-              "t": "כתרים וכובעים",
-              "c": "כתרים-וכובעים"
-            },
-            {
-              "t": "קישוטים ושולחן מסיבה",
-              "c": "קישוטים-ושולחן-מסיבה"
-            },
-            {
-              "t": "אביזרים וקישוטים לחגים",
-              "c": "אביזרים-וקישוטים-לחגים"
-            },
-            {
-              "t": "כרטיסי ברכה",
-              "c": "כרטיסי-ברכה"
-            },
-            {
-              "t": "משחקי הפעלה",
-              "c": "משחקי-הפעלה"
-            },
-            {
-              "t": "חנוכה",
-              "c": "hanukkah"
-            }
-          ]
-        },
-        {
           "t": "מותגים",
           "p": "מותגים"
         },
@@ -637,12 +623,50 @@
                 {
                   "t": "בגדי ים ומוצרים לקיץ",
                   "c": "בגדי-ים-ומוצרים-לקיץ"
+                },
+                {
+                  "t": "סנדלים ונעלי טרום הליכה",
+                  "c": "סנדלים-ונעלי-טרום-הליכה"
                 }
               ]
             },
             {
-              "t": "סנדלים ונעלי טרום הליכה",
-              "c": "סנדלים-ונעלי-טרום-הליכה"
+              "t": "חגים ומסיבה",
+              "c": "חגים-ומסיבה",
+              "i": [
+                {
+                  "t": "תחפושות",
+                  "c": "תחפושות"
+                },
+                {
+                  "t": "מסיכות",
+                  "c": "מסיכות"
+                },
+                {
+                  "t": "כתרים וכובעים",
+                  "c": "כתרים-וכובעים"
+                },
+                {
+                  "t": "קישוטים ושולחן מסיבה",
+                  "c": "קישוטים-ושולחן-מסיבה"
+                },
+                {
+                  "t": "אביזרים וקישוטים לחגים",
+                  "c": "אביזרים-וקישוטים-לחגים"
+                },
+                {
+                  "t": "כרטיסי ברכה",
+                  "c": "כרטיסי-ברכה"
+                },
+                {
+                  "t": "משחקי הפעלה",
+                  "c": "משחקי-הפעלה"
+                },
+                {
+                  "t": "חנוכה",
+                  "c": "hanukkah"
+                }
+              ]
             }
           ]
         },

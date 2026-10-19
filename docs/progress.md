@@ -626,3 +626,13 @@ continues in a NEW session. Starting point for that session:
   `show_labels` (photo-only tiles, label kept for screen readers). Instagram handle visually hidden
   (icon stays the link). Left for the merchant: accessibility widget position (app settings), row
   descriptions, Google reviews text, footer frame export, skills sheet, box products.
+- Home round 3, package 2 (2026-10-19): main menu rewritten with `create-menus.py --only main-menu
+  --execute`: "לפי גיל" column = the 12 age values of the filter (גיל לידה … 8 ומעלה), each to
+  `/collections/all?filter.p.m.custom.age_range=<value>`, next to "מתנות לפי גיל"; "חגים ומסיבה"
+  (8 children) is now the 5th column of "כלי בית ואקססוריז" (block `menu_columns: 5`) and no longer
+  a top-level item; "סנדלים ונעלי טרום הליכה" moved into "בגדי ילדים". The age mega menu block
+  became a `product_list` ("מומלצים": 120646, 4669, 7721) so it is visual now; photo cards can
+  replace it later (custom_card block with Promo images). Verified at 1440 and in the 390 drawer
+  (`docs/screenshots/home-feedback-3/pkg2/`). Waiting on the merchant: skills sheet (B4), box
+  products (B5), row descriptions, Google reviews, footer frame; accessibility widget position is
+  done by the merchant in the app settings.
