@@ -95,7 +95,7 @@
         "enable_filtering": true,
         "enable_color_swatch": true,
         "filter_type": "vertical",
-        "expand_filter_groups": "קטגוריה, מתאים לגיל, מיומנות, מותג, מחיר",
+        "expand_filter_groups": "קטגוריה, סוג מוצר, מתאים לגיל, מיומנות, מותג, מחיר",
         "enable_sorting": true,
         "enable_layout_switching": false,
         "columns_mobile": "2",
