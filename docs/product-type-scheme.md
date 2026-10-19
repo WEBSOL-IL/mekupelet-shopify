@@ -1,4 +1,4 @@
-# Product type scheme (proposal, 2026-10-15)
+# Product type scheme (approved 2026-10-19, written to the store)
 
 Today no product has a `product_type` or a Shopify standard category (0 of 1,824). Navigation lives in
 collections (automated by the legacy WooCommerce category tags) and in `custom.category` (multi-value, mostly
@@ -19,7 +19,7 @@ parent levels: "משחקים וצעצועים" on 1,641 products, "משחקי ח
 | Family | Type | Shopify standard category | Products |
 |---|---|---|---|
 | משחקים | משחק קופסה | Toys & Games > Games > Board Games | 126 |
-| משחקים | משחק חשיבה ולוגיקה | Toys & Games > Puzzles > Brain Teasers | 32 |
+| משחקים | משחק חשיבה ולוגיקה | Toys & Games > Puzzles | 32 |
 | משחקים | משחק קלפים | Toys & Games > Games > Card Games | 51 |
 | משחקים | פאזל | Toys & Games > Puzzles > Jigsaw Puzzles | 165 |
 | משחקים | משחק זיכרון והתאמה | Toys & Games > Games | 28 |
@@ -28,48 +28,48 @@ parent levels: "משחקים וצעצועים" on 1,641 products, "משחקי ח
 | משחקים | משחק קוביות והרכבה | Toys & Games > Toys > Building Toys | 58 |
 | משחקים | משחק תנועה וחוץ | Toys & Games > Outdoor Play Equipment | 29 |
 | משחקים | משחק לאמבטיה | Toys & Games > Toys > Bath Toys | 9 |
-| משחקים | ערכת מדע | Toys & Games > Toys > Educational Toys > Science Kits | 14 |
+| משחקים | ערכת מדע | Toys & Games > Toys > Educational Toys | 14 |
 | צעצועים | בובה | Toys & Games > Toys > Dolls, Playsets & Toy Figures > Dolls | 46 |
-| צעצועים | בובת בד ורכים | Toys & Games > Toys > Stuffed Animals & Plush Toys | 0 |
+| צעצועים | בובת בד ורכים | Toys & Games > Toys | 0 |
 | צעצועים | בית בובות ואביזרים | Toys & Games > Toys > Dolls, Playsets & Toy Figures > Dollhouses | 54 |
 | צעצועים | דמויות ומשחק דמיון | Toys & Games > Toys > Dolls, Playsets & Toy Figures > Toy Playsets | 72 |
-| צעצועים | כלי רכב צעצוע | Toys & Games > Toys > Toy Vehicles | 32 |
-| צעצועים | מטבח ואביזרי בישול | Toys & Games > Toys > Pretend Play > Play Kitchens & Food | 47 |
+| צעצועים | כלי רכב צעצוע | Toys & Games > Toys > Play Vehicles | 32 |
+| צעצועים | מטבח ואביזרי בישול | Toys & Games > Toys > Pretend Play > Toy Kitchens & Play Food | 47 |
 | צעצועים | כלי נגינה | Toys & Games > Toys > Musical Toys | 19 |
-| צעצועים | צעצוע משיכה ודחיפה | Toys & Games > Toys > Push & Pull Toys | 3 |
-| צעצועים | עגלה והליכון | Toys & Games > Toys > Push & Pull Toys | 14 |
+| צעצועים | צעצוע משיכה ודחיפה | Baby & Toddler > Baby Toys & Activity Equipment > Push & Pull Toys | 3 |
+| צעצועים | עגלה והליכון | Baby & Toddler > Baby Toys & Activity Equipment > Push & Pull Toys | 14 |
 | צעצועים | צעצוע עץ | Toys & Games > Toys | 29 |
 | צעצועים | בימבה ורכיבה | Toys & Games > Toys > Riding Toys | 3 |
-| צעצועים | צעצוע אלקטרוני | Toys & Games > Toys > Electronic Toys | 11 |
+| צעצועים | צעצוע אלקטרוני | Toys & Games > Toys | 11 |
 | צעצועים | צעצוע לחוף ולים | Toys & Games > Toys > Beach & Sand Toys | 32 |
-| לתינוקות | רעשן ונשכן | Baby & Toddler > Baby Toys & Activity Equipment > Rattles | 57 |
+| לתינוקות | רעשן ונשכן | Baby & Toddler > Baby Toys & Activity Equipment > Baby Activity Toys > Rattles | 57 |
 | לתינוקות | מובייל | Baby & Toddler > Baby Toys & Activity Equipment > Baby Mobiles | 7 |
 | לתינוקות | משטח פעילות | Baby & Toddler > Baby Toys & Activity Equipment > Play Mats & Gyms | 3 |
 | לתינוקות | מנשא וטטרה | Baby & Toddler > Baby Transport Accessories | 9 |
 | לתינוקות | אביזרי עגלה ואמבטיה | Baby & Toddler > Baby Transport Accessories | 3 |
-| לתינוקות | סינר | Baby & Toddler > Nursing & Feeding > Bibs | 4 |
-| לתינוקות | טקסטיל לתינוק | Baby & Toddler > Baby Bedding | 3 |
+| לתינוקות | סינר | Baby & Toddler > Nursing & Feeding > Feeding Essentials > Bibs | 4 |
+| לתינוקות | טקסטיל לתינוק | Home & Garden > Linens & Bedding > Bedding | 3 |
 | יצירה | ערכת יצירה | Arts & Entertainment > Hobbies & Creative Arts > Arts & Crafts > Art & Craft Kits | 84 |
 | יצירה | חוברת צביעה וציור | Arts & Entertainment > Hobbies & Creative Arts > Arts & Crafts > Art & Craft Kits | 195 |
 | יצירה | צבעים וכלי ציור | Arts & Entertainment > Hobbies & Creative Arts > Arts & Crafts > Art & Crafting Materials | 0 |
 | יצירה | מדבקות | Arts & Entertainment > Hobbies & Creative Arts > Arts & Crafts > Art & Crafting Materials | 66 |
-| יצירה | חול, גבס ובצק | Arts & Entertainment > Hobbies & Creative Arts > Arts & Crafts > Art & Crafting Materials > Craft Clay | 46 |
+| יצירה | חול, גבס ובצק | Arts & Entertainment > Hobbies & Creative Arts > Arts & Crafts > Art & Crafting Materials > Pottery & Sculpting Materials > Clay & Modeling Dough | 46 |
 | יצירה | קעקועים | Arts & Entertainment > Party & Celebration > Party Supplies | 11 |
 | יצירה | תפירה, רקמה וסריגה | Arts & Entertainment > Hobbies & Creative Arts > Arts & Crafts > Art & Craft Kits | 8 |
 | יצירה | ערכת תכשיטים ואופנה | Arts & Entertainment > Hobbies & Creative Arts > Arts & Crafts > Art & Craft Kits | 35 |
-| יצירה | אוריגמי ונייר | Arts & Entertainment > Hobbies & Creative Arts > Arts & Crafts > Art & Crafting Materials > Craft Paper | 51 |
+| יצירה | אוריגמי ונייר | Arts & Entertainment > Hobbies & Creative Arts > Arts & Crafts > Art & Crafting Materials > Art & Craft Paper | 51 |
 | ספרים | ספר | Media > Books | 60 |
 | חגים ומסיבה | תחפושת | Apparel & Accessories > Costumes & Accessories > Costumes | 5 |
-| חגים ומסיבה | מסכה | Apparel & Accessories > Costumes & Accessories > Costume Accessories > Masks | 0 |
+| חגים ומסיבה | מסכה | Apparel & Accessories > Costumes & Accessories > Masks | 0 |
 | חגים ומסיבה | כתר וכובע | Apparel & Accessories > Costumes & Accessories > Costume Accessories | 6 |
 | חגים ומסיבה | קישוט למסיבה | Arts & Entertainment > Party & Celebration > Party Supplies | 4 |
 | חגים ומסיבה | כרטיס ברכה | Arts & Entertainment > Party & Celebration > Gift Giving > Greeting & Note Cards | 14 |
-| כלי בית | כלי אוכל ושתייה | Baby & Toddler > Nursing & Feeding > Baby & Toddler Tableware | 6 |
+| כלי בית | כלי אוכל ושתייה | Home & Garden > Kitchen & Dining > Tableware | 6 |
 | כלי בית | כלי בית ונוי | Home & Garden > Decor | 31 |
 | כלי בית | אחסון | Home & Garden > Household Supplies > Storage & Organization | 8 |
 | כלי בית | מצעים וכריות | Home & Garden > Linens & Bedding | 5 |
 | כלי בית | תאורה | Home & Garden > Lighting | 2 |
-| כלי בית | נר | Home & Garden > Decor > Candles | 15 |
+| כלי בית | נר | Home & Garden > Decor > Home Fragrances > Candles | 15 |
 | אקססוריז | תיק וארנק | Apparel & Accessories > Handbags, Wallets & Cases | 7 |
 | אקססוריז | כלי כתיבה ומחברות | Office Supplies > General Office Supplies | 6 |
 | אקססוריז | טיפוח | Health & Beauty > Personal Care | 0 |

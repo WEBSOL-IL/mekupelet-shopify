@@ -104,6 +104,7 @@ exactly. Updated 2026-10-08 for the Home page (approximate build).
 |---|---|---|
 | תמונות לאריחי הגילאים | Online Store → Customize → דף הבית → סקשן "MK Age pills" → בכל בלוק גיל: **Photo** | כרגע כל אריח מציג תמונת מוצר מייצג (שדה "Representative product", אפשר להחליף מוצר). תמונה שתעלו תוצג במלוא האריח (יחס 3:2 בדסקטופ, 4:3 במובייל). |
 | כרטיסי תמונה במגה-תפריט "לפי גיל" | Customize → Header → בלוק "Custom card" (לפי גיל) → **promo_image_1…4** | הכותרות והלינקים (0-6, 6-12, 12-18 חודשים, שנה וחצי-שנתיים) כבר מוגדרים; הכרטיסים מופיעים משמאל לעמודות ברגע שיש תמונה. בלי תמונות התפריט מציג רק את שתי העמודות. |
+| מסנן "סוג מוצר" | Apps → Search & Discovery → Filters → Add filter → **Product type** (שם בעברית: "סוג מוצר") | סוגי המוצר נכתבו לכל המוצרים (2026-10-19, `docs/product-type-scheme.md`). אחרי שתוסיפי את המסנן אני מוסיף אותו לרשימת הקבוצות הפתוחות בעמוד הקולקציה. |
 | ביקורות: Judge.me (חינמי) | Apps → Shopify App Store → "Judge.me Product Reviews" → Install → תוכנית **Forever Free** | אחרי ההתקנה: Judge.me → Settings → Integrations → Theme: להפעיל "App embed" בלבד (לא "Install widgets" אוטומטי; את המיקום בעמוד המוצר אני אקבע); Settings → Language → Hebrew; Import reviews → CSV אם יש ביקורות מהאתר הישן. אחר כך אני מחליף את סקשן הביקורות הסטטי בווידג'ט ומאמת שהסקריפט נטען רק איפה שצריך. |
 
 ## 10. עמוד מוצר (נוסף 2026-10-08)
