@@ -640,6 +640,6 @@ continues in a NEW session. Starting point for that session:
   fine ones; the fine type moves to the new metafield `custom.product_subtype` (single line, 61
   choices, created with `create-choice-definition.py docs/import/subtype-choices.json`). Mapping
   in `docs/import/product-type-mapping.json`, source workbook `docs/import/product-types-20.xlsx`.
-  `scripts/remap-product-types.py --execute` writes productType + sub-type on 1,791 products
+  `scripts/remap-product-types.py --execute` wrote productType + sub-type on 1,791 products (0 errors, verified: 20 types, every typed product has a sub-type)
   (standard category untouched). Docs: `docs/product-type-scheme.md` v2, checklist rows for the
   two filters.
