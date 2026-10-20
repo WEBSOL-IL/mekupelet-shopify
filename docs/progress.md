@@ -636,3 +636,10 @@ continues in a NEW session. Starting point for that session:
   (`docs/screenshots/home-feedback-3/pkg2/`). Waiting on the merchant: skills sheet (B4), box
   products (B5), row descriptions, Google reviews, footer frame; accessibility widget position is
   done by the merchant in the app settings.
+- Product types v2 (2026-10-20, merchant's Excel "Product Types"): 20 top-level types replace the 55
+  fine ones; the fine type moves to the new metafield `custom.product_subtype` (single line, 61
+  choices, created with `create-choice-definition.py docs/import/subtype-choices.json`). Mapping
+  in `docs/import/product-type-mapping.json`, source workbook `docs/import/product-types-20.xlsx`.
+  `scripts/remap-product-types.py --execute` writes productType + sub-type on 1,791 products
+  (standard category untouched). Docs: `docs/product-type-scheme.md` v2, checklist rows for the
+  two filters.
