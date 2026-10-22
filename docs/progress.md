@@ -659,3 +659,12 @@ continues in a NEW session. Starting point for that session:
   return for the collection link to the filtered page; both collection templates configured.
   Verified on /collections/משחקי-חשיבה-וקופסה at 390 (clamp 63px → 126px on click) and 1440
   (`docs/screenshots/collection-feedback-2/pkg2/`). Open: package 3 (badges), "קטגוריות נבחרות" decision.
+- Collection round 2, package 3 (2026-10-22): badges. Logged core edit in `snippets/pcard-badges.liquid`:
+  "חדש" automatically for products created within `mk_new_days` (MK custom setting, default 30; all
+  imported products date from 2026-07, so only genuinely new products get it), "רב מכר" for members
+  of `mk_bestseller_collection` (collection setting) or the tag, no duplicates; percentage sale
+  badge reads "25% הנחה" (`products.product.percent_off_badge` in every locale). Verified live:
+  gift-wrap product (created 10-14) shows "חדש" in search results, the one-product manual collection
+  `frontpage` showed "רב מכר" with a temporary setting (reverted, settings_data pulled before each
+  write), sale cards read "25% הנחה". Checklist §9f. Open: merchant picks the best-seller mechanism,
+  and the "קטגוריות נבחרות" vs S&D "קטגוריה" decision.

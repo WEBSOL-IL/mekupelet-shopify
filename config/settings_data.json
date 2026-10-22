@@ -16,7 +16,7 @@
     "logo_width": 180,
     "logo_mobile": "shopify://shop_images/24aadcfe64bc433aa798ddc7eaf6d053.png",
     "logo_width_mobile": 120,
-    "favicon": "shopify://shop_images/24aadcfe64bc433aa798ddc7eaf6d053.png",
+    "favicon": "shopify://shop_images/favicon.png",
     "color_badge_sale": "#ffd4bf",
     "color_badge_sale_text": "#1c1c1c",
     "color_badge_hot": "#d9f6f7",
@@ -81,6 +81,10 @@
     "cart_empty_message": "<p>Not sure where to start? Try these collections:</p>",
     "collection_card_color_scheme": "scheme-1",
     "collection_image_ratio": "4/3",
+    "social_facebook_link": "https://www.facebook.com/mekupelet.o/",
+    "social_instagram_link": "https://www.instagram.com/mekupelet_toys/",
+    "social_youtube_link": "https://www.youtube.com/@%D7%9E%D7%A7%D7%95%D7%A4%D7%9C%D7%AA%D7%A6%D7%A2%D7%A6%D7%95%D7%A2%D7%99%D7%9D%D7%95%D7%9E%D7%AA%D7%A0%D7%95%D7%AA",
+    "social_tiktok_link": "https://www.tiktok.com/@mekupeletoys",
     "social_snapchat_link": "",
     "social_pinterest_link": "",
     "social_tumblr_link": "",
@@ -418,10 +422,7 @@
         }
       }
     },
-    "social_facebook_link": "https://www.facebook.com/mekupelet.o/",
-    "social_instagram_link": "https://www.instagram.com/mekupelet_toys/",
-    "social_tiktok_link": "https://www.tiktok.com/@mekupeletoys",
-    "social_youtube_link": "https://www.youtube.com/@%D7%9E%D7%A7%D7%95%D7%A4%D7%9C%D7%AA%D7%A6%D7%A2%D7%A6%D7%95%D7%A2%D7%99%D7%9D%D7%95%D7%9E%D7%AA%D7%A0%D7%95%D7%AA"
+    "mk_bestseller_collection": ""
   },
   "presets": {
     "Hyper": {

@@ -13,8 +13,30 @@
   unless on_sale
     assign show_on_sale_badge = false
   endunless
+
+  # MK-CUSTOM start: automatic "new" (created within settings.mk_new_days) and "best seller"
+  # (member of settings.mk_bestseller_collection) badges; the tags keep working as overrides
+  assign mk_new_auto = false
+  if settings.mk_new_days > 0 and product.created_at != blank
+    assign mk_created = product.created_at | date: '%s' | plus: 0
+    assign mk_window = settings.mk_new_days | times: 86400
+    assign mk_cutoff = 'now' | date: '%s' | plus: 0 | minus: mk_window
+    if mk_created > mk_cutoff
+      assign mk_new_auto = true
+    endif
+  endif
+  assign mk_hot_auto = false
+  if settings.mk_bestseller_collection != blank
+    for mk_col in product.collections
+      if mk_col.handle == settings.mk_bestseller_collection.handle
+        assign mk_hot_auto = true
+        break
+      endif
+    endfor
+  endif
+  # MK-CUSTOM end
 -%}
-{%- if product.available == false or on_sale or product.tags.size > 0 -%}
+{%- if product.available == false or on_sale or product.tags.size > 0 or mk_new_auto or mk_hot_auto -%}
   <div class="product-card__badge">
     {%- if product.available == false and show_soldout -%}
       <span class="f-badge f-badge--soldout" aria-hidden="true">
@@ -30,7 +52,9 @@
             if compare_at_price > price
               assign amount = compare_at_price | minus: price | times: 100 | divided_by: compare_at_price
             endif
-            assign sale_badge = amount | times: -1 | append: '%'
+            # MK-CUSTOM start: "20% הנחה" instead of "-20%"
+            assign sale_badge = 'products.product.percent_off_badge' | t: amount: amount
+            # MK-CUSTOM end
           when 'show_amount'
             if compare_at_price > price
               assign amount = compare_at_price | minus: price | money
@@ -47,6 +71,22 @@
       assign hot_tags_list = settings.product_hot_tags | newline_to_br | strip_newlines | split: '<br />'
       assign coming_tags_list = settings.product_coming_tags | newline_to_br | strip_newlines | split: '<br />'
     -%}
+    {%- comment -%} MK-CUSTOM start: automatic badges first; a matching tag below is then skipped {%- endcomment -%}
+    {%- liquid
+      assign mk_new_done = false
+      assign mk_hot_done = false
+      if mk_new_auto
+        assign mk_new_done = true
+        assign mk_label = 'products.product.badge_new' | t
+        echo '<span class="f-badge f-badge--new">' | append: mk_label | append: '</span>'
+      endif
+      if mk_hot_auto
+        assign mk_hot_done = true
+        assign mk_label = 'products.product.badge_hot' | t
+        echo '<span class="f-badge f-badge--hot">' | append: mk_label | append: '</span>'
+      endif
+    -%}
+    {%- comment -%} MK-CUSTOM end {%- endcomment -%}
     {%- for tag in product.tags -%}
       {%- liquid
         assign tag_handle = tag | handle
@@ -79,6 +119,14 @@
         if badge_type == blank
           continue
         endif
+        # MK-CUSTOM start: no duplicate when the automatic badge is already shown
+        if badge_type == 'new' and mk_new_done
+          continue
+        endif
+        if badge_type == 'hot' and mk_hot_done
+          continue
+        endif
+        # MK-CUSTOM end
       -%}
       <span class="f-badge f-badge--{{ badge_type }}">{{ tag }}</span>
     {%- endfor -%}

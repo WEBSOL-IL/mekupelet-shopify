@@ -108,6 +108,13 @@ exactly. Updated 2026-10-08 for the Home page (approximate build).
 | מסנן "תת-סוג" (אופציונלי) | Search & Discovery → Filters → Add filter → Metafield → **תת-סוג מוצר** (custom.product_subtype) | 61 תתי-הסוגים (הסוגים המדויקים מהסבב הקודם). |
 | ביקורות: Judge.me (חינמי) | Apps → Shopify App Store → "Judge.me Product Reviews" → Install → תוכנית **Forever Free** | אחרי ההתקנה: Judge.me → Settings → Integrations → Theme: להפעיל "App embed" בלבד (לא "Install widgets" אוטומטי; את המיקום בעמוד המוצר אני אקבע); Settings → Language → Hebrew; Import reviews → CSV אם יש ביקורות מהאתר הישן. אחר כך אני מחליף את סקשן הביקורות הסטטי בווידג'ט ומאמת שהסקריפט נטען רק איפה שצריך. |
 
+## 9f. לייבלים אוטומטיים בכרטיס המוצר (בוצע 2026-10-22)
+| מה | איפה | הערות |
+|---|---|---|
+| "חדש" | Customize → Theme settings → **MK custom** → "חדש badge for products created in the last N days" (ברירת מחדל 30) | מוצר שנוצר ב-30 הימים האחרונים מקבל "חדש" אוטומטית (כל המיובאים נוצרו ביולי, אז רק מוצרים חדשים מעכשיו). התגית "חדש" עדיין עובדת ידנית. 0 = רק לפי תגית. |
+| "רב מכר" | אפשרות א: תגית `רב מכר` על המוצר. אפשרות ב: Theme settings → MK custom → "רב מכר badge for every product of this collection" → לבחור קולקציה (מומלץ קולקציה ידנית, למשל "רב מכר", שאת מרכיבה ב-Products → Collections → Create collection → Manual) | כל מוצר בקולקציה שנבחרה מקבל את הלייבל. שתי האפשרויות עובדות יחד, בלי כפילות. |
+| "20% הנחה" | אוטומטי מ-Compare-at price | הטקסט ניתן לשינוי ב-Edit default theme content → "percent_off_badge". |
+
 ## 10. עמוד מוצר (נוסף 2026-10-08)
 | מה | איפה | למה |
 |---|---|---|

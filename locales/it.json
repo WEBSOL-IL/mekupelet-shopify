@@ -182,6 +182,9 @@
   },
   "products": {
     "product": {
+      "percent_off_badge": "{{ amount }}% off",
+      "badge_new": "New",
+      "badge_hot": "Best seller",
       "add_to_cart": "Aggiungi al carrello",
       "add_to_cart_short": "Aggiungi",
       "add_all_to_cart": "Aggiungi tutto al carrello",

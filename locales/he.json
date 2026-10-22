@@ -173,6 +173,9 @@
   },
   "products": {
     "product": {
+      "percent_off_badge": "{{ amount }}% הנחה",
+      "badge_new": "חדש",
+      "badge_hot": "רב מכר",
       "add_to_cart": "הוסיפו לסל",
       "add_to_cart_short": "הוסיפו",
       "add_all_to_cart": "הוסיפו הכול לסל",
