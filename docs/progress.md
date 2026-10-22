@@ -652,3 +652,10 @@ continues in a NEW session. Starting point for that session:
   4.4rem boxes on one row, no divider below, count under them; active chips 3.2rem; "ניקוי" has one
   underline (ours removed, Hyper's btn--link stays). Open: rename/remove "קטגוריות נבחרות" vs the
   S&D "קטגוריה" filter (merchant's choice), packages 2 (read more, fixed chip values) and 3 (badges).
+- Collection round 2, package 2 (2026-10-22): description on mobile = Hyper `read-more` (3 lines,
+  centred, 1.4rem, "קרא עוד"/"פחות"; logged core edit in `main-collection-banner.liquid`, block
+  setting `mk_line_limit`, full text from 768px via CSS 17); `mk-filter-chips` got `fixed_values`
+  (one per line) + `param_name`: the 12 ages always render in order, values Shopify does not
+  return for the collection link to the filtered page; both collection templates configured.
+  Verified on /collections/משחקי-חשיבה-וקופסה at 390 (clamp 63px → 126px on click) and 1440
+  (`docs/screenshots/collection-feedback-2/pkg2/`). Open: package 3 (badges), "קטגוריות נבחרות" decision.

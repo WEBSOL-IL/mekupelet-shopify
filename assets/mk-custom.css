@@ -1008,3 +1008,17 @@ a.mk-instagram__link:hover .mk-instagram__title { text-decoration: underline; te
   position: absolute !important;
   width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
 }
+
+/* 17. Collection round 2, package 2 (docs/collection-feedback-plan-2.md) ----------------------- */
+/* 1. Description on mobile: centred, smaller, clamped by Hyper's read-more (core edit in
+   main-collection-banner.liquid, block setting "Description lines on mobile"); full text from 768px */
+.mk-read-more { display: block; }
+.mk-read-more .read-more__content { transition: max-height 0.25s ease; }
+.mk-read-more .mk-read-more__toggle { margin-top: 0.6rem; font-size: 1.4rem; font-weight: 600; }
+@media (max-width: 767.98px) {
+  .collection-hero .mk-collection-description { text-align: center; font-size: 1.4rem; line-height: 2.1rem; margin-inline: auto; }
+}
+@media (min-width: 768px) {
+  .mk-read-more .read-more__content { max-height: none !important; display: block; -webkit-line-clamp: unset; }
+  .mk-read-more .mk-read-more__toggle { display: none; }
+}

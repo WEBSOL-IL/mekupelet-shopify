@@ -391,6 +391,8 @@
       "cart_quantity_error_html": "ניתן להוסיף לסל רק {{ quantity }} יחידות מפריט זה."
     },
     "collection_template": {
+      "read_more": "קרא עוד",
+      "read_less": "פחות",
       "title": "קטגוריה"
     },
     "slideshow": {

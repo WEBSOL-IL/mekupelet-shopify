@@ -24,7 +24,8 @@
             "heading_tag": "h1",
             "show_description": true,
             "padding_top": 24,
-            "padding_bottom": 24
+            "padding_bottom": 24,
+            "mk_line_limit": "3"
           }
         }
       },
@@ -194,7 +195,9 @@
         "max_chips": 12,
         "align": "start",
         "padding_top": 0,
-        "padding_bottom": 16
+        "padding_bottom": 16,
+        "fixed_values": "גיל לידה\n0-3 חודשים\n3-6 חודשים\n6-9 חודשים\n9-12 חודשים\n12-18 חודשים\n18-24 חודשים\nשנתיים\n3 שנים\n4-5 שנים\n6-7 שנים\n8 ומעלה",
+        "param_name": "filter.p.m.custom.age_range"
       }
     }
   },

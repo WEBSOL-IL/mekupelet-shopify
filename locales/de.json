@@ -400,6 +400,8 @@
       "cart_quantity_error_html": "Sie können nur {{ quantity }} Stück dieses Artikels in Ihren Warenkorb legen."
     },
     "collection_template": {
+      "read_more": "Read more",
+      "read_less": "Read less",
       "title": "Kollektion"
     },
     "slideshow": {

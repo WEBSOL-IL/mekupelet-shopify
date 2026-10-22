@@ -400,6 +400,8 @@
       "cart_quantity_error_html": "Bạn chỉ có thể thêm tối đa {{ quantity }} sản phẩm này vào giỏ hàng."
     },
     "collection_template": {
+      "read_more": "Read more",
+      "read_less": "Read less",
       "title": "Bộ sưu tập"
     },
     "slideshow": {

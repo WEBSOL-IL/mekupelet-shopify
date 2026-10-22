@@ -400,6 +400,8 @@
       "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart."
     },
     "collection_template": {
+      "read_more": "Read more",
+      "read_less": "Read less",
       "title": "Collection"
     },
     "slideshow": {

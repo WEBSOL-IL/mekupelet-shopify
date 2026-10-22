@@ -135,15 +135,35 @@
                 </motion-element>
               </{{ block.settings.heading_tag }}>
               {%- if block.settings.show_description and collection.description != blank -%}
-                <div class="collection-hero__description rte text-subtext">
+                {%- comment -%} MK-CUSTOM start: optional line limit on mobile with Hyper's read-more element (block setting mk_line_limit) {%- endcomment -%}
+                {%- liquid
+                  assign mk_limit = block.settings.mk_line_limit | default: 'none'
+                -%}
+                <div class="collection-hero__description rte text-subtext{% if mk_limit != 'none' %} mk-collection-description{% endif %}">
                   <motion-element
                     data-motion="fade-up"
                     data-motion-delay="50"
                     class="block"
                   >
-                    {{- collection.description }}
+                    {%- if mk_limit != 'none' -%}
+                      <read-more
+                        class="read-more__text mk-read-more"
+                        data-toggle-class="text-limit-{{ mk_limit }}-lines"
+                        data-line-clamp="{{ mk_limit }}"
+                        data-show-text="{{ 'sections.collection_template.read_more' | t }}"
+                        data-hide-text="{{ 'sections.collection_template.read_less' | t }}"
+                      >
+                        <div class="read-more__content rte text-limit-{{ mk_limit }}-lines">{{- collection.description -}}</div>
+                        <button type="button" class="btn btn--plain read-more__toggle mk-read-more__toggle">
+                          <span class="btn__text">{{ 'sections.collection_template.read_more' | t }}</span>
+                        </button>
+                      </read-more>
+                    {%- else -%}
+                      {{- collection.description }}
+                    {%- endif -%}
                   </motion-element>
                 </div>
+                {%- comment -%} MK-CUSTOM end {%- endcomment -%}
               {%- endif -%}
             </div>
         {%- endcase -%}
@@ -451,6 +471,18 @@
           "id": "show_description",
           "default": true,
           "label": "t:sections.main-collection-banner.blocks.collection_info.settings.show_description.label"
+        },
+        {
+          "type": "select",
+          "id": "mk_line_limit",
+          "label": "Description lines on mobile (MK)",
+          "info": "Clamps the description below 768px with a read-more button.",
+          "options": [
+            { "value": "none", "label": "Full text" },
+            { "value": "2", "label": "2 lines" },
+            { "value": "3", "label": "3 lines" }
+          ],
+          "default": "none"
         },
         {
           "type": "range",

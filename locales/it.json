@@ -400,6 +400,8 @@
       "cart_quantity_error_html": "Puoi aggiungere al carrello solo {{ quantity }} unità di questo articolo."
     },
     "collection_template": {
+      "read_more": "Read more",
+      "read_less": "Read less",
       "title": "Collezione"
     },
     "slideshow": {

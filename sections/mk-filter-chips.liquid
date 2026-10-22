@@ -21,9 +21,17 @@
   if facet and facet.active_values.size > 0
     assign has_active = true
   endif
+  assign fixed_values = section.settings.fixed_values | default: '' | strip | newline_to_br | split: '<br />'
+  assign has_fixed = false
+  if section.settings.fixed_values != blank
+    assign has_fixed = true
+  endif
   assign chip_count = section.blocks.size
   if facet
     assign chip_count = chip_count | plus: facet.values.size
+  endif
+  if has_fixed
+    assign chip_count = chip_count | plus: fixed_values.size
   endif
 -%}
 {%- if chip_count > 0 -%}
@@ -38,7 +46,7 @@
         <span class="mk-filter-chips__heading h6">{{ section.settings.heading | escape }}</span>
       {%- endif -%}
       <ul class="mk-filter-chips__list list-unstyled{% if section.settings.align == 'center' %} mk-filter-chips__list--center{% endif %}" role="list">
-        {%- if facet -%}
+        {%- if facet or has_fixed -%}
           {%- if section.settings.show_all -%}
             {%- liquid
               assign all_url = collection.url
@@ -52,6 +60,53 @@
               </a>
             </li>
           {%- endif -%}
+          {%- if has_fixed -%}
+            {%- comment -%} Fixed list: every value always shows, in this order; values Shopify did not return for this collection link to the filtered page (empty result) {%- endcomment -%}
+            {%- liquid
+              assign param = section.settings.param_name | strip
+              if facet
+                assign param = facet.param_name
+              endif
+            -%}
+            {%- for fixed in fixed_values -%}
+              {%- liquid
+                assign fixed_label = fixed | strip
+                if fixed_label == blank
+                  continue
+                endif
+                assign match = null
+                if facet
+                  for value in facet.values
+                    if value.label == fixed_label
+                      assign match = value
+                      break
+                    endif
+                  endfor
+                endif
+                assign chip_active = false
+                if match and match.active
+                  assign chip_active = true
+                endif
+                if match
+                  if chip_active
+                    assign chip_url = match.url_to_remove
+                  else
+                    assign chip_url = match.url_to_add
+                  endif
+                else
+                  assign chip_url = collection.url | append: '?' | append: param | append: '=' | append: fixed_label | url_param_escape
+                endif
+              -%}
+              <li class="mk-filter-chips__item">
+                <a class="mk-chip{% if chip_active %} mk-chip--active{% endif %}" href="{{ chip_url }}" {% if chip_active %}aria-current="true"{% endif %}>
+                  {{- fixed_label | escape -}}
+                  {%- if section.settings.show_count and match -%}
+                    <span class="mk-chip__count">{{ match.count }}</span>
+                  {%- endif -%}
+                </a>
+              </li>
+            {%- endfor -%}
+          {%- elsif facet -%}
           {%- for value in facet.values limit: section.settings.max_chips -%}
             {%- if value.count == 0 and value.active == false -%}
               {%- continue -%}
@@ -69,6 +124,7 @@
               </a>
             </li>
           {%- endfor -%}
+          {%- endif -%}
         {%- endif -%}
         {%- for block in section.blocks -%}
           {%- if block.settings.label == blank -%}
@@ -129,6 +185,18 @@
       "label": "Filter group label",
       "info": "Exactly as named in Search & Discovery, e.g. גיל or קטגוריה. Leave empty for manual chips only.",
       "default": "גיל"
+    },
+    {
+      "type": "textarea",
+      "id": "fixed_values",
+      "label": "Fixed values (one per line)",
+      "info": "Always shown in this order, even when the collection has no product for a value. Leave empty to show only the values Shopify returns."
+    },
+    {
+      "type": "text",
+      "id": "param_name",
+      "label": "Filter parameter (for fixed values missing from the collection)",
+      "default": "filter.p.m.custom.age_range"
     },
     {
       "type": "checkbox",
