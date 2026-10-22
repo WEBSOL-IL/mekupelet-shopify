@@ -643,3 +643,12 @@ continues in a NEW session. Starting point for that session:
   `scripts/remap-product-types.py --execute` wrote productType + sub-type on 1,791 products (0 errors, verified: 20 types, every typed product has a sub-type)
   (standard category untouched). Docs: `docs/product-type-scheme.md` v2, checklist rows for the
   two filters.
+- Collection round 2, package 1 (2026-10-22, PDF "עמוד קולקציה הערות"): plan in
+  `docs/collection-feedback-plan-2.md`. Live and verified (`docs/screenshots/collection-feedback-2/pkg1/`):
+  every filter group closed by default (`expand_filter_groups` emptied in both collection
+  templates); the sticky sidebar scrolls inside the viewport (`max-height: 100vh - offset`,
+  thin scrollbar) so the last group is reachable; the sort select keeps no focus ring/shadow after a
+  mouse click (keyboard focus still outlined); mobile toolbar = filter button and sort as two equal
+  4.4rem boxes on one row, no divider below, count under them; active chips 3.2rem; "ניקוי" has one
+  underline (ours removed, Hyper's btn--link stays). Open: rename/remove "קטגוריות נבחרות" vs the
+  S&D "קטגוריה" filter (merchant's choice), packages 2 (read more, fixed chip values) and 3 (badges).

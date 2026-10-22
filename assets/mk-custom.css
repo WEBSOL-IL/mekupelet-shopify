@@ -519,7 +519,15 @@
   border-color: rgb(var(--mk-color-action-alt));
   color: #fff;
 }
-.facets-active .facet-clear-all { font-size: 1.4rem; text-decoration: underline; text-underline-offset: 0.3rem; }
+.facets-active .facet-clear-all { font-size: 1.4rem; } /* Hyper's btn--link draws the one underline */
+/* Round 2 (2026-10-22): the sticky sidebar scrolls inside the viewport instead of hiding its bottom */
+#FacetFiltersContainer .sticky-element {
+  max-height: calc(100vh - var(--sticky-offset, 7.2rem) - 1.6rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  padding-inline-end: 0.4rem;
+}
 /* Sort: same bordered box as the filter button */
 #SortByContainer label { font-size: 1.6rem; font-weight: 400; }
 #SortByContainer .facet-short {
@@ -538,23 +546,33 @@
   font-weight: 600;
   background-color: transparent;
 }
+/* Round 2: no focus ring left behind after a mouse click on the sort select; keyboard keeps it */
+#SortByContainer .facet-short select:focus { outline: none; box-shadow: none !important; }
+#SortByContainer .facet-short select:focus-visible { outline: 0.2rem solid rgb(var(--mk-color-text)); outline-offset: -0.2rem; }
 .facet-drawer-button { border-radius: 0.4rem; font-size: 1.6rem; }
 /* Mobile + tablet: filter and sort on one row as two bordered controls, count below, thin divider
    under the toolbar. Hyper hides the sort below lg and repeats it inside the drawer. */
 @media (max-width: 1023.98px) {
-  .collection__toolbar { gap: 1.2rem; padding-block: 1.2rem 1.4rem; margin-bottom: 1.6rem; border-bottom: 1px solid rgb(var(--mk-color-divider)); }
+  .collection__toolbar { gap: 1.2rem; padding-block: 1.2rem 0.4rem; margin-bottom: 1.2rem; } /* round 2: no divider */
   /* Flatten both toolbar halves so filter, sort and count lay out on the toolbar itself */
   .collection__toolbar-left,
   .collection__toolbar-right { display: contents; }
-  .collection__toolbar .facet-drawer-wrapper { order: 1; }
-  .collection__toolbar #SortByContainer { display: flex; order: 2; margin-inline-start: auto; max-width: 60%; }
+  /* Round 2: filter and sort are two equal boxes on one row */
+  .collection__toolbar .facet-drawer-wrapper { order: 1; flex: 1 1 0; min-width: 0; }
+  .collection__toolbar .facet-drawer-wrapper .facet-drawer-button { width: 100%; justify-content: center; }
+  .collection__toolbar #SortByContainer { display: flex; order: 2; flex: 1 1 0; min-width: 0; max-width: none; }
   .collection__toolbar > [data-facet-loading],
   .collection__toolbar-left > [data-facet-loading] { order: 3; width: 100%; }
   .collection__toolbar compare-switch,
   .collection__toolbar layout-switcher { display: none; }
   .facet-drawer-button.btn--secondary { border: 1px solid rgb(var(--mk-color-border)); color: rgb(var(--mk-color-text)); min-height: 4.4rem; }
   .collection__toolbar #SortByContainer label { display: none; }
-  .collection__toolbar #SortByContainer .facet-short { flex-grow: 0; max-width: 100%; }
+  .collection__toolbar #SortByContainer .facet-short { flex: 1 1 auto; max-width: 100%; min-height: 4.4rem; }
+  .collection__toolbar #SortByContainer .facet-short select { width: 100%; }
+  /* Smaller active-filter chips */
+  .facets-active { margin-bottom: 1.2rem; }
+  .facets-active .facet-remove { font-size: 1.3rem; padding: 0 1.2rem; min-height: 0; height: 3.2rem; }
+  .facets-active .facet-remove .btn__text { line-height: 1; }
   .collection__toolbar #SortByContainer .facet-short select { font-size: 1.4rem; min-width: 0; }
   .facet-drawer .facet-short-drawer { display: none; }
 }
