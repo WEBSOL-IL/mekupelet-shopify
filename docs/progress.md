@@ -668,3 +668,10 @@ continues in a NEW session. Starting point for that session:
   `frontpage` showed "רב מכר" with a temporary setting (reverted, settings_data pulled before each
   write), sale cards read "25% הנחה". Checklist §9f. Open: merchant picks the best-seller mechanism,
   and the "קטגוריות נבחרות" vs S&D "קטגוריה" decision.
+- Product round 2, package 1 (2026-10-22, items 1–5 of `docs/product-feedback-plan-2.md`): CSS block 18
+  (brand line 1.2rem from the title + underline on hover; inventory = 0.8rem coloured dot first,
+  black 500 text; open tabs padded 1.2/1.6rem; "למוצרים נוספים" 3.6rem above) and a logged one-filter
+  edit in `snippets/gift-wrapping.liquid` (`money_without_trailing_zeros` → "3 ₪" on the product
+  page and in the drawer). Verified on /products/261 at 1440/390
+  (`docs/screenshots/product-feedback-2/pkg1/`). Waiting on the merchant for items 6–11 (box texts
+  incl. BuyMe, "מתאים מגיל" line, gallery reference screenshots, club text, photos-in-accordion).
